@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { QuizQuestion, QuizUserAnswer } from '../types';
-import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy } from 'lucide-react';
+import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck } from 'lucide-react';
 import { processQuizCompletion } from '../utils/achievementSystem';
+import { recordDailyChallengeCompleted, getDailyStreakData } from '../utils/dailyChallenge';
 import { AchievementBadgesView } from './AchievementBadgesView';
 import { speakText } from '../utils/speech';
 
@@ -12,6 +13,8 @@ interface QuizScoreSummaryProps {
   onOpenGenerator: () => void;
   onOpenSchema: () => void;
   soundEnabled?: boolean;
+  isDailyChallenge?: boolean;
+  onDailyChallengeCompleted?: () => void;
 }
 
 export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
@@ -21,13 +24,34 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
   onOpenGenerator,
   onOpenSchema,
   soundEnabled = false,
+  isDailyChallenge = false,
+  onDailyChallengeCompleted,
 }) => {
   const total = questions.length;
   const correctCount = (Object.values(answers) as QuizUserAnswer[]).filter((a) => a?.isCorrect).length;
   const percentage = Math.round((correctCount / (total || 1)) * 100);
 
+  // If this is a daily challenge, record completion and fetch current streak
+  const [dailyResult] = useState(() => {
+    if (isDailyChallenge) {
+      const rec = recordDailyChallengeCompleted();
+      onDailyChallengeCompleted?.();
+      return rec;
+    }
+    return null;
+  });
+
+  const streakData = getDailyStreakData();
+
   // Evaluate achievements once on mount for this completed quiz session
-  const [achievementResult] = useState(() => processQuizCompletion(questions, answers));
+  const [achievementResult] = useState(() =>
+    processQuizCompletion(
+      questions,
+      answers,
+      isDailyChallenge,
+      dailyResult ? dailyResult.newStreak : streakData.currentStreak
+    )
+  );
 
   // Voice announcement for newly unlocked badges
   useEffect(() => {
@@ -79,6 +103,26 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
         <p className="text-sm text-slate-600 max-w-lg mx-auto mb-6">
           {evalData.desc}
         </p>
+
+        {/* Daily challenge completed banner if in daily challenge mode */}
+        {isDailyChallenge && (
+          <div className="bg-gradient-to-r from-amber-500/15 via-orange-500/15 to-amber-500/10 border border-amber-300 rounded-xl p-3.5 mb-6 max-w-md mx-auto flex items-center justify-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-orange-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Flame className="w-6 h-6 fill-white" />
+            </div>
+            <div className="text-left">
+              <div className="text-xs font-bold uppercase tracking-wider text-amber-900">
+                Cabaran Harian Berjaya Diselesaikan!
+              </div>
+              <div className="text-sm font-extrabold text-slate-900">
+                Rentetan Harian:{' '}
+                <span className="text-orange-600">
+                  {dailyResult?.newStreak || streakData.currentStreak} Hari Berturut-turut 🔥
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Score Ring / Number */}
         <div className="flex items-center justify-center gap-6 py-4 border-y border-slate-100 max-w-md mx-auto mb-6">

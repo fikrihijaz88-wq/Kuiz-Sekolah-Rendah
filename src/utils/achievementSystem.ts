@@ -154,6 +154,43 @@ export const ALL_ACHIEVEMENT_BADGES: AchievementBadge[] = [
     requirementText: 'Mencapai gred TP6 (≥85%)',
     colorScheme: 'emerald',
   },
+
+  // ==========================================
+  // CABARAN HARIAN (DAILY CHALLENGE STREAKS)
+  // ==========================================
+  {
+    id: 'badge-daily-1',
+    name: 'Disiplin Harian Pertama',
+    titleMs: 'Disiplin Harian Pertama',
+    description: 'Menyelesaikan sesi Cabaran Harian pertama anda.',
+    category: 'daily_streak',
+    iconName: 'CalendarCheck',
+    requirementText: 'Selesaikan 1 Cabaran Harian',
+    threshold: 1,
+    colorScheme: 'emerald',
+  },
+  {
+    id: 'badge-daily-3',
+    name: 'Pendekar 3 Hari Berturut',
+    titleMs: 'Pendekar 3 Hari Berturut',
+    description: 'Mengekalkan rentetan latihan harian 3 hari berturut-turut tanpa gagal.',
+    category: 'daily_streak',
+    iconName: 'Flame',
+    requirementText: 'Rentetan 3 hari berturut-turut',
+    threshold: 3,
+    colorScheme: 'amber',
+  },
+  {
+    id: 'badge-daily-7',
+    name: 'Wira Mingguan 7 Hari',
+    titleMs: 'Wira Mingguan 7 Hari',
+    description: 'Pencapaian dedikasi tinggi! Menyelesaikan cabaran harian 7 hari berturut-turut.',
+    category: 'daily_streak',
+    iconName: 'Trophy',
+    requirementText: 'Rentetan 7 hari berturut-turut',
+    threshold: 7,
+    colorScheme: 'gold',
+  },
 ];
 
 const DEFAULT_STATS: StudentAchievementStats = {
@@ -221,7 +258,9 @@ export interface AchievementEvaluationResult {
  */
 export function processQuizCompletion(
   questions: QuizQuestion[],
-  answers: Record<string, QuizUserAnswer>
+  answers: Record<string, QuizUserAnswer>,
+  isDailyChallenge: boolean = false,
+  dailyStreakCount: number = 0
 ): AchievementEvaluationResult {
   const currentStats = getStoredAchievementStats();
   const total = questions.length;
@@ -229,7 +268,7 @@ export function processQuizCompletion(
     return {
       stats: currentStats,
       newlyUnlockedBadges: [],
-      allBadges: getBadgesWithProgress(currentStats),
+      allBadges: getBadgesWithProgress(currentStats, dailyStreakCount),
     };
   }
 
@@ -319,6 +358,13 @@ export function processQuizCompletion(
       }
     }
 
+    // Category 6: Daily Streak Badges
+    if (badge.category === 'daily_streak' && badge.threshold) {
+      if (isDailyChallenge && dailyStreakCount >= badge.threshold) {
+        unlocked = true;
+      }
+    }
+
     if (unlocked) {
       updatedStats.unlockedBadges[badge.id] = nowIso;
       newlyUnlocked.push({
@@ -335,14 +381,17 @@ export function processQuizCompletion(
   return {
     stats: updatedStats,
     newlyUnlockedBadges: newlyUnlocked,
-    allBadges: getBadgesWithProgress(updatedStats),
+    allBadges: getBadgesWithProgress(updatedStats, dailyStreakCount),
   };
 }
 
 /**
  * Get all badges annotated with unlocked state and progress counters
  */
-export function getBadgesWithProgress(stats: StudentAchievementStats): AchievementBadge[] {
+export function getBadgesWithProgress(
+  stats: StudentAchievementStats,
+  dailyStreakCount: number = 0
+): AchievementBadge[] {
   return ALL_ACHIEVEMENT_BADGES.map((badge) => {
     const isUnlocked = Boolean(stats.unlockedBadges[badge.id]);
     const unlockedAt = stats.unlockedBadges[badge.id];
@@ -359,6 +408,9 @@ export function getBadgesWithProgress(stats: StudentAchievementStats): Achieveme
     } else if (badge.id === 'badge-perfect-any') {
       progressMax = 1;
       progressCurrent = stats.perfectQuizzesCount >= 1 ? 1 : 0;
+    } else if (badge.category === 'daily_streak' && badge.threshold) {
+      progressMax = badge.threshold;
+      progressCurrent = Math.min(dailyStreakCount, badge.threshold);
     } else {
       progressMax = 1;
       progressCurrent = isUnlocked ? 1 : 0;

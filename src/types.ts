@@ -72,7 +72,7 @@ export interface QuizState {
   maxStreak: number;
 }
 
-export type AchievementBadgeCategory = 'questions_count' | 'perfect_subject' | 'kbat' | 'mastery';
+export type AchievementBadgeCategory = 'questions_count' | 'perfect_subject' | 'kbat' | 'mastery' | 'daily_streak';
 
 export interface AchievementBadge {
   id: string;

@@ -17,6 +17,7 @@ import {
   PartyPopper,
   Flame,
   Filter,
+  CalendarCheck,
 } from 'lucide-react';
 import { AchievementBadge, StudentAchievementStats } from '../types';
 
@@ -69,6 +70,10 @@ export const AchievementBadgesView: React.FC<AchievementBadgesViewProps> = ({
         return <Zap {...iconProps} />;
       case 'Trophy':
         return <Trophy {...iconProps} />;
+      case 'CalendarCheck':
+        return <CalendarCheck {...iconProps} />;
+      case 'Flame':
+        return <Flame {...iconProps} />;
       default:
         return <Award {...iconProps} />;
     }

@@ -1,11 +1,14 @@
 import React from 'react';
-import { Sparkles, BookCheck, Code, GraduationCap, Volume2, VolumeX } from 'lucide-react';
+import { Sparkles, BookCheck, Code, GraduationCap, Volume2, VolumeX, Flame } from 'lucide-react';
 
 interface HeaderProps {
   currentTab: 'quiz' | 'generator' | 'schema';
   onTabChange: (tab: 'quiz' | 'generator' | 'schema') => void;
   soundEnabled: boolean;
   onToggleSound: () => void;
+  dailyStreak?: number;
+  isDailyMode?: boolean;
+  onSelectDailyChallenge?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -13,6 +16,9 @@ export const Header: React.FC<HeaderProps> = ({
   onTabChange,
   soundEnabled,
   onToggleSound,
+  dailyStreak = 0,
+  isDailyMode = false,
+  onSelectDailyChallenge,
 }) => {
   return (
     <header className="bg-slate-900 text-white shadow-md border-b border-slate-800">
@@ -33,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Sukatan Rasmi Tahun 2 & Tahun 4 • Matematik, Sains & Bahasa Inggeris
+                Tahun 2 & Tahun 4 • 5 Subjek Teras KPM (Matematik, Sains, B. Melayu, English, Pend. Islam)
               </p>
             </div>
 
@@ -50,11 +56,35 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Navigation Controls */}
           <div className="flex items-center gap-2 w-full md:w-auto justify-center md:justify-end overflow-x-auto pb-1 md:pb-0">
+            {/* Cabaran Harian Button */}
+            {onSelectDailyChallenge && (
+              <button
+                id="nav-tab-daily-challenge"
+                onClick={onSelectDailyChallenge}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer whitespace-nowrap ${
+                  currentTab === 'quiz' && isDailyMode
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-sm'
+                    : 'bg-slate-800/90 text-amber-400 hover:bg-slate-800 hover:text-amber-300 border border-amber-500/30'
+                }`}
+                title="Cabaran Harian: Soalan bertukar automatik setiap hari!"
+              >
+                <Flame className={`w-4 h-4 ${currentTab === 'quiz' && isDailyMode ? 'text-slate-950 fill-slate-950' : 'text-orange-400 fill-orange-400'}`} />
+                <span>Cabaran Harian</span>
+                {dailyStreak > 0 && (
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-extrabold ${
+                    currentTab === 'quiz' && isDailyMode ? 'bg-slate-950 text-amber-400' : 'bg-amber-400/20 text-amber-300'
+                  }`}>
+                    {dailyStreak}🔥
+                  </span>
+                )}
+              </button>
+            )}
+
             <button
               id="nav-tab-quiz"
               onClick={() => onTabChange('quiz')}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition cursor-pointer whitespace-nowrap ${
-                currentTab === 'quiz'
+                currentTab === 'quiz' && !isDailyMode
                   ? 'bg-amber-500 text-slate-950 font-semibold shadow-sm'
                   : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white'
               }`}
