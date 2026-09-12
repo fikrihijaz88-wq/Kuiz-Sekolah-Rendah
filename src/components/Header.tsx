@@ -1,5 +1,7 @@
 import React from 'react';
-import { Sparkles, BookCheck, Code, GraduationCap, Volume2, VolumeX, Flame } from 'lucide-react';
+import { Sparkles, BookCheck, Code, GraduationCap, Volume2, VolumeX, Flame, UserPlus, Users } from 'lucide-react';
+import { StudentProfile } from '../types';
+import { StudentAvatarIcon } from './StudentAvatarIcon';
 
 interface HeaderProps {
   currentTab: 'quiz' | 'generator' | 'schema';
@@ -9,6 +11,8 @@ interface HeaderProps {
   dailyStreak?: number;
   isDailyMode?: boolean;
   onSelectDailyChallenge?: () => void;
+  activeProfile: StudentProfile | null;
+  onOpenProfileModal: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -19,6 +23,8 @@ export const Header: React.FC<HeaderProps> = ({
   dailyStreak = 0,
   isDailyMode = false,
   onSelectDailyChallenge,
+  activeProfile,
+  onOpenProfileModal,
 }) => {
   return (
     <header className="bg-slate-900 text-white shadow-md border-b border-slate-800">
@@ -117,6 +123,38 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Code className="w-4 h-4" />
               <span>Skema & JSON</span>
+            </button>
+
+            {/* Student Profile Button */}
+            <button
+              id="btn-header-student-profile"
+              onClick={onOpenProfileModal}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border transition cursor-pointer whitespace-nowrap text-xs ${
+                activeProfile
+                  ? 'border-indigo-500/50 bg-indigo-950/60 hover:bg-indigo-900/80 text-white'
+                  : 'border-amber-400 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold'
+              }`}
+              title={activeProfile ? `Profil Murid: ${activeProfile.name}` : 'Klik untuk daftar profil murid'}
+            >
+              {activeProfile ? (
+                <>
+                  <StudentAvatarIcon avatarId={activeProfile.avatarId} size="sm" />
+                  <div className="text-left leading-tight hidden sm:block">
+                    <div className="font-bold text-white max-w-[130px] truncate">
+                      {activeProfile.name}
+                    </div>
+                    <div className="text-[10px] text-indigo-300">
+                      Tahun {activeProfile.year} • {activeProfile.className}
+                    </div>
+                  </div>
+                  <span className="sm:hidden font-bold">{activeProfile.name.split(' ')[0]}</span>
+                </>
+              ) : (
+                <>
+                  <UserPlus className="w-4 h-4 text-amber-400" />
+                  <span>Daftar Murid</span>
+                </>
+              )}
             </button>
 
             {/* Desktop Audio Reader Button */}

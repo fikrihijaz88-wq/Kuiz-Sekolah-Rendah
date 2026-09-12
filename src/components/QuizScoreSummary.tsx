@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { QuizQuestion, QuizUserAnswer } from '../types';
-import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck } from 'lucide-react';
+import { QuizQuestion, QuizUserAnswer, StudentProfile } from '../types';
+import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck, Printer, User, UserPlus } from 'lucide-react';
 import { processQuizCompletion } from '../utils/achievementSystem';
 import { recordDailyChallengeCompleted, getDailyStreakData } from '../utils/dailyChallenge';
 import { AchievementBadgesView } from './AchievementBadgesView';
+import { StudentAvatarIcon } from './StudentAvatarIcon';
 import { speakText } from '../utils/speech';
 
 interface QuizScoreSummaryProps {
@@ -15,6 +16,8 @@ interface QuizScoreSummaryProps {
   soundEnabled?: boolean;
   isDailyChallenge?: boolean;
   onDailyChallengeCompleted?: () => void;
+  activeProfile?: StudentProfile | null;
+  onOpenProfileModal?: () => void;
 }
 
 export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
@@ -26,6 +29,8 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
   soundEnabled = false,
   isDailyChallenge = false,
   onDailyChallengeCompleted,
+  activeProfile = null,
+  onOpenProfileModal,
 }) => {
   const total = questions.length;
   const correctCount = (Object.values(answers) as QuizUserAnswer[]).filter((a) => a?.isCorrect).length;
@@ -89,10 +94,68 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
 
   const evalData = getEvaluation(percentage);
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <div className="space-y-6">
       {/* Top Score Banner */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 text-center">
+      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 text-center relative overflow-hidden">
+        {/* Student Profile Ribbon / Header */}
+        {activeProfile ? (
+          <div className="bg-gradient-to-r from-indigo-50 via-slate-50 to-indigo-50 border border-indigo-100 rounded-2xl p-4 mb-6 max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+            <div className="flex items-center gap-3.5">
+              <StudentAvatarIcon avatarId={activeProfile.avatarId} size="lg" />
+              <div>
+                <div className="text-[10px] font-extrabold uppercase tracking-wider text-indigo-700">
+                  Slip Pentaksiran Rasmi Murid
+                </div>
+                <div className="text-base font-extrabold text-slate-900">
+                  {activeProfile.name}
+                </div>
+                <div className="text-xs text-slate-600 font-medium">
+                  Tahun {activeProfile.year} • Kelas {activeProfile.className}
+                  {activeProfile.schoolName ? ` • ${activeProfile.schoolName}` : ''}
+                </div>
+              </div>
+            </div>
+
+            {onOpenProfileModal && (
+              <button
+                onClick={onOpenProfileModal}
+                className="text-[11px] font-bold text-indigo-600 hover:text-indigo-800 bg-white hover:bg-indigo-50 px-3 py-1.5 rounded-xl border border-indigo-200 transition cursor-pointer shrink-0"
+              >
+                Tukar Murid
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="bg-amber-50/80 border border-amber-200 rounded-2xl p-3.5 mb-6 max-w-lg mx-auto flex items-center justify-between gap-3 text-left">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-amber-400 text-slate-900 flex items-center justify-center shrink-0">
+                <UserPlus className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-slate-900">
+                  Nama Murid Belum Didaftarkan
+                </div>
+                <div className="text-[11px] text-slate-600">
+                  Daftarkan nama murid untuk cetak slip keputusan rasmi.
+                </div>
+              </div>
+            </div>
+            {onOpenProfileModal && (
+              <button
+                onClick={onOpenProfileModal}
+                className="text-xs font-bold text-slate-950 bg-amber-400 hover:bg-amber-500 px-3 py-1.5 rounded-xl transition cursor-pointer shrink-0 shadow-xs"
+              >
+                Daftar Murid
+              </button>
+            )}
+          </div>
+        )}
+
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-500/10 text-amber-600 mb-4 ring-8 ring-amber-500/5">
           <Award className="w-8 h-8" />
         </div>
@@ -173,6 +236,16 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
           >
             <Sparkles className="w-4 h-4" />
             <span>Jana Soalan AI Baharu</span>
+          </button>
+
+          <button
+            id="btn-print-result-slip"
+            onClick={handlePrint}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-900 font-semibold text-sm transition shadow-xs cursor-pointer"
+            title="Cetak slip atau simpan sebagai PDF"
+          >
+            <Printer className="w-4 h-4 text-indigo-600" />
+            <span>Cetak Slip Keputusan</span>
           </button>
 
           <button

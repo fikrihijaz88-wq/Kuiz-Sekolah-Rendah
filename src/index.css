@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@media print {
+  header,
+  footer,
+  #nav-tab-quiz,
+  #nav-tab-generator,
+  #nav-tab-schema,
+  #btn-restart-quiz,
+  #btn-open-generator-from-summary,
+  #btn-open-schema-from-summary,
+  #btn-print-result-slip {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+}

@@ -91,6 +91,16 @@ export interface AchievementBadge {
   progressMax?: number;
 }
 
+export interface StudentProfile {
+  id: string;
+  name: string;
+  className: string;
+  year: YearLevel;
+  avatarId: string;
+  schoolName?: string;
+  createdAt: string;
+}
+
 export interface StudentAchievementStats {
   totalQuestionsAnswered: number;
   totalCorrectAnswers: number;

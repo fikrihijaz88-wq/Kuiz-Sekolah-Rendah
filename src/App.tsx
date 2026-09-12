@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import { YearLevel, Subject, QuizQuestion, QuizUserAnswer } from './types';
+import { YearLevel, Subject, QuizQuestion, QuizUserAnswer, StudentProfile } from './types';
 import { KSSR_TOPICS, INITIAL_KSSR_QUESTIONS } from './data/kssrQuestions';
 import { Header } from './components/Header';
 import { YearSubjectSelector } from './components/YearSubjectSelector';
@@ -13,7 +13,8 @@ import { QuizCard } from './components/QuizCard';
 import { QuizScoreSummary } from './components/QuizScoreSummary';
 import { AIGeneratorView } from './components/AIGeneratorView';
 import { JsonSchemaView } from './components/JsonSchemaView';
-import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen } from 'lucide-react';
+import { StudentProfileModal } from './components/StudentProfileModal';
+import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus } from 'lucide-react';
 import { stopSpeech } from './utils/speech';
 import {
   getTodayDateString,
@@ -22,10 +23,17 @@ import {
   isTodayCompleted,
   DailyStreakData,
 } from './utils/dailyChallenge';
+import { getStoredProfiles, getActiveProfile } from './utils/studentProfiles';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'quiz' | 'generator' | 'schema'>('quiz');
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
+
+  // Student Profiles Management
+  const [profiles, setProfiles] = useState<StudentProfile[]>(() => getStoredProfiles());
+  const [activeProfile, setActiveProfile] = useState<StudentProfile | null>(() => getActiveProfile());
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState<boolean>(false);
+  const [profileModalInitialMode, setProfileModalInitialMode] = useState<'list' | 'register' | 'edit'>('list');
 
   // Quiz Mode: 'practice' (topical) vs 'daily' (daily rotating challenge)
   const [quizMode, setQuizMode] = useState<'practice' | 'daily'>('practice');
@@ -35,11 +43,26 @@ export default function App() {
   const [streakData, setStreakData] = useState<DailyStreakData>(() => getDailyStreakData());
   const [completedToday, setCompletedToday] = useState<boolean>(() => isTodayCompleted());
 
-  // Filter criteria
-  const [selectedYear, setSelectedYear] = useState<YearLevel>(2);
+  // Filter criteria (defaults to active student's year if present)
+  const [selectedYear, setSelectedYear] = useState<YearLevel>(() => (activeProfile?.year ? activeProfile.year : 2));
   const [selectedSubject, setSelectedSubject] = useState<Subject>('Matematik');
   const [selectedTopicId, setSelectedTopicId] = useState<string>('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
+
+  // Sync year with active student profile when changed
+  const handleProfileChange = useCallback((newProfile: StudentProfile | null) => {
+    setActiveProfile(newProfile);
+    setProfiles(getStoredProfiles());
+    if (newProfile && newProfile.year !== selectedYear) {
+      setSelectedYear(newProfile.year);
+      setSelectedTopicId('all');
+    }
+  }, [selectedYear]);
+
+  const handleOpenProfileModal = (mode: 'list' | 'register' | 'edit' = 'list') => {
+    setProfileModalInitialMode(mode);
+    setIsProfileModalOpen(true);
+  };
 
   // Question bank (includes initial + any AI generated ones)
   const [questionBank, setQuestionBank] = useState<QuizQuestion[]>(INITIAL_KSSR_QUESTIONS);
@@ -245,6 +268,8 @@ export default function App() {
           setQuizMode('daily');
           resetQuizProgress();
         }}
+        activeProfile={activeProfile}
+        onOpenProfileModal={() => handleOpenProfileModal(profiles.length === 0 ? 'register' : 'list')}
       />
 
       {/* Main Content Area */}
@@ -263,6 +288,49 @@ export default function App() {
               onSelectDailySubject={handleDailySubjectChange}
               totalDailyQuestions={dailyQuestions.length}
             />
+
+            {/* Active Student Greeting / Registration Prompt */}
+            <div className="mb-4">
+              {activeProfile ? (
+                <div className="bg-white/90 border border-slate-200 rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs shadow-2xs">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span className="text-slate-500">Sesi Murid Aktif:</span>
+                    <span className="font-extrabold text-slate-900 flex items-center gap-1.5">
+                      {activeProfile.name}
+                    </span>
+                    <span className="text-slate-400">•</span>
+                    <span className="text-indigo-700 font-semibold">
+                      Tahun {activeProfile.year} ({activeProfile.className})
+                    </span>
+                    {activeProfile.schoolName && (
+                      <span className="text-slate-400 hidden sm:inline truncate max-w-xs">
+                        • {activeProfile.schoolName}
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => handleOpenProfileModal('list')}
+                    className="text-indigo-600 hover:text-indigo-800 font-bold hover:underline cursor-pointer"
+                  >
+                    Tukar / Urus Murid ({profiles.length})
+                  </button>
+                </div>
+              ) : (
+                <div className="bg-indigo-50/70 border border-indigo-200/80 rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+                  <div className="flex items-center gap-2 text-indigo-950 font-medium">
+                    <UserPlus className="w-4 h-4 text-indigo-600 shrink-0" />
+                    <span>Daftarkan profil murid untuk menyimpan markah, lencana & menjana slip keputusan rasmi.</span>
+                  </div>
+                  <button
+                    onClick={() => handleOpenProfileModal('register')}
+                    className="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition shadow-2xs cursor-pointer text-xs"
+                  >
+                    + Daftar Murid Baharu
+                  </button>
+                </div>
+              )}
+            </div>
 
             {/* In practice mode, show regular Year & Subject Selector */}
             {quizMode === 'practice' && (
@@ -361,6 +429,8 @@ export default function App() {
                   setStreakData(getDailyStreakData());
                   setCompletedToday(true);
                 }}
+                activeProfile={activeProfile}
+                onOpenProfileModal={() => handleOpenProfileModal(profiles.length === 0 ? 'register' : 'list')}
               />
             ) : currentQuestion ? (
               <QuizCard
@@ -406,6 +476,15 @@ export default function App() {
           </div>
         </div>
       </footer>
+      {/* Student Profile Registration & Management Modal */}
+      <StudentProfileModal
+        isOpen={isProfileModalOpen}
+        onClose={() => setIsProfileModalOpen(false)}
+        profiles={profiles}
+        activeProfile={activeProfile}
+        onProfileChange={handleProfileChange}
+        initialMode={profileModalInitialMode}
+      />
     </div>
   );
 }
