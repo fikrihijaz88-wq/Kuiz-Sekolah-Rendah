@@ -1,7 +1,9 @@
 import { QuizQuestion, QuizTopicMeta } from '../types';
 import { MATEMATIK_TAHUN_2_QUESTIONS } from './matematikTahun2';
+import { SAINS_TAHUN_2_QUESTIONS } from './sainsTahun2';
 import { ENGLISH_TAHUN_2_QUESTIONS } from './englishTahun2';
 import { MATEMATIK_TAHUN_4_KBAT_QUESTIONS } from './matematikTahun4Kbat';
+import { SAINS_TAHUN_4_QUESTIONS } from './sainsTahun4';
 import { ENGLISH_TAHUN_4_QUESTIONS } from './englishTahun4';
 
 export const KSSR_TOPICS: QuizTopicMeta[] = [
@@ -47,6 +49,58 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     subject: 'Matematik',
     description: 'Konsep pecahan wajar satu perdua, satu pertiga, satu perempat.',
     iconName: 'PieChart',
+  },
+
+  // ==========================================
+  // TAHUN 2 - SAINS (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't2-sn-kemahiran',
+    name: 'Kemahiran Saintifik & Peraturan Bilik Sains',
+    year: 2,
+    subject: 'Sains',
+    description: '5 deria pemerhatian, mengelas, mengukur, kemahiran manipulatif dan keselamatan bilik sains.',
+    iconName: 'FlaskConical',
+  },
+  {
+    id: 't2-sn-manusia',
+    name: 'Manusia (Tumbesaran & Pewarisan)',
+    year: 2,
+    subject: 'Sains',
+    description: 'Tumbesaran saiz, berat, tinggi dan ciri pewarisan ibu bapa seperti iris mata dan jenis rambut.',
+    iconName: 'Users',
+  },
+  {
+    id: 't2-sn-haiwan',
+    name: 'Haiwan (Pembiakan & Kitar Hidup)',
+    year: 2,
+    subject: 'Sains',
+    description: 'Haiwan bertelur vs melahirkan, bilangan anak, serta kitar hidup rama-rama dan katak.',
+    iconName: 'Bug',
+  },
+  {
+    id: 't2-sn-tumbuhan',
+    name: 'Tumbuh-tumbuhan (Percambahan & Tumbesaran)',
+    year: 2,
+    subject: 'Sains',
+    description: 'Keperluan asas percambahan biji benih, urutan tumbesaran pokok dan keperluan asas tumbuhan.',
+    iconName: 'Sprout',
+  },
+  {
+    id: 't2-sn-terang-gelap',
+    name: 'Terang, Gelap & Bayang-bayang',
+    year: 2,
+    subject: 'Sains',
+    description: 'Sumber cahaya semulajadi dan buatan, pembentukan bayang-bayang, bahan legap vs lut sinar.',
+    iconName: 'Sun',
+  },
+  {
+    id: 't2-sn-elektrik',
+    name: 'Elektrik (Komponen Litar & Konduktor)',
+    year: 2,
+    subject: 'Sains',
+    description: 'Sel kering, mentol, suis, wayar, fungsi komponen, litar lengkap dan bahan konduktor/penebat.',
+    iconName: 'Zap',
   },
 
   // ==========================================
@@ -130,6 +184,58 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
   },
 
   // ==========================================
+  // TAHUN 4 - SAINS (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't4-sn-kemahiran',
+    name: 'Kemahiran Saintifik (Pemboleh Ubah & Hipotesis)',
+    year: 4,
+    subject: 'Sains',
+    description: 'Pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan, membuat hipotesis serta mentafsir data.',
+    iconName: 'Microscope',
+  },
+  {
+    id: 't4-sn-manusia',
+    name: 'Manusia (Pernafasan, Perkumuhan & Rangsangan)',
+    year: 4,
+    subject: 'Sains',
+    description: 'Organ pernafasan (peparu/trakea), kadar pernafasan, organ perkumuhan (ginjal/kulit) dan gerak balas rangsangan.',
+    iconName: 'HeartPulse',
+  },
+  {
+    id: 't4-sn-haiwan',
+    name: 'Haiwan (Organ Pernafasan & Pengelasan Vertebrata)',
+    year: 4,
+    subject: 'Sains',
+    description: 'Organ pernafasan (insang, peparu, spirakel, kulit lembap) dan 5 kumpulan haiwan vertebrata.',
+    iconName: 'Fish',
+  },
+  {
+    id: 't4-sn-tumbuhan',
+    name: 'Tumbuh-tumbuhan (Gerak Balas & Fotosintesis)',
+    year: 4,
+    subject: 'Sains',
+    description: 'Gerak balas fototropisme, geotropisme, hidrotropisme, serta keperluan dan hasil fotosintesis (kanji).',
+    iconName: 'Leaf',
+  },
+  {
+    id: 't4-sn-sifat-cahaya',
+    name: 'Sifat Cahaya (Pantulan & Pembiasan)',
+    year: 4,
+    subject: 'Sains',
+    description: 'Cahaya bergerak lurus, hukum pantulan cahaya, aplikasi periskop, dan pembiasan cahaya.',
+    iconName: 'Sparkle',
+  },
+  {
+    id: 't4-sn-tenaga-mesin',
+    name: 'Tenaga & Mesin Ringkas (Perubahan Tenaga & Tuas)',
+    year: 4,
+    subject: 'Sains',
+    description: 'Bentuk tenaga dan perubahannya, sumber boleh dibaharui, serta sistem tuas (beban, fulkrum, daya).',
+    iconName: 'Wrench',
+  },
+
+  // ==========================================
   // TAHUN 4 - BAHASA INGGERIS
   // ==========================================
   {
@@ -168,7 +274,9 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
 
 export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
   ...MATEMATIK_TAHUN_2_QUESTIONS,
+  ...SAINS_TAHUN_2_QUESTIONS,
   ...ENGLISH_TAHUN_2_QUESTIONS,
   ...MATEMATIK_TAHUN_4_KBAT_QUESTIONS,
+  ...SAINS_TAHUN_4_QUESTIONS,
   ...ENGLISH_TAHUN_4_QUESTIONS,
 ];

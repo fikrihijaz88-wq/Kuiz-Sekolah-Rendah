@@ -33,7 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Sukatan Rasmi Tahun 2 & Tahun 4 • Matematik & Bahasa Inggeris
+                Sukatan Rasmi Tahun 2 & Tahun 4 • Matematik, Sains & Bahasa Inggeris
               </p>
             </div>
 

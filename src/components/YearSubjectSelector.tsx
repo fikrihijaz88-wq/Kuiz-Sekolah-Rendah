@@ -1,6 +1,6 @@
 import React from 'react';
 import { YearLevel, Subject, QuizTopicMeta } from '../types';
-import { Calculator, BookA, Sparkles, Filter } from 'lucide-react';
+import { Calculator, BookA, FlaskConical, Sparkles, Filter } from 'lucide-react';
 
 interface YearSubjectSelectorProps {
   selectedYear: YearLevel;
@@ -83,7 +83,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             2. Pilih Mata Pelajaran (KSSR Semakan)
           </label>
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
             <button
               id="select-subject-math"
               onClick={() => onSelectSubject('Matematik')}
@@ -99,6 +99,24 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
               <div>
                 <span className="font-bold text-sm block">Matematik</span>
                 <span className="text-xs text-slate-500">Bahasa Melayu</span>
+              </div>
+            </button>
+
+            <button
+              id="select-subject-science"
+              onClick={() => onSelectSubject('Sains')}
+              className={`p-3 rounded-xl border text-left transition flex items-center gap-3 cursor-pointer ${
+                selectedSubject === 'Sains'
+                  ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 ring-2 ring-emerald-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <FlaskConical className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="font-bold text-sm block">Sains (KSSR)</span>
+                <span className="text-xs text-slate-500">Dua Bahasa / BM</span>
               </div>
             </button>
 
@@ -170,7 +188,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
       {/* Difficulty / KBAT Filter */}
       <div className="mt-4 pt-3 border-t border-slate-100">
         <label className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">
-          Tahap / Aras Kesukaran {selectedYear === 4 && selectedSubject === 'Matematik' ? '(Pilihan KBAT)' : ''}
+          Tahap / Aras Kesukaran {selectedYear === 4 && (selectedSubject === 'Matematik' || selectedSubject === 'Sains') ? '(Pilihan KBAT)' : ''}
         </label>
         <div className="flex flex-wrap gap-2">
           <button
@@ -185,7 +203,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
             Semua Aras
           </button>
 
-          {selectedYear === 4 && selectedSubject === 'Matematik' ? (
+          {selectedYear === 4 && (selectedSubject === 'Matematik' || selectedSubject === 'Sains') ? (
             <>
               <button
                 id="diff-pill-kbat-rendah"

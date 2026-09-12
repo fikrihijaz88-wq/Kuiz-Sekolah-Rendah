@@ -24,6 +24,16 @@ const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
     'Prepositions of Place (in, on, under, next to)',
     'Basic Phonics & Spelling (Letter sounds & rhymes)',
   ],
+  '2-Sains': [
+    'Kemahiran Saintifik & Peraturan Bilik Sains',
+    'Manusia: Tumbesaran & Pewarisan Ciri',
+    'Haiwan: Pembiakan & Kitar Hidup',
+    'Tumbuh-tumbuhan: Percambahan & Tumbesaran',
+    'Terang, Gelap & Bayang-bayang',
+    'Elektrik: Komponen Litar, Konduktor & Penebat',
+    'Campuran & Keterlarutan Bahan',
+    'Bumi: Bentuk Muka Bumi & Kitaran Air Semula Jadi',
+  ],
   '4-Matematik': [
     'Nombor hingga 100,000 (Nilai digit & Bundar)',
     'Pecahan, Perpuluhan & Peratus',
@@ -32,6 +42,16 @@ const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
     'Panjang, Jisim & Isi Padu Cecair',
     'Koordinat Suku Pertama, Nisbah & Kadaran',
     'Penyelesaian Masalah KBAT (Aras Rendah-Sederhana)',
+  ],
+  '4-Sains': [
+    'Kemahiran Saintifik (Pemboleh Ubah & Hipotesis)',
+    'Manusia: Organ Pernafasan, Perkumuhan & Rangsangan',
+    'Haiwan: Organ Pernafasan & Pengelasan Vertebrata',
+    'Tumbuh-tumbuhan: Gerak Balas & Fotosintesis',
+    'Sifat Cahaya: Pantulan, Pembiasan & Pergerakan Lurus',
+    'Bunyi & Tenaga: Bentuk & Perubahan Tenaga',
+    'Sifat Bahan & Mesin Ringkas (Tuas)',
+    'Bumi: Graviti & Putaran Bumi (Siang dan Malam)',
   ],
   '4-Bahasa Inggeris': [
     'Past Simple Tense (Regular -ed & Irregular verbs)',
@@ -176,12 +196,12 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
               Mata Pelajaran
             </label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <button
                 type="button"
                 id="gen-select-subject-math"
                 onClick={() => handleSubjectChange('Matematik')}
-                className={`py-2.5 px-4 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
                   subject === 'Matematik'
                     ? 'border-blue-600 bg-blue-50 text-blue-950 ring-2 ring-blue-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
@@ -191,9 +211,21 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
               </button>
               <button
                 type="button"
+                id="gen-select-subject-science"
+                onClick={() => handleSubjectChange('Sains')}
+                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                  subject === 'Sains'
+                    ? 'border-emerald-600 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                Sains (KSSR)
+              </button>
+              <button
+                type="button"
                 id="gen-select-subject-english"
                 onClick={() => handleSubjectChange('Bahasa Inggeris')}
-                className={`py-2.5 px-4 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
                   subject === 'Bahasa Inggeris'
                     ? 'border-purple-600 bg-purple-50 text-purple-950 ring-2 ring-purple-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'

@@ -1,5 +1,5 @@
 export type YearLevel = 2 | 4;
-export type Subject = 'Matematik' | 'Bahasa Inggeris';
+export type Subject = 'Matematik' | 'Bahasa Inggeris' | 'Sains';
 
 export type QuestionDifficulty =
   | 'Mudah'
@@ -9,6 +9,14 @@ export type QuestionDifficulty =
   | 'KBAT (Aras Tinggi)'
   | 'KBAT (Aras Rendah-Sederhana)';
 
+export interface QuizDiagram {
+  title: string; // e.g., "Rajah 1: Susunan litar elektrik"
+  type: string; // 'circuit' | 'life_cycle' | 'plant_growth' | 'plant_response' | 'human_breathing' | 'light_reflection' | 'shadow' | 'lever' | 'materials' | 'table_data' | 'custom_svg'
+  caption?: string; // Sub-caption or observation hint
+  svgContent?: string; // Optional direct custom inline SVG
+  data?: Record<string, any>; // Parameterized diagram properties
+}
+
 export interface QuizQuestion {
   id: string;
   year: YearLevel;
@@ -16,7 +24,8 @@ export interface QuizQuestion {
   topic: string;
   subtopic?: string;
   difficulty: QuestionDifficulty;
-  stimulus?: string; // e.g. Reading passage or contextual story/dialogue
+  stimulus?: string; // e.g. Reading passage, experiment context or scenario
+  diagram?: QuizDiagram; // Scientific diagram or visual illustration
   question: string;
   options: {
     A: string;
@@ -25,7 +34,7 @@ export interface QuizQuestion {
     D: string;
   };
   correctAnswer: 'A' | 'B' | 'C' | 'D';
-  explanation: string; // Brief, encouraging pedagogical explanation
+  explanation: string; // Pedagogical explanation in standard Malay / English
   learningStandard?: string; // e.g., "SK 2.1 / SP 2.1.1" KSSR Semakan standard reference
 }
 

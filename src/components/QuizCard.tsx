@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { QuizQuestion, QuizUserAnswer } from '../types';
 import { Volume2, VolumeX, CheckCircle2, XCircle, ArrowRight, Lightbulb, BookOpen, Award } from 'lucide-react';
 import { speakText, stopSpeech, subscribeAudioState } from '../utils/speech';
+import { QuizDiagramViewer } from './QuizDiagramViewer';
 
 interface QuizCardProps {
   question: QuizQuestion;
@@ -38,11 +39,14 @@ export const QuizCard: React.FC<QuizCardProps> = ({
     { key: 'D', text: question.options.D },
   ];
 
+  const isEnglish = question.subject === 'Bahasa Inggeris';
+  const lang = isEnglish ? 'en' : 'ms';
+  const diagramAnnounce = question.diagram ? `Rujuk ${question.diagram.title}. ` : '';
+
   // Auto-read question if sound enabled and not answered yet
   useEffect(() => {
     if (soundEnabled && !isAnswered) {
-      const lang = question.subject === 'Matematik' ? 'ms' : 'en';
-      const fullSpeech = `${question.stimulus ? question.stimulus + '. ' : ''}${question.question}`;
+      const fullSpeech = `${diagramAnnounce}${question.stimulus ? question.stimulus + '. ' : ''}${question.question}`;
       speakText(fullSpeech, lang);
     }
   }, [question.id, soundEnabled, isAnswered]);
@@ -51,8 +55,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
     if (isPlayingAudio) {
       stopSpeech();
     } else {
-      const lang = question.subject === 'Matematik' ? 'ms' : 'en';
-      const speech = `${question.stimulus ? question.stimulus + '. ' : ''}Soalan: ${question.question}. Pilihan A: ${question.options.A}. Pilihan B: ${question.options.B}. Pilihan C: ${question.options.C}. Pilihan D: ${question.options.D}.`;
+      const speech = `${diagramAnnounce}${question.stimulus ? question.stimulus + '. ' : ''}Soalan: ${question.question}. Pilihan A: ${question.options.A}. Pilihan B: ${question.options.B}. Pilihan C: ${question.options.C}. Pilihan D: ${question.options.D}.`;
       speakText(speech, lang);
     }
   };
@@ -120,6 +123,9 @@ export const QuizCard: React.FC<QuizCardProps> = ({
         </div>
       )}
 
+      {/* Scientific Diagram / Gambar Rajah if present */}
+      {question.diagram && <QuizDiagramViewer diagram={question.diagram} />}
+
       {/* Question Text */}
       <div className="flex items-start justify-between gap-4 mb-6">
         <h2 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
@@ -136,9 +142,9 @@ export const QuizCard: React.FC<QuizCardProps> = ({
           title={
             isPlayingAudio
               ? 'Klik untuk hentikan audio bacaan'
-              : question.subject === 'Matematik'
-              ? 'Dengar bacaan suara Bahasa Melayu Asli (Malaysia ms-MY)'
-              : 'Listen to question (English CEFR)'
+              : isEnglish
+              ? 'Listen to question (English CEFR)'
+              : 'Dengar bacaan suara Bahasa Melayu Asli (Malaysia ms-MY)'
           }
         >
           {isPlayingAudio ? (
@@ -152,7 +158,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
             <>
               <Volume2 className="w-5 h-5 text-indigo-600" />
               <span className="text-[11px] font-semibold text-slate-700 hidden sm:inline">
-                {question.subject === 'Matematik' ? '🇲🇾 Suara BM Asli' : 'Audio'}
+                {isEnglish ? 'Audio' : '🇲🇾 Suara BM Asli'}
               </span>
             </>
           )}
