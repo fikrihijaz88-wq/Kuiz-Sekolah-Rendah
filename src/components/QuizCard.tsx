@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { QuizQuestion, QuizUserAnswer } from '../types';
 import { Volume2, VolumeX, CheckCircle2, XCircle, ArrowRight, Lightbulb, BookOpen, Award } from 'lucide-react';
+import { motion } from 'motion/react';
 import { speakText, stopSpeech, subscribeAudioState } from '../utils/speech';
 import { QuizDiagramViewer } from './QuizDiagramViewer';
 
@@ -25,6 +26,37 @@ export const QuizCard: React.FC<QuizCardProps> = ({
 }) => {
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
   const isAnswered = Boolean(userAnswer);
+
+  const feedbackSectionRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Smooth auto-scroll feedback & 'Next' button into center of viewport when student answers
+  useEffect(() => {
+    if (isAnswered && feedbackSectionRef.current) {
+      const timer = setTimeout(() => {
+        feedbackSectionRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'nearest',
+        });
+      }, 70);
+      return () => clearTimeout(timer);
+    }
+  }, [isAnswered, question.id]);
+
+  // When progressing to a new question, smoothly scroll to top of QuizCard if scrolled down
+  useEffect(() => {
+    if (!isAnswered && cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect();
+      if (rect.top < 40) {
+        cardRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        });
+      }
+    }
+  }, [question.id, isAnswered]);
 
   useEffect(() => {
     const unsubscribe = subscribeAudioState((playing) => {
@@ -80,7 +112,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 transition">
+    <div ref={cardRef} className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 transition">
       {/* Progress & Metadata Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pb-4 border-b border-slate-100">
         <div className="flex items-center gap-2">
@@ -210,53 +242,61 @@ export const QuizCard: React.FC<QuizCardProps> = ({
         })}
       </div>
 
-      {/* Pedagogical Explanation Card */}
+      {/* Pedagogical Explanation & Action Section with Smooth Auto-Scroll and Centering */}
       {isAnswered && (
-        <div
-          id={`explanation-${question.id}`}
-          className={`p-5 rounded-2xl border mb-6 transition-all duration-300 ${
-            userAnswer?.isCorrect
-              ? 'bg-emerald-50/80 border-emerald-200 text-emerald-950'
-              : 'bg-amber-50/90 border-amber-200 text-amber-950'
-          }`}
+        <motion.div
+          ref={feedbackSectionRef}
+          id={`feedback-action-section-${question.id}`}
+          initial={{ opacity: 0, y: 16, scale: 0.99 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
+          className="mt-2"
         >
-          <div className="flex items-center gap-2 font-bold text-sm mb-1.5">
-            {userAnswer?.isCorrect ? (
-              <>
-                <Award className="w-5 h-5 text-emerald-600" />
-                <span className="text-emerald-800">
-                  Jawapan Anda Tepat! (Pilihan {question.correctAnswer})
-                </span>
-              </>
-            ) : (
-              <>
-                <Lightbulb className="w-5 h-5 text-amber-600" />
-                <span className="text-amber-800">
-                  Ulasan Pedagogi Guru • Jawapan Sebenar: Pilihan {question.correctAnswer}
-                </span>
-              </>
-            )}
-          </div>
-          <p className="text-sm sm:text-base leading-relaxed mt-1 font-sans">
-            {question.explanation}
-          </p>
-        </div>
-      )}
-
-      {/* Action to proceed to next question */}
-      {isAnswered && (
-        <div className="flex justify-end">
-          <button
-            id="btn-next-question"
-            onClick={onNextQuestion}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm sm:text-base shadow-sm hover:shadow transition cursor-pointer"
+          {/* Pedagogical Explanation Card */}
+          <div
+            id={`explanation-${question.id}`}
+            className={`p-5 rounded-2xl border mb-5 transition-all duration-300 shadow-sm ${
+              userAnswer?.isCorrect
+                ? 'bg-emerald-50/80 border-emerald-200 text-emerald-950'
+                : 'bg-amber-50/90 border-amber-200 text-amber-950'
+            }`}
           >
-            <span>
-              {currentIndex + 1 < totalQuestions ? 'Soalan Seterusnya' : 'Lihat Keputusan Penuh'}
-            </span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+            <div className="flex items-center gap-2 font-bold text-sm mb-1.5">
+              {userAnswer?.isCorrect ? (
+                <>
+                  <Award className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <span className="text-emerald-800">
+                    Jawapan Anda Tepat! (Pilihan {question.correctAnswer})
+                  </span>
+                </>
+              ) : (
+                <>
+                  <Lightbulb className="w-5 h-5 text-amber-600 shrink-0" />
+                  <span className="text-amber-800">
+                    Ulasan Pedagogi Guru • Jawapan Sebenar: Pilihan {question.correctAnswer}
+                  </span>
+                </>
+              )}
+            </div>
+            <p className="text-sm sm:text-base leading-relaxed mt-1 font-sans">
+              {question.explanation}
+            </p>
+          </div>
+
+          {/* Action to proceed to next question */}
+          <div className="flex justify-end">
+            <button
+              id="btn-next-question"
+              onClick={onNextQuestion}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white font-semibold text-sm sm:text-base shadow-sm hover:shadow transition cursor-pointer"
+            >
+              <span>
+                {currentIndex + 1 < totalQuestions ? 'Soalan Seterusnya' : 'Lihat Keputusan Penuh'}
+              </span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </motion.div>
       )}
     </div>
   );
