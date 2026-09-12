@@ -1,6 +1,6 @@
 import React from 'react';
 import { YearLevel, Subject, QuizTopicMeta } from '../types';
-import { Calculator, BookA, FlaskConical, Sparkles, Filter } from 'lucide-react';
+import { Calculator, BookA, FlaskConical, Sparkles, Filter, Moon } from 'lucide-react';
 
 interface YearSubjectSelectorProps {
   selectedYear: YearLevel;
@@ -83,7 +83,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             2. Pilih Mata Pelajaran (KSSR Semakan)
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
             <button
               id="select-subject-math"
               onClick={() => onSelectSubject('Matematik')}
@@ -137,6 +137,24 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 <span className="text-xs text-slate-500">
                   {selectedYear === 2 ? 'CEFR A1' : 'CEFR A2 Standard'}
                 </span>
+              </div>
+            </button>
+
+            <button
+              id="select-subject-islamic"
+              onClick={() => onSelectSubject('Pendidikan Islam')}
+              className={`p-3 rounded-xl border text-left transition flex items-center gap-3 cursor-pointer ${
+                selectedSubject === 'Pendidikan Islam'
+                  ? 'border-teal-600 bg-teal-50/70 text-teal-950 ring-2 ring-teal-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="w-10 h-10 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <Moon className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="font-bold text-sm block">Pend. Islam</span>
+                <span className="text-xs text-slate-500">KSSR Semakan</span>
               </div>
             </button>
           </div>

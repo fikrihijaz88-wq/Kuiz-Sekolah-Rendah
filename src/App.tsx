@@ -284,6 +284,7 @@ export default function App() {
                 onRestart={resetQuizProgress}
                 onOpenGenerator={() => setActiveTab('generator')}
                 onOpenSchema={() => setActiveTab('schema')}
+                soundEnabled={soundEnabled}
               />
             ) : currentQuestion ? (
               <QuizCard

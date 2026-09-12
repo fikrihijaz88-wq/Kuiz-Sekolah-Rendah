@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { QuizQuestion, QuizUserAnswer } from '../types';
-import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, ArrowRight } from 'lucide-react';
+import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy } from 'lucide-react';
+import { processQuizCompletion } from '../utils/achievementSystem';
+import { AchievementBadgesView } from './AchievementBadgesView';
+import { speakText } from '../utils/speech';
 
 interface QuizScoreSummaryProps {
   questions: QuizQuestion[];
@@ -8,6 +11,7 @@ interface QuizScoreSummaryProps {
   onRestart: () => void;
   onOpenGenerator: () => void;
   onOpenSchema: () => void;
+  soundEnabled?: boolean;
 }
 
 export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
@@ -16,10 +20,23 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
   onRestart,
   onOpenGenerator,
   onOpenSchema,
+  soundEnabled = false,
 }) => {
   const total = questions.length;
   const correctCount = (Object.values(answers) as QuizUserAnswer[]).filter((a) => a?.isCorrect).length;
   const percentage = Math.round((correctCount / (total || 1)) * 100);
+
+  // Evaluate achievements once on mount for this completed quiz session
+  const [achievementResult] = useState(() => processQuizCompletion(questions, answers));
+
+  // Voice announcement for newly unlocked badges
+  useEffect(() => {
+    if (soundEnabled && achievementResult.newlyUnlockedBadges.length > 0) {
+      const badgeTitles = achievementResult.newlyUnlockedBadges.map((b) => b.titleMs).join(', ');
+      const speechText = `Tahniah! Anda telah membuka lencana baharu: ${badgeTitles}.`;
+      speakText(speechText, 'ms');
+    }
+  }, [soundEnabled, achievementResult.newlyUnlockedBadges]);
 
   const getEvaluation = (pct: number) => {
     if (pct >= 85) {
@@ -79,6 +96,19 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
               Peratus Markah
             </span>
           </div>
+          {achievementResult.newlyUnlockedBadges.length > 0 && (
+            <>
+              <div className="h-10 w-px bg-slate-200" />
+              <div>
+                <span className="text-4xl font-extrabold text-amber-500">
+                  +{achievementResult.newlyUnlockedBadges.length}
+                </span>
+                <span className="block text-xs font-bold uppercase text-amber-600 mt-0.5">
+                  Lencana Baharu!
+                </span>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Action Buttons */}
@@ -111,6 +141,13 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Achievement Badges Showcase Section */}
+      <AchievementBadgesView
+        stats={achievementResult.stats}
+        allBadges={achievementResult.allBadges}
+        newlyUnlockedBadges={achievementResult.newlyUnlockedBadges}
+      />
 
       {/* Answer Review Section */}
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">

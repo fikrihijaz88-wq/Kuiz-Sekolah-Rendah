@@ -1,6 +1,6 @@
 {
   "name": "KSSR Semakan Primary School Quiz",
-  "description": "Interactive multiple-choice quiz questions and practice strictly based on Malaysian KPM KSSR Semakan syllabus for Year 2 and Year 4 Mathematics, Science (Sains), and English.",
+  "description": "Interactive multiple-choice quiz questions, student achievement badges, and practice strictly based on Malaysian KPM KSSR Semakan syllabus for Year 2 and Year 4 Mathematics, Science, English, and Pendidikan Islam.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

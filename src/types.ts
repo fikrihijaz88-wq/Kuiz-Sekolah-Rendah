@@ -1,5 +1,5 @@
 export type YearLevel = 2 | 4;
-export type Subject = 'Matematik' | 'Bahasa Inggeris' | 'Sains';
+export type Subject = 'Matematik' | 'Bahasa Inggeris' | 'Sains' | 'Pendidikan Islam';
 
 export type QuestionDifficulty =
   | 'Mudah'
@@ -71,3 +71,32 @@ export interface QuizState {
   streak: number;
   maxStreak: number;
 }
+
+export type AchievementBadgeCategory = 'questions_count' | 'perfect_subject' | 'kbat' | 'mastery';
+
+export interface AchievementBadge {
+  id: string;
+  name: string;
+  titleMs: string;
+  description: string;
+  category: AchievementBadgeCategory;
+  iconName: string;
+  requirementText: string;
+  threshold?: number;
+  subjectRequirement?: Subject;
+  colorScheme: 'gold' | 'emerald' | 'blue' | 'purple' | 'amber' | 'rose';
+  isUnlocked?: boolean;
+  unlockedAt?: string;
+  progressCurrent?: number;
+  progressMax?: number;
+}
+
+export interface StudentAchievementStats {
+  totalQuestionsAnswered: number;
+  totalCorrectAnswers: number;
+  totalQuizzesCompleted: number;
+  perfectQuizzesCount: number;
+  perfectQuizzesBySubject: Record<Subject, number>;
+  unlockedBadges: Record<string, string>; // badgeId -> ISO string date unlocked
+}
+

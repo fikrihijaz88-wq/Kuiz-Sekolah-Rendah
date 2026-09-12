@@ -61,6 +61,20 @@ const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
     'Connectors (because, so, although, but, and)',
     'Everyday Conversation & Social Contexts',
   ],
+  '2-Pendidikan Islam': [
+    'Al-Quran & Tajwid (Huruf Hijaiyyah & Surah Pilihan)',
+    'Akidah (Rukun Iman, Rukun Islam & Sifat Allah)',
+    'Ibadah (Wuduk, Bersuci & Solat Fardhu)',
+    'Sirah & Akhlak (Kelahiran Nabi Muhammad SAW & Adab Harian)',
+    'Pelajaran Jawi (Suku Kata Terbuka, Tertutup & Diftong)',
+  ],
+  '4-Pendidikan Islam': [
+    'Al-Quran & Tajwid (Hukum Nun Sakinah & Surah Pilihan)',
+    'Akidah (Hari Kiamat & Sifat Al-Adl serta Al-Alim)',
+    'Ibadah (Mandi Wajib, Solat Jumaat & Batal Solat)',
+    'Sirah & Akhlak (Peristiwa Hijrah & Adab Kemasyarakatan)',
+    'Pelajaran Jawi (Kata Pinjaman, Imbuhan & Ayat Tradisi)',
+  ],
 };
 
 export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
@@ -196,7 +210,7 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
               Mata Pelajaran
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <button
                 type="button"
                 id="gen-select-subject-math"
@@ -232,6 +246,18 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
                 }`}
               >
                 English (CEFR)
+              </button>
+              <button
+                type="button"
+                id="gen-select-subject-islamic"
+                onClick={() => handleSubjectChange('Pendidikan Islam')}
+                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                  subject === 'Pendidikan Islam'
+                    ? 'border-teal-600 bg-teal-50 text-teal-950 ring-2 ring-teal-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                Pend. Islam
               </button>
             </div>
           </div>

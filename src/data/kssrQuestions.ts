@@ -2,9 +2,11 @@ import { QuizQuestion, QuizTopicMeta } from '../types';
 import { MATEMATIK_TAHUN_2_QUESTIONS } from './matematikTahun2';
 import { SAINS_TAHUN_2_QUESTIONS } from './sainsTahun2';
 import { ENGLISH_TAHUN_2_QUESTIONS } from './englishTahun2';
+import { PENDIDIKAN_ISLAM_TAHUN_2_QUESTIONS } from './pendidikanIslamTahun2';
 import { MATEMATIK_TAHUN_4_KBAT_QUESTIONS } from './matematikTahun4Kbat';
 import { SAINS_TAHUN_4_QUESTIONS } from './sainsTahun4';
 import { ENGLISH_TAHUN_4_QUESTIONS } from './englishTahun4';
+import { PENDIDIKAN_ISLAM_TAHUN_4_QUESTIONS } from './pendidikanIslamTahun4';
 
 export const KSSR_TOPICS: QuizTopicMeta[] = [
   // ==========================================
@@ -129,6 +131,50 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     subject: 'Bahasa Inggeris',
     description: 'Letter sound blending, vowel digraphs, and rhyming words.',
     iconName: 'SpellCheck',
+  },
+
+  // ==========================================
+  // TAHUN 2 - PENDIDIKAN ISLAM (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't2-pi-quran-tajwid',
+    name: 'Al-Quran & Tajwid (Huruf Hijaiyyah & Surah Pilihan)',
+    year: 2,
+    subject: 'Pendidikan Islam',
+    description: 'Hukum Mad Asli, huruf berbaris sukun/syaddah, serta kefahaman Surah An-Nas, Al-Falaq & Al-Ikhlas.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't2-pi-akidah',
+    name: 'Akidah (Rukun Iman, Rukun Islam & Sifat Allah)',
+    year: 2,
+    subject: 'Pendidikan Islam',
+    description: 'Konsep 6 Rukun Iman, 5 Rukun Islam, serta sifat Allah Al-Ahad (Esa) dan As-Samad.',
+    iconName: 'HeartHandshake',
+  },
+  {
+    id: 't2-pi-ibadah',
+    name: 'Ibadah (Wuduk, Bersuci & Solat Fardhu)',
+    year: 2,
+    subject: 'Pendidikan Islam',
+    description: 'Rukun & sunat wuduk, cara bersuci (istinjak), waktu solat fardhu 5 waktu serta bacaan rukun solat.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't2-pi-sirah-akhlak',
+    name: 'Sirah & Akhlak (Kelahiran Nabi Muhammad SAW & Adab Harian)',
+    year: 2,
+    subject: 'Pendidikan Islam',
+    description: 'Kelahiran baginda Nabi SAW, salasilah keluarga, gelaran Al-Amin, adab makan, masuk tandas dan ucapan salam.',
+    iconName: 'Users',
+  },
+  {
+    id: 't2-pi-jawi',
+    name: 'Pelajaran Jawi (Suku Kata Terbuka, Tertutup & Diftong)',
+    year: 2,
+    subject: 'Pendidikan Islam',
+    description: 'Vokal jawi (Alif, Wau, Ya), suku kata terbuka (KVKV), suku kata tertutup, serta diftong ai, au dan oi.',
+    iconName: 'PenTool',
   },
 
   // ==========================================
@@ -270,13 +316,59 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     description: 'Get Smart Plus 4 themed texts on Malaysian culture, nature, and sports.',
     iconName: 'FileText',
   },
+
+  // ==========================================
+  // TAHUN 4 - PENDIDIKAN ISLAM (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't4-pi-quran-tajwid',
+    name: 'Al-Quran & Tajwid (Hukum Nun Sakinah & Surah Pilihan)',
+    year: 4,
+    subject: 'Pendidikan Islam',
+    description: 'Hukum Nun Sakinah & Tanwin (Izhar, Idgham, Iqlab, Ikhfa\') serta tadabbur Surah Al-Qadr & At-Tin.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't4-pi-akidah',
+    name: 'Akidah (Hari Kiamat & Sifat Al-Adl serta Al-Alim)',
+    year: 4,
+    subject: 'Pendidikan Islam',
+    description: 'Pengertian Hari Kiamat, tanda-tanda kiamat, alam barzakh, mizan, titian sirat serta sifat Allah Al-Adl dan Al-Alim.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't4-pi-ibadah',
+    name: 'Ibadah (Mandi Wajib, Solat Jumaat & Batal Solat)',
+    year: 4,
+    subject: 'Pendidikan Islam',
+    description: 'Sebab, rukun dan adab mandi wajib, fardhu ain solat Jumaat, amalan sunat Jumaat dan perkara membatalkan solat.',
+    iconName: 'ShieldCheck',
+  },
+  {
+    id: 't4-pi-sirah-akhlak',
+    name: 'Sirah & Akhlak (Peristiwa Hijrah & Adab Kemasyarakatan)',
+    year: 4,
+    subject: 'Pendidikan Islam',
+    description: 'Faktor & kronologi Hijrah ke Madinah, pengorbanan sahabat, Piagam Madinah, adab berjiran, ziarah pesakit dan jenazah.',
+    iconName: 'Users',
+  },
+  {
+    id: 't4-pi-jawi',
+    name: 'Pelajaran Jawi (Kata Pinjaman, Imbuhan & Ayat Tradisi)',
+    year: 4,
+    subject: 'Pendidikan Islam',
+    description: 'Ejaan kata serapan Inggeris & Arab, imbuhan awalan/akhiran/apitan, serta perkataan tradisi dan mutiara kata.',
+    iconName: 'PenTool',
+  },
 ];
 
 export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
   ...MATEMATIK_TAHUN_2_QUESTIONS,
   ...SAINS_TAHUN_2_QUESTIONS,
   ...ENGLISH_TAHUN_2_QUESTIONS,
+  ...PENDIDIKAN_ISLAM_TAHUN_2_QUESTIONS,
   ...MATEMATIK_TAHUN_4_KBAT_QUESTIONS,
   ...SAINS_TAHUN_4_QUESTIONS,
   ...ENGLISH_TAHUN_4_QUESTIONS,
+  ...PENDIDIKAN_ISLAM_TAHUN_4_QUESTIONS,
 ];
