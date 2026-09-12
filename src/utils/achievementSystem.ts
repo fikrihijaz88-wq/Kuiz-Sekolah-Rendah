@@ -109,6 +109,17 @@ export const ALL_ACHIEVEMENT_BADGES: AchievementBadge[] = [
     subjectRequirement: 'Pendidikan Islam',
     colorScheme: 'emerald',
   },
+  {
+    id: 'badge-100-bahasa-melayu',
+    name: 'Pujangga Cilik Bahasa Melayu',
+    titleMs: 'Pujangga Cilik Bahasa Melayu',
+    description: 'Mencapai markah sempurna 100% dalam sesi kuiz Bahasa Melayu KSSR!',
+    category: 'perfect_subject',
+    iconName: 'BookOpenCheck',
+    requirementText: 'Skor 100% dalam kuiz Bahasa Melayu',
+    subjectRequirement: 'Bahasa Melayu',
+    colorScheme: 'amber',
+  },
 
   // ==========================================
   // PENGUASAAN & KBAT (MASTERY & HIGHER ORDER THINKING)
@@ -153,6 +164,7 @@ const DEFAULT_STATS: StudentAchievementStats = {
   perfectQuizzesBySubject: {
     Matematik: 0,
     Sains: 0,
+    'Bahasa Melayu': 0,
     'Bahasa Inggeris': 0,
     'Pendidikan Islam': 0,
   },
@@ -175,6 +187,7 @@ export function getStoredAchievementStats(): StudentAchievementStats {
       perfectQuizzesBySubject: {
         Matematik: Number(parsed.perfectQuizzesBySubject?.Matematik) || 0,
         Sains: Number(parsed.perfectQuizzesBySubject?.Sains) || 0,
+        'Bahasa Melayu': Number(parsed.perfectQuizzesBySubject?.['Bahasa Melayu']) || 0,
         'Bahasa Inggeris': Number(parsed.perfectQuizzesBySubject?.['Bahasa Inggeris']) || 0,
         'Pendidikan Islam': Number(parsed.perfectQuizzesBySubject?.['Pendidikan Islam']) || 0,
       },

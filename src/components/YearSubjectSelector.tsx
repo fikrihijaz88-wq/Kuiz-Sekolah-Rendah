@@ -1,6 +1,6 @@
 import React from 'react';
 import { YearLevel, Subject, QuizTopicMeta } from '../types';
-import { Calculator, BookA, FlaskConical, Sparkles, Filter, Moon } from 'lucide-react';
+import { Calculator, BookA, FlaskConical, Sparkles, Filter, Moon, BookText } from 'lucide-react';
 
 interface YearSubjectSelectorProps {
   selectedYear: YearLevel;
@@ -29,9 +29,9 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
 }) => {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-5 mb-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4 border-b border-slate-100">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 pb-4 border-b border-slate-100">
         {/* Year Level Selection */}
-        <div>
+        <div className="lg:col-span-4">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             1. Pilih Tahap Persekolahan (Tahun)
           </label>
@@ -52,7 +52,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 </span>
               </div>
               <p className="text-xs text-slate-500">
-                Matematik hingga 1,000 • Bahasa Inggeris CEFR A1 Beginner
+                Matematik hingga 1,000 • Bahasa Inggeris CEFR A1
               </p>
             </button>
 
@@ -72,18 +72,18 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 </span>
               </div>
               <p className="text-xs text-slate-500">
-                Matematik hingga 100,000 + KBAT • CEFR A2 (Get Smart Plus 4)
+                Matematik hingga 100,000 • CEFR A2 Get Smart
               </p>
             </button>
           </div>
         </div>
 
         {/* Subject Selection */}
-        <div>
+        <div className="lg:col-span-8">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             2. Pilih Mata Pelajaran (KSSR Semakan)
           </label>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-2.5">
             <button
               id="select-subject-math"
               onClick={() => onSelectSubject('Matematik')}
@@ -98,7 +98,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
               </div>
               <div>
                 <span className="font-bold text-sm block">Matematik</span>
-                <span className="text-xs text-slate-500">Bahasa Melayu</span>
+                <span className="text-xs text-slate-500">KSSR Semakan</span>
               </div>
             </button>
 
@@ -115,8 +115,26 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 <FlaskConical className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-bold text-sm block">Sains (KSSR)</span>
-                <span className="text-xs text-slate-500">Dua Bahasa / BM</span>
+                <span className="font-bold text-sm block">Sains</span>
+                <span className="text-xs text-slate-500">Dua Bahasa/BM</span>
+              </div>
+            </button>
+
+            <button
+              id="select-subject-bm"
+              onClick={() => onSelectSubject('Bahasa Melayu')}
+              className={`p-3 rounded-xl border text-left transition flex items-center gap-3 cursor-pointer ${
+                selectedSubject === 'Bahasa Melayu'
+                  ? 'border-amber-600 bg-amber-50/70 text-amber-950 ring-2 ring-amber-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="w-10 h-10 rounded-lg bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <BookText className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="font-bold text-sm block">B. Melayu</span>
+                <span className="text-xs text-slate-500">KSSR Semakan</span>
               </div>
             </button>
 
@@ -133,9 +151,9 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 <BookA className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-bold text-sm block">English (CEFR)</span>
+                <span className="font-bold text-sm block">English</span>
                 <span className="text-xs text-slate-500">
-                  {selectedYear === 2 ? 'CEFR A1' : 'CEFR A2 Standard'}
+                  {selectedYear === 2 ? 'CEFR A1' : 'CEFR A2'}
                 </span>
               </div>
             </button>

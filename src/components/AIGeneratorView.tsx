@@ -68,12 +68,26 @@ const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
     'Sirah & Akhlak (Kelahiran Nabi Muhammad SAW & Adab Harian)',
     'Pelajaran Jawi (Suku Kata Terbuka, Tertutup & Diftong)',
   ],
+  '2-Bahasa Melayu': [
+    'Golongan Kata & Tatabahasa Asas',
+    'Kata Tugas & Penjodoh Bilangan',
+    'Imbuhan & Pembentukan Kata',
+    'Pemahaman Petikan & Peribahasa Mudah',
+    'Struktur Ayat & Tanda Baca',
+  ],
   '4-Pendidikan Islam': [
     'Al-Quran & Tajwid (Hukum Nun Sakinah & Surah Pilihan)',
     'Akidah (Hari Kiamat & Sifat Al-Adl serta Al-Alim)',
     'Ibadah (Mandi Wajib, Solat Jumaat & Batal Solat)',
     'Sirah & Akhlak (Peristiwa Hijrah & Adab Kemasyarakatan)',
     'Pelajaran Jawi (Kata Pinjaman, Imbuhan & Ayat Tradisi)',
+  ],
+  '4-Bahasa Melayu': [
+    'Morfologi & Golongan Kata Lanjutan',
+    'Kata Tugas & Sistem Sintaksis',
+    'Imbuhan Lanjutan, Kata Majmuk & Kata Ganda',
+    'Pemahaman Prosa, Puisi & Seni Bahasa',
+    'Bina Ayat, Sintaksis & Sistem Ejaan',
   ],
 };
 
@@ -210,7 +224,7 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
               Mata Pelajaran
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
               <button
                 type="button"
                 id="gen-select-subject-math"
@@ -234,6 +248,18 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
                 }`}
               >
                 Sains (KSSR)
+              </button>
+              <button
+                type="button"
+                id="gen-select-subject-bm"
+                onClick={() => handleSubjectChange('Bahasa Melayu')}
+                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                  subject === 'Bahasa Melayu'
+                    ? 'border-amber-600 bg-amber-50 text-amber-950 ring-2 ring-amber-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                B. Melayu
               </button>
               <button
                 type="button"

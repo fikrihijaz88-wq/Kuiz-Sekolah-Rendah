@@ -3,10 +3,12 @@ import { MATEMATIK_TAHUN_2_QUESTIONS } from './matematikTahun2';
 import { SAINS_TAHUN_2_QUESTIONS } from './sainsTahun2';
 import { ENGLISH_TAHUN_2_QUESTIONS } from './englishTahun2';
 import { PENDIDIKAN_ISLAM_TAHUN_2_QUESTIONS } from './pendidikanIslamTahun2';
+import { BAHASA_MELAYU_TAHUN_2_QUESTIONS } from './bahasaMelayuTahun2';
 import { MATEMATIK_TAHUN_4_KBAT_QUESTIONS } from './matematikTahun4Kbat';
 import { SAINS_TAHUN_4_QUESTIONS } from './sainsTahun4';
 import { ENGLISH_TAHUN_4_QUESTIONS } from './englishTahun4';
 import { PENDIDIKAN_ISLAM_TAHUN_4_QUESTIONS } from './pendidikanIslamTahun4';
+import { BAHASA_MELAYU_TAHUN_4_QUESTIONS } from './bahasaMelayuTahun4';
 
 export const KSSR_TOPICS: QuizTopicMeta[] = [
   // ==========================================
@@ -360,6 +362,92 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     description: 'Ejaan kata serapan Inggeris & Arab, imbuhan awalan/akhiran/apitan, serta perkataan tradisi dan mutiara kata.',
     iconName: 'PenTool',
   },
+  // ==========================================
+  // TAHUN 2 - BAHASA MELAYU (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't2-bm-golongan-kata',
+    name: 'Golongan Kata & Tatabahasa Asas',
+    year: 2,
+    subject: 'Bahasa Melayu',
+    description: 'Kata nama am, kata nama khas, kata ganti nama diri, kata kerja aktif/pasif, dan pelbagai jenis kata adjektif.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't2-bm-kata-tugas',
+    name: 'Kata Tugas & Penjodoh Bilangan',
+    year: 2,
+    subject: 'Bahasa Melayu',
+    description: 'Penjodoh bilangan benda/haiwan, kata hubung gabungan, kata sendi nama, kata arah, kata tanya dan kata perintah.',
+    iconName: 'Layers',
+  },
+  {
+    id: 't2-bm-imbuhan',
+    name: 'Imbuhan & Pembentukan Kata',
+    year: 2,
+    subject: 'Bahasa Melayu',
+    description: 'Imbuhan awalan (meN-, ber-, ter-, di-), imbuhan akhiran (-an, -kan), kata ganda penuh dan kata majmuk bebas.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't2-bm-pemahaman',
+    name: 'Pemahaman Petikan & Peribahasa Mudah',
+    year: 2,
+    subject: 'Bahasa Melayu',
+    description: 'Membaca petikan naratif/bukan naratif, penghayatan nilai murni, pantun kanak-kanak dan simpulan bahasa mudah.',
+    iconName: 'FileText',
+  },
+  {
+    id: 't2-bm-struktur-ayat',
+    name: 'Struktur Ayat & Tanda Baca',
+    year: 2,
+    subject: 'Bahasa Melayu',
+    description: 'Pola ayat dasar (FN+FN, FN+FK, FN+FA, FN+FS), ayat penyata, ayat tanya, ayat seruan, serta ketepatan tanda baca mekanis.',
+    iconName: 'CheckCircle',
+  },
+  // ==========================================
+  // TAHUN 4 - BAHASA MELAYU (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't4-bm-morfologi',
+    name: 'Morfologi & Golongan Kata Lanjutan',
+    year: 4,
+    subject: 'Bahasa Melayu',
+    description: 'Kata nama konkrit/abstrak, kata ganti nama jamak/istana, kata kerja transitif dua objek/tak transitif, dan kata adjektif pancaindera.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't4-bm-kata-tugas-sintaksis',
+    name: 'Kata Tugas & Sistem Sintaksis',
+    year: 4,
+    subject: 'Bahasa Melayu',
+    description: 'Kata hubung pancangan (keterangan/relatif/komplemen), kata sendi nama lanjutan, kata penguat, kata bantu, dan ayat susunan songsang.',
+    iconName: 'Layers',
+  },
+  {
+    id: 't4-bm-imbuhan-majmuk-ganda',
+    name: 'Imbuhan Lanjutan, Kata Majmuk & Kata Ganda',
+    year: 4,
+    subject: 'Bahasa Melayu',
+    description: 'Imbuhan apitan (ke-...-an, meN-...-kan, peN-...-an, ber-...-kan), kata majmuk mantap dieja bercantum, serta kata ganda berentak & separa.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't4-bm-seni-bahasa',
+    name: 'Pemahaman Prosa, Puisi & Seni Bahasa',
+    year: 4,
+    subject: 'Bahasa Melayu',
+    description: 'Petikan karangan laporan/berita/wawancara, pantun empat kerat (rima a-b-a-b), sajak, syair nasihat, dan peribahasa warisan berunsur kiasan.',
+    iconName: 'FileText',
+  },
+  {
+    id: 't4-bm-bina-ayat-ejaan',
+    name: 'Bina Ayat, Sintaksis & Sistem Ejaan',
+    year: 4,
+    subject: 'Bahasa Melayu',
+    description: 'Penukaran aktif-pasif pelbagai pelaku, cakap ajuk-cakap pindah, hukum D-M, tanda baca lanjutan (: ; () -), dan pembetulan kesalahan ejaan DBP.',
+    iconName: 'CheckCircle',
+  },
 ];
 
 export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
@@ -367,8 +455,10 @@ export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
   ...SAINS_TAHUN_2_QUESTIONS,
   ...ENGLISH_TAHUN_2_QUESTIONS,
   ...PENDIDIKAN_ISLAM_TAHUN_2_QUESTIONS,
+  ...BAHASA_MELAYU_TAHUN_2_QUESTIONS,
   ...MATEMATIK_TAHUN_4_KBAT_QUESTIONS,
   ...SAINS_TAHUN_4_QUESTIONS,
   ...ENGLISH_TAHUN_4_QUESTIONS,
   ...PENDIDIKAN_ISLAM_TAHUN_4_QUESTIONS,
+  ...BAHASA_MELAYU_TAHUN_4_QUESTIONS,
 ];
