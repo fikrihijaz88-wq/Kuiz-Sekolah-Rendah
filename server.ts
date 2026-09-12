@@ -102,59 +102,78 @@ app.get('/api/tts', async (req, res) => {
     if (ttsCache.has(cacheKey)) {
       const cached = ttsCache.get(cacheKey)!;
       res.setHeader('Content-Type', 'audio/mpeg');
+      res.setHeader('Accept-Ranges', 'bytes');
+      res.setHeader('Content-Length', cached.length);
       res.setHeader('Cache-Control', 'public, max-age=86400');
       return res.send(cached);
     }
 
-    // Split text into chunks suitable for TTS (max 160 chars per chunk)
-    const rawSentences = sanitizedText.split(/([.?!,;\n]+)/);
+    // Split text cleanly by sentence/punctuation boundaries without breaking decimal points
+    const rawParts = sanitizedText.split(/(?<=[.?!;:,])\s+|\n+/);
     const chunks: string[] = [];
     let current = '';
 
-    for (let i = 0; i < rawSentences.length; i++) {
-      const part = rawSentences[i];
-      if ((current + part).length > 160) {
+    for (const part of rawParts) {
+      if (!part.trim()) continue;
+      if ((current + ' ' + part).length > 175) {
         if (current.trim()) chunks.push(current.trim());
         current = part;
       } else {
-        current += part;
+        current = current ? current + ' ' + part : part;
       }
     }
     if (current.trim()) chunks.push(current.trim());
 
     if (chunks.length === 0) {
-      chunks.push(sanitizedText.slice(0, 160));
+      chunks.push(sanitizedText.slice(0, 175));
     }
 
     const audioBuffers: Buffer[] = [];
     for (const chunk of chunks) {
       if (!chunk.trim()) continue;
       const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=${ttsLang}&client=tw-ob`;
-      const response = await fetch(url, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-          'Referer': 'https://translate.google.com/',
-        },
-      });
+      
+      let resOk = false;
+      let lastErr: any = null;
+      for (let attempt = 0; attempt < 2; attempt++) {
+        try {
+          const response = await fetch(url, {
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+              'Referer': 'https://translate.google.com/',
+            },
+          });
 
-      if (!response.ok) {
-        throw new Error(`TTS service returned status ${response.status}`);
+          if (response.ok) {
+            const arrBuf = await response.arrayBuffer();
+            audioBuffers.push(Buffer.from(arrBuf));
+            resOk = true;
+            break;
+          } else {
+            lastErr = new Error(`TTS status ${response.status}`);
+          }
+        } catch (e) {
+          lastErr = e;
+        }
       }
 
-      const arrBuf = await response.arrayBuffer();
-      audioBuffers.push(Buffer.from(arrBuf));
+      if (!resOk) {
+        throw lastErr || new Error('TTS service failed');
+      }
     }
 
     const combinedBuffer = Buffer.concat(audioBuffers);
 
-    // Keep cache bounded to 300 recent clips
-    if (ttsCache.size > 300) {
+    // Keep cache bounded to 500 recent clips
+    if (ttsCache.size > 500) {
       const oldestKey = ttsCache.keys().next().value;
       if (oldestKey) ttsCache.delete(oldestKey);
     }
     ttsCache.set(cacheKey, combinedBuffer);
 
     res.setHeader('Content-Type', 'audio/mpeg');
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('Content-Length', combinedBuffer.length);
     res.setHeader('Cache-Control', 'public, max-age=86400');
     return res.send(combinedBuffer);
   } catch (err: any) {

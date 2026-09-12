@@ -35,28 +35,37 @@ if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
 }
 
 /**
- * Normalizes Malaysian school mathematical text so TTS reads symbols accurately in BM
+ * Normalizes Malaysian school mathematical text so TTS reads symbols accurately in standard BM
  */
 export function prepareMalaySpokenText(raw: string): string {
   return raw
-    // Currency
-    .replace(/\bRM\s*([0-9,.]+)/gi, 'Ringgit Malaysia $1')
+    // Currency - e.g. RM 50 -> 50 ringgit, RM2.50 -> 2 ringgit 50 sen
+    .replace(/\bRM\s*(\d+)\.(\d{2})\b/gi, '$1 ringgit $2 sen')
+    .replace(/\bRM\s*(\d+)\b/gi, '$1 ringgit')
+    // Common fractions in KSSR Primary Math
+    .replace(/\b1\/2\b/g, 'satu perdua')
+    .replace(/\b1\/4\b/g, 'satu perempat')
+    .replace(/\b2\/4\b/g, 'dua perempat')
+    .replace(/\b3\/4\b/g, 'tiga perempat')
+    .replace(/\b1\/3\b/g, 'satu pertiga')
+    .replace(/\b2\/3\b/g, 'dua pertiga')
+    .replace(/\b(\d+)\/(\d+)\b/g, '$1 per $2')
     // Units of measurement
     .replace(/(\d+)\s*km\b/gi, '$1 kilometer')
-    .replace(/(\d+)\s*m\b/gi, '$1 meter')
     .replace(/(\d+)\s*cm\b/gi, '$1 sentimeter')
+    .replace(/(\d+)\s*m\b/gi, '$1 meter')
     .replace(/(\d+)\s*kg\b/gi, '$1 kilogram')
     .replace(/(\d+)\s*g\b/gi, '$1 gram')
     .replace(/(\d+)\s*ml\b/gi, '$1 mililiter')
     .replace(/(\d+)\s*l\b/gi, '$1 liter')
-    // Fractions like 3/4 -> 3 per 4
-    .replace(/(\d+)\/(\d+)/g, '$1 per $2')
     // Math operation symbols
-    .replace(/\s*÷\s*/g, ' dibahagi dengan ')
-    .replace(/\s*×\s*/g, ' didarab dengan ')
+    .replace(/\s*÷\s*/g, ' bahagi ')
+    .replace(/\s*×\s*/g, ' darab ')
     .replace(/\s*=\s*/g, ' sama dengan ')
     .replace(/(\d+)\s*\+\s*(\d+)/g, '$1 tambah $2')
     .replace(/(\d+)\s*-\s*(\d+)/g, '$1 tolak $2')
+    // Option labels formatting for clean pauses
+    .replace(/Pilihan ([ABCD]):/g, 'Pilihan $1. ')
     .replace(/\bKBAT\b/g, 'K-BAT');
 }
 
@@ -111,22 +120,27 @@ export function getMalaysianVoice(): SpeechSynthesisVoice | null {
 
 /**
  * Fallback browser SpeechSynthesis in case audio stream is unavailable
+ * STRICT CONDITION: If language is 'ms', it will ONLY speak if an authentic Malaysian
+ * Malay voice is detected in the browser. It will NEVER fall back to English or Indonesian.
  */
 function speakViaWebSpeech(processedText: string, language: 'ms' | 'en') {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
   try {
     const utterance = new SpeechSynthesisUtterance(processedText);
-    utterance.rate = 0.92;
-    utterance.pitch = 1.05;
+    utterance.rate = 0.95;
+    utterance.pitch = 1.0;
 
     const voices = cachedVoices.length > 0 ? cachedVoices : window.speechSynthesis.getVoices();
 
     if (language === 'ms') {
-      utterance.lang = 'ms-MY';
       const malaysianVoice = getMalaysianVoice();
-      if (malaysianVoice) {
-        utterance.voice = malaysianVoice;
+      // MANDATORY: Never permit default OS English or Indonesian voices to pronounce Malay
+      if (!malaysianVoice) {
+        console.warn('[Audio] Tiada suara Bahasa Melayu Malaysia (ms-MY) dalam pelayar. Menyekat suara Inggeris/Indonesia.');
+        return;
       }
+      utterance.voice = malaysianVoice;
+      utterance.lang = malaysianVoice.lang || 'ms-MY';
     } else {
       const englishVoice = voices.find(
         (v) =>
@@ -152,7 +166,7 @@ function speakViaWebSpeech(processedText: string, language: 'ms' | 'en') {
  * For Bahasa Melayu (ms), it uses the 100% authentic native Malaysian Malay audio stream from /api/tts.
  * This guarantees zero English accent or slang, and zero Indonesian voice leakage.
  */
-export function speakText(text: string, language: 'ms' | 'en' = 'ms') {
+export async function speakText(text: string, language: 'ms' | 'en' = 'ms') {
   if (typeof window === 'undefined') return;
 
   // Stop any ongoing playback first
@@ -179,30 +193,38 @@ export function speakText(text: string, language: 'ms' | 'en' = 'ms') {
       }
     };
 
-    audio.onerror = () => {
-      // If server audio fails (e.g. offline), fallback to browser Web Speech API
+    audio.onerror = (e) => {
+      console.warn('[Audio] Server audio error:', e);
       if (currentPlayId === playId) {
         currentAudio = null;
         notifyAudioState(false);
-        speakViaWebSpeech(processedText, language);
+        // Only fallback to browser speech if English or if an authentic Malaysian voice actually exists
+        if (language === 'en' || getMalaysianVoice()) {
+          speakViaWebSpeech(processedText, language);
+        }
       }
     };
 
     const playPromise = audio.play();
     if (playPromise !== undefined) {
       playPromise.catch((err) => {
-        // Autoplay policy or fetch error fallback
-        console.warn('HTML5 Audio play interrupted or blocked:', err);
+        // Autoplay policy or fetch error
+        console.warn('[Audio] Audio play interrupted or blocked by autoplay policy:', err);
         if (currentPlayId === playId) {
           notifyAudioState(false);
-          speakViaWebSpeech(processedText, language);
+          // Only fallback if not 'ms' without voice
+          if (language === 'en' || getMalaysianVoice()) {
+            speakViaWebSpeech(processedText, language);
+          }
         }
       });
     }
   } catch (err) {
-    console.error('TTS execution error, falling back to Web Speech:', err);
+    console.error('[Audio] TTS execution error:', err);
     notifyAudioState(false);
-    speakViaWebSpeech(processedText, language);
+    if (language === 'en' || getMalaysianVoice()) {
+      speakViaWebSpeech(processedText, language);
+    }
   }
 }
 
