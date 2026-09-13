@@ -123,7 +123,7 @@ export function getMalaysianVoice(): SpeechSynthesisVoice | null {
  * STRICT CONDITION: If language is 'ms', it will ONLY speak if an authentic Malaysian
  * Malay voice is detected in the browser. It will NEVER fall back to English or Indonesian.
  */
-function speakViaWebSpeech(processedText: string, language: 'ms' | 'en') {
+function speakViaWebSpeech(processedText: string, language: 'ms' | 'en' | 'ar' | 'zh') {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
   try {
     const utterance = new SpeechSynthesisUtterance(processedText);
@@ -134,13 +134,20 @@ function speakViaWebSpeech(processedText: string, language: 'ms' | 'en') {
 
     if (language === 'ms') {
       const malaysianVoice = getMalaysianVoice();
-      // MANDATORY: Never permit default OS English or Indonesian voices to pronounce Malay
       if (!malaysianVoice) {
         console.warn('[Audio] Tiada suara Bahasa Melayu Malaysia (ms-MY) dalam pelayar. Menyekat suara Inggeris/Indonesia.');
         return;
       }
       utterance.voice = malaysianVoice;
       utterance.lang = malaysianVoice.lang || 'ms-MY';
+    } else if (language === 'ar') {
+      const arabicVoice = voices.find((v) => v.lang.startsWith('ar'));
+      if (arabicVoice) utterance.voice = arabicVoice;
+      utterance.lang = 'ar-SA';
+    } else if (language === 'zh') {
+      const chineseVoice = voices.find((v) => v.lang.startsWith('zh'));
+      if (chineseVoice) utterance.voice = chineseVoice;
+      utterance.lang = 'zh-CN';
     } else {
       const englishVoice = voices.find(
         (v) =>
@@ -164,9 +171,9 @@ function speakViaWebSpeech(processedText: string, language: 'ms' | 'en') {
 /**
  * Plays genuine, high-quality native audio.
  * For Bahasa Melayu (ms), it uses the 100% authentic native Malaysian Malay audio stream from /api/tts.
- * This guarantees zero English accent or slang, and zero Indonesian voice leakage.
+ * For Bahasa Arab and Bahasa Cina, it seamlessly uses authentic pronunciation streams.
  */
-export async function speakText(text: string, language: 'ms' | 'en' = 'ms') {
+export async function speakText(text: string, language: 'ms' | 'en' | 'ar' | 'zh' = 'ms') {
   if (typeof window === 'undefined') return;
 
   // Stop any ongoing playback first

@@ -17,7 +17,7 @@ import { WorksheetPrintView } from './components/WorksheetPrintView';
 import { StudentProfileModal } from './components/StudentProfileModal';
 import { LeaderboardView } from './components/LeaderboardView';
 import { CashVoucherModal } from './components/CashVoucherModal';
-import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target } from 'lucide-react';
+import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target, GraduationCap } from 'lucide-react';
 import { stopSpeech } from './utils/speech';
 import {
   getTodayDateString,
@@ -330,13 +330,16 @@ export default function App() {
   const currentQuestion = activeQuestions[currentQuestionIndex];
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col antialiased">
+    <div className="min-h-screen bg-gradient-to-b from-sky-50/50 via-amber-50/30 to-indigo-50/40 text-slate-800 flex flex-col antialiased">
       {/* Top Header */}
       <Header
         currentTab={activeTab}
         onTabChange={(tab) => {
           stopSpeech();
           setActiveTab(tab);
+          if (tab === 'quiz' && quizMode !== 'practice') {
+            setQuizMode('practice');
+          }
         }}
         soundEnabled={soundEnabled}
         onToggleSound={() => setSoundEnabled((prev) => !prev)}
@@ -355,6 +358,12 @@ export default function App() {
           setQuizMode('adaptive');
           resetQuizProgress();
         }}
+        onSelectPracticeMode={() => {
+          stopSpeech();
+          setActiveTab('quiz');
+          setQuizMode('practice');
+          resetQuizProgress();
+        }}
         activeProfile={activeProfile}
         onOpenProfileModal={() => handleOpenProfileModal(profiles.length === 0 ? 'register' : 'list')}
         onOpenVouchers={() => setIsVoucherModalOpen(true)}
@@ -362,7 +371,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-5 sm:py-7">
         {activeTab === 'quiz' && (
           <div>
             {/* Mode Banner Selection: Daily Challenge Banner or Adaptive Review Banner or Mode Controller */}
@@ -673,18 +682,113 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-slate-200/80 py-5 text-center text-xs text-slate-500">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p>
-            Dibina mengikut Dokumen Standard Kurikulum & Pentaksiran (DSKP) KSSR Semakan KPM.
-          </p>
-          <div className="flex items-center gap-4">
-            <span>Tahun 2, Tahun 4 & Tahun 5</span>
-            <span>•</span>
-            <span>5 Subjek Teras KPM</span>
-            <span>•</span>
-            <span>Ulang Kaji Pintar, Cabaran Harian & Lembaran PDF</span>
+      {/* Kid-Friendly & Informative Educational Footer with Copyright */}
+      <footer className="bg-white/95 border-t border-slate-200/90 py-8 px-4 mt-auto text-slate-600 shadow-xs">
+        <div className="max-w-6xl mx-auto">
+          {/* Top Footer Banner: Mascot & Highlights */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pb-6 border-b border-slate-100 items-center">
+            <div className="md:col-span-5 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-500 flex items-center justify-center text-slate-950 font-black shadow-md shadow-amber-500/20 shrink-0">
+                <GraduationCap className="w-7 h-7 text-slate-950 fill-amber-300" />
+              </div>
+              <div>
+                <h3 className="font-black text-slate-900 text-sm sm:text-base flex items-center gap-1.5">
+                  <span>KSSR Semakan Kuiz Pintar</span>
+                  <span className="text-amber-500">⭐</span>
+                </h3>
+                <p className="text-xs text-slate-500 leading-snug">
+                  Platform interaktif latihan, ulang kaji pintar dan lembaran kerja sekolah rendah Malaysia.
+                </p>
+              </div>
+            </div>
+
+            <div className="md:col-span-7 flex flex-wrap items-center justify-start md:justify-end gap-2 text-xs font-semibold">
+              <span className="px-2.5 py-1 rounded-xl bg-blue-50 text-blue-800 border border-blue-200/60">
+                📐 Matematik
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200/60">
+                🔬 Sains
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-amber-50 text-amber-900 border border-amber-200/60">
+                📖 Bahasa Melayu
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-purple-50 text-purple-900 border border-purple-200/60">
+                🇬🇧 English (CEFR)
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-teal-50 text-teal-900 border border-teal-200/60">
+                🌙 Pendidikan Islam & Jawi
+              </span>
+            </div>
+          </div>
+
+          {/* Middle Footer: DSKP Syllabus & Educational Statement */}
+          <div className="py-4 text-xs text-slate-500 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <p className="font-semibold text-slate-700 mb-1 flex items-center gap-1.5">
+                <span>📚 Berpandukan Kurikulum Standard Sekolah Rendah (KSSR Semakan)</span>
+              </p>
+              <p>
+                Semua soalan dan lembaran kerja digubal khas mengikut Dokumen Standard Kurikulum dan Pentaksiran (DSKP) Semakan Kementerian Pendidikan Malaysia (KPM) untuk <strong>Tahun 2</strong>, <strong>Tahun 4</strong> dan <strong>Tahun 5</strong>.
+              </p>
+            </div>
+            <div className="md:text-right">
+              <p className="font-semibold text-slate-700 mb-1">
+                🛡️ Zon Selamat, Mesra Kanak-Kanak & Bebas Iklan
+              </p>
+              <p>
+                Direka khas dengan antara muka yang ceria, mudah difahami, dan selamat untuk kegunaan murid di rumah serta sesi Pengajaran & Pembelajaran (PdP) di dalam bilik darjah.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Copyright Notice */}
+          <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400 font-medium text-center sm:text-left">
+            <div>
+              <p>
+                &copy; {new Date().getFullYear()} <strong>Verttere Solutions</strong>. Hak Cipta Terpelihara (All Rights Reserved) • KSSR Semakan Kuiz Pintar Malaysia.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 text-[11px] text-slate-500">
+              <button
+                onClick={() => {
+                  setActiveTab('quiz');
+                  setQuizMode('practice');
+                  resetQuizProgress();
+                }}
+                className="hover:text-indigo-600 hover:underline cursor-pointer"
+              >
+                Latihan Topikal
+              </button>
+              <span>•</span>
+              <button
+                onClick={() => {
+                  setActiveTab('quiz');
+                  setQuizMode('daily');
+                  resetQuizProgress();
+                }}
+                className="hover:text-amber-600 hover:underline cursor-pointer"
+              >
+                Cabaran Harian
+              </button>
+              <span>•</span>
+              <button
+                onClick={() => {
+                  setActiveTab('quiz');
+                  setQuizMode('adaptive');
+                  resetQuizProgress();
+                }}
+                className="hover:text-indigo-600 hover:underline cursor-pointer"
+              >
+                Ulang Kaji Pintar
+              </button>
+              <span>•</span>
+              <button
+                onClick={() => setActiveTab('print')}
+                className="hover:text-teal-600 hover:underline cursor-pointer"
+              >
+                Cetak PDF
+              </button>
+            </div>
           </div>
         </div>
       </footer>

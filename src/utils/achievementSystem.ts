@@ -204,6 +204,8 @@ const DEFAULT_STATS: StudentAchievementStats = {
     'Bahasa Melayu': 0,
     'Bahasa Inggeris': 0,
     'Pendidikan Islam': 0,
+    'Bahasa Arab': 0,
+    'Bahasa Cina': 0,
   },
   unlockedBadges: {},
 };
@@ -227,6 +229,8 @@ export function getStoredAchievementStats(): StudentAchievementStats {
         'Bahasa Melayu': Number(parsed.perfectQuizzesBySubject?.['Bahasa Melayu']) || 0,
         'Bahasa Inggeris': Number(parsed.perfectQuizzesBySubject?.['Bahasa Inggeris']) || 0,
         'Pendidikan Islam': Number(parsed.perfectQuizzesBySubject?.['Pendidikan Islam']) || 0,
+        'Bahasa Arab': Number(parsed.perfectQuizzesBySubject?.['Bahasa Arab']) || 0,
+        'Bahasa Cina': Number(parsed.perfectQuizzesBySubject?.['Bahasa Cina']) || 0,
       },
       unlockedBadges: parsed.unlockedBadges || {},
     };

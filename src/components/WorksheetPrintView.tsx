@@ -153,14 +153,14 @@ export const WorksheetPrintView: React.FC<WorksheetPrintViewProps> = ({
             <label className="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-1.5">
               Tahap / Tahun
             </label>
-            <div className="grid grid-cols-2 gap-1.5">
+            <div className="grid grid-cols-3 gap-1.5">
               <button
                 type="button"
                 onClick={() => {
                   setSelectedYear(2);
                   setSelectedTopicId('all');
                 }}
-                className={`py-2 px-3 rounded-lg text-xs font-bold border transition cursor-pointer ${
+                className={`py-2 px-2 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
                   selectedYear === 2
                     ? 'bg-indigo-600 text-white border-indigo-600'
                     : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
@@ -174,13 +174,27 @@ export const WorksheetPrintView: React.FC<WorksheetPrintViewProps> = ({
                   setSelectedYear(4);
                   setSelectedTopicId('all');
                 }}
-                className={`py-2 px-3 rounded-lg text-xs font-bold border transition cursor-pointer ${
+                className={`py-2 px-2 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
                   selectedYear === 4
                     ? 'bg-indigo-600 text-white border-indigo-600'
                     : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                 }`}
               >
                 Tahun 4
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedYear(5);
+                  setSelectedTopicId('all');
+                }}
+                className={`py-2 px-2 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
+                  selectedYear === 5
+                    ? 'bg-indigo-600 text-white border-indigo-600'
+                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                Tahun 5
               </button>
             </div>
           </div>
@@ -204,6 +218,8 @@ export const WorksheetPrintView: React.FC<WorksheetPrintViewProps> = ({
               <option value="Bahasa Melayu">📖 Bahasa Melayu</option>
               <option value="Bahasa Inggeris">🔤 Bahasa Inggeris</option>
               <option value="Pendidikan Islam">🕌 Pendidikan Islam</option>
+              <option value="Bahasa Arab">🌴 Bahasa Arab</option>
+              <option value="Bahasa Cina">🏮 Bahasa Cina</option>
             </select>
           </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { YearLevel, Subject, QuizTopicMeta } from '../types';
-import { Calculator, BookA, FlaskConical, Sparkles, Filter, Moon, BookText } from 'lucide-react';
+import { Calculator, BookA, FlaskConical, Filter, Moon, BookText, Languages, Globe } from 'lucide-react';
 
 interface YearSubjectSelectorProps {
   selectedYear: YearLevel;
@@ -31,7 +31,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-5 mb-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 pb-4 border-b border-slate-100">
         {/* Year Level Selection */}
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-4">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             1. Pilih Tahap Persekolahan (Tahun)
           </label>
@@ -52,7 +52,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 leading-tight">
-                Hingga 1,000 • CEFR A1
+                Hingga 1,000 • Asas SK
               </p>
             </button>
 
@@ -72,7 +72,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 leading-tight">
-                Hingga 100k • CEFR A2
+                Hingga 100k • Menengah Rendah
               </p>
             </button>
 
@@ -92,87 +92,87 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 leading-tight">
-                Hingga 1 Juta • English Plus 1
+                Hingga 1 Juta • Pengukuhan
               </p>
             </button>
           </div>
         </div>
 
         {/* Subject Selection */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-8">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             2. Pilih Mata Pelajaran (KSSR Semakan)
           </label>
-          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-2.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2">
             <button
               id="select-subject-math"
               onClick={() => onSelectSubject('Matematik')}
-              className={`p-3 rounded-xl border text-left transition flex items-center gap-3 cursor-pointer ${
+              className={`p-2.5 rounded-xl border text-left transition flex items-center gap-2.5 cursor-pointer ${
                 selectedSubject === 'Matematik'
                   ? 'border-blue-600 bg-blue-50/70 text-blue-950 ring-2 ring-blue-500/20'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
               }`}
             >
-              <div className="w-10 h-10 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0 shadow-sm">
-                <Calculator className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <Calculator className="w-4 h-4" />
               </div>
-              <div>
-                <span className="font-bold text-sm block">Matematik</span>
-                <span className="text-xs text-slate-500">KSSR Semakan</span>
+              <div className="min-w-0">
+                <span className="font-bold text-xs sm:text-sm block truncate">Matematik</span>
+                <span className="text-[11px] text-slate-500 block truncate">KSSR Semakan</span>
               </div>
             </button>
 
             <button
               id="select-subject-science"
               onClick={() => onSelectSubject('Sains')}
-              className={`p-3 rounded-xl border text-left transition flex items-center gap-3 cursor-pointer ${
+              className={`p-2.5 rounded-xl border text-left transition flex items-center gap-2.5 cursor-pointer ${
                 selectedSubject === 'Sains'
                   ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 ring-2 ring-emerald-500/20'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
               }`}
             >
-              <div className="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-                <FlaskConical className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <FlaskConical className="w-4 h-4" />
               </div>
-              <div>
-                <span className="font-bold text-sm block">Sains</span>
-                <span className="text-xs text-slate-500">Dua Bahasa/BM</span>
+              <div className="min-w-0">
+                <span className="font-bold text-xs sm:text-sm block truncate">Sains</span>
+                <span className="text-[11px] text-slate-500 block truncate">Dua Bahasa/BM</span>
               </div>
             </button>
 
             <button
               id="select-subject-bm"
               onClick={() => onSelectSubject('Bahasa Melayu')}
-              className={`p-3 rounded-xl border text-left transition flex items-center gap-3 cursor-pointer ${
+              className={`p-2.5 rounded-xl border text-left transition flex items-center gap-2.5 cursor-pointer ${
                 selectedSubject === 'Bahasa Melayu'
                   ? 'border-amber-600 bg-amber-50/70 text-amber-950 ring-2 ring-amber-500/20'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
               }`}
             >
-              <div className="w-10 h-10 rounded-lg bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-                <BookText className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-lg bg-amber-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <BookText className="w-4 h-4" />
               </div>
-              <div>
-                <span className="font-bold text-sm block">B. Melayu</span>
-                <span className="text-xs text-slate-500">KSSR Semakan</span>
+              <div className="min-w-0">
+                <span className="font-bold text-xs sm:text-sm block truncate">B. Melayu</span>
+                <span className="text-[11px] text-slate-500 block truncate">KSSR Semakan</span>
               </div>
             </button>
 
             <button
               id="select-subject-english"
               onClick={() => onSelectSubject('Bahasa Inggeris')}
-              className={`p-3 rounded-xl border text-left transition flex items-center gap-3 cursor-pointer ${
+              className={`p-2.5 rounded-xl border text-left transition flex items-center gap-2.5 cursor-pointer ${
                 selectedSubject === 'Bahasa Inggeris'
                   ? 'border-purple-600 bg-purple-50/70 text-purple-950 ring-2 ring-purple-500/20'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
               }`}
             >
-              <div className="w-10 h-10 rounded-lg bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-                <BookA className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-lg bg-purple-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <BookA className="w-4 h-4" />
               </div>
-              <div>
-                <span className="font-bold text-sm block">English</span>
-                <span className="text-xs text-slate-500">
+              <div className="min-w-0">
+                <span className="font-bold text-xs sm:text-sm block truncate">English</span>
+                <span className="text-[11px] text-slate-500 block truncate">
                   {selectedYear === 2 ? 'CEFR A1' : selectedYear === 4 ? 'CEFR A2' : 'English Plus 1'}
                 </span>
               </div>
@@ -181,18 +181,54 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
             <button
               id="select-subject-islamic"
               onClick={() => onSelectSubject('Pendidikan Islam')}
-              className={`p-3 rounded-xl border text-left transition flex items-center gap-3 cursor-pointer ${
+              className={`p-2.5 rounded-xl border text-left transition flex items-center gap-2.5 cursor-pointer ${
                 selectedSubject === 'Pendidikan Islam'
                   ? 'border-teal-600 bg-teal-50/70 text-teal-950 ring-2 ring-teal-500/20'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
               }`}
             >
-              <div className="w-10 h-10 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-                <Moon className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <Moon className="w-4 h-4" />
               </div>
-              <div>
-                <span className="font-bold text-sm block">Pend. Islam</span>
-                <span className="text-xs text-slate-500">KSSR Semakan</span>
+              <div className="min-w-0">
+                <span className="font-bold text-xs sm:text-sm block truncate">Pend. Islam</span>
+                <span className="text-[11px] text-slate-500 block truncate">KSSR Semakan</span>
+              </div>
+            </button>
+
+            <button
+              id="select-subject-arabic"
+              onClick={() => onSelectSubject('Bahasa Arab')}
+              className={`p-2.5 rounded-xl border text-left transition flex items-center gap-2.5 cursor-pointer ${
+                selectedSubject === 'Bahasa Arab'
+                  ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 ring-2 ring-emerald-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="w-9 h-9 rounded-lg bg-emerald-700 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <Languages className="w-4 h-4" />
+              </div>
+              <div className="min-w-0">
+                <span className="font-bold text-xs sm:text-sm block truncate">Bahasa Arab</span>
+                <span className="text-[11px] text-slate-500 block truncate">اللغة العربية SK</span>
+              </div>
+            </button>
+
+            <button
+              id="select-subject-chinese"
+              onClick={() => onSelectSubject('Bahasa Cina')}
+              className={`p-2.5 rounded-xl border text-left transition flex items-center gap-2.5 cursor-pointer ${
+                selectedSubject === 'Bahasa Cina'
+                  ? 'border-rose-600 bg-rose-50/70 text-rose-950 ring-2 ring-rose-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="w-9 h-9 rounded-lg bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <Globe className="w-4 h-4" />
+              </div>
+              <div className="min-w-0">
+                <span className="font-bold text-xs sm:text-sm block truncate">Bahasa Cina</span>
+                <span className="text-[11px] text-slate-500 block truncate">华语 (SK KPM)</span>
               </div>
             </button>
           </div>

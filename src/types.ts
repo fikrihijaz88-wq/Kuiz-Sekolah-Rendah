@@ -1,5 +1,12 @@
 export type YearLevel = 2 | 4 | 5;
-export type Subject = 'Matematik' | 'Bahasa Inggeris' | 'Sains' | 'Pendidikan Islam' | 'Bahasa Melayu';
+export type Subject =
+  | 'Matematik'
+  | 'Bahasa Inggeris'
+  | 'Sains'
+  | 'Pendidikan Islam'
+  | 'Bahasa Melayu'
+  | 'Bahasa Arab'
+  | 'Bahasa Cina';
 
 export type QuestionDifficulty =
   | 'Mudah'

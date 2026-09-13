@@ -74,7 +74,7 @@ export const QuizCard: React.FC<QuizCardProps> = ({
   ];
 
   const isEnglish = question.subject === 'Bahasa Inggeris';
-  const lang = isEnglish ? 'en' : 'ms';
+  const lang = isEnglish ? 'en' : question.subject === 'Bahasa Arab' ? 'ar' : question.subject === 'Bahasa Cina' ? 'zh' : 'ms';
   const diagramAnnounce = question.diagram ? `Rujuk ${question.diagram.title}. ` : '';
 
   // Auto-read question if sound enabled and not answered yet

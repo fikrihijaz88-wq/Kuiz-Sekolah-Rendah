@@ -51,7 +51,7 @@ const questionSchema = {
   type: Type.OBJECT,
   properties: {
     year: { type: Type.INTEGER, description: 'School year: 2, 4, or 5' },
-    subject: { type: Type.STRING, description: 'Matematik, Sains, Bahasa Melayu, Bahasa Inggeris, or Pendidikan Islam' },
+    subject: { type: Type.STRING, description: 'Matematik, Sains, Bahasa Melayu, Bahasa Inggeris, Pendidikan Islam, Bahasa Arab, or Bahasa Cina' },
     topic: { type: Type.STRING, description: 'KSSR Semakan syllabus topic name' },
     questions: {
       type: Type.ARRAY,
@@ -102,7 +102,7 @@ app.get('/api/tts', async (req, res) => {
     }
 
     const sanitizedText = text.slice(0, 1200);
-    const ttsLang = lang === 'en' ? 'en' : 'ms';
+    const ttsLang = lang === 'en' ? 'en' : lang === 'ar' ? 'ar' : (lang === 'zh' || lang === 'zh-cn') ? 'zh-CN' : 'ms';
     const cacheKey = `${ttsLang}:${sanitizedText}`;
 
     if (ttsCache.has(cacheKey)) {

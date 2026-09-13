@@ -4,16 +4,22 @@ import { SAINS_TAHUN_2_QUESTIONS } from './sainsTahun2';
 import { ENGLISH_TAHUN_2_QUESTIONS } from './englishTahun2';
 import { PENDIDIKAN_ISLAM_TAHUN_2_QUESTIONS } from './pendidikanIslamTahun2';
 import { BAHASA_MELAYU_TAHUN_2_QUESTIONS } from './bahasaMelayuTahun2';
+import { BAHASA_ARAB_TAHUN_2_QUESTIONS } from './bahasaArabTahun2';
+import { BAHASA_CINA_TAHUN_2_QUESTIONS } from './bahasaCinaTahun2';
 import { MATEMATIK_TAHUN_4_KBAT_QUESTIONS } from './matematikTahun4Kbat';
 import { SAINS_TAHUN_4_QUESTIONS } from './sainsTahun4';
 import { ENGLISH_TAHUN_4_QUESTIONS } from './englishTahun4';
 import { PENDIDIKAN_ISLAM_TAHUN_4_QUESTIONS } from './pendidikanIslamTahun4';
 import { BAHASA_MELAYU_TAHUN_4_QUESTIONS } from './bahasaMelayuTahun4';
+import { BAHASA_ARAB_TAHUN_4_QUESTIONS } from './bahasaArabTahun4';
+import { BAHASA_CINA_TAHUN_4_QUESTIONS } from './bahasaCinaTahun4';
 import { MATEMATIK_TAHUN_5_QUESTIONS } from './matematikTahun5';
 import { SAINS_TAHUN_5_QUESTIONS } from './sainsTahun5';
 import { BAHASA_MELAYU_TAHUN_5_QUESTIONS } from './bahasaMelayuTahun5';
 import { ENGLISH_TAHUN_5_QUESTIONS } from './englishTahun5';
 import { PENDIDIKAN_ISLAM_TAHUN_5_QUESTIONS } from './pendidikanIslamTahun5';
+import { BAHASA_ARAB_TAHUN_5_QUESTIONS } from './bahasaArabTahun5';
+import { BAHASA_CINA_TAHUN_5_QUESTIONS } from './bahasaCinaTahun5';
 
 export const KSSR_TOPICS: QuizTopicMeta[] = [
   // ==========================================
@@ -729,6 +735,270 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     description: 'Ejaan Jawi kata pinjaman Bahasa Inggeris & Arab, imbuhan awalan/akhiran/apitan, diftong, hamzah, dan kata ganda.',
     iconName: 'PenTool',
   },
+
+  // ==========================================
+  // TAHUN 2 - BAHASA ARAB
+  // ==========================================
+  {
+    id: 't2-ba-taaruf',
+    name: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
+    year: 2,
+    subject: 'Bahasa Arab',
+    description: 'Ucapan salam, sapaan pagi/petang, bertanyakan khabar (كَيْفَ حَالُكَ), dan memperkenalkan diri.',
+    iconName: 'Languages',
+  },
+  {
+    id: 't2-ba-usrah',
+    name: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
+    year: 2,
+    subject: 'Bahasa Arab',
+    description: 'Panggilan bapa (أَبٌ), ibu (أُمٌّ), saudara lelaki/perempuan, datuk (جَدٌّ) dan nenek (جَدَّةٌ).',
+    iconName: 'Users',
+  },
+  {
+    id: 't2-ba-jism',
+    name: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
+    year: 2,
+    subject: 'Bahasa Arab',
+    description: 'Bahagian kepala (رَأْسٌ), mata (عَيْنٌ), telinga (أُذُنٌ), tangan (يَدٌ) dan kaki (رِجْلٌ).',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't2-ba-bait',
+    name: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
+    year: 2,
+    subject: 'Bahasa Arab',
+    description: 'Ruang tamu, bilik tidur, dapur, serta peralatan rumah (serba-serbi kediaman).',
+    iconName: 'Bookmark',
+  },
+  {
+    id: 't2-ba-arqam',
+    name: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    year: 2,
+    subject: 'Bahasa Arab',
+    description: 'Nombor 1 hingga 20 dalam Bahasa Arab, bunyi baris fathah, kasrah, dhommah dan sukun.',
+    iconName: 'Hash',
+  },
+
+  // ==========================================
+  // TAHUN 2 - BAHASA CINA (SK)
+  // ==========================================
+  {
+    id: 't2-bc-pinyin',
+    name: '拼音与基础笔画 (Pinyin & Goresan Asas)',
+    year: 2,
+    subject: 'Bahasa Cina',
+    description: 'Konsonan shengmu, vokal yunmu, 4 tanda nada pinyin dan urutan goresan Hanzi asas.',
+    iconName: 'Languages',
+  },
+  {
+    id: 't2-bc-jiating',
+    name: '我和家人 (Saya dan Keluarga)',
+    year: 2,
+    subject: 'Bahasa Cina',
+    description: 'Panggilan ahli keluarga: 爸爸, 妈妈, 哥哥, 姐姐, 弟弟, 妹妹, datuk dan nenek.',
+    iconName: 'Users',
+  },
+  {
+    id: 't2-bc-shenti',
+    name: '身体器官与感觉 (Anggota Badan & Deria)',
+    year: 2,
+    subject: 'Bahasa Cina',
+    description: 'Anggota deria (眼睛, 耳朵, 口, 鼻子, 手, 脚) dan fungsi penjagaan kebersihan.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't2-bc-dongwu',
+    name: '可爱的动物与颜色 (Haiwan & Warna)',
+    year: 2,
+    subject: 'Bahasa Cina',
+    description: 'Haiwan peliharaan (小猫, 小狗, 小鸟, 鱼) dan warna-warna asas (红, 蓝, 黄, 白, 绿).',
+    iconName: 'Bug',
+  },
+  {
+    id: 't2-bc-shuzi',
+    name: '数字与日常问候 (Nombor & Ucapan Harian)',
+    year: 2,
+    subject: 'Bahasa Cina',
+    description: 'Nombor Hanzi 1-10, ucapan sapaan 早安, 谢谢, 不客气, 对不起 dan 没关系.',
+    iconName: 'Hash',
+  },
+
+  // ==========================================
+  // TAHUN 4 - BAHASA ARAB
+  // ==========================================
+  {
+    id: 't4-ba-madrasah',
+    name: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
+    year: 4,
+    subject: 'Bahasa Arab',
+    description: 'Peralatan bilik darjah (قَلَمٌ, كِتَابٌ, مِمْسَحَةٌ, سَبُّورَةٌ) dan kata tunjuk هَذَا / هَذِهِ.',
+    iconName: 'Languages',
+  },
+  {
+    id: 't4-ba-malabis',
+    name: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
+    year: 4,
+    subject: 'Bahasa Arab',
+    description: 'Pakaian sekolah dan harian (قَمِيصٌ, بَنْطَلُونٌ, فُسْتَانٌ, حِذَاءٌ, حِزَامٌ) dan kata kerja يَلْبَسُ.',
+    iconName: 'Bookmark',
+  },
+  {
+    id: 't4-ba-alwan',
+    name: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
+    year: 4,
+    subject: 'Bahasa Arab',
+    description: 'Warna Muzakkar vs Muannas (أَحْمَرُ / حَمْرَاءُ, أَزْرَقُ / زَرْقَاءُ) dan kata sifat.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't4-ba-ayyam',
+    name: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
+    year: 4,
+    subject: 'Bahasa Arab',
+    description: 'Tujuh hari seminggu (يَوْمُ الأَحَدِ hingga يَوْمُ السَّبْتِ), pagi (صَبَاحًا) dan petang (مَسَاءً).',
+    iconName: 'Clock',
+  },
+  {
+    id: 't4-ba-arqam',
+    name: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    year: 4,
+    subject: 'Bahasa Arab',
+    description: 'Nombor 21 hingga 40, kata ganti nama (أَنَا, أَنْتَ, أَنْتِ, نَحْنُ) dan ayat tanya.',
+    iconName: 'Hash',
+  },
+
+  // ==========================================
+  // TAHUN 4 - BAHASA CINA (SK)
+  // ==========================================
+  {
+    id: 't4-bc-xiaoyuan',
+    name: '校园生活与文具 (Kehidupan Sekolah & Alat Tulis)',
+    year: 4,
+    subject: 'Bahasa Cina',
+    description: 'Warga sekolah (老师, 同学), alat tulis (铅笔, 尺子, 橡皮), tempat sekolah dan penjodoh bilangan (支, 本).',
+    iconName: 'Languages',
+  },
+  {
+    id: 't4-bc-richang',
+    name: '日常活动与时间 (Aktiviti Harian & Masa)',
+    year: 4,
+    subject: 'Bahasa Cina',
+    description: 'Rutin harian (起床, 刷牙, 做功课), waktu (早上, 中午, 晚上) dan membaca jam (几点).',
+    iconName: 'Clock',
+  },
+  {
+    id: 't4-bc-meishi',
+    name: '美味食物与饮料 (Makanan & Minuman)',
+    year: 4,
+    subject: 'Bahasa Cina',
+    description: 'Makanan ruji (米饭, 面条), buah-buahan (苹果, 香蕉), rasa (甜, 咸, 辣) dan pesanan kantin.',
+    iconName: 'Bookmark',
+  },
+  {
+    id: 't4-bc-chuandai',
+    name: '穿戴与衣服 (Pakaian & Aksesori)',
+    year: 4,
+    subject: 'Bahasa Cina',
+    description: 'Pakaian seragam sekolah (校服), baju (衣服), kasut (鞋子) dan perbezaan kata kerja 穿 vs 戴.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't4-bc-xingqi',
+    name: '星期、日期与基础句型 (Hari, Tarikh & Pola Ayat)',
+    year: 4,
+    subject: 'Bahasa Cina',
+    description: 'Hari 星期一 hingga 星期日, semalam/hari ini/esok, format tarikh (年/月/日) dan struktur ayat S-V-O.',
+    iconName: 'Calendar',
+  },
+
+  // ==========================================
+  // TAHUN 5 - BAHASA ARAB
+  // ==========================================
+  {
+    id: 't5-ba-matbakh',
+    name: 'فِي الْمَطْبَخِ وَمَائِدَةِ الطَّعَامِ (Di Dapur & Meja Makan)',
+    year: 5,
+    subject: 'Bahasa Arab',
+    description: 'Peralatan makan (صَحْنٌ, مِلْعَقَةٌ, سِكِّينٌ), alatan dapur (ثَلَّاجَةٌ, قِدْرٌ), kata kerja memasak dan adab makan.',
+    iconName: 'Languages',
+  },
+  {
+    id: 't5-ba-hayawan',
+    name: 'فِي حَدِيقَةِ الْحَيَوَانَاتِ (Di Zoo & Haiwan)',
+    year: 5,
+    subject: 'Bahasa Arab',
+    description: 'Haiwan liar pemangsa (أَسَدٌ, نَمِرٌ), gajah & zirafah (فِيلٌ, زَرَافَةٌ), perbandingan sifat dan adab berihsan.',
+    iconName: 'Bug',
+  },
+  {
+    id: 't5-ba-mihnah',
+    name: 'مِهْنَتِي الْمُسْتَقْبَلِيَّةُ (Cita-cita & Kerjaya)',
+    year: 5,
+    subject: 'Bahasa Arab',
+    description: 'Kerjaya doktor (طَبِيبٌ), guru (مُعَلِّمٌ), jurutera (مُهَنْدِسٌ), anggota keselamatan, tempat kerja dan cita-cita.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't5-ba-arqam',
+    name: 'الأَرْقَامُ (41-60) وَالتَّرَاكِيبُ (Nombor 41-60 & Tatabahasa)',
+    year: 5,
+    subject: 'Bahasa Arab',
+    description: 'Nombor 41-60 (وَاحِدٌ وَأَرْبَعُونَ ... سِتُّونَ), fi\'il madhi & mudhari\', zhorof makan dan operasi matematik.',
+    iconName: 'Hash',
+  },
+  {
+    id: 't5-ba-naql',
+    name: 'وَسَائِلُ النَّقْلِ وَالسَّفَرُ (Pengangkutan & Perjalanan)',
+    year: 5,
+    subject: 'Bahasa Arab',
+    description: 'Kenderaan darat, laut & udara (قِطَارٌ, طَائِرَةٌ, سَفِينَةٌ), terminal (مَطَارٌ, مَحَطَّةٌ) dan keselamatan lalu lintas.',
+    iconName: 'Bookmark',
+  },
+
+  // ==========================================
+  // TAHUN 5 - BAHASA CINA (SK)
+  // ==========================================
+  {
+    id: 't5-bc-huanjing',
+    name: '大自然与环境保护 (Alam Semula Jadi & Pemuliharaan)',
+    year: 5,
+    subject: 'Bahasa Cina',
+    description: 'Landskap alam (高山, 河流, 海洋), hutan hujan tropika, amalan 3R, kitar semula dan perlindungan hidupan liar.',
+    iconName: 'Languages',
+  },
+  {
+    id: 't5-bc-keji',
+    name: '科技生活与发明 (Kehidupan Berteknologi & Ciptaan)',
+    year: 5,
+    subject: 'Bahasa Cina',
+    description: 'Peranti pintar (电脑, 智能手机), pembelajaran digital, e-dompet, kecerdasan buatan (AI) dan reka cipta sains.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't5-bc-zhiye',
+    name: '我的理想与职业 (Aspirasi Cita-cita & Kerjaya)',
+    year: 5,
+    subject: 'Bahasa Cina',
+    description: 'Profesion profesional (医生, 老师, 工程师, 科学家), atlet sukan, peribahasa motivasi dan kegigihan belajar.',
+    iconName: 'Bookmark',
+  },
+  {
+    id: 't5-bc-youyi',
+    name: '友情与互助精神 (Persahabatan & Semangat Kerjasama)',
+    year: 5,
+    subject: 'Bahasa Cina',
+    description: 'Sahabat sejati (好朋友, 知己), kerjasama gotong-royong, toleransi, simpulan bahasa persahabatan dan perpaduan kaum.',
+    iconName: 'Users',
+  },
+  {
+    id: 't5-bc-anquan',
+    name: '安全常识与自护 (Kesedaran Keselamatan & Perlindungan Diri)',
+    year: 5,
+    subject: 'Bahasa Cina',
+    description: 'Keselamatan jalan raya (斑马线, 安全带), pencegahan kebakaran, peti cemas (急救箱) dan perlindungan batasan diri.',
+    iconName: 'PenTool',
+  },
 ];
 
 export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
@@ -737,14 +1007,20 @@ export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
   ...ENGLISH_TAHUN_2_QUESTIONS,
   ...PENDIDIKAN_ISLAM_TAHUN_2_QUESTIONS,
   ...BAHASA_MELAYU_TAHUN_2_QUESTIONS,
+  ...BAHASA_ARAB_TAHUN_2_QUESTIONS,
+  ...BAHASA_CINA_TAHUN_2_QUESTIONS,
   ...MATEMATIK_TAHUN_4_KBAT_QUESTIONS,
   ...SAINS_TAHUN_4_QUESTIONS,
   ...ENGLISH_TAHUN_4_QUESTIONS,
   ...PENDIDIKAN_ISLAM_TAHUN_4_QUESTIONS,
   ...BAHASA_MELAYU_TAHUN_4_QUESTIONS,
+  ...BAHASA_ARAB_TAHUN_4_QUESTIONS,
+  ...BAHASA_CINA_TAHUN_4_QUESTIONS,
   ...MATEMATIK_TAHUN_5_QUESTIONS,
   ...SAINS_TAHUN_5_QUESTIONS,
   ...BAHASA_MELAYU_TAHUN_5_QUESTIONS,
   ...ENGLISH_TAHUN_5_QUESTIONS,
   ...PENDIDIKAN_ISLAM_TAHUN_5_QUESTIONS,
+  ...BAHASA_ARAB_TAHUN_5_QUESTIONS,
+  ...BAHASA_CINA_TAHUN_5_QUESTIONS,
 ];

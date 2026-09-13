@@ -132,6 +132,54 @@ const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
     'Akhlak Islamiah (Adab Mengasihi Ibu Bapa & Jual Beli)',
     'Pelajaran Jawi (Kata Pinjaman Bahasa Inggeris & Arab)',
   ],
+  '2-Bahasa Arab': [
+    'هَيَّا نَتَعَرَّفُ إِلَى الْحُرُوفِ (Huruf Hijaiyyah Berbaris)',
+    'أَنَا أُحِبُّ أُسْرَتِي (Keluarga Saya)',
+    'جِسْمِي السَّلِيمُ (Anggota Badan & Kesihatan)',
+    'أُحِبُّ مَدْرَسَتِي (Peralatan Sekolah & Bilik Darjah)',
+    'الْأَرْقَامُ وَالأَعْدَادُ (Nombor 1-20)',
+    'الْفَوَاكِهُ اللَّذِيذَةُ (Buah-buahan)',
+  ],
+  '4-Bahasa Arab': [
+    'فِي الْفَصْلِ (Di Dalam Bilik Darjah)',
+    'أَعْضَاءُ الْجِسْمِ (Anggota Badan Lanjutan)',
+    'أُسْرَتِي الْحَبِيبَةُ (Keluarga & Kata Ganti Diri)',
+    'مَلَابِسِي الْجَمِيلَةُ (Pakaian & Warna)',
+    'الْأَرْقَامُ وَالأَعْدَادُ (Nombor 1-100)',
+    'فِي حَدِيقَةِ الْحَيَوَانَاتِ (Haiwan & Sifat)',
+  ],
+  '5-Bahasa Arab': [
+    'فِي مَطْبَخِي (Di Dapur & Peralatan Memasak)',
+    'مَا أَجْمَلَ مَدْرَسَتِي (Kemudahan Sekolah & Bangunan)',
+    'مَأْكُولَاتِي وَمَشْرُوبَاتِي (Makanan & Minuman Kegemaran)',
+    'هَيَّا نَشْتَرِي (Jual Beli & Mata Wang)',
+    'الْأَرْقَامُ وَالأَعْدَادُ (Nombor 1-200)',
+    'الْوَقْتُ وَالسَّاعَةُ (Masa & Waktu)',
+  ],
+  '2-Bahasa Cina': [
+    '问候与礼貌 (Salam & Kesopanan)',
+    '我的身体 (Anggota Badan)',
+    '我的家庭 (Keluarga Saya)',
+    '学校与文具 (Sekolah & Alat Tulis)',
+    '数字与颜色 (Nombor 1-20 & Warna)',
+    '美味的水果 (Buah-buahan)',
+  ],
+  '4-Bahasa Cina': [
+    '校园生活 (Kehidupan di Sekolah)',
+    '我的爱好 (Hobi & Aktiviti Masa Lapang)',
+    '衣服与装扮 (Pakaian & Aksesori)',
+    '时间与节日 (Masa, Hari & Perayaan)',
+    '交通工具 (Kenderaan & Perjalanan)',
+    '美味的食物 (Makanan & Minuman)',
+  ],
+  '5-Bahasa Cina': [
+    '我的志愿 (Cita-cita Saya)',
+    '环保与大自然 (Cintai Alam Sekitar)',
+    '传统节日与文化 (Perayaan & Kebudayaan)',
+    '去旅行 (Melancong & Tempat Menarik)',
+    '健康生活 (Gaya Hidup Sihat & Sukan)',
+    '买卖与消费 (Jual Beli & Menabung)',
+  ],
 };
 
 export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
@@ -279,36 +327,36 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
               Mata Pelajaran
             </label>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-2">
               <button
                 type="button"
                 id="gen-select-subject-math"
                 onClick={() => handleSubjectChange('Matematik')}
-                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer ${
                   subject === 'Matematik'
                     ? 'border-blue-600 bg-blue-50 text-blue-950 ring-2 ring-blue-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
-                Matematik (BM)
+                Matematik
               </button>
               <button
                 type="button"
                 id="gen-select-subject-science"
                 onClick={() => handleSubjectChange('Sains')}
-                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer ${
                   subject === 'Sains'
                     ? 'border-emerald-600 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
-                Sains (KSSR)
+                Sains
               </button>
               <button
                 type="button"
                 id="gen-select-subject-bm"
                 onClick={() => handleSubjectChange('Bahasa Melayu')}
-                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer ${
                   subject === 'Bahasa Melayu'
                     ? 'border-amber-600 bg-amber-50 text-amber-950 ring-2 ring-amber-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
@@ -320,25 +368,49 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
                 type="button"
                 id="gen-select-subject-english"
                 onClick={() => handleSubjectChange('Bahasa Inggeris')}
-                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer ${
                   subject === 'Bahasa Inggeris'
                     ? 'border-purple-600 bg-purple-50 text-purple-950 ring-2 ring-purple-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
-                English (CEFR)
+                English
               </button>
               <button
                 type="button"
                 id="gen-select-subject-islamic"
                 onClick={() => handleSubjectChange('Pendidikan Islam')}
-                className={`py-2.5 px-3 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer ${
                   subject === 'Pendidikan Islam'
                     ? 'border-teal-600 bg-teal-50 text-teal-950 ring-2 ring-teal-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
                 Pend. Islam
+              </button>
+              <button
+                type="button"
+                id="gen-select-subject-arabic"
+                onClick={() => handleSubjectChange('Bahasa Arab')}
+                className={`py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer ${
+                  subject === 'Bahasa Arab'
+                    ? 'border-emerald-600 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                Bahasa Arab
+              </button>
+              <button
+                type="button"
+                id="gen-select-subject-chinese"
+                onClick={() => handleSubjectChange('Bahasa Cina')}
+                className={`py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer ${
+                  subject === 'Bahasa Cina'
+                    ? 'border-rose-600 bg-rose-50 text-rose-950 ring-2 ring-rose-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                Bahasa Cina
               </button>
             </div>
           </div>
