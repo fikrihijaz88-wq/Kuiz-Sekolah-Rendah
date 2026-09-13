@@ -35,10 +35,25 @@ if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
 }
 
 /**
- * Normalizes Malaysian school mathematical text so TTS reads symbols accurately in standard BM
+ * Normalizes Malaysian school texts (Math, Islamic Studies, Language) so TTS reads symbols and honorifics accurately in standard BM
  */
 export function prepareMalaySpokenText(raw: string): string {
   return raw
+    // Islamic Honorifics - e.g. Nabi Muhammad SAW -> Nabi Muhammad Sallallahu 'Alaihi Wassallam
+    .replace(/\uFDFA/g, " Sallallahu 'Alaihi Wassallam ")
+    .replace(/\((?:SAW|S\.A\.W\.|saw|s\.a\.w\.)\)/gi, " Sallallahu 'Alaihi Wassallam ")
+    .replace(/\bS\.A\.W\.?\b/gi, "Sallallahu 'Alaihi Wassallam")
+    .replace(/\bSAW\b/g, "Sallallahu 'Alaihi Wassallam")
+    .replace(/\b(?:Nabi|Rasulullah|Muhammad|Baginda)\s+saw\b/gi, (match) => {
+      return match.replace(/\bsaw\b/i, "Sallallahu 'Alaihi Wassallam");
+    })
+    .replace(/\((?:SWT|S\.W\.T\.|swt|s\.w\.t\.)\)/gi, ' Subhanahu Wa Ta\'ala ')
+    .replace(/\bS\.W\.T\.?\b/gi, 'Subhanahu Wa Ta\'ala')
+    .replace(/\bSWT\b/g, 'Subhanahu Wa Ta\'ala')
+    .replace(/\((?:A\.S\.|a\.s\.)\)/gi, ' Alaihis Salam ')
+    .replace(/\bA\.S\.\b/gi, 'Alaihis Salam')
+    .replace(/\((?:R\.A\.|r\.a\.)\)/gi, ' Radiallahu Anhu ')
+    .replace(/\bR\.A\.\b/gi, 'Radiallahu Anhu')
     // Currency - e.g. RM 50 -> 50 ringgit, RM2.50 -> 2 ringgit 50 sen
     .replace(/\bRM\s*(\d+)\.(\d{2})\b/gi, '$1 ringgit $2 sen')
     .replace(/\bRM\s*(\d+)\b/gi, '$1 ringgit')

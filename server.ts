@@ -96,6 +96,54 @@ interface TTSAudioSegment {
   lang: string;
 }
 
+// Intelligent multilingual text segmentation & Islamic honorific expansion
+function normalizeMalayTextForTTS(raw: string): string {
+  return raw
+    // Islamic Honorifics - e.g. Nabi Muhammad SAW -> Nabi Muhammad Sallallahu 'Alaihi Wassallam
+    .replace(/\uFDFA/g, " Sallallahu 'Alaihi Wassallam ")
+    .replace(/\((?:SAW|S\.A\.W\.|saw|s\.a\.w\.)\)/gi, " Sallallahu 'Alaihi Wassallam ")
+    .replace(/\bS\.A\.W\.?\b/gi, "Sallallahu 'Alaihi Wassallam")
+    .replace(/\bSAW\b/g, "Sallallahu 'Alaihi Wassallam")
+    .replace(/\b(?:Nabi|Rasulullah|Muhammad|Baginda)\s+saw\b/gi, (match) => {
+      return match.replace(/\bsaw\b/i, "Sallallahu 'Alaihi Wassallam");
+    })
+    .replace(/\((?:SWT|S\.W\.T\.|swt|s\.w\.t\.)\)/gi, ' Subhanahu Wa Ta\'ala ')
+    .replace(/\bS\.W\.T\.?\b/gi, 'Subhanahu Wa Ta\'ala')
+    .replace(/\bSWT\b/g, 'Subhanahu Wa Ta\'ala')
+    .replace(/\((?:A\.S\.|a\.s\.)\)/gi, ' Alaihis Salam ')
+    .replace(/\bA\.S\.\b/gi, 'Alaihis Salam')
+    .replace(/\((?:R\.A\.|r\.a\.)\)/gi, ' Radiallahu Anhu ')
+    .replace(/\bR\.A\.\b/gi, 'Radiallahu Anhu')
+    // Currency - e.g. RM 50 -> 50 ringgit, RM2.50 -> 2 ringgit 50 sen
+    .replace(/\bRM\s*(\d+)\.(\d{2})\b/gi, '$1 ringgit $2 sen')
+    .replace(/\bRM\s*(\d+)\b/gi, '$1 ringgit')
+    // Common fractions in KSSR Primary Math
+    .replace(/\b1\/2\b/g, 'satu perdua')
+    .replace(/\b1\/4\b/g, 'satu perempat')
+    .replace(/\b2\/4\b/g, 'dua perempat')
+    .replace(/\b3\/4\b/g, 'tiga perempat')
+    .replace(/\b1\/3\b/g, 'satu pertiga')
+    .replace(/\b2\/3\b/g, 'dua pertiga')
+    .replace(/\b(\d+)\/(\d+)\b/g, '$1 per $2')
+    // Units of measurement
+    .replace(/(\d+)\s*km\b/gi, '$1 kilometer')
+    .replace(/(\d+)\s*cm\b/gi, '$1 sentimeter')
+    .replace(/(\d+)\s*m\b/gi, '$1 meter')
+    .replace(/(\d+)\s*kg\b/gi, '$1 kilogram')
+    .replace(/(\d+)\s*g\b/gi, '$1 gram')
+    .replace(/(\d+)\s*ml\b/gi, '$1 mililiter')
+    .replace(/(\d+)\s*l\b/gi, '$1 liter')
+    // Math operation symbols
+    .replace(/\s*÷\s*/g, ' bahagi ')
+    .replace(/\s*×\s*/g, ' darab ')
+    .replace(/\s*=\s*/g, ' sama dengan ')
+    .replace(/(\d+)\s*\+\s*(\d+)/g, '$1 tambah $2')
+    .replace(/(\d+)\s*-\s*(\d+)/g, '$1 tolak $2')
+    // Option labels formatting for clean pauses
+    .replace(/Pilihan ([ABCD]):/g, 'Pilihan $1. ')
+    .replace(/\bKBAT\b/g, 'K-BAT');
+}
+
 // Intelligent multilingual text segmentation
 function segmentTextForTTS(rawText: string, contextLang: string): TTSAudioSegment[] {
   const text = rawText.trim();
@@ -121,7 +169,7 @@ function segmentTextForTTS(rawText: string, contextLang: string): TTSAudioSegmen
       if (match.index > lastIdx) {
         const nonArabic = text.slice(lastIdx, match.index).trim();
         if (nonArabic) {
-          segments.push({ text: nonArabic, lang: 'ms' });
+          segments.push({ text: normalizeMalayTextForTTS(nonArabic), lang: 'ms' });
         }
       }
       const arabic = match[0].trim();
@@ -134,7 +182,7 @@ function segmentTextForTTS(rawText: string, contextLang: string): TTSAudioSegmen
     if (lastIdx < text.length) {
       const remaining = text.slice(lastIdx).trim();
       if (remaining) {
-        segments.push({ text: remaining, lang: 'ms' });
+        segments.push({ text: normalizeMalayTextForTTS(remaining), lang: 'ms' });
       }
     }
 
@@ -153,7 +201,7 @@ function segmentTextForTTS(rawText: string, contextLang: string): TTSAudioSegmen
       if (match.index > lastIdx) {
         const nonChinese = text.slice(lastIdx, match.index).trim();
         if (nonChinese) {
-          segments.push({ text: nonChinese, lang: 'ms' });
+          segments.push({ text: normalizeMalayTextForTTS(nonChinese), lang: 'ms' });
         }
       }
       const chinese = match[0].trim();
@@ -166,7 +214,7 @@ function segmentTextForTTS(rawText: string, contextLang: string): TTSAudioSegmen
     if (lastIdx < text.length) {
       const remaining = text.slice(lastIdx).trim();
       if (remaining) {
-        segments.push({ text: remaining, lang: 'ms' });
+        segments.push({ text: normalizeMalayTextForTTS(remaining), lang: 'ms' });
       }
     }
 
@@ -174,7 +222,7 @@ function segmentTextForTTS(rawText: string, contextLang: string): TTSAudioSegmen
   }
 
   // 3. Default: Pure Malay (Bahasa Melayu, Matematik, Sains, Pendidikan Islam)
-  return [{ text, lang: 'ms' }];
+  return [{ text: normalizeMalayTextForTTS(text), lang: 'ms' }];
 }
 
 function consolidateTTSSegments(segments: TTSAudioSegment[], defaultTargetLang: string): TTSAudioSegment[] {

@@ -17,7 +17,7 @@ import { WorksheetPrintView } from './components/WorksheetPrintView';
 import { StudentProfileModal } from './components/StudentProfileModal';
 import { LeaderboardView } from './components/LeaderboardView';
 import { CashVoucherModal } from './components/CashVoucherModal';
-import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target, GraduationCap } from 'lucide-react';
+import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target, GraduationCap, CheckCircle2 } from 'lucide-react';
 import { stopSpeech } from './utils/speech';
 import {
   getTodayDateString,
@@ -31,10 +31,19 @@ import { getStoredProfiles, getActiveProfile } from './utils/studentProfiles';
 import { getEffectiveStudentScore } from './utils/leaderboardService';
 import { getClaimableVouchersCount } from './utils/voucherService';
 import { getAdaptiveReviewQuestions } from './utils/adaptiveReview';
+import {
+  getSavedQuizSession,
+  saveQuizSession,
+  clearSavedQuizSession,
+  SavedQuizSession,
+} from './utils/quizSessionPersistence';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'quiz' | 'leaderboard' | 'generator' | 'print'>('quiz');
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
+
+  // Retrieve saved in-progress quiz session from localStorage on initial boot
+  const initialSavedSession = useMemo(() => getSavedQuizSession(), []);
 
   // Dynamic live date string that checks for midnight day change automatically!
   const [todayDateStr, setTodayDateStr] = useState<string>(() => getTodayDateString());
@@ -75,20 +84,23 @@ export default function App() {
   const [isVoucherModalOpen, setIsVoucherModalOpen] = useState<boolean>(false);
 
   // Quiz Mode: 'practice' (topical) vs 'daily' (daily challenge) vs 'adaptive' (adaptive review lowest 20%)
-  const [quizMode, setQuizMode] = useState<QuizMode>('practice');
-  const [dailySubject, setDailySubject] = useState<Subject | 'all'>('all');
-  const [adaptiveSubject, setAdaptiveSubject] = useState<Subject | 'all'>('all');
+  const [quizMode, setQuizMode] = useState<QuizMode>(() => initialSavedSession?.quizMode || 'practice');
+  const [dailySubject, setDailySubject] = useState<Subject | 'all'>(() => initialSavedSession?.dailySubject || 'all');
+  const [adaptiveSubject, setAdaptiveSubject] = useState<Subject | 'all'>(() => initialSavedSession?.adaptiveSubject || 'all');
   const [adaptiveVersion, setAdaptiveVersion] = useState<number>(0);
 
   // Daily Streak Data
   const [streakData, setStreakData] = useState<DailyStreakData>(() => getDailyStreakData());
   const [completedToday, setCompletedToday] = useState<boolean>(() => isTodayCompleted());
 
-  // Filter criteria (defaults to active student's year if present)
-  const [selectedYear, setSelectedYear] = useState<YearLevel>(() => (activeProfile?.year ? activeProfile.year : 2));
-  const [selectedSubject, setSelectedSubject] = useState<Subject>('Matematik');
-  const [selectedTopicId, setSelectedTopicId] = useState<string>('all');
-  const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
+  // Filter criteria (defaults to saved session or active student's year if present)
+  const [selectedYear, setSelectedYear] = useState<YearLevel>(() => {
+    if (initialSavedSession?.selectedYear) return initialSavedSession.selectedYear;
+    return activeProfile?.year ? activeProfile.year : 2;
+  });
+  const [selectedSubject, setSelectedSubject] = useState<Subject>(() => initialSavedSession?.selectedSubject || 'Matematik');
+  const [selectedTopicId, setSelectedTopicId] = useState<string>(() => initialSavedSession?.selectedTopicId || 'all');
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string>(() => initialSavedSession?.selectedDifficulty || 'all');
 
   // Sync year with active student profile when changed
   const handleProfileChange = useCallback((newProfile: StudentProfile | null) => {
@@ -108,10 +120,17 @@ export default function App() {
   // Question bank (includes initial + any AI generated ones)
   const [questionBank, setQuestionBank] = useState<QuizQuestion[]>(INITIAL_KSSR_QUESTIONS);
 
-  // Active Quiz State
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-  const [userAnswers, setUserAnswers] = useState<Record<string, QuizUserAnswer>>({});
-  const [isQuizFinished, setIsQuizFinished] = useState<boolean>(false);
+  // Active Quiz State (restored automatically from localStorage)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(() => initialSavedSession?.currentQuestionIndex || 0);
+  const [userAnswers, setUserAnswers] = useState<Record<string, QuizUserAnswer>>(() => initialSavedSession?.userAnswers || {});
+  const [isQuizFinished, setIsQuizFinished] = useState<boolean>(() => initialSavedSession?.isQuizFinished || false);
+  const [wasSessionResumed, setWasSessionResumed] = useState<boolean>(() => {
+    return Boolean(
+      initialSavedSession &&
+        !initialSavedSession.isQuizFinished &&
+        (Object.keys(initialSavedSession.userAnswers || {}).length > 0 || initialSavedSession.currentQuestionIndex > 0)
+    );
+  });
 
   // Effective Score & Claimable Vouchers
   const effectiveScore = useMemo(() => {
@@ -173,22 +192,95 @@ export default function App() {
 
   // Active questions set depending on current mode
   const activeQuestions = useMemo(() => {
+    let baseList: QuizQuestion[] = [];
     if (quizMode === 'daily') {
-      return dailyQuestions;
+      baseList = dailyQuestions;
+    } else if (quizMode === 'adaptive') {
+      baseList = adaptiveReviewResult.questions;
+    } else {
+      baseList = filteredQuestions;
     }
-    if (quizMode === 'adaptive') {
-      return adaptiveReviewResult.questions;
-    }
-    return filteredQuestions;
-  }, [quizMode, dailyQuestions, adaptiveReviewResult.questions, filteredQuestions]);
 
-  // Reset quiz progress when filter criteria change
+    // If an in-progress saved session exists for this exact mode/filter, preserve original question order
+    if (
+      initialSavedSession &&
+      initialSavedSession.quizMode === quizMode &&
+      initialSavedSession.selectedYear === selectedYear &&
+      initialSavedSession.selectedSubject === selectedSubject &&
+      initialSavedSession.questionIds &&
+      initialSavedSession.questionIds.length > 0
+    ) {
+      const map = new Map(baseList.map((q) => [q.id, q]));
+      const matched = initialSavedSession.questionIds
+        .map((id) => map.get(id))
+        .filter((q): q is QuizQuestion => Boolean(q));
+
+      const matchedIds = new Set(matched.map((q) => q.id));
+      const remaining = baseList.filter((q) => !matchedIds.has(q.id));
+      if (matched.length > 0) {
+        return [...matched, ...remaining];
+      }
+    }
+
+    return baseList;
+  }, [quizMode, dailyQuestions, adaptiveReviewResult.questions, filteredQuestions, initialSavedSession, selectedYear, selectedSubject]);
+
+  // Reset quiz progress when filter criteria change or on explicit restart
   const resetQuizProgress = useCallback(() => {
     stopSpeech();
     setCurrentQuestionIndex(0);
     setUserAnswers({});
     setIsQuizFinished(false);
+    setWasSessionResumed(false);
+    clearSavedQuizSession();
   }, []);
+
+  // Ensure current question index is never out of bounds
+  useEffect(() => {
+    if (activeQuestions.length > 0 && currentQuestionIndex >= activeQuestions.length && !isQuizFinished) {
+      setCurrentQuestionIndex(Math.max(0, activeQuestions.length - 1));
+    }
+  }, [activeQuestions.length, currentQuestionIndex, isQuizFinished]);
+
+  // Automatically persist active quiz session progress to localStorage
+  useEffect(() => {
+    if (activeQuestions.length === 0) return;
+
+    const hasProgress =
+      Object.keys(userAnswers).length > 0 || currentQuestionIndex > 0 || isQuizFinished;
+
+    if (hasProgress) {
+      saveQuizSession({
+        quizMode,
+        selectedYear,
+        selectedSubject,
+        selectedTopicId,
+        selectedDifficulty,
+        dailySubject,
+        adaptiveSubject,
+        studentId: activeProfile?.id,
+        todayDateStr,
+        currentQuestionIndex,
+        userAnswers,
+        isQuizFinished,
+        questionIds: activeQuestions.map((q) => q.id),
+      });
+    }
+  }, [
+    quizMode,
+    selectedYear,
+    selectedSubject,
+    selectedTopicId,
+    selectedDifficulty,
+    dailySubject,
+    adaptiveSubject,
+    activeProfile?.id,
+    todayDateStr,
+    currentQuestionIndex,
+    userAnswers,
+    isQuizFinished,
+    activeQuestions,
+  ]);
 
   const handleYearChange = (year: YearLevel) => {
     setSelectedYear(year);
@@ -586,6 +678,38 @@ export default function App() {
                 </button>
               </div>
             </div>
+
+            {/* Resumed In-Progress Quiz Session Notification */}
+            {wasSessionResumed && !isQuizFinished && activeQuestions.length > 0 && (
+              <div className="mb-4 bg-gradient-to-r from-emerald-50 via-teal-50 to-sky-50 border border-emerald-200/90 rounded-xl p-3 sm:px-4 flex flex-wrap items-center justify-between gap-2 text-xs text-emerald-950 shadow-2xs">
+                <div className="flex items-center gap-2.5">
+                  <span className="p-1 rounded-lg bg-emerald-100 text-emerald-700 shrink-0">
+                    <RotateCcw className="w-4 h-4" />
+                  </span>
+                  <div>
+                    <span className="font-bold text-emerald-900">Sesi Kuiz Disambung:</span>
+                    <span className="ml-1 text-emerald-800">
+                      Kemajuan anda telah dimuatkan secara automatik dari localStorage (Soalan {currentQuestionIndex + 1} daripada {activeQuestions.length}).
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={resetQuizProgress}
+                    className="px-2.5 py-1 rounded-lg bg-white border border-emerald-300 text-emerald-800 hover:bg-emerald-100 font-semibold transition cursor-pointer text-xs"
+                  >
+                    Mula Semula dari Awal
+                  </button>
+                  <button
+                    onClick={() => setWasSessionResumed(false)}
+                    className="px-2 py-1 text-emerald-700 hover:text-emerald-950 font-bold cursor-pointer"
+                    title="Tutup Notifikasi"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+            )}
 
             {/* Quiz Card or Summary */}
             {activeQuestions.length === 0 ? (
