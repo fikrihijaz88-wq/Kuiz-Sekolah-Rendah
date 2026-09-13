@@ -156,3 +156,43 @@ export interface StudentVoucherClaim {
   redeemedAt?: string;
 }
 
+export type QuizMode = 'practice' | 'daily' | 'adaptive';
+
+export interface StudentAttemptRecord {
+  id?: string;
+  studentId: string;
+  questionId: string;
+  year: YearLevel;
+  subject: Subject;
+  topic: string;
+  subtopic?: string;
+  difficulty: QuestionDifficulty;
+  isCorrect: boolean;
+  selectedOption: 'A' | 'B' | 'C' | 'D' | null;
+  correctAnswer: 'A' | 'B' | 'C' | 'D';
+  timestamp: number;
+  timeSpentSeconds?: number;
+}
+
+export interface TopicPerformanceSummary {
+  topic: string;
+  subject: Subject;
+  year: YearLevel;
+  totalAttempts: number;
+  correctCount: number;
+  wrongCount: number;
+  accuracyRate: number; // 0 - 100%
+  lastAttempted: number;
+  mistakeQuestionIds: string[];
+  isLowestTwentyPercent?: boolean;
+}
+
+export interface AdaptiveReviewResult {
+  questions: QuizQuestion[];
+  targetTopics: TopicPerformanceSummary[];
+  struggleTopicsCount: number;
+  totalTopicsInHistory: number;
+  isFromStruggleHistory: boolean;
+  diagnosticNote: string;
+}
+

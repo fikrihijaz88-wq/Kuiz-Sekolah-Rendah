@@ -1,11 +1,11 @@
 import React from 'react';
 import { Calendar, Flame, Trophy, CheckCircle2, Clock, Sparkles, BookOpen, Layers } from 'lucide-react';
-import { YearLevel, Subject } from '../types';
+import { YearLevel, Subject, QuizMode } from '../types';
 import { getFormattedMalayDate, getTodayDateString, DailyStreakData } from '../utils/dailyChallenge';
 
 interface DailyChallengeBannerProps {
-  quizMode: 'practice' | 'daily';
-  onToggleMode: (mode: 'practice' | 'daily') => void;
+  quizMode: QuizMode;
+  onToggleMode: (mode: QuizMode) => void;
   streakData: DailyStreakData;
   isCompletedToday: boolean;
   selectedYear: YearLevel;
@@ -132,29 +132,21 @@ export const DailyChallengeBanner: React.FC<DailyChallengeBannerProps> = ({
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
             Tahap Persekolahan
           </label>
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              id="daily-select-year-2"
-              onClick={() => onSelectYear(2)}
-              className={`py-2 px-3 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                selectedYear === 2
-                  ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
-                  : 'border-slate-200 hover:bg-slate-50 text-slate-700'
-              }`}
-            >
-              <span>Tahun 2 (Tahap 1)</span>
-            </button>
-            <button
-              id="daily-select-year-4"
-              onClick={() => onSelectYear(4)}
-              className={`py-2 px-3 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
-                selectedYear === 4
-                  ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
-                  : 'border-slate-200 hover:bg-slate-50 text-slate-700'
-              }`}
-            >
-              <span>Tahun 4 (Tahap 2)</span>
-            </button>
+          <div className="grid grid-cols-3 gap-1.5">
+            {([2, 4, 5] as YearLevel[]).map((yr) => (
+              <button
+                key={yr}
+                id={`daily-select-year-${yr}`}
+                onClick={() => onSelectYear(yr)}
+                className={`py-2 px-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer ${
+                  selectedYear === yr
+                    ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                <span>Tahun {yr}</span>
+              </button>
+            ))}
           </div>
         </div>
 

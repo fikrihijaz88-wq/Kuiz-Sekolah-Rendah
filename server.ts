@@ -715,7 +715,7 @@ function generateFallbackKSSRQuestions(year: number, subject: string, topic: str
         }
       );
     }
-  } else {
+  } else if (Number(year) === 4) {
     // YEAR 4
     if (subject === 'Matematik') {
       bank.push(
@@ -1128,6 +1128,143 @@ function generateFallbackKSSRQuestions(year: number, subject: string, topic: str
           correctAnswer: 'B',
           explanation: 'Excellent! "But" introduces a contrasting feeling.',
           learningStandard: 'CEFR A2 Grammar - Connectors of Contrast',
+        }
+      );
+    }
+  } else if (Number(year) === 5) {
+    // YEAR 5
+    if (subject === 'Matematik') {
+      bank.push(
+        {
+          id: `t5-m-${Date.now()}-1`,
+          year: 5,
+          subject: 'Matematik',
+          topic: topic || 'Nombor Bulat dan Operasi Asas hingga 1,000,000',
+          subtopic: 'Nombor Perdana',
+          difficulty: 'Sederhana',
+          question: 'Antara nombor berikut, yang manakah merupakan NOMBOR PERDANA dalam lingkungan 20?',
+          options: { A: '15', B: '17', C: '21', D: '27' },
+          correctAnswer: 'B',
+          explanation: 'Hebat! 17 hanya boleh dibahagi dengan 1 dan dirinya sendiri tanpa baki, menjadikannya nombor perdana.',
+          learningStandard: 'SK 1.2 / SP 1.2.1',
+        },
+        {
+          id: `t5-m-${Date.now()}-2`,
+          year: 5,
+          subject: 'Matematik',
+          topic: topic || 'Pecahan, Perpuluhan dan Peratus',
+          subtopic: 'Pendaraban Pecahan',
+          difficulty: 'Sederhana',
+          question: 'Hitung nilai bagi: 2/3 × 18 = ?',
+          options: { A: '12', B: '9', C: '6', D: '15' },
+          correctAnswer: 'A',
+          explanation: 'Syabas! 2/3 × 18 = (2 × 18) ÷ 3 = 36 ÷ 3 = 12.',
+          learningStandard: 'SK 2.1 / SP 2.1.1',
+        },
+        {
+          id: `t5-m-${Date.now()}-3`,
+          year: 5,
+          subject: 'Matematik',
+          topic: topic || 'Wang hingga RM1,000,000 & Celik Kewangan',
+          subtopic: 'Diskaun & Simpanan',
+          difficulty: 'KBAT (Aras Sederhana)',
+          question: 'Harga asal sebuah komputer riba ialah RM3,000. Kedai memberikan diskaun sebanyak 20%. Berapakah harga komputer riba selepas diskaun?',
+          options: { A: 'RM2,400', B: 'RM2,600', C: 'RM2,800', D: 'RM2,200' },
+          correctAnswer: 'A',
+          explanation: 'Tepat sekali! Nilai diskaun = 20% × RM3,000 = RM600. Harga bayaran = RM3,000 - RM600 = RM2,400.',
+          learningStandard: 'SK 3.3 / SP 3.3.1',
+        }
+      );
+    } else if (subject === 'Sains') {
+      bank.push(
+        {
+          id: `t5-s-${Date.now()}-1`,
+          year: 5,
+          subject: 'Sains',
+          topic: topic || 'Manusia: Sistem Rangka & Peredaran Darah',
+          subtopic: 'Fungsi Jantung & Salur Darah',
+          difficulty: 'Sederhana',
+          question: 'Apakah fungsi utama organ JANTUNG dalam sistem peredaran darah manusia?',
+          options: {
+            A: 'Mengepam darah ke seluruh tubuh dan peparu',
+            B: 'Menyerap nutrien makanan yang tercerna',
+            C: 'Menyingkirkan sisa karbon dioksida melalui urin',
+            D: 'Menghasilkan sel darah merah baharu',
+          },
+          correctAnswer: 'A',
+          explanation: 'Bagus! Jantung bertindak sebagai pam utama yang mengepam darah beroksigen ke seluruh tubuh dan darah terdeoksigen ke peparu.',
+          learningStandard: 'SK 2.2 / SP 2.2.2',
+        },
+        {
+          id: `t5-s-${Date.now()}-2`,
+          year: 5,
+          subject: 'Sains',
+          topic: topic || 'Elektrik: Litar Bersiri & Litar Selari',
+          subtopic: 'Kecerahan Mentol dalam Litar',
+          difficulty: 'KBAT (Aras Sederhana)',
+          question: 'Mengapakah mentol dalam litar selari menyala lebih terang berbanding litar bersiri dengan bilangan mentol dan sel kering yang sama?',
+          options: {
+            A: 'Kerana setiap mentol menerima voltan penuh melalui laluan arus yang berasingan',
+            B: 'Kerana litar selari menggunakan rintangan yang lebih tinggi',
+            C: 'Kerana arus elektrik tidak mengalir melalui sel kering',
+            D: 'Kerana mentol litar selari mempunyai saiz wayar yang lebih besar',
+          },
+          correctAnswer: 'A',
+          explanation: 'Pintar! Dalam litar selari, setiap cabang menerima voltan penuh punca kuasa secara bebas.',
+          learningStandard: 'SK 5.2 / SP 5.2.3',
+        }
+      );
+    } else if (subject === 'Bahasa Melayu') {
+      bank.push(
+        {
+          id: `t5-bm-${Date.now()}-1`,
+          year: 5,
+          subject: 'Bahasa Melayu',
+          topic: topic || 'Morfologi & Golongan Kata Lanjutan',
+          subtopic: 'Kata Pemeri (ialah vs adalah)',
+          difficulty: 'Sederhana',
+          question: 'Pilih ayat yang menggunakan kata pemeri "ialah" dengan tepat:',
+          options: {
+            A: 'Encik Rosli ialah guru besar di sekolah kami.',
+            B: 'Hadiah kemenangan itu ialah untuk adik.',
+            C: 'Keputusan peperiksaan itu ialah sangat cemerlang.',
+            D: 'Sumbangan ini ialah daripada pihak persatuan.',
+          },
+          correctAnswer: 'A',
+          explanation: 'Bagus! Kata pemeri "ialah" hadir di hadapan frasa nama (guru besar).',
+          learningStandard: 'SP 5.1.4',
+        }
+      );
+    } else if (subject === 'Pendidikan Islam') {
+      bank.push(
+        {
+          id: `t5-pi-${Date.now()}-1`,
+          year: 5,
+          subject: 'Pendidikan Islam',
+          topic: topic || 'Al-Quran & Tajwid (Hukum Mim Sakinah & Surah Pilihan)',
+          subtopic: 'Hukum Ikhfa Syafawi',
+          difficulty: 'Sederhana',
+          question: 'Hukum Ikhfa Syafawi berlaku apabila huruf Mim Sakinah (مْ) bertemu dengan huruf:',
+          options: { A: 'Ba (ب)', B: 'Mim (م)', C: 'Wau (و)', D: 'Nun (ن)' },
+          correctAnswer: 'A',
+          explanation: 'Tahniah! Ikhfa Syafawi berlaku apabila huruf Mim Sakinah (مْ) bertemu dengan satu huruf sahaja iaitu Ba (ب) dibaca secara dengung 2 harakat.',
+          learningStandard: 'Bidang Al-Quran & Tajwid Tahun 5',
+        }
+      );
+    } else {
+      bank.push(
+        {
+          id: `t5-e-${Date.now()}-1`,
+          year: 5,
+          subject: 'Bahasa Inggeris',
+          topic: topic || 'Towns, Cities & Comparative Superlatives',
+          subtopic: 'Superlative Adjectives',
+          difficulty: 'Sederhana',
+          question: 'Mount Kinabalu is the _______ peak in Malaysia.',
+          options: { A: 'higher', B: 'highest', C: 'high', D: 'most high' },
+          correctAnswer: 'B',
+          explanation: 'Spot on! For the highest degree among all mountains, we use the superlative "highest".',
+          learningStandard: 'CEFR A2 High Grammar - Superlatives',
         }
       );
     }

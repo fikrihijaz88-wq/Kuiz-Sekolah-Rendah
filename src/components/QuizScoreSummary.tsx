@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { QuizQuestion, QuizUserAnswer, StudentProfile } from '../types';
-import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck, Printer, User, UserPlus, Gift } from 'lucide-react';
+import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck, Printer, User, UserPlus, Gift, Target } from 'lucide-react';
 import { processQuizCompletion } from '../utils/achievementSystem';
 import { recordDailyChallengeCompleted, getDailyStreakData } from '../utils/dailyChallenge';
 import { calculateQuizScore, recordStudentQuizScore, getEffectiveStudentScore } from '../utils/leaderboardService';
 import { getClaimableVouchersCount, getNextTargetVoucher } from '../utils/voucherService';
+import { recordQuizAttemptHistory, getLowestScoringTopics } from '../utils/adaptiveReview';
 import { AchievementBadgesView } from './AchievementBadgesView';
 import { StudentAvatarIcon } from './StudentAvatarIcon';
 import { speakText } from '../utils/speech';
@@ -17,8 +18,10 @@ interface QuizScoreSummaryProps {
   onOpenPrint?: () => void;
   onOpenLeaderboard?: () => void;
   onOpenVouchers?: () => void;
+  onOpenAdaptiveReview?: () => void;
   soundEnabled?: boolean;
   isDailyChallenge?: boolean;
+  isAdaptiveMode?: boolean;
   onDailyChallengeCompleted?: () => void;
   activeProfile?: StudentProfile | null;
   onOpenProfileModal?: () => void;
@@ -32,8 +35,10 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
   onOpenPrint,
   onOpenLeaderboard,
   onOpenVouchers,
+  onOpenAdaptiveReview,
   soundEnabled = false,
   isDailyChallenge = false,
+  isAdaptiveMode = false,
   onDailyChallengeCompleted,
   activeProfile = null,
   onOpenProfileModal,
@@ -63,6 +68,12 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
       dailyResult ? dailyResult.newStreak : streakData.currentStreak
     )
   );
+
+  // Record questions into Adaptive Review Attempt History
+  useEffect(() => {
+    const targetStudentId = activeProfile?.id || 'active_guest_student';
+    recordQuizAttemptHistory(targetStudentId, questions, answers);
+  }, []);
 
   // Record points to leaderboard for active student or current session
   const [earnedLeaderboardPoints] = useState(() => {
@@ -222,6 +233,23 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
           </div>
         )}
 
+        {/* Adaptive Review Mode Completion Banner */}
+        {isAdaptiveMode && (
+          <div className="bg-gradient-to-r from-indigo-500/15 via-purple-500/15 to-indigo-500/10 border border-indigo-300 rounded-xl p-3.5 mb-6 max-w-md mx-auto flex items-center justify-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Target className="w-6 h-6 text-white" />
+            </div>
+            <div className="text-left">
+              <div className="text-xs font-bold uppercase tracking-wider text-indigo-900">
+                Ulang Kaji Pintar Selesai!
+              </div>
+              <div className="text-sm font-extrabold text-slate-900">
+                Topik Kelemahan Berjaya Diulang Kaji • Rekod Penguasaan Dikemaskini
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Score Ring / Number */}
         <div className="flex items-center justify-center gap-6 py-4 border-y border-slate-100 max-w-md mx-auto mb-6">
           <div>
@@ -307,6 +335,18 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3">
+          {onOpenAdaptiveReview && (
+            <button
+              id="btn-open-adaptive-review-from-summary"
+              onClick={onOpenAdaptiveReview}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm transition shadow-sm cursor-pointer"
+              title="Ulang kaji topik yang mencabar berdasarkan 20% skor terendah anda"
+            >
+              <Target className="w-4 h-4 text-indigo-200" />
+              <span>Ulang Kaji Topik Lemah (Adaptive)</span>
+            </button>
+          )}
+
           {onOpenVouchers && (
             <button
               id="btn-vouchers-action-summary"

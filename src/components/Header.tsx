@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, BookCheck, GraduationCap, Volume2, VolumeX, Flame, UserPlus, Users, Trophy, Gift, Printer } from 'lucide-react';
+import { Sparkles, BookCheck, GraduationCap, Volume2, VolumeX, Flame, UserPlus, Users, Trophy, Gift, Printer, Target } from 'lucide-react';
 import { StudentProfile } from '../types';
 import { StudentAvatarIcon } from './StudentAvatarIcon';
 
@@ -11,6 +11,8 @@ interface HeaderProps {
   dailyStreak?: number;
   isDailyMode?: boolean;
   onSelectDailyChallenge?: () => void;
+  isAdaptiveMode?: boolean;
+  onSelectAdaptiveReview?: () => void;
   activeProfile: StudentProfile | null;
   onOpenProfileModal: () => void;
   onOpenVouchers?: () => void;
@@ -25,6 +27,8 @@ export const Header: React.FC<HeaderProps> = ({
   dailyStreak = 0,
   isDailyMode = false,
   onSelectDailyChallenge,
+  isAdaptiveMode = false,
+  onSelectAdaptiveReview,
   activeProfile,
   onOpenProfileModal,
   onOpenVouchers,
@@ -49,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Tahun 2 & Tahun 4 • 5 Subjek Teras KPM (Matematik, Sains, B. Melayu, English, Pend. Islam)
+                Tahun 2, Tahun 4 & Tahun 5 • 5 Subjek Teras KPM (Matematik, Sains, BM, BI, Pendidikan Islam)
               </p>
             </div>
 
@@ -66,6 +70,23 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Navigation Controls */}
           <div className="flex items-center gap-2 w-full md:w-auto justify-center md:justify-end overflow-x-auto pb-1 md:pb-0">
+            {/* Adaptive Review Button */}
+            {onSelectAdaptiveReview && (
+              <button
+                id="nav-tab-adaptive-review"
+                onClick={onSelectAdaptiveReview}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition cursor-pointer whitespace-nowrap ${
+                  currentTab === 'quiz' && isAdaptiveMode
+                    ? 'bg-indigo-600 text-white shadow-sm'
+                    : 'bg-slate-800/90 text-indigo-300 hover:bg-slate-800 hover:text-white border border-indigo-500/40'
+                }`}
+                title="Ulang Kaji Pintar: Fokus 20% topik paling mencabar dan soalan kerap silap!"
+              >
+                <Target className="w-4 h-4 text-indigo-300" />
+                <span>Ulang Kaji Pintar</span>
+              </button>
+            )}
+
             {/* Cabaran Harian Button */}
             {onSelectDailyChallenge && (
               <button
@@ -94,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({
               id="nav-tab-quiz"
               onClick={() => onTabChange('quiz')}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition cursor-pointer whitespace-nowrap ${
-                currentTab === 'quiz' && !isDailyMode
+                currentTab === 'quiz' && !isDailyMode && !isAdaptiveMode
                   ? 'bg-amber-500 text-slate-950 font-semibold shadow-sm'
                   : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white'
               }`}

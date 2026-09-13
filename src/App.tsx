@@ -4,11 +4,12 @@
  */
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import { YearLevel, Subject, QuizQuestion, QuizUserAnswer, StudentProfile } from './types';
+import { YearLevel, Subject, QuizQuestion, QuizUserAnswer, StudentProfile, QuizMode } from './types';
 import { KSSR_TOPICS, INITIAL_KSSR_QUESTIONS } from './data/kssrQuestions';
 import { Header } from './components/Header';
 import { YearSubjectSelector } from './components/YearSubjectSelector';
 import { DailyChallengeBanner } from './components/DailyChallengeBanner';
+import { AdaptiveReviewBanner } from './components/AdaptiveReviewBanner';
 import { QuizCard } from './components/QuizCard';
 import { QuizScoreSummary } from './components/QuizScoreSummary';
 import { AIGeneratorView } from './components/AIGeneratorView';
@@ -16,7 +17,7 @@ import { WorksheetPrintView } from './components/WorksheetPrintView';
 import { StudentProfileModal } from './components/StudentProfileModal';
 import { LeaderboardView } from './components/LeaderboardView';
 import { CashVoucherModal } from './components/CashVoucherModal';
-import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar } from 'lucide-react';
+import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target } from 'lucide-react';
 import { stopSpeech } from './utils/speech';
 import {
   getTodayDateString,
@@ -29,6 +30,7 @@ import {
 import { getStoredProfiles, getActiveProfile } from './utils/studentProfiles';
 import { getEffectiveStudentScore } from './utils/leaderboardService';
 import { getClaimableVouchersCount } from './utils/voucherService';
+import { getAdaptiveReviewQuestions } from './utils/adaptiveReview';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'quiz' | 'leaderboard' | 'generator' | 'print'>('quiz');
@@ -72,9 +74,11 @@ export default function App() {
   // Cash Voucher Modal Management
   const [isVoucherModalOpen, setIsVoucherModalOpen] = useState<boolean>(false);
 
-  // Quiz Mode: 'practice' (topical) vs 'daily' (daily rotating challenge)
-  const [quizMode, setQuizMode] = useState<'practice' | 'daily'>('practice');
+  // Quiz Mode: 'practice' (topical) vs 'daily' (daily challenge) vs 'adaptive' (adaptive review lowest 20%)
+  const [quizMode, setQuizMode] = useState<QuizMode>('practice');
   const [dailySubject, setDailySubject] = useState<Subject | 'all'>('all');
+  const [adaptiveSubject, setAdaptiveSubject] = useState<Subject | 'all'>('all');
+  const [adaptiveVersion, setAdaptiveVersion] = useState<number>(0);
 
   // Daily Streak Data
   const [streakData, setStreakData] = useState<DailyStreakData>(() => getDailyStreakData());
@@ -126,7 +130,7 @@ export default function App() {
     );
   }, [selectedYear, selectedSubject]);
 
-  // Questions filtered for current quiz
+  // Questions filtered for current quiz (Practice Mode)
   const filteredQuestions = useMemo(() => {
     return questionBank.filter((q) => {
       if (q.year !== selectedYear) return false;
@@ -155,8 +159,28 @@ export default function App() {
     return getDailyQuestions(questionBank, todayDateStr, selectedYear, dailySubject, 5);
   }, [questionBank, todayDateStr, selectedYear, dailySubject]);
 
+  // Adaptive Review Questions: Surfaces questions from the lowest-scoring 20% of topics!
+  const adaptiveReviewResult = useMemo(() => {
+    const targetStudentId = activeProfile?.id || 'active_guest_student';
+    return getAdaptiveReviewQuestions({
+      questionBank,
+      studentId: targetStudentId,
+      year: selectedYear,
+      subject: adaptiveSubject,
+      count: 5,
+    });
+  }, [questionBank, activeProfile?.id, selectedYear, adaptiveSubject, adaptiveVersion]);
+
   // Active questions set depending on current mode
-  const activeQuestions = quizMode === 'daily' ? dailyQuestions : filteredQuestions;
+  const activeQuestions = useMemo(() => {
+    if (quizMode === 'daily') {
+      return dailyQuestions;
+    }
+    if (quizMode === 'adaptive') {
+      return adaptiveReviewResult.questions;
+    }
+    return filteredQuestions;
+  }, [quizMode, dailyQuestions, adaptiveReviewResult.questions, filteredQuestions]);
 
   // Reset quiz progress when filter criteria change
   const resetQuizProgress = useCallback(() => {
@@ -190,13 +214,23 @@ export default function App() {
     resetQuizProgress();
   };
 
-  const handleToggleMode = (mode: 'practice' | 'daily') => {
+  const handleToggleMode = (mode: QuizMode) => {
     setQuizMode(mode);
     resetQuizProgress();
   };
 
   const handleDailySubjectChange = (subject: Subject | 'all') => {
     setDailySubject(subject);
+    resetQuizProgress();
+  };
+
+  const handleAdaptiveSubjectChange = (subject: Subject | 'all') => {
+    setAdaptiveSubject(subject);
+    resetQuizProgress();
+  };
+
+  const handleRefreshAdaptive = () => {
+    setAdaptiveVersion((v) => v + 1);
     resetQuizProgress();
   };
 
@@ -314,6 +348,13 @@ export default function App() {
           setQuizMode('daily');
           resetQuizProgress();
         }}
+        isAdaptiveMode={quizMode === 'adaptive'}
+        onSelectAdaptiveReview={() => {
+          stopSpeech();
+          setActiveTab('quiz');
+          setQuizMode('adaptive');
+          resetQuizProgress();
+        }}
         activeProfile={activeProfile}
         onOpenProfileModal={() => handleOpenProfileModal(profiles.length === 0 ? 'register' : 'list')}
         onOpenVouchers={() => setIsVoucherModalOpen(true)}
@@ -324,18 +365,47 @@ export default function App() {
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {activeTab === 'quiz' && (
           <div>
-            {/* Daily Challenge Banner / Mode Controller */}
-            <DailyChallengeBanner
-              quizMode={quizMode}
-              onToggleMode={handleToggleMode}
-              streakData={streakData}
-              isCompletedToday={completedToday}
-              selectedYear={selectedYear}
-              onSelectYear={handleYearChange}
-              dailySubject={dailySubject}
-              onSelectDailySubject={handleDailySubjectChange}
-              totalDailyQuestions={dailyQuestions.length}
-            />
+            {/* Mode Banner Selection: Daily Challenge Banner or Adaptive Review Banner or Mode Controller */}
+            {quizMode === 'daily' && (
+              <DailyChallengeBanner
+                quizMode={quizMode}
+                onToggleMode={handleToggleMode}
+                streakData={streakData}
+                isCompletedToday={completedToday}
+                selectedYear={selectedYear}
+                onSelectYear={handleYearChange}
+                dailySubject={dailySubject}
+                onSelectDailySubject={handleDailySubjectChange}
+                totalDailyQuestions={dailyQuestions.length}
+              />
+            )}
+
+            {quizMode === 'adaptive' && (
+              <AdaptiveReviewBanner
+                quizMode={quizMode}
+                onToggleMode={handleToggleMode}
+                selectedYear={selectedYear}
+                onSelectYear={handleYearChange}
+                adaptiveSubject={adaptiveSubject}
+                onSelectAdaptiveSubject={handleAdaptiveSubjectChange}
+                adaptiveResult={adaptiveReviewResult}
+                onRefreshReview={handleRefreshAdaptive}
+              />
+            )}
+
+            {quizMode === 'practice' && (
+              <DailyChallengeBanner
+                quizMode={quizMode}
+                onToggleMode={handleToggleMode}
+                streakData={streakData}
+                isCompletedToday={completedToday}
+                selectedYear={selectedYear}
+                onSelectYear={handleYearChange}
+                dailySubject={dailySubject}
+                onSelectDailySubject={handleDailySubjectChange}
+                totalDailyQuestions={dailyQuestions.length}
+              />
+            )}
 
             {/* Active Student Greeting / Registration Prompt */}
             <div className="mb-4">
@@ -455,6 +525,11 @@ export default function App() {
                       <Flame className="w-4 h-4 text-orange-600 fill-orange-500" />
                       <span>Cabaran Harian: Set Soalan {getFormattedMalayDate(todayDateStr)}</span>
                     </>
+                  ) : quizMode === 'adaptive' ? (
+                    <>
+                      <Target className="w-4 h-4 text-indigo-600" />
+                      <span>Ulang Kaji Pintar: Fokus Topik 20% Terendah & Soalan Silap</span>
+                    </>
                   ) : (
                     <>
                       <BookOpen className="w-4 h-4 text-slate-600" />
@@ -533,8 +608,13 @@ export default function App() {
                 onOpenPrint={() => setActiveTab('print')}
                 onOpenLeaderboard={() => setActiveTab('leaderboard')}
                 onOpenVouchers={() => setIsVoucherModalOpen(true)}
+                onOpenAdaptiveReview={() => {
+                  setQuizMode('adaptive');
+                  resetQuizProgress();
+                }}
                 soundEnabled={soundEnabled}
                 isDailyChallenge={quizMode === 'daily'}
+                isAdaptiveMode={quizMode === 'adaptive'}
                 onDailyChallengeCompleted={() => {
                   setStreakData(getDailyStreakData());
                   setCompletedToday(true);
@@ -600,11 +680,11 @@ export default function App() {
             Dibina mengikut Dokumen Standard Kurikulum & Pentaksiran (DSKP) KSSR Semakan KPM.
           </p>
           <div className="flex items-center gap-4">
-            <span>Tahun 2 & Tahun 4</span>
+            <span>Tahun 2, Tahun 4 & Tahun 5</span>
             <span>•</span>
             <span>5 Subjek Teras KPM</span>
             <span>•</span>
-            <span>Cabaran Harian & Lembaran PDF</span>
+            <span>Ulang Kaji Pintar, Cabaran Harian & Lembaran PDF</span>
           </div>
         </div>
       </footer>
