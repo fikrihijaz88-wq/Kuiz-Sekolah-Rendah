@@ -244,7 +244,15 @@ export const QuizCard: React.FC<QuizCardProps> = ({
               </button>
             )}
             <span className="text-[11px] font-medium text-slate-400 hidden sm:inline">
-              {soundEnabled ? (isEnglish ? 'English Voice Active' : '🇲🇾 Suara BM Asli') : 'Audio Dimatikan'}
+              {soundEnabled
+                ? (isEnglish
+                    ? '🇬🇧 English Voice Active'
+                    : question.subject === 'Bahasa Arab'
+                    ? '🇲🇾 BM & 🇸🇦 Arab Asli'
+                    : question.subject === 'Bahasa Cina'
+                    ? '🇲🇾 BM & 🇨🇳 Mandarin Asli'
+                    : '🇲🇾 Suara BM Asli')
+                : 'Audio Dimatikan'}
             </span>
           </div>
         </div>

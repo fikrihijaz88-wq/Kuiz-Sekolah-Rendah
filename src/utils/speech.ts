@@ -118,6 +118,69 @@ export function getMalaysianVoice(): SpeechSynthesisVoice | null {
   return null;
 }
 
+interface ClientSpeechSegment {
+  text: string;
+  lang: 'ms' | 'ar' | 'zh' | 'en';
+}
+
+function segmentTextForWebSpeech(rawText: string, contextLang: 'ms' | 'en' | 'ar' | 'zh'): ClientSpeechSegment[] {
+  const text = rawText.trim();
+  if (!text) return [];
+
+  if (contextLang === 'en') {
+    return [{ text, lang: 'en' }];
+  }
+
+  const hasArabicChar = (str: string) => /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(str);
+  const hasChineseChar = (str: string) => /[\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF]/.test(str);
+
+  if (contextLang === 'ar' || hasArabicChar(text)) {
+    const segments: ClientSpeechSegment[] = [];
+    const arabicRegex = /([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+(?:[\s،؟؛\-]+[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+)*)/g;
+    let lastIdx = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = arabicRegex.exec(text)) !== null) {
+      if (match.index > lastIdx) {
+        const nonArabic = text.slice(lastIdx, match.index).trim();
+        if (nonArabic) segments.push({ text: prepareMalaySpokenText(nonArabic), lang: 'ms' });
+      }
+      const arabic = match[0].trim();
+      if (arabic) segments.push({ text: arabic, lang: 'ar' });
+      lastIdx = arabicRegex.lastIndex;
+    }
+    if (lastIdx < text.length) {
+      const rem = text.slice(lastIdx).trim();
+      if (rem) segments.push({ text: prepareMalaySpokenText(rem), lang: 'ms' });
+    }
+    return segments.length > 0 ? segments : [{ text, lang: 'ar' }];
+  }
+
+  if (contextLang === 'zh' || hasChineseChar(text)) {
+    const segments: ClientSpeechSegment[] = [];
+    const chineseRegex = /([\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF]+(?:[\s，。！？、\-]+[\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF]+)*)/g;
+    let lastIdx = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = chineseRegex.exec(text)) !== null) {
+      if (match.index > lastIdx) {
+        const nonChinese = text.slice(lastIdx, match.index).trim();
+        if (nonChinese) segments.push({ text: prepareMalaySpokenText(nonChinese), lang: 'ms' });
+      }
+      const chinese = match[0].trim();
+      if (chinese) segments.push({ text: chinese, lang: 'zh' });
+      lastIdx = chineseRegex.lastIndex;
+    }
+    if (lastIdx < text.length) {
+      const rem = text.slice(lastIdx).trim();
+      if (rem) segments.push({ text: prepareMalaySpokenText(rem), lang: 'ms' });
+    }
+    return segments.length > 0 ? segments : [{ text, lang: 'zh' }];
+  }
+
+  return [{ text: prepareMalaySpokenText(text), lang: 'ms' }];
+}
+
 /**
  * Fallback browser SpeechSynthesis in case audio stream is unavailable
  * STRICT CONDITION: If language is 'ms', it will ONLY speak if an authentic Malaysian
@@ -126,43 +189,47 @@ export function getMalaysianVoice(): SpeechSynthesisVoice | null {
 function speakViaWebSpeech(processedText: string, language: 'ms' | 'en' | 'ar' | 'zh') {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
   try {
-    const utterance = new SpeechSynthesisUtterance(processedText);
-    utterance.rate = 0.95;
-    utterance.pitch = 1.0;
-
+    const segments = segmentTextForWebSpeech(processedText, language);
     const voices = cachedVoices.length > 0 ? cachedVoices : window.speechSynthesis.getVoices();
 
-    if (language === 'ms') {
-      const malaysianVoice = getMalaysianVoice();
-      if (!malaysianVoice) {
-        console.warn('[Audio] Tiada suara Bahasa Melayu Malaysia (ms-MY) dalam pelayar. Menyekat suara Inggeris/Indonesia.');
-        return;
-      }
-      utterance.voice = malaysianVoice;
-      utterance.lang = malaysianVoice.lang || 'ms-MY';
-    } else if (language === 'ar') {
-      const arabicVoice = voices.find((v) => v.lang.startsWith('ar'));
-      if (arabicVoice) utterance.voice = arabicVoice;
-      utterance.lang = 'ar-SA';
-    } else if (language === 'zh') {
-      const chineseVoice = voices.find((v) => v.lang.startsWith('zh'));
-      if (chineseVoice) utterance.voice = chineseVoice;
-      utterance.lang = 'zh-CN';
-    } else {
-      const englishVoice = voices.find(
-        (v) =>
-          v.lang.startsWith('en-GB') ||
-          v.lang.startsWith('en-MY') ||
-          v.lang.startsWith('en-US') ||
-          v.lang.startsWith('en')
-      );
-      if (englishVoice) {
-        utterance.voice = englishVoice;
-      }
-      utterance.lang = 'en-GB';
-    }
+    for (const seg of segments) {
+      if (!seg.text.trim()) continue;
+      const utterance = new SpeechSynthesisUtterance(seg.text);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
 
-    window.speechSynthesis.speak(utterance);
+      if (seg.lang === 'ms') {
+        const malaysianVoice = getMalaysianVoice();
+        if (!malaysianVoice) {
+          console.warn('[Audio] Tiada suara Bahasa Melayu Malaysia (ms-MY) dalam pelayar.');
+          continue;
+        }
+        utterance.voice = malaysianVoice;
+        utterance.lang = malaysianVoice.lang || 'ms-MY';
+      } else if (seg.lang === 'ar') {
+        const arabicVoice = voices.find((v) => v.lang.startsWith('ar'));
+        if (arabicVoice) utterance.voice = arabicVoice;
+        utterance.lang = 'ar-SA';
+      } else if (seg.lang === 'zh') {
+        const chineseVoice = voices.find((v) => v.lang.startsWith('zh'));
+        if (chineseVoice) utterance.voice = chineseVoice;
+        utterance.lang = 'zh-CN';
+      } else {
+        const englishVoice = voices.find(
+          (v) =>
+            v.lang.startsWith('en-GB') ||
+            v.lang.startsWith('en-MY') ||
+            v.lang.startsWith('en-US') ||
+            v.lang.startsWith('en')
+        );
+        if (englishVoice) {
+          utterance.voice = englishVoice;
+        }
+        utterance.lang = 'en-GB';
+      }
+
+      window.speechSynthesis.speak(utterance);
+    }
   } catch (err) {
     console.warn('Web Speech API fallback error:', err);
   }

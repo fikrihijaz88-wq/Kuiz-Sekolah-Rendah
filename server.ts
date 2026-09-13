@@ -91,7 +91,138 @@ const questionSchema = {
 // In-memory cache for generated TTS audio to ensure ultra-fast repeated playback
 const ttsCache = new Map<string, Buffer>();
 
-// API Endpoint for Authentic Native Malaysian Malay (ms) & English (en) Audio TTS
+interface TTSAudioSegment {
+  text: string;
+  lang: string;
+}
+
+// Intelligent multilingual text segmentation
+function segmentTextForTTS(rawText: string, contextLang: string): TTSAudioSegment[] {
+  const text = rawText.trim();
+  if (!text) return [];
+
+  // English subject: pure English
+  if (contextLang === 'en') {
+    return [{ text, lang: 'en' }];
+  }
+
+  const hasArabicChar = (str: string) => /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(str);
+  const hasChineseChar = (str: string) => /[\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF]/.test(str);
+
+  // 1. Arabic context or text containing Arabic characters
+  if (contextLang === 'ar' || hasArabicChar(text)) {
+    const segments: TTSAudioSegment[] = [];
+    // Match Arabic word sequences (including Arabic diacritics, harakat, punctuation like ، ؟)
+    const arabicRegex = /([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+(?:[\s،؟؛\-]+[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+)*)/g;
+    let lastIdx = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = arabicRegex.exec(text)) !== null) {
+      if (match.index > lastIdx) {
+        const nonArabic = text.slice(lastIdx, match.index).trim();
+        if (nonArabic) {
+          segments.push({ text: nonArabic, lang: 'ms' });
+        }
+      }
+      const arabic = match[0].trim();
+      if (arabic) {
+        segments.push({ text: arabic, lang: 'ar' });
+      }
+      lastIdx = arabicRegex.lastIndex;
+    }
+
+    if (lastIdx < text.length) {
+      const remaining = text.slice(lastIdx).trim();
+      if (remaining) {
+        segments.push({ text: remaining, lang: 'ms' });
+      }
+    }
+
+    return consolidateTTSSegments(segments, 'ar');
+  }
+
+  // 2. Chinese context or text containing Chinese characters
+  if (contextLang === 'zh' || contextLang === 'zh-cn' || hasChineseChar(text)) {
+    const segments: TTSAudioSegment[] = [];
+    // Match Chinese characters sequences (including Chinese punctuation like ，。！？)
+    const chineseRegex = /([\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF]+(?:[\s，。！？、\-]+[\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF]+)*)/g;
+    let lastIdx = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = chineseRegex.exec(text)) !== null) {
+      if (match.index > lastIdx) {
+        const nonChinese = text.slice(lastIdx, match.index).trim();
+        if (nonChinese) {
+          segments.push({ text: nonChinese, lang: 'ms' });
+        }
+      }
+      const chinese = match[0].trim();
+      if (chinese) {
+        segments.push({ text: chinese, lang: 'zh-CN' });
+      }
+      lastIdx = chineseRegex.lastIndex;
+    }
+
+    if (lastIdx < text.length) {
+      const remaining = text.slice(lastIdx).trim();
+      if (remaining) {
+        segments.push({ text: remaining, lang: 'ms' });
+      }
+    }
+
+    return consolidateTTSSegments(segments, 'zh-CN');
+  }
+
+  // 3. Default: Pure Malay (Bahasa Melayu, Matematik, Sains, Pendidikan Islam)
+  return [{ text, lang: 'ms' }];
+}
+
+function consolidateTTSSegments(segments: TTSAudioSegment[], defaultTargetLang: string): TTSAudioSegment[] {
+  const consolidated: TTSAudioSegment[] = [];
+
+  for (const seg of segments) {
+    // Strip empty surrounding punctuation
+    const cleaned = seg.text.replace(/^["'“”‘’\(\)\[\]{}—–_]+|["'“”‘’\(\)\[\]{}—–_]+$/g, '').trim();
+    if (!cleaned) continue;
+
+    if (consolidated.length > 0 && consolidated[consolidated.length - 1].lang === seg.lang) {
+      consolidated[consolidated.length - 1].text += '. ' + cleaned;
+    } else {
+      consolidated.push({ text: cleaned, lang: seg.lang });
+    }
+  }
+
+  return consolidated.length > 0 ? consolidated : [{ text: '', lang: defaultTargetLang }];
+}
+
+async function fetchGoogleTTSChunk(chunk: string, ttsLang: string): Promise<Buffer> {
+  const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=${ttsLang}&client=tw-ob`;
+  let lastErr: any = null;
+
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+          'Referer': 'https://translate.google.com/',
+        },
+      });
+
+      if (response.ok) {
+        const arrBuf = await response.arrayBuffer();
+        return Buffer.from(arrBuf);
+      } else {
+        lastErr = new Error(`TTS status ${response.status}`);
+      }
+    } catch (e) {
+      lastErr = e;
+    }
+  }
+
+  throw lastErr || new Error('TTS service failed');
+}
+
+// API Endpoint for Authentic Multilingual Audio TTS (Native Malaysian Malay for BM statements, Native Arabic for Arabic words, Native Mandarin for Chinese words)
 app.get('/api/tts', async (req, res) => {
   try {
     const text = (req.query.text as string || '').trim();
@@ -101,9 +232,8 @@ app.get('/api/tts', async (req, res) => {
       return res.status(400).json({ error: 'Text parameter is required' });
     }
 
-    const sanitizedText = text.slice(0, 1200);
-    const ttsLang = lang === 'en' ? 'en' : lang === 'ar' ? 'ar' : (lang === 'zh' || lang === 'zh-cn') ? 'zh-CN' : 'ms';
-    const cacheKey = `${ttsLang}:${sanitizedText}`;
+    const sanitizedText = text.slice(0, 1500);
+    const cacheKey = `${lang}:${sanitizedText}`;
 
     if (ttsCache.has(cacheKey)) {
       const cached = ttsCache.get(cacheKey)!;
@@ -114,64 +244,49 @@ app.get('/api/tts', async (req, res) => {
       return res.send(cached);
     }
 
-    // Split text cleanly by sentence/punctuation boundaries without breaking decimal points
-    const rawParts = sanitizedText.split(/(?<=[.?!;:,])\s+|\n+/);
-    const chunks: string[] = [];
-    let current = '';
-
-    for (const part of rawParts) {
-      if (!part.trim()) continue;
-      if ((current + ' ' + part).length > 175) {
-        if (current.trim()) chunks.push(current.trim());
-        current = part;
-      } else {
-        current = current ? current + ' ' + part : part;
-      }
-    }
-    if (current.trim()) chunks.push(current.trim());
-
-    if (chunks.length === 0) {
-      chunks.push(sanitizedText.slice(0, 175));
-    }
-
+    // Segment text by language boundaries (Malay for BM statements, Arabic for Arabic words, Chinese for Hanzi)
+    const segments = segmentTextForTTS(sanitizedText, lang);
     const audioBuffers: Buffer[] = [];
-    for (const chunk of chunks) {
-      if (!chunk.trim()) continue;
-      const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=${ttsLang}&client=tw-ob`;
-      
-      let resOk = false;
-      let lastErr: any = null;
-      for (let attempt = 0; attempt < 2; attempt++) {
-        try {
-          const response = await fetch(url, {
-            headers: {
-              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-              'Referer': 'https://translate.google.com/',
-            },
-          });
 
-          if (response.ok) {
-            const arrBuf = await response.arrayBuffer();
-            audioBuffers.push(Buffer.from(arrBuf));
-            resOk = true;
-            break;
-          } else {
-            lastErr = new Error(`TTS status ${response.status}`);
-          }
-        } catch (e) {
-          lastErr = e;
+    for (const seg of segments) {
+      if (!seg.text.trim()) continue;
+
+      // Subdivide long segments into safe speech chunks (max ~170 chars)
+      const rawParts = seg.text.split(/(?<=[.?!;:,])\s+|\n+/);
+      const subChunks: string[] = [];
+      let current = '';
+
+      for (const part of rawParts) {
+        if (!part.trim()) continue;
+        if ((current + ' ' + part).length > 170) {
+          if (current.trim()) subChunks.push(current.trim());
+          current = part;
+        } else {
+          current = current ? current + ' ' + part : part;
         }
       }
+      if (current.trim()) subChunks.push(current.trim());
+      if (subChunks.length === 0) subChunks.push(seg.text.slice(0, 170));
 
-      if (!resOk) {
-        throw lastErr || new Error('TTS service failed');
+      for (const chunk of subChunks) {
+        if (!chunk.trim()) continue;
+        try {
+          const buf = await fetchGoogleTTSChunk(chunk, seg.lang);
+          audioBuffers.push(buf);
+        } catch (err: any) {
+          console.warn(`[TTS] Failed to fetch segment "${chunk.slice(0, 30)}..." in ${seg.lang}:`, err.message);
+        }
       }
+    }
+
+    if (audioBuffers.length === 0) {
+      return res.status(500).json({ error: 'Failed to synthesize audio segments' });
     }
 
     const combinedBuffer = Buffer.concat(audioBuffers);
 
-    // Keep cache bounded to 500 recent clips
-    if (ttsCache.size > 500) {
+    // Keep cache bounded to 600 recent clips
+    if (ttsCache.size > 600) {
       const oldestKey = ttsCache.keys().next().value;
       if (oldestKey) ttsCache.delete(oldestKey);
     }
