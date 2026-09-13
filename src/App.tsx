@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { YearLevel, Subject, QuizQuestion, QuizUserAnswer, StudentProfile, QuizMode } from './types';
 import { KSSR_TOPICS, INITIAL_KSSR_QUESTIONS } from './data/kssrQuestions';
 import { Header } from './components/Header';
@@ -131,6 +131,9 @@ export default function App() {
         (Object.keys(initialSavedSession.userAnswers || {}).length > 0 || initialSavedSession.currentQuestionIndex > 0)
     );
   });
+
+  // Cooldown ref to prevent ghost clicks / double clicks across question transitions
+  const lastTransitionTimeRef = useRef<number>(0);
 
   // Effective Score & Claimable Vouchers
   const effectiveScore = useMemo(() => {
@@ -334,9 +337,15 @@ export default function App() {
   };
 
   // Handle student selecting an answer option
-  const handleSelectOption = (optionKey: 'A' | 'B' | 'C' | 'D') => {
+  const handleSelectOption = (optionKey: 'A' | 'B' | 'C' | 'D', questionId?: string) => {
     const currentQ = activeQuestions[currentQuestionIndex];
-    if (!currentQ || userAnswers[currentQ.id]) return;
+    if (!currentQ) return;
+    // Guard against selecting an option for an old/mismatched question ID
+    if (questionId && questionId !== currentQ.id) return;
+    // Guard against selecting if already answered
+    if (userAnswers[currentQ.id]) return;
+    // Guard against rapid ghost clicks or double-tap bleed through within 350ms of transition
+    if (Date.now() - lastTransitionTimeRef.current < 350) return;
 
     const isCorrect = optionKey === currentQ.correctAnswer;
     const answerObj: QuizUserAnswer = {
@@ -346,15 +355,23 @@ export default function App() {
       timeSpentSeconds: 0,
     };
 
-    setUserAnswers((prev) => ({
-      ...prev,
-      [currentQ.id]: answerObj,
-    }));
+    setUserAnswers((prev) => {
+      if (prev[currentQ.id]) return prev;
+      return {
+        ...prev,
+        [currentQ.id]: answerObj,
+      };
+    });
   };
 
   // Next question
   const handleNextQuestion = () => {
     stopSpeech();
+    // Blur any active element to prevent accidental Enter/Space activation on the next question
+    if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    lastTransitionTimeRef.current = Date.now();
     if (currentQuestionIndex + 1 < activeQuestions.length) {
       setCurrentQuestionIndex((prev) => prev + 1);
     } else {
@@ -385,30 +402,47 @@ export default function App() {
   // Keyboard shortcut listener for options (A, B, C, D) and Enter to advance
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (activeTab !== 'quiz' || isQuizFinished) return;
-      const key = e.key.toUpperCase();
+      if (
+        activeTab !== 'quiz' ||
+        isQuizFinished ||
+        isProfileModalOpen ||
+        isVoucherModalOpen ||
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLSelectElement
+      ) {
+        return;
+      }
+
+      // Ignore repeating keys from holding down
+      if (e.repeat) return;
 
       const currentQ = activeQuestions[currentQuestionIndex];
       if (!currentQ) return;
 
       const answered = Boolean(userAnswers[currentQ.id]);
+      const key = e.key.toUpperCase();
 
       if (!answered) {
+        // Enforce cooldown after question transition
+        if (Date.now() - lastTransitionTimeRef.current < 350) return;
+
         if (key === 'A' || key === '1') {
           e.preventDefault();
-          handleSelectOption('A');
+          handleSelectOption('A', currentQ.id);
         } else if (key === 'B' || key === '2') {
           e.preventDefault();
-          handleSelectOption('B');
+          handleSelectOption('B', currentQ.id);
         } else if (key === 'C' || key === '3') {
           e.preventDefault();
-          handleSelectOption('C');
+          handleSelectOption('C', currentQ.id);
         } else if (key === 'D' || key === '4') {
           e.preventDefault();
-          handleSelectOption('D');
+          handleSelectOption('D', currentQ.id);
         }
       } else {
-        if (key === 'ENTER' || key === ' ') {
+        // Only Enter advances to the next question (not Space, to prevent scroll interference)
+        if (key === 'ENTER') {
           e.preventDefault();
           handleNextQuestion();
         }
@@ -417,7 +451,15 @@ export default function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeTab, isQuizFinished, currentQuestionIndex, activeQuestions, userAnswers]);
+  }, [
+    activeTab,
+    isQuizFinished,
+    isProfileModalOpen,
+    isVoucherModalOpen,
+    currentQuestionIndex,
+    activeQuestions,
+    userAnswers,
+  ]);
 
   const currentQuestion = activeQuestions[currentQuestionIndex];
 
@@ -757,6 +799,7 @@ export default function App() {
               />
             ) : currentQuestion ? (
               <QuizCard
+                key={currentQuestion.id}
                 question={currentQuestion}
                 currentIndex={currentQuestionIndex}
                 totalQuestions={activeQuestions.length}
