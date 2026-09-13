@@ -1,36 +1,69 @@
 import React from 'react';
 import { Target, Sparkles, BookOpen, AlertCircle, CheckCircle2, TrendingUp, HelpCircle, Layers } from 'lucide-react';
-import { YearLevel, Subject, TopicPerformanceSummary, StudentProfile } from '../types';
+import { YearLevel, Subject, TopicPerformanceSummary, StudentProfile, AdaptiveReviewResult } from '../types';
 
-interface AdaptiveReviewBannerProps {
+export interface AdaptiveReviewBannerProps {
   quizMode: 'practice' | 'daily' | 'adaptive';
   onToggleMode: (mode: 'practice' | 'daily' | 'adaptive') => void;
   selectedYear: YearLevel;
   onSelectYear: (year: YearLevel) => void;
-  selectedSubject: Subject | 'all';
-  onSelectSubject: (sub: Subject | 'all') => void;
-  targetTopics: TopicPerformanceSummary[];
-  totalTopicsInHistory: number;
-  isFromStruggleHistory: boolean;
-  activeProfile: StudentProfile | null;
-  totalReviewQuestions: number;
+  // Subject filter (supports both prop names for safety)
+  adaptiveSubject?: Subject | 'all';
+  selectedSubject?: Subject | 'all';
+  onSelectAdaptiveSubject?: (sub: Subject | 'all') => void;
+  onSelectSubject?: (sub: Subject | 'all') => void;
+  // Adaptive Result or broken-down props
+  adaptiveResult?: AdaptiveReviewResult;
+  targetTopics?: TopicPerformanceSummary[];
+  totalTopicsInHistory?: number;
+  isFromStruggleHistory?: boolean;
+  activeProfile?: StudentProfile | null;
+  totalReviewQuestions?: number;
+  onRefreshReview?: () => void;
   onRegenerateReview?: () => void;
 }
+
+const ALL_SUBJECTS: Subject[] = [
+  'Matematik',
+  'Sains',
+  'Bahasa Melayu',
+  'Bahasa Inggeris',
+  'Pendidikan Islam',
+  'Bahasa Arab',
+  'Bahasa Cina',
+];
 
 export const AdaptiveReviewBanner: React.FC<AdaptiveReviewBannerProps> = ({
   quizMode,
   onToggleMode,
   selectedYear,
   onSelectYear,
+  adaptiveSubject,
   selectedSubject,
+  onSelectAdaptiveSubject,
   onSelectSubject,
-  targetTopics,
-  totalTopicsInHistory,
-  isFromStruggleHistory,
+  adaptiveResult,
+  targetTopics: directTargetTopics,
+  totalTopicsInHistory: directTotalTopics,
+  isFromStruggleHistory: directIsFromStruggle,
   activeProfile,
-  totalReviewQuestions,
+  totalReviewQuestions: directTotalQuestions,
+  onRefreshReview,
   onRegenerateReview,
 }) => {
+  // Safe resolved values from either adaptiveResult object or direct props
+  const currentSubject: Subject | 'all' = adaptiveSubject || selectedSubject || 'all';
+  const handleSelectSubject = onSelectAdaptiveSubject || onSelectSubject || (() => {});
+  const handleRefresh = onRefreshReview || onRegenerateReview;
+
+  const targetTopics: TopicPerformanceSummary[] =
+    adaptiveResult?.targetTopics || directTargetTopics || [];
+  const totalReviewQuestions: number =
+    adaptiveResult?.questions?.length ?? directTotalQuestions ?? 0;
+  const isFromStruggle: boolean =
+    adaptiveResult?.isFromStruggleHistory ?? directIsFromStruggle ?? false;
+  const diagnosticNote: string | undefined = adaptiveResult?.diagnosticNote;
+
   if (quizMode !== 'adaptive') {
     return (
       <div className="bg-gradient-to-r from-indigo-900/10 via-purple-900/10 to-indigo-900/5 rounded-2xl border border-indigo-200/90 p-4 sm:p-5 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-xs">
@@ -91,10 +124,10 @@ export const AdaptiveReviewBanner: React.FC<AdaptiveReviewBannerProps> = ({
 
         {/* Mode Actions */}
         <div className="flex items-center gap-2.5 flex-wrap sm:flex-nowrap">
-          {onRegenerateReview && (
+          {handleRefresh && (
             <button
               id="btn-refresh-adaptive-questions"
-              onClick={onRegenerateReview}
+              onClick={handleRefresh}
               className="px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition border border-indigo-200 cursor-pointer flex items-center gap-1.5"
               title="Jana semula soalan fokus kelemahan"
             >
@@ -140,7 +173,7 @@ export const AdaptiveReviewBanner: React.FC<AdaptiveReviewBannerProps> = ({
                     <span className="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-800">
                       Tahun {topic.year} • {topic.subject}
                     </span>
-                    <span className={`text-[11px] font-extrabold px-1.5 py-0.2 rounded ${
+                    <span className={`text-[11px] font-extrabold px-1.5 py-0.5 rounded ${
                       topic.accuracyRate <= 50 ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'
                     }`}>
                       {topic.accuracyRate}% Betul
@@ -172,7 +205,7 @@ export const AdaptiveReviewBanner: React.FC<AdaptiveReviewBannerProps> = ({
               <span>Tiada Rekod Kelemahan Ketara</span>
             </div>
             <p className="text-[11px] text-slate-500">
-              Sistem telah menyediakan soalan pengukuhan & aras KBAT untuk memastikan anda kekal di tahap penguasaan terbaik!
+              {diagnosticNote || 'Sistem telah menyediakan soalan pengukuhan & aras KBAT untuk memastikan anda kekal di tahap penguasaan terbaik!'}
             </p>
           </div>
         )}
@@ -211,32 +244,30 @@ export const AdaptiveReviewBanner: React.FC<AdaptiveReviewBannerProps> = ({
           <div className="flex flex-wrap gap-1.5">
             <button
               id="adaptive-subject-all"
-              onClick={() => onSelectSubject('all')}
+              onClick={() => handleSelectSubject('all')}
               className={`py-1.5 px-3 rounded-lg text-xs font-bold border transition cursor-pointer flex items-center gap-1 ${
-                selectedSubject === 'all'
+                currentSubject === 'all'
                   ? 'border-indigo-600 bg-indigo-100 text-indigo-950 ring-2 ring-indigo-500/20'
                   : 'border-slate-200 hover:bg-slate-50 text-slate-700'
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>Semua Subjek Terjejas</span>
+              <span>Semua Subjek</span>
             </button>
-            {(['Matematik', 'Sains', 'Bahasa Melayu', 'Bahasa Inggeris', 'Pendidikan Islam'] as Subject[]).map(
-              (sub) => (
-                <button
-                  key={sub}
-                  id={`adaptive-subject-${sub.toLowerCase().replace(/\s+/g, '-')}`}
-                  onClick={() => onSelectSubject(sub)}
-                  className={`py-1.5 px-2.5 rounded-lg text-xs font-semibold border transition cursor-pointer ${
-                    selectedSubject === sub
-                      ? 'border-indigo-600 bg-indigo-100 text-indigo-950 ring-2 ring-indigo-500/20'
-                      : 'border-slate-200 hover:bg-slate-50 text-slate-700'
-                  }`}
-                >
-                  {sub}
-                </button>
-              )
-            )}
+            {ALL_SUBJECTS.map((sub) => (
+              <button
+                key={sub}
+                id={`adaptive-subject-${sub.toLowerCase().replace(/\s+/g, '-')}`}
+                onClick={() => handleSelectSubject(sub)}
+                className={`py-1.5 px-2.5 rounded-lg text-xs font-semibold border transition cursor-pointer ${
+                  currentSubject === sub
+                    ? 'border-indigo-600 bg-indigo-100 text-indigo-950 ring-2 ring-indigo-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                {sub}
+              </button>
+            ))}
           </div>
         </div>
       </div>

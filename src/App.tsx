@@ -461,7 +461,11 @@ export default function App() {
     userAnswers,
   ]);
 
-  const currentQuestion = activeQuestions[currentQuestionIndex];
+  const safeCurrentIndex =
+    activeQuestions.length > 0
+      ? Math.min(Math.max(0, currentQuestionIndex), activeQuestions.length - 1)
+      : 0;
+  const currentQuestion = activeQuestions[safeCurrentIndex];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50/50 via-amber-50/30 to-indigo-50/40 text-slate-800 flex flex-col antialiased">
@@ -533,6 +537,7 @@ export default function App() {
                 onSelectAdaptiveSubject={handleAdaptiveSubjectChange}
                 adaptiveResult={adaptiveReviewResult}
                 onRefreshReview={handleRefreshAdaptive}
+                activeProfile={activeProfile}
               />
             )}
 
@@ -801,7 +806,7 @@ export default function App() {
               <QuizCard
                 key={currentQuestion.id}
                 question={currentQuestion}
-                currentIndex={currentQuestionIndex}
+                currentIndex={safeCurrentIndex}
                 totalQuestions={activeQuestions.length}
                 userAnswer={userAnswers[currentQuestion.id]}
                 onSelectOption={handleSelectOption}

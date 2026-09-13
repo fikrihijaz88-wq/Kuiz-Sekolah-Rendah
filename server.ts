@@ -2,7 +2,8 @@ import express from 'express';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import dotenv from 'dotenv';
-import { GoogleGenAI, Type } from '@google/genai';
+import { GoogleGenAI, Type, ThinkingLevel } from '@google/genai';
+import { INITIAL_KSSR_QUESTIONS } from './src/data/kssrQuestions';
 
 dotenv.config();
 
@@ -61,7 +62,7 @@ const questionSchema = {
         properties: {
           id: { type: Type.STRING, description: 'Unique question id e.g. q-1, q-2' },
           year: { type: Type.INTEGER, description: 'Year 2, Year 4, or Year 5' },
-          subject: { type: Type.STRING, description: 'Subject: Matematik, Sains, Bahasa Melayu, Bahasa Inggeris, or Pendidikan Islam' },
+          subject: { type: Type.STRING, description: 'Subject: Matematik, Sains, Bahasa Melayu, Bahasa Inggeris, Pendidikan Islam, Bahasa Arab, or Bahasa Cina' },
           topic: { type: Type.STRING, description: 'Topic' },
           subtopic: { type: Type.STRING, description: 'Subtopic' },
           difficulty: { type: Type.STRING, description: 'One of: Mudah, Sederhana, KBAT (Aras Rendah), KBAT (Aras Sederhana), KBAT (Aras Tinggi), KBAT (Aras Rendah-Sederhana)' },
@@ -367,37 +368,19 @@ app.post('/api/generate-quiz', async (req, res) => {
 
 Your mission is to generate age-appropriate, interactive multiple-choice quiz questions based STRICTLY on the Kementerian Pendidikan Malaysia (KPM) syllabus:
 
-1. TAHUN 2:
-- Matematik: Nombor hingga 1,000, Operasi Asas (Tambah, Tolak, Darab, Bahagi), Wang hingga RM100, Masa dan Waktu, Pecahan mudah.
-- Bahasa Inggeris: CEFR A1 beginner. Vocabulary (animals, school, family, hobbies, food), simple present tense, pronouns, prepositions.
-- Sains: Kemahiran saintifik, manusia, haiwan, tumbuh-tumbuhan, terang & gelap, elektrik asas, campuran.
-- Bahasa Melayu: Tatabahasa asas, kata nama, kata kerja, penjodoh bilangan, ayat tunggal & majmuk, peribahasa mudah.
-- Pendidikan Islam: Huruf hijaiyyah, rukun iman/islam, wuduk, solat fardhu, adab harian, suku kata Jawi.
+1. SUBJECT GUIDELINES:
+- Bahasa Arab: Use authentic standard Arabic with complete Harakat/baris (تَشْكِيل). Suitable for Malaysian primary school (KSSR Semakan). Options (A, B, C, D) and questions must be clear.
+- Bahasa Cina: Use standard Simplified Chinese (简体中文) suitable for SJK(C) primary standard. Clear vocabulary, pinyin where appropriate, and correct grammar.
+- Matematik: Use standard Malaysian Malay terminology (wang saku, baki wang, perpuluhan, peratusan, satah Cartes, asalan, dekad, abad).
+- Sains: KSSR primary science concepts (kemahiran saintifik, manusia, haiwan, tumbuhan, daya, tenaga, bumi, teknologi).
+- Bahasa Melayu: Tatabahasa baku KPM, kosa kata Melayu Malaysia (never Indonesian).
+- Bahasa Inggeris: Malaysian Primary CEFR standards (A1 for Year 2, A2 for Year 4/5).
+- Pendidikan Islam: KSSR Islamic studies syllabus (Al-Quran, Tajwid, Akidah, Ibadah, Sirah, Akhlak, Jawi).
 
-2. TAHUN 4:
-- Matematik: Nombor hingga 100,000, Pecahan, Perpuluhan, Peratus, Wang hingga RM100,000, Masa dan Waktu (sistem 12 & 24 jam, dekad/abad), Panjang, Jisim, Isi Padu cecair, Koordinat (sukuan pertama), Nisbah dan Kadaran (1:1 hingga 1:10). Termasuk soalan KBAT.
-- Sains: Kemahiran saintifik (pemboleh ubah/hipotesis), proses hidup manusia & haiwan, fotosintesis, sifat cahaya, bunyi & tenaga, sifat bahan, graviti & putaran bumi.
-- Bahasa Melayu: Golongan kata lanjutan, kata tugas, imbuhan awalan/akhiran/apitan, peribahasa warisan, pemahaman prosa & puisi.
-- Bahasa Inggeris: CEFR A2 (Get Smart Plus 4 standard). Past simple tense (regular & irregular), comparatives/superlatives, modals, reading comprehension, connectors.
-- Pendidikan Islam: Hukum Nun Sakinah & Tanwin, Asmaul Husna (Al-Adl, Al-Alim), solat Jumaat, mandi wajib, peristiwa Hijrah, adab kemasyarakatan, Jawi tradisi & serapan.
-
-3. TAHUN 5:
-- Matematik: Nombor bulat hingga 1,000,000, Nombor Perdana, Pola nombor, Pecahan (darab pecahan), Perpuluhan 3 tempat, Peratus (diskaun, faedah, dividen), Wang hingga RM1,000,000, Masa (hubungan abad, dekad, tahun), Ukuran & Sukatan (panjang, jisim, isi padu cecair), Ruang (poligon sekata, sudut, luas bentuk gabungan, isi padu), Koordinat (jarak mengufuk & mencancang), Nisbah dan Kadaran, Pengurusan Data (Mod, Median, Min, Julat).
-- Sains: Kemahiran saintifik (eksperimen & kawalan pemboleh ubah), Sistem Rangka & Peredaran Darah Manusia, Kemandirian Spesies Haiwan & Siratan Makanan, Kemandirian Tumbuhan & Agen Pencaran, Elektrik (Litar Bersiri & Selari), Haba, Suhu & Pengujian Asid/Alkali (Kertas Litmus), Fasa Bulan, Putaran Bumi, Kestabilan & Kekuatan Struktur.
-- Bahasa Melayu: Kata ganti nama diri istana & pangkat, kata kerja berpelengkap, kata adjektif pancaindera, kata pemeri (ialah/adalah), kata hubung pancangan, ayat songsang, imbuhan apitan memper-...-kan, kata sisipan (-el-, -er-, -em-, -in-), peribahasa kiasan, pantun nasihat, dan ulasan kritis nilai murni.
-- Bahasa Inggeris: CEFR A2 High / English Plus 1 standard. Towns & cities (There is/are, superlatives), wild life & conservation, learning world & school routines, food & healthy habits, sports milestones (Past simple irregular), biographies, future plans with "be going to".
-- Pendidikan Islam: Hukum Mim Sakinah (Ikhfa Syafawi, Idgham Mislain, Izhar Syafawi), Surah Al-Qadr & Al-Alaq, Hadis mencegah kemungkaran, Akidah (Al-Khabir & Al-Basir, Hari Kiamat), Ibadah (Solat Jenazah 4 takbir, Tayammum, Solat Berjemaah), Sirah (Fathul Makkah & Haji Wada), Akhlak (Adab jual beli & mengasihi orang tua), Pelajaran Jawi (Kata Pinjaman Bahasa Inggeris/Arab).
-
-LANGUAGE CONSTRAINTS:
-- For Malay (Matematik): Use standard Malaysian Malay (Bahasa Melayu Malaysia / Bahasa Baku KPM). NEVER use Indonesian (Bahasa Indonesia) phrases or vocabulary. Use authentic Malaysian primary school terminology (e.g. wang saku, baki wang, perpuluhan, peratusan, satah Cartes, asalan, dekad, abad).
-- For English: Follow Malaysian Primary CEFR standards.
-
-RULES:
+2. RULES:
 - Provide exactly 4 distinct answer options (A, B, C, D) per question. Ensure all 4 distractors are plausible and mutually exclusive.
 - Only ONE correct answer ('A' | 'B' | 'C' | 'D').
-- Provide a brief, warm, encouraging pedagogical explanation for the correct answer:
-  * For Matematik (BM): start with encouragement like "Bagus!", "Syabas!", "Hebat!", "Tepat sekali!" followed by clear step-by-step reasoning.
-  * For English: start with encouragement like "Well done!", "Great job!", "Spot on!", "Super!" followed by clear, gentle guidance.
+- Provide a brief, warm, encouraging pedagogical explanation for the correct answer.
 - Output MUST strictly adhere to the provided JSON schema.`;
 
     const userPromptText = `Generate ${count} interactive multiple-choice quiz questions for:
@@ -417,7 +400,8 @@ Ensure each question has 4 distinct options (A, B, C, D), single correct answer,
     if (ai) {
       for (const modelName of candidateModels) {
         try {
-          const response = await ai.models.generateContent({
+          // Wrap Gemini call with a 9-second timeout to avoid proxy 504/502 gateway timeouts
+          const generatePromise = ai.models.generateContent({
             model: modelName,
             contents: userPromptText,
             config: {
@@ -425,15 +409,24 @@ Ensure each question has 4 distinct options (A, B, C, D), single correct answer,
               temperature: 0.7,
               responseMimeType: 'application/json',
               responseSchema: questionSchema,
+              thinkingConfig: {
+                thinkingLevel: ThinkingLevel.LOW,
+              },
             },
           });
-          if (response.text) {
+
+          const timeoutPromise = new Promise<null>((_, reject) =>
+            setTimeout(() => reject(new Error('AI generation timed out')), 9000)
+          );
+
+          const response = await Promise.race([generatePromise, timeoutPromise]) as any;
+          if (response && response.text) {
             rawText = response.text;
             isAiGenerated = true;
             break;
           }
         } catch (err: any) {
-          console.warn(`Model ${modelName} unavailable (${err?.status || err?.message || 'busy'}). Trying fallback model.`);
+          console.warn(`Model ${modelName} unavailable or timed out (${err?.status || err?.message || 'busy'}). Trying fallback.`);
         }
       }
     }
@@ -464,7 +457,7 @@ Ensure each question has 4 distinct options (A, B, C, D), single correct answer,
       }));
     }
 
-    res.json({
+    return res.json({
       success: true,
       isAiGenerated,
       data: parsedData,
@@ -472,7 +465,7 @@ Ensure each question has 4 distinct options (A, B, C, D), single correct answer,
   } catch (error: any) {
     console.error('Error generating quiz questions, generating emergency curriculum batch:', error);
     const emergencyData = generateFallbackKSSRQuestions(req.body.year || 2, req.body.subject || 'Matematik', req.body.topic || 'Operasi Asas', req.body.count || 5, req.body.difficulty || 'Campuran');
-    res.json({
+    return res.json({
       success: true,
       isAiGenerated: false,
       data: emergencyData,
@@ -482,6 +475,84 @@ Ensure each question has 4 distinct options (A, B, C, D), single correct answer,
 
 // Dynamically generate curriculum-compliant questions for all KSSR subjects & years
 function generateFallbackKSSRQuestions(year: number, subject: string, topic: string, count: number, difficulty: string) {
+  const targetYear = Number(year) || 2;
+  const numQuestions = Math.max(1, Math.min(count || 5, 20));
+
+  // 1. Filter questions by Year and Subject from the comprehensive INITIAL_KSSR_QUESTIONS bank
+  const subjectQuestions = INITIAL_KSSR_QUESTIONS.filter(
+    (q) => Number(q.year) === targetYear && q.subject.trim().toLowerCase() === (subject || '').trim().toLowerCase()
+  );
+
+  // 2. Prioritize questions matching the requested topic keyword(s)
+  const topicKeywords = (topic || '')
+    .toLowerCase()
+    .replace(/[()&,]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length > 2);
+
+  const matchedTopicQuestions: any[] = [];
+  const otherSubjectQuestions: any[] = [];
+
+  for (const q of subjectQuestions) {
+    const qText = `${q.topic} ${q.subtopic || ''} ${q.question}`.toLowerCase();
+    const isTopicMatch = topicKeywords.some((keyword) => qText.includes(keyword));
+    if (isTopicMatch) {
+      matchedTopicQuestions.push(q);
+    } else {
+      otherSubjectQuestions.push(q);
+    }
+  }
+
+  // Shuffle both pools
+  const pool = [...matchedTopicQuestions.sort(() => Math.random() - 0.5), ...otherSubjectQuestions.sort(() => Math.random() - 0.5)];
+
+  let selected: any[] = [];
+  if (pool.length > 0) {
+    while (selected.length < numQuestions) {
+      for (const item of pool) {
+        if (selected.length >= numQuestions) break;
+        selected.push({
+          ...item,
+          id: `kssr-gen-${Date.now()}-${selected.length + 1}`,
+          year: targetYear,
+          subject: subject || item.subject,
+          topic: topic || item.topic,
+        });
+      }
+    }
+  } else {
+    // Ultimate emergency fallback if subject not found in bank
+    for (let i = 1; i <= numQuestions; i++) {
+      selected.push({
+        id: `emergency-gen-${Date.now()}-${i}`,
+        year: targetYear,
+        subject: subject || 'Matematik',
+        topic: topic || 'Ulang Kaji Asas',
+        subtopic: 'Latihan Pengukuhan',
+        difficulty: difficulty || 'Sederhana',
+        question: `Soalan Latihan KSSR ${subject} (Tahun ${targetYear}): Sila pilih jawapan yang paling tepat bagi konsep ${topic || 'topik ini'}.`,
+        options: {
+          A: 'Pilihan Jawapan Utama A',
+          B: 'Pilihan Jawapan B',
+          C: 'Pilihan Jawapan C',
+          D: 'Pilihan Jawapan D',
+        },
+        correctAnswer: 'A',
+        explanation: `Tahniah! Jawapan A adalah tepat untuk standard pembelajaran ${topic || subject} Tahun ${targetYear}.`,
+        learningStandard: `KSSR Semakan Tahun ${targetYear} - ${subject}`,
+      });
+    }
+  }
+
+  return {
+    year: targetYear,
+    subject: subject || 'Matematik',
+    topic: topic || 'Ulang Kaji KSSR',
+    questions: selected.slice(0, numQuestions),
+  };
+}
+
+function _legacyUnusedBank(year: number, subject: string, topic: string, count: number, difficulty: string) {
   const isYear2 = Number(year) === 2;
   const numQuestions = Math.max(3, Math.min(count || 5, 10));
   const bank: any[] = [];
