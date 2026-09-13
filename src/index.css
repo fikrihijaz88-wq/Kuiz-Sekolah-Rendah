@@ -3,12 +3,21 @@
 @media print {
   header,
   footer,
+  nav,
+  .no-print,
+  #btn-sound-mobile,
+  #btn-sound-desktop,
   #nav-tab-quiz,
+  #nav-tab-leaderboard,
   #nav-tab-generator,
-  #nav-tab-schema,
+  #nav-tab-print,
+  #btn-header-cash-vouchers,
+  #btn-header-student-profile,
   #btn-restart-quiz,
+  #btn-open-leaderboard-from-summary,
+  #btn-vouchers-action-summary,
+  #btn-open-vouchers-from-summary,
   #btn-open-generator-from-summary,
-  #btn-open-schema-from-summary,
   #btn-print-result-slip {
     display: none !important;
   }
@@ -16,5 +25,25 @@
   body {
     background-color: #ffffff !important;
     color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm 12mm 15mm 12mm;
+  }
+
+  .page-break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .page-break-before {
+    break-before: page !important;
+    page-break-before: always !important;
   }
 }
+

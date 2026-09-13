@@ -9,6 +9,11 @@ import { SAINS_TAHUN_4_QUESTIONS } from './sainsTahun4';
 import { ENGLISH_TAHUN_4_QUESTIONS } from './englishTahun4';
 import { PENDIDIKAN_ISLAM_TAHUN_4_QUESTIONS } from './pendidikanIslamTahun4';
 import { BAHASA_MELAYU_TAHUN_4_QUESTIONS } from './bahasaMelayuTahun4';
+import { MATEMATIK_TAHUN_5_QUESTIONS } from './matematikTahun5';
+import { SAINS_TAHUN_5_QUESTIONS } from './sainsTahun5';
+import { BAHASA_MELAYU_TAHUN_5_QUESTIONS } from './bahasaMelayuTahun5';
+import { ENGLISH_TAHUN_5_QUESTIONS } from './englishTahun5';
+import { PENDIDIKAN_ISLAM_TAHUN_5_QUESTIONS } from './pendidikanIslamTahun5';
 
 export const KSSR_TOPICS: QuizTopicMeta[] = [
   // ==========================================
@@ -448,6 +453,274 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     description: 'Penukaran aktif-pasif pelbagai pelaku, cakap ajuk-cakap pindah, hukum D-M, tanda baca lanjutan (: ; () -), dan pembetulan kesalahan ejaan DBP.',
     iconName: 'CheckCircle',
   },
+
+  // ==========================================
+  // TAHUN 5 - MATEMATIK (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't5-mat-nombor',
+    name: 'Nombor Bulat & Operasi Asas hingga 1,000,000',
+    year: 5,
+    subject: 'Matematik',
+    description: 'Nombor perdana, pola nombor, nilai tempat & operasi bergabung kurungan hingga 1,000,000.',
+    iconName: 'Hash',
+  },
+  {
+    id: 't5-mat-pecahan',
+    name: 'Pecahan, Perpuluhan dan Peratus',
+    year: 5,
+    subject: 'Matematik',
+    description: 'Darab pecahan, perpuluhan 3 tempat, peratus diskaun, faedah & kuantiti.',
+    iconName: 'PieChart',
+  },
+  {
+    id: 't5-mat-wang',
+    name: 'Wang hingga RM1,000,000',
+    year: 5,
+    subject: 'Matematik',
+    description: 'Faedah mudah & kompaun, simpanan, pelaburan, untung rugi, harga kos & harga jual.',
+    iconName: 'Coins',
+  },
+  {
+    id: 't5-mat-masa',
+    name: 'Masa dan Waktu (Abad, Dekad, Tahun)',
+    year: 5,
+    subject: 'Matematik',
+    description: 'Hubungan abad, dekad dan tahun, penukaran unit masa dan operasi bergabung masa.',
+    iconName: 'Clock',
+  },
+  {
+    id: 't5-mat-ukuran',
+    name: 'Ukuran & Sukatan (Panjang, Jisim, Isi Padu)',
+    year: 5,
+    subject: 'Matematik',
+    description: 'Penukaran unit km/m, kg/g, l/ml, operasi bergabung dan penyelesaian masalah harian.',
+    iconName: 'Ruler',
+  },
+  {
+    id: 't5-mat-ruang',
+    name: 'Ruang, Sudut & Bentuk Gabungan',
+    year: 5,
+    subject: 'Matematik',
+    description: 'Sudut poligon sekata, luas bentuk gabungan 2D, perimeter dan isi padu bentuk 3D.',
+    iconName: 'Box',
+  },
+  {
+    id: 't5-mat-koordinat',
+    name: 'Koordinat, Nisbah dan Kadaran',
+    year: 5,
+    subject: 'Matematik',
+    description: 'Satah Cartes sukuan pertama, jarak mengufuk & mencancang, nisbah termudah dan kadaran.',
+    iconName: 'MapPin',
+  },
+  {
+    id: 't5-mat-data',
+    name: 'Pengurusan Data (Mod, Median, Min, Julat)',
+    year: 5,
+    subject: 'Matematik',
+    description: 'Mentafsir piktograf, carta palang, carta pai, mengira min, median, mod dan julat.',
+    iconName: 'BarChart3',
+  },
+
+  // ==========================================
+  // TAHUN 5 - SAINS (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't5-sn-kemahiran',
+    name: 'Kemahiran Saintifik & Peraturan Bilik Sains',
+    year: 5,
+    subject: 'Sains',
+    description: 'Hipotesis eksperimen, pemboleh ubah dimanipulasi, bergerak balas dan dimalarkan.',
+    iconName: 'FlaskConical',
+  },
+  {
+    id: 't5-sn-manusia',
+    name: 'Manusia (Sistem Rangka & Peredaran Darah)',
+    year: 5,
+    subject: 'Sains',
+    description: 'Fungsi rangka utama, jantung, laluan peredaran darah beroksigen & hubungan antara sistem tubuh.',
+    iconName: 'Users',
+  },
+  {
+    id: 't5-sn-haiwan',
+    name: 'Haiwan (Kemandirian Spesies & Rantai Makanan)',
+    year: 5,
+    subject: 'Sains',
+    description: 'Penyesuaian iklim melampau, perlindungan diri, siratan makanan & kesan perubahan populasi.',
+    iconName: 'Bug',
+  },
+  {
+    id: 't5-sn-tumbuhan',
+    name: 'Tumbuh-tumbuhan (Kemandirian & Pencaran)',
+    year: 5,
+    subject: 'Sains',
+    description: 'Ciri perlindungan tumbuhan, agen pencaran biji benih: angin, air, haiwan, mekanisme letupan.',
+    iconName: 'Sprout',
+  },
+  {
+    id: 't5-sn-elektrik',
+    name: 'Elektrik (Litar Bersiri & Selari)',
+    year: 5,
+    subject: 'Sains',
+    description: 'Perbandingan litar bersiri & selari, faktor kecerahan mentol, dan langkah keselamatan elektrik.',
+    iconName: 'Zap',
+  },
+  {
+    id: 't5-sn-haba-jirim',
+    name: 'Haba, Suhu & Asid Alkali',
+    year: 5,
+    subject: 'Sains',
+    description: 'Pengembangan & pengecutan jirim, termometer, takat beku/didih, dan ujian kertas litmus asid alkali.',
+    iconName: 'Flame',
+  },
+  {
+    id: 't5-sn-bumi-teknologi',
+    name: 'Bumi, Angkasa & Kestabilan Struktur',
+    year: 5,
+    subject: 'Sains',
+    description: 'Putaran bumi & siang malam, fasa bulan, serta faktor kestabilan & kekuatan binaan struktur.',
+    iconName: 'Globe',
+  },
+
+  // ==========================================
+  // TAHUN 5 - BAHASA MELAYU (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't5-bm-morfologi',
+    name: 'Morfologi & Golongan Kata Lanjutan',
+    year: 5,
+    subject: 'Bahasa Melayu',
+    description: 'Kata ganti nama diri istana/pangkat, kata kerja transitif berpelengkap, dan kata adjektif perasaan/pancaindera.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't5-bm-sintaksis-kata-tugas',
+    name: 'Kata Tugas & Sintaksis Kompleks',
+    year: 5,
+    subject: 'Bahasa Melayu',
+    description: 'Kata pemeri (ialah/adalah), kata hubung pancangan, ayat susunan songsang, dan ragam ayat aktif-pasif.',
+    iconName: 'Layers',
+  },
+  {
+    id: 't5-bm-imbuhan-sisipan',
+    name: 'Imbuhan Apitan & Sisipan',
+    year: 5,
+    subject: 'Bahasa Melayu',
+    description: 'Imbuhan apitan memper-...-kan, peN-...-an, kata sisipan (-el-, -er-, -em-, -in-), dan kata majmuk kiasan.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't5-bm-seni-bahasa-peribahasa',
+    name: 'Peribahasa & Seni Bahasa',
+    year: 5,
+    subject: 'Bahasa Melayu',
+    description: 'Peribahasa bertema, pantun empat kerat nasihat/budi, sajak patriotik, dan pengajaran nilai murni.',
+    iconName: 'FileText',
+  },
+  {
+    id: 't5-bm-pemahaman-ulasan',
+    name: 'Pemahaman Petikan & Nilai Murni',
+    year: 5,
+    subject: 'Bahasa Melayu',
+    description: 'Membaca petikan berita/rencana teknologi hijau, analisis tersirat/tersurat, dan rumusan kritis.',
+    iconName: 'CheckCircle',
+  },
+
+  // ==========================================
+  // TAHUN 5 - BAHASA INGGERIS (CEFR A2 HIGH)
+  // ==========================================
+  {
+    id: 't5-eng-towns-cities',
+    name: 'Towns and Cities (Unit 1)',
+    year: 5,
+    subject: 'Bahasa Inggeris',
+    description: 'There is / There are, city landmarks, comparative & superlative adjectives for places.',
+    iconName: 'Building',
+  },
+  {
+    id: 't5-eng-wild-life',
+    name: 'Wild Life & Animal Kingdom (Unit 3)',
+    year: 5,
+    subject: 'Bahasa Inggeris',
+    description: 'Superlative traits, rainforest wildlife, endangered species protection, and reading comprehension.',
+    iconName: 'Feather',
+  },
+  {
+    id: 't5-eng-learning-world',
+    name: 'Learning World & Study Habits (Unit 4)',
+    year: 5,
+    subject: 'Bahasa Inggeris',
+    description: 'Present continuous vs simple present, school routines, learning skills and subjects.',
+    iconName: 'GraduationCap',
+  },
+  {
+    id: 't5-eng-food-health',
+    name: 'Food and Health (Unit 5)',
+    year: 5,
+    subject: 'Bahasa Inggeris',
+    description: 'Countable/uncountable nouns, quantifiers (much, many, plenty of), healthy eating choices.',
+    iconName: 'Utensils',
+  },
+  {
+    id: 't5-eng-sport-growing-up',
+    name: 'Sport, History & Biographies (Unit 6 & 7)',
+    year: 5,
+    subject: 'Bahasa Inggeris',
+    description: 'Past simple irregular verbs, was/were, sports tournaments, milestones and biographies.',
+    iconName: 'Trophy',
+  },
+  {
+    id: 't5-eng-going-away',
+    name: 'Going Away & Travel Plans (Unit 8)',
+    year: 5,
+    subject: 'Bahasa Inggeris',
+    description: 'Future plans with "be going to", packing essentials, weather, and vacation dialogue.',
+    iconName: 'Compass',
+  },
+
+  // ==========================================
+  // TAHUN 5 - PENDIDIKAN ISLAM (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't5-pi-quran-tajwid',
+    name: 'Al-Quran & Hukum Tajwid',
+    year: 5,
+    subject: 'Pendidikan Islam',
+    description: 'Hukum Mim Sakinah (Ikhfa Syafawi, Idgham Mislain, Izhar Syafawi), Surah Al-Qadr & Al-Alaq.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't5-pi-hadis-akidah',
+    name: 'Hadis & Akidah (Al-Khabir, Al-Basir, Hari Kiamat)',
+    year: 5,
+    subject: 'Pendidikan Islam',
+    description: 'Hadis mencegah kemungkaran, nama Allah Al-Khabir & Al-Basir, beriman kepada hari kiamat.',
+    iconName: 'Shield',
+  },
+  {
+    id: 't5-pi-ibadah',
+    name: 'Ibadah (Solat Jenazah, Tayammum & Solat Berjemaah)',
+    year: 5,
+    subject: 'Pendidikan Islam',
+    description: 'Kaifiat solat jenazah (4 takbir), rukun tayammum, syarat & keutamaan solat berjemaah.',
+    iconName: 'Clock',
+  },
+  {
+    id: 't5-pi-sirah-akhlak',
+    name: 'Sirah & Akhlak (Fathul Makkah & Adab Muamalah)',
+    year: 5,
+    subject: 'Pendidikan Islam',
+    description: 'Kronologi Pembukaan Kota Mekah, Haji Wada, adab mengasihi orang tua & adab berjual beli.',
+    iconName: 'Users',
+  },
+  {
+    id: 't5-pi-jawi',
+    name: 'Pelajaran Jawi (Kata Pinjaman & Imbuhan Lanjutan)',
+    year: 5,
+    subject: 'Pendidikan Islam',
+    description: 'Ejaan Jawi istilah pinjaman bahasa Inggeris/Arab, imbuhan lanjutan dan teks perenggan Jawi.',
+    iconName: 'PenTool',
+  },
 ];
 
 export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
@@ -461,4 +734,9 @@ export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
   ...ENGLISH_TAHUN_4_QUESTIONS,
   ...PENDIDIKAN_ISLAM_TAHUN_4_QUESTIONS,
   ...BAHASA_MELAYU_TAHUN_4_QUESTIONS,
+  ...MATEMATIK_TAHUN_5_QUESTIONS,
+  ...SAINS_TAHUN_5_QUESTIONS,
+  ...BAHASA_MELAYU_TAHUN_5_QUESTIONS,
+  ...ENGLISH_TAHUN_5_QUESTIONS,
+  ...PENDIDIKAN_ISLAM_TAHUN_5_QUESTIONS,
 ];

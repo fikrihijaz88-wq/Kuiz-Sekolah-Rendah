@@ -88,26 +88,32 @@ export function shuffleWithSeed<T>(array: T[], seedStr: string): T[] {
 }
 
 /**
- * Deterministically select daily questions based on current date, year and subject.
- * Automatically changes every single day at midnight!
+ * Deterministically select daily questions based on current date, year, subject, and optional topic.
+ * Automatically changes every single day at midnight (12:00 AM)!
  */
 export function getDailyQuestions(
   allQuestions: QuizQuestion[],
   dateStr: string,
   year: YearLevel,
   subject: Subject | 'all',
-  count: number = 5
+  count: number = 5,
+  topicId: string = 'all'
 ): QuizQuestion[] {
   const pool = allQuestions.filter((q) => {
     if (q.year !== year) return false;
     if (subject !== 'all' && q.subject !== subject) return false;
+    if (topicId !== 'all') {
+      if (!q.topic.toLowerCase().includes(topicId.toLowerCase()) && !topicId.toLowerCase().includes(q.topic.toLowerCase())) {
+        return false;
+      }
+    }
     return true;
   });
 
   if (pool.length === 0) return [];
 
-  // Seed changes strictly based on date string (e.g. 2026-09-12) + year + subject
-  const seed = `daily-kssr-${dateStr}-${year}-${subject}`;
+  // Seed changes strictly based on date string (e.g. 2026-09-13) + year + subject + topic
+  const seed = `daily-kssr-${dateStr}-${year}-${subject}-${topicId}`;
   const shuffled = shuffleWithSeed(pool, seed);
   return shuffled.slice(0, count);
 }

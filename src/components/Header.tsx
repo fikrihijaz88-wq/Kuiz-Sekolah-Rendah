@@ -1,11 +1,11 @@
 import React from 'react';
-import { Sparkles, BookCheck, Code, GraduationCap, Volume2, VolumeX, Flame, UserPlus, Users } from 'lucide-react';
+import { Sparkles, BookCheck, GraduationCap, Volume2, VolumeX, Flame, UserPlus, Users, Trophy, Gift, Printer } from 'lucide-react';
 import { StudentProfile } from '../types';
 import { StudentAvatarIcon } from './StudentAvatarIcon';
 
 interface HeaderProps {
-  currentTab: 'quiz' | 'generator' | 'schema';
-  onTabChange: (tab: 'quiz' | 'generator' | 'schema') => void;
+  currentTab: 'quiz' | 'leaderboard' | 'generator' | 'print';
+  onTabChange: (tab: 'quiz' | 'leaderboard' | 'generator' | 'print') => void;
   soundEnabled: boolean;
   onToggleSound: () => void;
   dailyStreak?: number;
@@ -13,6 +13,8 @@ interface HeaderProps {
   onSelectDailyChallenge?: () => void;
   activeProfile: StudentProfile | null;
   onOpenProfileModal: () => void;
+  onOpenVouchers?: () => void;
+  claimableVouchersCount?: number;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -25,6 +27,8 @@ export const Header: React.FC<HeaderProps> = ({
   onSelectDailyChallenge,
   activeProfile,
   onOpenProfileModal,
+  onOpenVouchers,
+  claimableVouchersCount = 0,
 }) => {
   return (
     <header className="bg-slate-900 text-white shadow-md border-b border-slate-800">
@@ -53,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               id="btn-sound-mobile"
               onClick={onToggleSound}
-              className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white md:hidden transition"
+              className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white md:hidden transition cursor-pointer"
               title={soundEnabled ? 'Matikan Suara Bacaan' : 'Hidupkan Suara Bacaan'}
             >
               {soundEnabled ? <Volume2 className="w-5 h-5 text-amber-400" /> : <VolumeX className="w-5 h-5 text-slate-500" />}
@@ -72,7 +76,7 @@ export const Header: React.FC<HeaderProps> = ({
                     ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-sm'
                     : 'bg-slate-800/90 text-amber-400 hover:bg-slate-800 hover:text-amber-300 border border-amber-500/30'
                 }`}
-                title="Cabaran Harian: Soalan bertukar automatik setiap hari!"
+                title="Cabaran Harian: Soalan bertukar automatik setiap hari pada 12:00 AM!"
               >
                 <Flame className={`w-4 h-4 ${currentTab === 'quiz' && isDailyMode ? 'text-slate-950 fill-slate-950' : 'text-orange-400 fill-orange-400'}`} />
                 <span>Cabaran Harian</span>
@@ -100,6 +104,33 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
 
             <button
+              id="nav-tab-print"
+              onClick={() => onTabChange('print')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition cursor-pointer whitespace-nowrap ${
+                currentTab === 'print'
+                  ? 'bg-amber-500 text-slate-950 font-semibold shadow-sm'
+                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white'
+              }`}
+              title="Cetak Lembaran Kerja / Soalan PDF A4 (Set Harian Bertukar Setiap Hari)"
+            >
+              <Printer className="w-4 h-4 text-amber-300" />
+              <span>Cetak Lembaran PDF</span>
+            </button>
+
+            <button
+              id="nav-tab-leaderboard"
+              onClick={() => onTabChange('leaderboard')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition cursor-pointer whitespace-nowrap ${
+                currentTab === 'leaderboard'
+                  ? 'bg-amber-500 text-slate-950 font-semibold shadow-sm'
+                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white'
+              }`}
+            >
+              <Trophy className="w-4 h-4 text-amber-300" />
+              <span>Papan Pendahulu</span>
+            </button>
+
+            <button
               id="nav-tab-generator"
               onClick={() => onTabChange('generator')}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition cursor-pointer whitespace-nowrap ${
@@ -112,18 +143,23 @@ export const Header: React.FC<HeaderProps> = ({
               <span>Penjana Soalan AI</span>
             </button>
 
-            <button
-              id="nav-tab-schema"
-              onClick={() => onTabChange('schema')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition cursor-pointer whitespace-nowrap ${
-                currentTab === 'schema'
-                  ? 'bg-amber-500 text-slate-950 font-semibold shadow-sm'
-                  : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white'
-              }`}
-            >
-              <Code className="w-4 h-4" />
-              <span>Skema & JSON</span>
-            </button>
+            {/* Cash Voucher Button */}
+            {onOpenVouchers && (
+              <button
+                id="btn-header-cash-vouchers"
+                onClick={onOpenVouchers}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-500/60 bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-300 font-bold transition cursor-pointer text-xs whitespace-nowrap shadow-xs"
+                title="Pusat Baucar Tunai Murid (RM5 - RM50)"
+              >
+                <Gift className="w-4 h-4 text-emerald-400" />
+                <span>Baucar Tunai</span>
+                {claimableVouchersCount > 0 && (
+                  <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-1.5 py-0.5 rounded-full animate-bounce">
+                    {claimableVouchersCount} Boleh Tebus!
+                  </span>
+                )}
+              </button>
+            )}
 
             {/* Student Profile Button */}
             <button
@@ -171,12 +207,12 @@ export const Header: React.FC<HeaderProps> = ({
               {soundEnabled ? (
                 <>
                   <Volume2 className="w-4 h-4 text-amber-400" />
-                  <span>Suara: 🇲🇾 BM Asli (Malaysia)</span>
+                  <span>Suara: 🇲🇾 BM Asli</span>
                 </>
               ) : (
                 <>
                   <VolumeX className="w-4 h-4 text-slate-500" />
-                  <span>Audio Senyap</span>
+                  <span>Audio OFF</span>
                 </>
               )}
             </button>

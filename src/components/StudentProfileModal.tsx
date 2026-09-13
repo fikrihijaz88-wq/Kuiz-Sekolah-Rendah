@@ -337,11 +337,11 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                     Tahun Persekolahan <span className="text-rose-500">*</span>
                   </label>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-3 gap-1.5">
                     <button
                       type="button"
                       onClick={() => setYearVal(2)}
-                      className={`py-2 px-3 rounded-xl border text-xs font-bold transition cursor-pointer ${
+                      className={`py-2 px-2 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
                         yearVal === 2
                           ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                           : 'border-slate-200 hover:bg-slate-50 text-slate-700'
@@ -352,13 +352,24 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({
                     <button
                       type="button"
                       onClick={() => setYearVal(4)}
-                      className={`py-2 px-3 rounded-xl border text-xs font-bold transition cursor-pointer ${
+                      className={`py-2 px-2 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
                         yearVal === 4
                           ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                           : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                       }`}
                     >
                       Tahun 4
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setYearVal(5)}
+                      className={`py-2 px-2 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
+                        yearVal === 5
+                          ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                          : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                      }`}
+                    >
+                      Tahun 5
                     </button>
                   </div>
                 </div>

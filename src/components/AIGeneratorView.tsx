@@ -89,6 +89,49 @@ const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
     'Pemahaman Prosa, Puisi & Seni Bahasa',
     'Bina Ayat, Sintaksis & Sistem Ejaan',
   ],
+  '5-Matematik': [
+    'Nombor Bulat & Operasi Asas hingga 1,000,000 (Nombor Perdana & Pola)',
+    'Pecahan, Perpuluhan (3 tempat) dan Peratus',
+    'Wang hingga RM1,000,000 (Faedah & Pelaburan)',
+    'Masa dan Waktu (Abad, Dekad, Tahun)',
+    'Ukuran & Sukatan (Panjang km/m, Jisim kg/g, Isi Padu l/ml)',
+    'Ruang, Poligon Sekata, Sudut & Luas Gabungan',
+    'Koordinat Satah Cartes, Nisbah dan Kadaran',
+    'Pengurusan Data (Mod, Median, Min, Julat)',
+  ],
+  '5-Sains': [
+    'Kemahiran Saintifik & Peraturan Bilik Sains',
+    'Manusia: Sistem Rangka & Peredaran Darah',
+    'Haiwan: Kemandirian Spesies & Rantai Makanan',
+    'Tumbuh-tumbuhan: Kemandirian & Agen Pencaran Biji Benih',
+    'Elektrik: Litar Bersiri & Selari',
+    'Haba, Suhu & Pengujian Asid Alkali Litmus',
+    'Bumi, Fasa Bulan, Putaran & Kestabilan Binaan',
+  ],
+  '5-Bahasa Melayu': [
+    'Morfologi: Kata Ganti Diri Istana & Kata Adjektif Pancaindera',
+    'Sintaksis: Kata Pemeri, Kata Hubung Pancangan & Ayat Songsang',
+    'Imbuhan: Apitan memper-...-kan & Kata Sisipan (-el-, -er-, -em-, -in-)',
+    'Seni Bahasa: Peribahasa Kiasan, Pantun Nasihat & Sajak',
+    'Pemahaman Petikan Rencana & Ulasan Kritis Nilai Murni',
+  ],
+  '5-Bahasa Inggeris': [
+    'Towns and Cities (There is/are & Comparatives)',
+    'Wild Life & Endangered Animals (Superlatives & Habitats)',
+    'Learning World & School Routines (Present Continuous)',
+    'Food and Health (Quantifiers: much, many, plenty of)',
+    'Sport & Biographies (Past Simple Irregular Verbs)',
+    'Going Away & Travel Plans (Future with "be going to")',
+  ],
+  '5-Pendidikan Islam': [
+    'Al-Quran & Tajwid (Hukum Mim Sakinah & Surah Al-Qadr)',
+    'Hadis (Mencegah Kemungkaran & Tanggungjawab)',
+    'Akidah (Sifat Al-Khabir, Al-Basir & Hari Kiamat)',
+    'Ibadah (Solat Jenazah 4 Takbir, Tayammum & Solat Berjemaah)',
+    'Sirah (Pembukaan Kota Mekah & Khutbah Haji Wada)',
+    'Akhlak Islamiah (Adab Mengasihi Ibu Bapa & Jual Beli)',
+    'Pelajaran Jawi (Kata Pinjaman Bahasa Inggeris & Arab)',
+  ],
 };
 
 export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
@@ -191,30 +234,42 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
               Tahap Murid (Tahun)
             </label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               <button
                 type="button"
                 id="gen-select-year-2"
                 onClick={() => handleYearChange(2)}
-                className={`py-2.5 px-4 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer text-center ${
                   year === 2
                     ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
-                Tahun 2 (KSSR Semakan)
+                Tahun 2 (Tahap 1)
               </button>
               <button
                 type="button"
                 id="gen-select-year-4"
                 onClick={() => handleYearChange(4)}
-                className={`py-2.5 px-4 rounded-xl text-sm font-semibold border transition cursor-pointer ${
+                className={`py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer text-center ${
                   year === 4
                     ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
-                Tahun 4 (+ Soalan KBAT)
+                Tahun 4 (Tahap 2)
+              </button>
+              <button
+                type="button"
+                id="gen-select-year-5"
+                onClick={() => handleYearChange(5)}
+                className={`py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer text-center ${
+                  year === 5
+                    ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                Tahun 5 (Tahap 2)
               </button>
             </div>
           </div>

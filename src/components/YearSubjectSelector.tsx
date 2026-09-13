@@ -31,55 +31,75 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-5 mb-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 pb-4 border-b border-slate-100">
         {/* Year Level Selection */}
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-5">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             1. Pilih Tahap Persekolahan (Tahun)
           </label>
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-3 gap-2">
             <button
               id="select-year-2"
               onClick={() => onSelectYear(2)}
-              className={`p-3 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
+              className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
                 selectedYear === 2
                   ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 ring-2 ring-indigo-500/20'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="font-bold text-base">Tahun 2</span>
-                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700">
+                <span className="font-bold text-sm">Tahun 2</span>
+                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700">
                   Tahap 1
                 </span>
               </div>
-              <p className="text-xs text-slate-500">
-                Matematik hingga 1,000 • Bahasa Inggeris CEFR A1
+              <p className="text-[11px] text-slate-500 leading-tight">
+                Hingga 1,000 • CEFR A1
               </p>
             </button>
 
             <button
               id="select-year-4"
               onClick={() => onSelectYear(4)}
-              className={`p-3 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
+              className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
                 selectedYear === 4
                   ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 ring-2 ring-indigo-500/20'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="font-bold text-base">Tahun 4</span>
-                <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
+                <span className="font-bold text-sm">Tahun 4</span>
+                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
                   Tahap 2
                 </span>
               </div>
-              <p className="text-xs text-slate-500">
-                Matematik hingga 100,000 • CEFR A2 Get Smart
+              <p className="text-[11px] text-slate-500 leading-tight">
+                Hingga 100k • CEFR A2
+              </p>
+            </button>
+
+            <button
+              id="select-year-5"
+              onClick={() => onSelectYear(5)}
+              className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
+                selectedYear === 5
+                  ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 ring-2 ring-indigo-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-bold text-sm">Tahun 5</span>
+                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                  Tahap 2
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-tight">
+                Hingga 1 Juta • English Plus 1
               </p>
             </button>
           </div>
         </div>
 
         {/* Subject Selection */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-7">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             2. Pilih Mata Pelajaran (KSSR Semakan)
           </label>
@@ -153,7 +173,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
               <div>
                 <span className="font-bold text-sm block">English</span>
                 <span className="text-xs text-slate-500">
-                  {selectedYear === 2 ? 'CEFR A1' : 'CEFR A2'}
+                  {selectedYear === 2 ? 'CEFR A1' : selectedYear === 4 ? 'CEFR A2' : 'English Plus 1'}
                 </span>
               </div>
             </button>
@@ -224,7 +244,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
       {/* Difficulty / KBAT Filter */}
       <div className="mt-4 pt-3 border-t border-slate-100">
         <label className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">
-          Tahap / Aras Kesukaran {selectedYear === 4 && (selectedSubject === 'Matematik' || selectedSubject === 'Sains') ? '(Pilihan KBAT)' : ''}
+          Tahap / Aras Kesukaran {(selectedYear === 4 || selectedYear === 5) ? '(Pilihan Aras & KBAT KPM)' : ''}
         </label>
         <div className="flex flex-wrap gap-2">
           <button
@@ -239,8 +259,32 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
             Semua Aras
           </button>
 
-          {selectedYear === 4 && (selectedSubject === 'Matematik' || selectedSubject === 'Sains') ? (
+          {(selectedYear === 4 || selectedYear === 5) ? (
             <>
+              <button
+                id="diff-pill-mudah"
+                onClick={() => onSelectDifficulty('Mudah')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${
+                  selectedDifficulty === 'Mudah'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'bg-blue-50 text-blue-800 border border-blue-200 hover:bg-blue-100'
+                }`}
+              >
+                Mudah
+              </button>
+
+              <button
+                id="diff-pill-sederhana"
+                onClick={() => onSelectDifficulty('Sederhana')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${
+                  selectedDifficulty === 'Sederhana'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'bg-blue-50 text-blue-800 border border-blue-200 hover:bg-blue-100'
+                }`}
+              >
+                Sederhana
+              </button>
+
               <button
                 id="diff-pill-kbat-rendah"
                 onClick={() => onSelectDifficulty('KBAT (Aras Rendah)')}
@@ -250,7 +294,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                     : 'bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100'
                 }`}
               >
-                <span>🟢 KBAT (Aras Rendah)</span>
+                <span>🟢 KBAT (Rendah)</span>
               </button>
 
               <button
@@ -262,7 +306,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                     : 'bg-amber-50 text-amber-900 border border-amber-300 hover:bg-amber-100'
                 }`}
               >
-                <span>🟡 KBAT (Aras Sederhana)</span>
+                <span>🟡 KBAT (Sederhana)</span>
               </button>
 
               <button
@@ -274,7 +318,7 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                     : 'bg-purple-50 text-purple-900 border border-purple-300 hover:bg-purple-100'
                 }`}
               >
-                <span>🟣 KBAT (Aras Tinggi)</span>
+                <span>🟣 KBAT (Tinggi)</span>
               </button>
             </>
           ) : (

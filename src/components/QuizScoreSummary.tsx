@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { QuizQuestion, QuizUserAnswer, StudentProfile } from '../types';
-import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck, Printer, User, UserPlus } from 'lucide-react';
+import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck, Printer, User, UserPlus, Gift } from 'lucide-react';
 import { processQuizCompletion } from '../utils/achievementSystem';
 import { recordDailyChallengeCompleted, getDailyStreakData } from '../utils/dailyChallenge';
+import { calculateQuizScore, recordStudentQuizScore, getEffectiveStudentScore } from '../utils/leaderboardService';
+import { getClaimableVouchersCount, getNextTargetVoucher } from '../utils/voucherService';
 import { AchievementBadgesView } from './AchievementBadgesView';
 import { StudentAvatarIcon } from './StudentAvatarIcon';
 import { speakText } from '../utils/speech';
@@ -12,7 +14,9 @@ interface QuizScoreSummaryProps {
   answers: Record<string, QuizUserAnswer>;
   onRestart: () => void;
   onOpenGenerator: () => void;
-  onOpenSchema: () => void;
+  onOpenPrint?: () => void;
+  onOpenLeaderboard?: () => void;
+  onOpenVouchers?: () => void;
   soundEnabled?: boolean;
   isDailyChallenge?: boolean;
   onDailyChallengeCompleted?: () => void;
@@ -25,7 +29,9 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
   answers,
   onRestart,
   onOpenGenerator,
-  onOpenSchema,
+  onOpenPrint,
+  onOpenLeaderboard,
+  onOpenVouchers,
   soundEnabled = false,
   isDailyChallenge = false,
   onDailyChallengeCompleted,
@@ -57,6 +63,35 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
       dailyResult ? dailyResult.newStreak : streakData.currentStreak
     )
   );
+
+  // Record points to leaderboard for active student or current session
+  const [earnedLeaderboardPoints] = useState(() => {
+    const currentStreak = dailyResult ? dailyResult.newStreak : streakData.currentStreak;
+    const scoreEarned = calculateQuizScore(questions, answers, isDailyChallenge, currentStreak);
+    const badgesCount = Object.keys(achievementResult.stats.unlockedBadges || {}).length;
+    const isPerfect = total > 0 && correctCount === total;
+
+    const targetStudentId = activeProfile?.id || 'active_guest_student';
+    recordStudentQuizScore(
+      targetStudentId,
+      scoreEarned,
+      total,
+      correctCount,
+      isDailyChallenge,
+      currentStreak,
+      isPerfect,
+      badgesCount
+    );
+
+    return scoreEarned;
+  });
+
+  const currentTotalScore = getEffectiveStudentScore(activeProfile);
+  const claimableVoucherCount = getClaimableVouchersCount(
+    activeProfile?.id || 'active_guest_student',
+    currentTotalScore
+  );
+  const { nextTier, pointsNeeded } = getNextTargetVoucher(currentTotalScore);
 
   // Voice announcement for newly unlocked badges
   useEffect(() => {
@@ -216,10 +251,84 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
               </div>
             </>
           )}
+          <div className="h-10 w-px bg-slate-200" />
+          <div>
+            <span className="text-4xl font-extrabold text-amber-600">+{earnedLeaderboardPoints}</span>
+            <span className="block text-xs font-bold uppercase text-amber-700 mt-0.5">
+              Mata Papan Pendahulu
+            </span>
+          </div>
         </div>
+
+        {/* Cash Voucher Eligibility Banner */}
+        {onOpenVouchers && (
+          <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/80 border-2 border-emerald-300 rounded-2xl p-4 mb-6 max-w-lg mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-left shadow-xs">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xs shrink-0">
+                🎟️
+              </div>
+              <div>
+                <div className="text-[10px] font-black uppercase text-emerald-800 tracking-wider">
+                  Ganjaran Baucar Tunai Murid
+                </div>
+                <div className="text-sm font-extrabold text-slate-900">
+                  {claimableVoucherCount > 0 ? (
+                    <span className="text-emerald-700 font-black">
+                      🎉 Anda Layak Tebus {claimableVoucherCount} Baucar Tunai!
+                    </span>
+                  ) : nextTier ? (
+                    <span>
+                      {pointsNeeded} mata lagi untuk baucar <span className="text-emerald-700">RM{nextTier.amountRM}</span>
+                    </span>
+                  ) : (
+                    <span>Semua Baucar Tunai Berjaya Dibuka!</span>
+                  )}
+                </div>
+                <div className="text-[11px] text-slate-600">
+                  Jumlah Mata Terkumpul: <span className="font-bold text-slate-900">{currentTotalScore} mata</span> (Koperasi / Buku)
+                </div>
+              </div>
+            </div>
+
+            <button
+              id="btn-open-vouchers-from-summary"
+              onClick={onOpenVouchers}
+              className={`w-full sm:w-auto px-4 py-2 rounded-xl font-bold text-xs transition shadow-xs cursor-pointer flex items-center justify-center gap-1.5 shrink-0 ${
+                claimableVoucherCount > 0
+                  ? 'bg-amber-400 hover:bg-amber-300 text-slate-950 font-black animate-pulse'
+                  : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+              }`}
+            >
+              <Gift className="w-3.5 h-3.5" />
+              <span>{claimableVoucherCount > 0 ? 'Tebus Baucar' : 'Pusat Baucar'}</span>
+            </button>
+          </div>
+        )}
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3">
+          {onOpenVouchers && (
+            <button
+              id="btn-vouchers-action-summary"
+              onClick={onOpenVouchers}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition shadow-sm cursor-pointer"
+            >
+              <Gift className="w-4 h-4" />
+              <span>Baucar Tunai ({claimableVoucherCount > 0 ? `${claimableVoucherCount} Baru!` : 'Semak'})</span>
+            </button>
+          )}
+
+          {onOpenLeaderboard && (
+            <button
+              id="btn-open-leaderboard-from-summary"
+              onClick={onOpenLeaderboard}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm transition shadow-sm cursor-pointer"
+            >
+              <Trophy className="w-4 h-4" />
+              <span>Lihat Papan Pendahulu</span>
+            </button>
+          )}
+
           <button
             id="btn-restart-quiz"
             onClick={onRestart}
@@ -245,17 +354,20 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
             title="Cetak slip atau simpan sebagai PDF"
           >
             <Printer className="w-4 h-4 text-indigo-600" />
-            <span>Cetak Slip Keputusan</span>
+            <span>Cetak Slip Keputusan (PDF)</span>
           </button>
 
-          <button
-            id="btn-open-schema-from-summary"
-            onClick={onOpenSchema}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition cursor-pointer"
-          >
-            <Code className="w-4 h-4" />
-            <span>Salin Skema JSON</span>
-          </button>
+          {onOpenPrint && (
+            <button
+              id="btn-open-worksheet-print"
+              onClick={onOpenPrint}
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition cursor-pointer"
+              title="Jana & Cetak Lembaran Kerja A4 Baharu"
+            >
+              <Printer className="w-4 h-4 text-slate-600" />
+              <span>Cetak Lembaran Kerja Latihan</span>
+            </button>
+          )}
         </div>
       </div>
 

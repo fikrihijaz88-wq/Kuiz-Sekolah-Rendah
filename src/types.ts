@@ -1,4 +1,4 @@
-export type YearLevel = 2 | 4;
+export type YearLevel = 2 | 4 | 5;
 export type Subject = 'Matematik' | 'Bahasa Inggeris' | 'Sains' | 'Pendidikan Islam' | 'Bahasa Melayu';
 
 export type QuestionDifficulty =
@@ -108,5 +108,51 @@ export interface StudentAchievementStats {
   perfectQuizzesCount: number;
   perfectQuizzesBySubject: Record<Subject, number>;
   unlockedBadges: Record<string, string>; // badgeId -> ISO string date unlocked
+}
+
+export interface LeaderboardEntry {
+  id: string;
+  studentName: string;
+  className: string;
+  year: YearLevel;
+  avatarId: string;
+  schoolName?: string;
+  totalScore: number;
+  challengesCompleted: number;
+  dailyStreak: number;
+  quizzesCompleted: number;
+  correctAnswers: number;
+  totalQuestions: number;
+  badgesCount: number;
+  accuracyRate: number;
+  rankTitle: string;
+  isCurrentUser?: boolean;
+}
+
+export interface CashVoucherTier {
+  id: string;
+  title: string;
+  amountRM: number;
+  targetPoints: number;
+  category: string;
+  description: string;
+  sponsor: string;
+  validityDays: number;
+  colorScheme: 'emerald' | 'blue' | 'purple' | 'amber';
+}
+
+export interface StudentVoucherClaim {
+  id: string;
+  voucherTierId: string;
+  studentId: string;
+  studentName: string;
+  className: string;
+  schoolName?: string;
+  code: string;
+  amountRM: number;
+  unlockedAt: string;
+  claimedAt?: string;
+  isRedeemed: boolean;
+  redeemedAt?: string;
 }
 
