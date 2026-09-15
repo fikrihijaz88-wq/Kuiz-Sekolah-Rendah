@@ -51,7 +51,7 @@ app.get('/api/health', (req, res) => {
 const questionSchema = {
   type: Type.OBJECT,
   properties: {
-    year: { type: Type.INTEGER, description: 'School year: 2, 4, or 5' },
+    year: { type: Type.INTEGER, description: 'School year: 1, 2, 4, or 5' },
     subject: { type: Type.STRING, description: 'Matematik, Sains, Bahasa Melayu, Bahasa Inggeris, Pendidikan Islam, Bahasa Arab, or Bahasa Cina' },
     topic: { type: Type.STRING, description: 'KSSR Semakan syllabus topic name' },
     questions: {
@@ -61,7 +61,7 @@ const questionSchema = {
         type: Type.OBJECT,
         properties: {
           id: { type: Type.STRING, description: 'Unique question id e.g. q-1, q-2' },
-          year: { type: Type.INTEGER, description: 'Year 2, Year 4, or Year 5' },
+          year: { type: Type.INTEGER, description: 'Year 1, Year 2, Year 4, or Year 5' },
           subject: { type: Type.STRING, description: 'Subject: Matematik, Sains, Bahasa Melayu, Bahasa Inggeris, Pendidikan Islam, Bahasa Arab, or Bahasa Cina' },
           topic: { type: Type.STRING, description: 'Topic' },
           subtopic: { type: Type.STRING, description: 'Subtopic' },
@@ -364,7 +364,7 @@ app.post('/api/generate-quiz', async (req, res) => {
       customPrompt = '',
     } = req.body;
 
-    const systemInstruction = `You are an expert Malaysian primary school educator specializing in the KSSR Semakan syllabus for Year 2 (Tahun 2), Year 4 (Tahun 4), and Year 5 (Tahun 5).
+    const systemInstruction = `You are an expert Malaysian primary school educator specializing in the KSSR Semakan syllabus for Year 1 (Tahun 1), Year 2 (Tahun 2), Year 4 (Tahun 4), and Year 5 (Tahun 5).
 
 Your mission is to generate age-appropriate, interactive multiple-choice quiz questions based STRICTLY on the Kementerian Pendidikan Malaysia (KPM) syllabus:
 
@@ -374,7 +374,7 @@ Your mission is to generate age-appropriate, interactive multiple-choice quiz qu
 - Matematik: Use standard Malaysian Malay terminology (wang saku, baki wang, perpuluhan, peratusan, satah Cartes, asalan, dekad, abad).
 - Sains: KSSR primary science concepts (kemahiran saintifik, manusia, haiwan, tumbuhan, daya, tenaga, bumi, teknologi).
 - Bahasa Melayu: Tatabahasa baku KPM, kosa kata Melayu Malaysia (never Indonesian).
-- Bahasa Inggeris: Malaysian Primary CEFR standards (A1 for Year 2, A2 for Year 4/5).
+- Bahasa Inggeris: Malaysian Primary CEFR standards (A1 for Year 1/2, A2 for Year 4/5).
 - Pendidikan Islam: KSSR Islamic studies syllabus (Al-Quran, Tajwid, Akidah, Ibadah, Sirah, Akhlak, Jawi).
 
 2. RULES:

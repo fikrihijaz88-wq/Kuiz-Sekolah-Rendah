@@ -9,7 +9,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'التحيات والترحيب',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Mudah',
     question: 'Apakah jawapan yang betul bagi ucapan: "صَبَاحَ الْخَيْرِ" (Selamat Pagi)?',
     options: {
@@ -27,7 +27,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'السؤال عن الاسم',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Mudah',
     question: 'Ahmad ingin bertanya nama kepada seorang murid lelaki. Apakah soalan yang betul?',
     options: {
@@ -45,7 +45,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'ضمائر المتكلم',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat pengenalan diri ini: "______ تِلْمِيذَةٌ نَشِيطَةٌ."',
     options: {
@@ -63,7 +63,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'السؤال عن الحال',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Mudah',
     question: 'Ali ditanya: "كَيْفَ حَالُكَ؟" (Bagaimanakah khabar kamu?). Ali menjawab:',
     options: {
@@ -81,7 +81,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'اسم الإشارة (هذا / هذه)',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Sederhana',
     question: 'Pilih ayat tunjuk (اسم الإشارة) yang betul bagi rakan perempuan:',
     options: {
@@ -99,7 +99,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'الترحيب',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Mudah',
     question: 'Guru menyambut murid dengan ucapan: "أَهْلًا وَسَهْلًا" (Selamat Datang). Murid menjawab:',
     options: {
@@ -117,7 +117,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'التحيات المسائية',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Mudah',
     question: 'Apakah ucapan yang diucapkan pada waktu petang dalam Bahasa Arab?',
     options: {
@@ -135,7 +135,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'الوداع والفراق',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Mudah',
     question: 'Sebelum pulang dari sekolah, murid mengucapkan: "إِلَى اللِّقَاءِ" (Jumpa Lagi). Guru membalas:',
     options: {
@@ -153,7 +153,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'الشكر والاعتذار',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Sederhana',
     question: 'Apabila seseorang mengucapkan "شُكْرًا" (Terima kasih), apakah respons sopan yang perlu diucapkan?',
     options: {
@@ -171,7 +171,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'السؤال عن السكن',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Sederhana',
     question: 'Soalan "أَيْنَ تَسْكُنُ؟" bermaksud:',
     options: {
@@ -189,7 +189,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'الضمير (أنتَ / أنتِ)',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Ustazah ingin bercakap dengan seorang murid perempuan (Fatimah). Kata ganti diri yang manakah patut digunakan?',
     options: {
@@ -207,7 +207,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'السؤال بالأداة (مَنْ)',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Sederhana',
     question: 'Apakah maksud soalan "مَنْ هَذَا؟"?',
     options: {
@@ -225,7 +225,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'المهنة المدرسية',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'Sederhana',
     question: 'Padanan yang manakah betul bagi "Guru Lelaki" dan "Guru Perempuan"?',
     options: {
@@ -243,7 +243,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'حوار التعارف',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Perhatikan dialog ini:\nZaid: "مَا اسْمُكَ؟"\nAmir: "________________."\nApakah jawapan tepat Amir?',
     options: {
@@ -261,7 +261,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
-    subtopic: 'التركيب والترتيب',
+    subtopic: 'هَيَّا نَتَعَارَفْ (Mari Berkenalan & Sapaan)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang betul:\n[ تِلْمِيذٌ - أَنَا - مُمَيَّزٌ ]',
     options: {
@@ -283,7 +283,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'أفراد الأسرة',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Mudah',
     question: 'Apakah maksud perkataan "أَبٌ" dan "أُمٌّ"?',
     options: {
@@ -301,7 +301,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'الأخ والأخت',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Mudah',
     question: 'Perkataan Arab bagi "Kakak / Adik perempuan" ialah:',
     options: {
@@ -319,7 +319,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'الأقارب (الجد والجدة)',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Sederhana',
     question: 'Manakah padanan yang betul bagi "Datuk" dan "Nenek"?',
     options: {
@@ -337,7 +337,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'العم والعمة',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Sederhana',
     question: 'Saudara lelaki kepada bapa (Pakcik sebelah bapa) dipanggil:',
     options: {
@@ -355,7 +355,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'حب الأسرة',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Mudah',
     question: 'Ungkapan "أَنَا أُحِبُّ أُسْرَتِي" membawa maksud:',
     options: {
@@ -373,7 +373,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'الياء الملكية (ياء المتكلم)',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Sederhana',
     question: 'Bagaimanakah cara menyebut "Ibu saya" dalam Bahasa Arab?',
     options: {
@@ -391,7 +391,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'الخال والخالة',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Sederhana',
     question: 'Saudara perempuan kepada ibu (Makcik sebelah ibu) dikenali sebagai:',
     options: {
@@ -409,7 +409,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'اسم الإشارة مع الأسرة',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat ini: "______ أَبِي الْكَرِيمُ."',
     options: {
@@ -427,7 +427,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'اسم الإشارة مع المؤنث',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat ini: "______ جَدَّتِي الْعَطُوفَةُ."',
     options: {
@@ -445,7 +445,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'احترام الوالدين',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Apakah ucapan doa yang diajarkan untuk kedua-dua ibu bapa?',
     options: {
@@ -463,7 +463,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'حجم الأسرة',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Sederhana',
     question: '"أُسْرَتِي كَبِيرَةٌ" membawa maksud:',
     options: {
@@ -481,7 +481,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
-    subtopic: 'الأخ الكبير والأخ الصغير',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Bagaimanakah menyebut "Abang sulung / abang besar" dalam Bahasa Arab?',
     options: {
@@ -498,8 +498,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik2-013',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'أُسْرَتِي وَأَقَARIBI (Keluargaku)',
-    subtopic: 'سؤال عن الصورة',
+    topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Aisyah menunjukkan gambar seorang lelaki tua berjanggut putih dan berkata:\n"هَذَا جَدِّي." Siapakah yang dimaksudkan?',
     options: {
@@ -516,8 +516,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik2-014',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'أُسْرَتِي وَأَقَARIBI (Keluargaku)',
-    subtopic: 'الجمع والمفرد',
+    topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Manakah ayat yang betul dari segi tatabahasa Arab?',
     options: {
@@ -534,8 +534,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik2-015',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'أُسْرَتِي وَأَقَARIBI (Keluargaku)',
-    subtopic: 'نشاط عائلي',
+    topic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
+    subtopic: 'أُسْرَتِي وَأَقَارِبِي (Keluargaku)',
     difficulty: 'Sederhana',
     question: '"نَحْنُ نَأْكُلُ مَعَ الأُسْرَةِ" bermaksud:',
     options: {
@@ -557,7 +557,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'أعضاء الرأس',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi "Kepala"?',
     options: {
@@ -575,7 +575,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'حاسة البصر',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Mudah',
     question: '"عَيْنٌ" adalah anggota badan yang digunakan untuk melihat. Apakah maksud "عَيْنٌ"?',
     options: {
@@ -593,7 +593,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'حاسة السمع',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Mudah',
     question: 'Perkataan Arab bagi "Telinga" ialah:',
     options: {
@@ -611,7 +611,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'حاسة الشم',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Mudah',
     question: 'Apakah maksud perkataan "أَنْفٌ"?',
     options: {
@@ -629,7 +629,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'الفم والأسنان',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Sederhana',
     question: 'Padanan manakah yang betul bagi "Mulut" dan "Gigi"?',
     options: {
@@ -647,7 +647,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'اليد والرجل',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Mudah',
     question: 'Anggota badan yang berpasangan bagi menulis dan berjalan ialah:',
     options: {
@@ -665,7 +665,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'الشعر والخد',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Sederhana',
     question: 'Perkataan Arab bagi "Rambut" yang hitam dan bersih ialah:',
     options: {
@@ -683,7 +683,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'المؤنث المجازي للأعضاء المزدوجة',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Dalam kaedah Bahasa Arab, anggota badan yang berpasangan (seperti mata, telinga, tangan, kaki) dianggap:',
     options: {
@@ -701,7 +701,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'اسم الإشارة مع اليد',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Sederhana',
     question: 'Pilih ayat yang betul untuk menunjukkan tangan:',
     options: {
@@ -719,7 +719,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'وظائف الأعضاء',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Sederhana',
     question: '"أَنَا أَرَى بِالْعَيْنِ" membawa maksud:',
     options: {
@@ -737,7 +737,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'حفظ النظافة',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Mudah',
     question: '"أَنَا أُنَظِّفُ أَسْنَانِي بِالْفُرْشَاةِ" bermaksud:',
     options: {
@@ -755,7 +755,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'البطن والظهر',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Sederhana',
     question: 'Apakah perkataan Arab bagi "Perut" dan "Belakang badan"?',
     options: {
@@ -773,7 +773,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'صفة الجسم السليم',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'Sederhana',
     question: 'Frasa "الْعَقْلُ السَّلِيمُ فِي الْجِسْمِ السَّلِيمِ" bermaksud:',
     options: {
@@ -791,7 +791,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'التمييز بين الحواس',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Siti ingin mendengar bacaan al-Quran ustaz. Anggota badan manakah yang digunakan Siti dalam Bahasa Arab?',
     options: {
@@ -809,7 +809,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
-    subtopic: 'تركيب الجملة',
+    subtopic: 'جِسْمِي السَّلِيمُ (Anggota Badanku)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut menjadi ayat yang sempurna:\n[ أَغْسِلُ - بِالْمَاءِ - يَدَيَّ - وَالصَّابُونِ ]',
     options: {
@@ -831,7 +831,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'غرفة الجلوس',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi "Ruang Tamu / Bilik Duduk"?',
     options: {
@@ -849,7 +849,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'غرفة النوم',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Mudah',
     question: 'Tempat untuk berehat dan tidur pada waktu malam dipanggil:',
     options: {
@@ -867,7 +867,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'المطبخ',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Mudah',
     question: 'Ibu memasak makanan di "الْمَطْبَخُ". Apakah maksud "الْمَطْبَخُ"?',
     options: {
@@ -885,7 +885,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'الحمام',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Mudah',
     question: 'Perkataan Arab bagi "Bilik Air / Tandas" ialah:',
     options: {
@@ -903,7 +903,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'أثاث البيت (سرير ووسادة)',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Sederhana',
     question: 'Perabot yang terdapat di dalam bilik tidur iaitu "Katil" dan "Bantal" ialah:',
     options: {
@@ -921,7 +921,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'أثاث الجلوس (أريكة وتلفاز)',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Sederhana',
     question: 'Apakah maksud perkataan "أَرِيكَةٌ" dan "تِلْفَازٌ"?',
     options: {
@@ -939,7 +939,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'الباب والنافذة',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Mudah',
     question: 'Padanan yang betul bagi "Pintu" dan "Tingkap" ialah:',
     options: {
@@ -957,7 +957,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'حروف الجر (فِي / عَلَى)',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat ini: "الْكِتَابُ ______ الطَّاوِلَةِ."',
     options: {
@@ -975,7 +975,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'حرف الجر (فِي)',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat ini: "أَبِي يَجْلِسُ ______ غُرْفَةِ الْجُلُوسِ."',
     options: {
@@ -993,7 +993,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'المصباح والمروحة',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Sederhana',
     question: 'Alat untuk menerangi bilik dan menyejukkan udara ialah "مِصْبَاحٌ" dan "مِرْوَحَةٌ". Apakah maksudnya?',
     options: {
@@ -1011,7 +1011,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'الثلاجة في المطبخ',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Sederhana',
     question: 'Perkataan Arab bagi "Peti Sejuk" yang menyimpan makanan ialah:',
     options: {
@@ -1029,7 +1029,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'وصف البيت',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'Mudah',
     question: 'Ayat "بَيْتِي جَمِيلٌ وَنَظِيفٌ" bermaksud:',
     options: {
@@ -1047,7 +1047,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'حوار في البيت',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Ibu bertanya: "أَيْنَ أَخُوكَ؟" (Di manakah saudaramu?). Farid menjawab:\n"هُوَ فِي ______."',
     options: {
@@ -1065,7 +1065,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'اسم الإشارة مع الأثاث',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Pilih padanan nama tunjuk dan benda muannas yang tepat:',
     options: {
@@ -1083,7 +1083,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
-    subtopic: 'ترتيب جملة البيت',
+    subtopic: 'فِي بَيْتِي (Di Rumahku & Peralatan)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut menjadi ayat yang betul:\n[ أُسْرَتِي - أَنَا - فِي - مَعَ - أَسْكُنُ - بَيْتٍ جَمِيلٍ ]',
     options: {
@@ -1105,7 +1105,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'الأرقام (1-5)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi nombor "3" (ثَلَاثَةٌ) dan "4" (أَرْبَعَةٌ)?',
     options: {
@@ -1123,7 +1123,7 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     year: 2,
     subject: 'Bahasa Arab',
     topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'الأرقام (6-10)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Mudah',
     question: 'Perkataan Arab bagi nombor "7" ialah:',
     options: {
@@ -1140,8 +1140,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-003',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'الأرقام (10)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Mudah',
     question: 'Apakah nombor Arab bagi "عَشَرَةٌ"?',
     options: {
@@ -1158,8 +1158,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-004',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'الأرقام (11-15)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Sederhana',
     question: 'Perkataan Arab bagi nombor "11" dan "12" ialah:',
     options: {
@@ -1176,8 +1176,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-005',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'الأرقام (15)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Sederhana',
     question: 'Apakah nombor Arab bagi "خَمْسَةَ عَشَرَ"?',
     options: {
@@ -1194,8 +1194,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-006',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'الأرقام (20)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Sederhana',
     question: 'Perkataan Arab bagi nombor "20" ialah:',
     options: {
@@ -1212,8 +1212,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-007',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'حركات الحروف (الفتحة والكسرة والضمة)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Mudah',
     question: 'Bunyi huruf berbaris bawah (الْكَسْرَةُ) pada huruf ب (Ba) berbunyi:',
     options: {
@@ -1230,8 +1230,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-008',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'الحركات الطويلة (المد)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Sederhana',
     question: 'Manakah perkataan yang mengandungi bacaan panjang (الْمَدُّ بِالأَلِفِ)?',
     options: {
@@ -1248,8 +1248,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-009',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'السكون والشدة',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Sederhana',
     question: 'Tanda baris yang menunjukkan huruf berganda / bersabdu ialah:',
     options: {
@@ -1266,8 +1266,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-010',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'مواقع الحروف (أول ووسط وآخر)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Sederhana',
     question: 'Perhatikan kedudukan huruf (ل) dalam perkataan "قَلَمٌ". Di manakah kedudukannya?',
     options: {
@@ -1284,8 +1284,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-011',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'العد والعمليات الحسابية البسيطة',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Kira hasil tambah ini dalam Bahasa Arab:\n[ خَمْسَةٌ (5) + ثَلَاثَةٌ (3) = ______ ]',
     options: {
@@ -1302,8 +1302,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-012',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'العد التنازلي',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Lengkapkan urutan nombor menurun ini:\n[ عَشَرَةٌ (10) ، تِسْعَةٌ (9) ، ______ (8) ، سَبْعَةٌ (7) ]',
     options: {
@@ -1320,8 +1320,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-013',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'الأرقام (16-19)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'Sederhana',
     question: 'Apakah perkataan Arab bagi nombor "17"?',
     options: {
@@ -1338,8 +1338,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-014',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'السؤال عن العدد (كَمْ)',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Ustaz bertanya: "كَمْ قَلَمًا عِنْدَكَ؟" (Berapakah pensel yang kamu ada?). Murid ada 4 batang pensel, murid menjawab:',
     options: {
@@ -1356,8 +1356,8 @@ export const BAHASA_ARAB_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t2-topik5-015',
     year: 2,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
-    subtopic: 'التمييز بين الحروف المتشابهة صوتا',
+    topic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
+    subtopic: 'الأَرْقَامُ (1-20) وَحُرُوفُ الْهِجَاءِ (Nombor & Fonetik)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Manakah pasangan perkataan yang membezakan sebutan huruf س (Sin) dan ص (Sod)?',
     options: {

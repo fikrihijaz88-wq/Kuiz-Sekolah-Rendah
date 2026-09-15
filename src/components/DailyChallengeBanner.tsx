@@ -128,17 +128,17 @@ export const DailyChallengeBanner: React.FC<DailyChallengeBannerProps> = ({
       {/* Filter options for Daily Challenge */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 items-center">
         {/* Year Selector */}
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-5">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
             Tahap Persekolahan
           </label>
-          <div className="grid grid-cols-3 gap-1.5">
-            {([2, 4, 5] as YearLevel[]).map((yr) => (
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5">
+            {([1, 2, 3, 4, 5, 6] as YearLevel[]).map((yr) => (
               <button
                 key={yr}
                 id={`daily-select-year-${yr}`}
                 onClick={() => onSelectYear(yr)}
-                className={`py-2 px-2.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer ${
+                className={`py-2 px-1.5 rounded-xl border text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer ${
                   selectedYear === yr
                     ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
@@ -151,7 +151,7 @@ export const DailyChallengeBanner: React.FC<DailyChallengeBannerProps> = ({
         </div>
 
         {/* Subject filter for Daily Challenge */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-7">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
             Pilihan Mata Pelajaran Cabaran Hari Ini
           </label>
@@ -168,7 +168,7 @@ export const DailyChallengeBanner: React.FC<DailyChallengeBannerProps> = ({
               <Layers className="w-3.5 h-3.5" />
               <span>Campuran Semua Subjek</span>
             </button>
-            {(['Matematik', 'Sains', 'Bahasa Melayu', 'Bahasa Inggeris', 'Pendidikan Islam'] as Subject[]).map(
+            {(['Matematik', 'Sains', 'Bahasa Melayu', 'Bahasa Inggeris', 'Pendidikan Islam', 'Bahasa Arab', 'Bahasa Cina'] as Subject[]).map(
               (sub) => (
                 <button
                   key={sub}

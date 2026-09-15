@@ -270,38 +270,21 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
                 : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
             }`}
           >
-            Semua Tahun ({allEntries.length})
+            Semua ({allEntries.length})
           </button>
-          <button
-            onClick={() => setSelectedYearFilter(2)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
-              selectedYearFilter === 2
-                ? 'bg-indigo-600 text-white shadow-xs'
-                : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-            }`}
-          >
-            Tahun 2 Sahaja
-          </button>
-          <button
-            onClick={() => setSelectedYearFilter(4)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
-              selectedYearFilter === 4
-                ? 'bg-indigo-600 text-white shadow-xs'
-                : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-            }`}
-          >
-            Tahun 4 Sahaja
-          </button>
-          <button
-            onClick={() => setSelectedYearFilter(5)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
-              selectedYearFilter === 5
-                ? 'bg-indigo-600 text-white shadow-xs'
-                : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-            }`}
-          >
-            Tahun 5 Sahaja
-          </button>
+          {([1, 2, 3, 4, 5, 6] as YearLevel[]).map((yr) => (
+            <button
+              key={yr}
+              onClick={() => setSelectedYearFilter(yr)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
+                selectedYearFilter === yr
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              }`}
+            >
+              Tahun {yr}
+            </button>
+          ))}
         </div>
 
         {/* Sort Metric Selector */}

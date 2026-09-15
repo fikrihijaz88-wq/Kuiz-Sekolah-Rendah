@@ -1,4 +1,4 @@
-export type YearLevel = 2 | 4 | 5;
+export type YearLevel = 1 | 2 | 3 | 4 | 5 | 6;
 export type Subject =
   | 'Matematik'
   | 'Bahasa Inggeris'
@@ -11,6 +11,7 @@ export type Subject =
 export type QuestionDifficulty =
   | 'Mudah'
   | 'Sederhana'
+  | 'Sukar'
   | 'KBAT (Aras Rendah)'
   | 'KBAT (Aras Sederhana)'
   | 'KBAT (Aras Tinggi)'

@@ -337,39 +337,72 @@ export const StudentProfileModal: React.FC<StudentProfileModalProps> = ({
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                     Tahun Persekolahan <span className="text-rose-500">*</span>
                   </label>
-                  <div className="grid grid-cols-3 gap-1.5">
+                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setYearVal(1)}
+                      className={`py-2 px-1.5 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
+                        yearVal === 1
+                          ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                          : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                      }`}
+                    >
+                      T1
+                    </button>
                     <button
                       type="button"
                       onClick={() => setYearVal(2)}
-                      className={`py-2 px-2 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
+                      className={`py-2 px-1.5 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
                         yearVal === 2
                           ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                           : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                       }`}
                     >
-                      Tahun 2
+                      T2
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setYearVal(3)}
+                      className={`py-2 px-1.5 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
+                        yearVal === 3
+                          ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                          : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                      }`}
+                    >
+                      T3
                     </button>
                     <button
                       type="button"
                       onClick={() => setYearVal(4)}
-                      className={`py-2 px-2 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
+                      className={`py-2 px-1.5 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
                         yearVal === 4
                           ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                           : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                       }`}
                     >
-                      Tahun 4
+                      T4
                     </button>
                     <button
                       type="button"
                       onClick={() => setYearVal(5)}
-                      className={`py-2 px-2 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
+                      className={`py-2 px-1.5 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
                         yearVal === 5
                           ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                           : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                       }`}
                     >
-                      Tahun 5
+                      T5
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setYearVal(6)}
+                      className={`py-2 px-1.5 rounded-xl border text-xs font-bold transition cursor-pointer text-center ${
+                        yearVal === 6
+                          ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                          : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                      }`}
+                    >
+                      T6
                     </button>
                   </div>
                 </div>

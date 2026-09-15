@@ -153,20 +153,48 @@ export const WorksheetPrintView: React.FC<WorksheetPrintViewProps> = ({
             <label className="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-1.5">
               Tahap / Tahun
             </label>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5">
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedYear(1);
+                  setSelectedTopicId('all');
+                }}
+                className={`py-2 px-1 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
+                  selectedYear === 1
+                    ? 'bg-indigo-600 text-white border-indigo-600'
+                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                T1
+              </button>
               <button
                 type="button"
                 onClick={() => {
                   setSelectedYear(2);
                   setSelectedTopicId('all');
                 }}
-                className={`py-2 px-2 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
+                className={`py-2 px-1 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
                   selectedYear === 2
                     ? 'bg-indigo-600 text-white border-indigo-600'
                     : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                Tahun 2
+                T2
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedYear(3);
+                  setSelectedTopicId('all');
+                }}
+                className={`py-2 px-1 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
+                  selectedYear === 3
+                    ? 'bg-indigo-600 text-white border-indigo-600'
+                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                T3
               </button>
               <button
                 type="button"
@@ -174,13 +202,13 @@ export const WorksheetPrintView: React.FC<WorksheetPrintViewProps> = ({
                   setSelectedYear(4);
                   setSelectedTopicId('all');
                 }}
-                className={`py-2 px-2 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
+                className={`py-2 px-1 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
                   selectedYear === 4
                     ? 'bg-indigo-600 text-white border-indigo-600'
                     : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                Tahun 4
+                T4
               </button>
               <button
                 type="button"
@@ -188,13 +216,27 @@ export const WorksheetPrintView: React.FC<WorksheetPrintViewProps> = ({
                   setSelectedYear(5);
                   setSelectedTopicId('all');
                 }}
-                className={`py-2 px-2 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
+                className={`py-2 px-1 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
                   selectedYear === 5
                     ? 'bg-indigo-600 text-white border-indigo-600'
                     : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                Tahun 5
+                T5
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedYear(6);
+                  setSelectedTopicId('all');
+                }}
+                className={`py-2 px-1 rounded-lg text-xs font-bold border transition cursor-pointer text-center ${
+                  selectedYear === 6
+                    ? 'bg-indigo-600 text-white border-indigo-600'
+                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                T6
               </button>
             </div>
           </div>

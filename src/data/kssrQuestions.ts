@@ -1,4 +1,11 @@
 import { QuizQuestion, QuizTopicMeta } from '../types';
+import { MATEMATIK_TAHUN_1_QUESTIONS } from './matematikTahun1';
+import { SAINS_TAHUN_1_QUESTIONS } from './sainsTahun1';
+import { BAHASA_MELAYU_TAHUN_1_QUESTIONS } from './bahasaMelayuTahun1';
+import { ENGLISH_TAHUN_1_QUESTIONS } from './englishTahun1';
+import { PENDIDIKAN_ISLAM_TAHUN_1_QUESTIONS } from './pendidikanIslamTahun1';
+import { BAHASA_ARAB_TAHUN_1_QUESTIONS } from './bahasaArabTahun1';
+import { BAHASA_CINA_TAHUN_1_QUESTIONS } from './bahasaCinaTahun1';
 import { MATEMATIK_TAHUN_2_QUESTIONS } from './matematikTahun2';
 import { SAINS_TAHUN_2_QUESTIONS } from './sainsTahun2';
 import { ENGLISH_TAHUN_2_QUESTIONS } from './englishTahun2';
@@ -6,6 +13,13 @@ import { PENDIDIKAN_ISLAM_TAHUN_2_QUESTIONS } from './pendidikanIslamTahun2';
 import { BAHASA_MELAYU_TAHUN_2_QUESTIONS } from './bahasaMelayuTahun2';
 import { BAHASA_ARAB_TAHUN_2_QUESTIONS } from './bahasaArabTahun2';
 import { BAHASA_CINA_TAHUN_2_QUESTIONS } from './bahasaCinaTahun2';
+import { MATEMATIK_TAHUN_3_QUESTIONS } from './matematikTahun3';
+import { SAINS_TAHUN_3_QUESTIONS } from './sainsTahun3';
+import { BAHASA_MELAYU_TAHUN_3_QUESTIONS } from './bahasaMelayuTahun3';
+import { ENGLISH_TAHUN_3_QUESTIONS } from './englishTahun3';
+import { PENDIDIKAN_ISLAM_TAHUN_3_QUESTIONS } from './pendidikanIslamTahun3';
+import { BAHASA_ARAB_TAHUN_3_QUESTIONS } from './bahasaArabTahun3';
+import { BAHASA_CINA_TAHUN_3_QUESTIONS } from './bahasaCinaTahun3';
 import { MATEMATIK_TAHUN_4_KBAT_QUESTIONS } from './matematikTahun4Kbat';
 import { SAINS_TAHUN_4_QUESTIONS } from './sainsTahun4';
 import { ENGLISH_TAHUN_4_QUESTIONS } from './englishTahun4';
@@ -20,8 +34,322 @@ import { ENGLISH_TAHUN_5_QUESTIONS } from './englishTahun5';
 import { PENDIDIKAN_ISLAM_TAHUN_5_QUESTIONS } from './pendidikanIslamTahun5';
 import { BAHASA_ARAB_TAHUN_5_QUESTIONS } from './bahasaArabTahun5';
 import { BAHASA_CINA_TAHUN_5_QUESTIONS } from './bahasaCinaTahun5';
+import { MATEMATIK_TAHUN_6_QUESTIONS } from './matematikTahun6';
+import { SAINS_TAHUN_6_QUESTIONS } from './sainsTahun6';
+import { BAHASA_MELAYU_TAHUN_6_QUESTIONS } from './bahasaMelayuTahun6';
+import { ENGLISH_TAHUN_6_QUESTIONS } from './englishTahun6';
+import { PENDIDIKAN_ISLAM_TAHUN_6_QUESTIONS } from './pendidikanIslamTahun6';
+import { BAHASA_ARAB_TAHUN_6_QUESTIONS } from './bahasaArabTahun6';
+import { BAHASA_CINA_TAHUN_6_QUESTIONS } from './bahasaCinaTahun6';
 
 export const KSSR_TOPICS: QuizTopicMeta[] = [
+  // ==========================================
+  // TAHUN 1 - MATEMATIK
+  // ==========================================
+  {
+    id: 't1-mat-nombor',
+    name: 'Nombor hingga 100',
+    year: 1,
+    subject: 'Matematik',
+    description: 'Membilang, menulis nombor, nilai tempat puluh dan sa, serta susunan tertib hingga 100.',
+    iconName: 'Hash',
+  },
+  {
+    id: 't1-mat-tambah-tolak',
+    name: 'Tambah dan Tolak Asas',
+    year: 1,
+    subject: 'Matematik',
+    description: 'Konsep gabungan himpunan, penambahan, penolakan dan penyelesaian masalah mudah dalam lingkungan 100.',
+    iconName: 'Calculator',
+  },
+  {
+    id: 't1-mat-pecahan',
+    name: 'Pecahan Mudah (Satu Perdua & Satu Perempat)',
+    year: 1,
+    subject: 'Matematik',
+    description: 'Mengenal konsep satu perdua (separuh) dan satu perempat (suku) daripada satu objek penuh.',
+    iconName: 'PieChart',
+  },
+  {
+    id: 't1-mat-wang',
+    name: 'Wang hingga RM10',
+    year: 1,
+    subject: 'Matematik',
+    description: 'Mengenal syiling 5 sen, 10 sen, 20 sen, 50 sen dan wang kertas RM1, RM5, RM10 serta pertukaran wang.',
+    iconName: 'Coins',
+  },
+  {
+    id: 't1-mat-masa-ruang',
+    name: 'Masa, Waktu & Bentuk Ruang',
+    year: 1,
+    subject: 'Matematik',
+    description: 'Waktu dalam sehari, hari dalam seminggu, muka jam analog dan bentuk 2D/3D asas.',
+    iconName: 'Clock',
+  },
+
+  // ==========================================
+  // TAHUN 1 - SAINS (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't1-sn-deria-kemahiran',
+    name: 'Kemahiran Saintifik & 5 Deria Manusia',
+    year: 1,
+    subject: 'Sains',
+    description: 'Mengenal 5 organ deria manusia, kemahiran memerhati, mengelas dan mematuhi peraturan bilik sains.',
+    iconName: 'FlaskConical',
+  },
+  {
+    id: 't1-sn-benda-hidup',
+    name: 'Benda Hidup dan Benda Bukan Hidup',
+    year: 1,
+    subject: 'Sains',
+    description: 'Ciri benda hidup (bernafas, memerlukan makanan/air, bergerak, membesar, membiak) vs bukan hidup.',
+    iconName: 'Users',
+  },
+  {
+    id: 't1-sn-haiwan',
+    name: 'Bahagian Tubuh Haiwan & Ciri Fizikal',
+    year: 1,
+    subject: 'Sains',
+    description: 'Mengenal bahagian tubuh haiwan seperti paruh, sisik, kepak, bulu pelepah, ekor dan cengkerang.',
+    iconName: 'Bug',
+  },
+  {
+    id: 't1-sn-tumbuhan',
+    name: 'Bahagian Tumbuh-tumbuhan (Daun, Bunga, Batang, Akar)',
+    year: 1,
+    subject: 'Sains',
+    description: 'Mengenal jenis urat daun, jenis akar (serabut/tunjang), jenis batang dan pokok berbunga vs tidak berbunga.',
+    iconName: 'Sprout',
+  },
+  {
+    id: 't1-sn-magnet',
+    name: 'Magnet & Tarikan Kutub',
+    year: 1,
+    subject: 'Sains',
+    description: 'Bentuk magnet, kutub utara/selatan, tindakan tolak/tarik, dan bahan magnetik vs bukan magnetik.',
+    iconName: 'Zap',
+  },
+
+  // ==========================================
+  // TAHUN 1 - BAHASA MELAYU
+  // ==========================================
+  {
+    id: 't1-bm-abjad-sukukata',
+    name: 'Huruf, Suku Kata & Sebutan',
+    year: 1,
+    subject: 'Bahasa Melayu',
+    description: 'Huruf vokal (a, e, i, o, u), huruf konsonan, suku kata terbuka (KV) dan tertutup (KVK).',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't1-bm-kata-nama',
+    name: 'Golongan Kata & Kata Nama Asas',
+    year: 1,
+    subject: 'Bahasa Melayu',
+    description: 'Mengenal kata nama am (benda, orang, haiwan, tempat) dan kata nama khas berhuruf besar.',
+    iconName: 'BookText',
+  },
+  {
+    id: 't1-bm-kata-kerja-adjektif',
+    name: 'Kata Kerja & Kata Adjektif',
+    year: 1,
+    subject: 'Bahasa Melayu',
+    description: 'Kata kerja perbuatan harian dan kata adjektif sifat/warna/saiz/bentuk asas.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't1-bm-frasa-ayat',
+    name: 'Kata Hubung & Kata Sendi Nama',
+    year: 1,
+    subject: 'Bahasa Melayu',
+    description: 'Kata hubung gabungan (dan, atau, tetapi) dan kata sendi nama (di, ke, dari, pada).',
+    iconName: 'PenTool',
+  },
+  {
+    id: 't1-bm-tanda-baca-pemahaman',
+    name: 'Membina Ayat & Tanda Baca',
+    year: 1,
+    subject: 'Bahasa Melayu',
+    description: 'Penggunaan huruf besar, tanda noktah (.), tanda soal (?), tanda seru (!) dan menyusun ayat.',
+    iconName: 'Bookmark',
+  },
+
+  // ==========================================
+  // TAHUN 1 - BAHASA INGGERIS
+  // ==========================================
+  {
+    id: 't1-bi-phonics',
+    name: 'Phonics & Alphabet',
+    year: 1,
+    subject: 'Bahasa Inggeris',
+    description: 'Recognizing initial letter sounds, short vowel sounds (a, e, i, o, u), and blending CVC sounds.',
+    iconName: 'SpellCheck',
+  },
+  {
+    id: 't1-bi-greetings-family',
+    name: 'Friends & Greetings',
+    year: 1,
+    subject: 'Bahasa Inggeris',
+    description: 'Polite greetings, introducing self, pronouns (he, she), and making friends.',
+    iconName: 'Users',
+  },
+  {
+    id: 't1-bi-classroom-colors',
+    name: 'At School & Classroom Objects',
+    year: 1,
+    subject: 'Bahasa Inggeris',
+    description: 'Identifying pencil, ruler, book, bag, prepositions (in, on, under), and classroom commands.',
+    iconName: 'Palette',
+  },
+  {
+    id: 't1-bi-numbers-pets',
+    name: "Let's Play & Toys",
+    year: 1,
+    subject: 'Bahasa Inggeris',
+    description: 'Naming toys (kite, doll, bike), adjectives (big, small, long, short), and possessives (his, her).',
+    iconName: 'Hash',
+  },
+  {
+    id: 't1-bi-simple-sentences',
+    name: 'Pet Show & Animals',
+    year: 1,
+    subject: 'Bahasa Inggeris',
+    description: 'Animal names, sounds, body parts, plural animals with -s, and sentence structures.',
+    iconName: 'Sparkles',
+  },
+
+  // ==========================================
+  // TAHUN 1 - PENDIDIKAN ISLAM
+  // ==========================================
+  {
+    id: 't1-pi-hijaiyyah-quran',
+    name: 'Huruf Hijaiyyah & Surah Al-Fatihah serta Al-Ikhlas',
+    year: 1,
+    subject: 'Pendidikan Islam',
+    description: 'Mengenal huruf Hijaiyyah tunggal/berbaris dan kefahaman Surah Al-Fatihah serta Surah Al-Ikhlas.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't1-pi-rukun-iman-islam',
+    name: 'Asas Rukun Iman & Rukun Islam',
+    year: 1,
+    subject: 'Pendidikan Islam',
+    description: 'Mengenal 6 Rukun Iman, 5 Rukun Islam, mengucap Kalimah Syahadah dan beriman kepada Allah SWT.',
+    iconName: 'HeartHandshake',
+  },
+  {
+    id: 't1-pi-kebersihan-wuduk',
+    name: 'Bersuci daripada Hadas, Istinjak & Rukun Wuduk',
+    year: 1,
+    subject: 'Pendidikan Islam',
+    description: 'Konsep kebersihan diri, alat dan adab istinjak, serta 6 rukun wuduk mengikut tertib.',
+    iconName: 'Moon',
+  },
+  {
+    id: 't1-pi-sirah-adab',
+    name: 'Kelahiran Nabi Muhammad SAW & Adab Makan serta Tidur',
+    year: 1,
+    subject: 'Pendidikan Islam',
+    description: 'Kisah ringkas kelahiran Nabi Muhammad SAW, adab makan minum, adab tidur dan adab bersama ibu bapa.',
+    iconName: 'GraduationCap',
+  },
+  {
+    id: 't1-pi-jawi-asas',
+    name: 'Huruf Jawi Tunggal & Sambungan Suku Kata Terbuka',
+    year: 1,
+    subject: 'Pendidikan Islam',
+    description: 'Mengenal huruf Jawi tunggal, bunyi vokal alif, wau, ya, dan menyambung suku kata terbuka mudah.',
+    iconName: 'PenTool',
+  },
+
+  // ==========================================
+  // TAHUN 1 - BAHASA ARAB
+  // ==========================================
+  {
+    id: 't1-ba-fasl',
+    name: 'Di Dalam Kelas (فِي الْفَصْلِ)',
+    year: 1,
+    subject: 'Bahasa Arab',
+    description: 'Mengenal ucapan selamat dan objek di bilik darjah (بَابٌ, نَافِذَةٌ, مَكْتَبٌ, كُرْسِيٌّ, سَبُّورَةٌ).',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't1-ba-adawat',
+    name: 'Peralatan Belajar & Tulis (أَدَوَاتِي الْمَدْرَسِيَّةُ)',
+    year: 1,
+    subject: 'Bahasa Arab',
+    description: 'Mengenal perkataan qalamun (قَلَمٌ), kitabun (كِتَابٌ), mistaratun (مِسْطَرَةٌ), mimhatun (مِمْحَاةٌ).',
+    iconName: 'PenTool',
+  },
+  {
+    id: 't1-ba-jism',
+    name: 'Anggota Badan Saya (جِسْمِي السَّلِيمُ)',
+    year: 1,
+    subject: 'Bahasa Arab',
+    description: 'Mengenal anggota badan seperti ra\'sun (رَأْسٌ), \'ainun (عَيْنٌ), uznun (أُذُنٌ), yadun (يَدٌ), rijlun (رِجْلٌ).',
+    iconName: 'Users',
+  },
+  {
+    id: 't1-ba-arqam',
+    name: 'Nombor 1 Hingga 10 (الْأَرْقَامُ وَالْأَعْدَادُ)',
+    year: 1,
+    subject: 'Bahasa Arab',
+    description: 'Mengenal dan membilang nombor arab dari wahidun (١) hingga \'asyaratun (١٠).',
+    iconName: 'Hash',
+  },
+  {
+    id: 't1-ba-hayawan-usrah',
+    name: 'Haiwan & Keluarga (حَيَوَانَاتِي وَأُسْرَتِي)',
+    year: 1,
+    subject: 'Bahasa Arab',
+    description: 'Mengenal ahli keluarga (أَبٌ, أُمٌّ, أَخٌ, أُخْتٌ) dan haiwan peliharaan (قِطٌّ, طَائِرٌ, سَمَكٌ).',
+    iconName: 'HeartHandshake',
+  },
+
+  // ==========================================
+  // TAHUN 1 - BAHASA CINA
+  // ==========================================
+  {
+    id: 't1-bc-pinyin',
+    name: 'Hanyu Pinyin & Sebutan Asas (汉语拼音与发音)',
+    year: 1,
+    subject: 'Bahasa Cina',
+    description: 'Konsonan shengmu (b, p, m, f, d, t, n, l), vokal yunmu (a, o, e, i, u, ü) dan 4 tanda nada.',
+    iconName: 'SpellCheck',
+  },
+  {
+    id: 't1-bc-shuzi',
+    name: 'Nombor & Hari (数字与星期)',
+    year: 1,
+    subject: 'Bahasa Cina',
+    description: 'Nombor satu hingga sepuluh (一至十), hari dalam seminggu (星期一至星期日).',
+    iconName: 'Hash',
+  },
+  {
+    id: 't1-bc-jiating',
+    name: 'Diri Saya & Keluarga (我与我的家人)',
+    year: 1,
+    subject: 'Bahasa Cina',
+    description: 'Panggilan bapa (爸爸), ibu (妈妈), abang (哥哥), kakak (姐姐), adik (弟弟/妹妹), datuk dan nenek.',
+    iconName: 'Users',
+  },
+  {
+    id: 't1-bc-jiaoshi',
+    name: 'Sekolah & Bilik Darjah (学校与教室)',
+    year: 1,
+    subject: 'Bahasa Cina',
+    description: 'Peralatan sekolah seperti buku (书), pensel (铅笔), pemadam (橡皮), meja (桌子), kerusi (椅子).',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't1-bc-yanse',
+    name: 'Warna & Bentuk (颜色与形状)',
+    year: 1,
+    subject: 'Bahasa Cina',
+    description: 'Mengenal warna merah (红色), kuning (黄色), biru (蓝色), hijau (绿色) dan bentuk asas.',
+    iconName: 'Palette',
+  },
   // ==========================================
   // TAHUN 2 - MATEMATIK
   // ==========================================
@@ -145,13 +473,29 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     description: 'Letter sound blending, vowel digraphs, and rhyming words.',
     iconName: 'SpellCheck',
   },
+  {
+    id: 't2-bi-freetime',
+    name: 'Free Time & Daily Routines',
+    year: 2,
+    subject: 'Bahasa Inggeris',
+    description: 'Days of the week, daily activities, hobbies, sports, and time expressions.',
+    iconName: 'Clock',
+  },
+  {
+    id: 't2-bi-clothes-robot',
+    name: 'Clothes, Body Parts & The Robot',
+    year: 2,
+    subject: 'Bahasa Inggeris',
+    description: 'Clothing items, human & robot body parts, abilities with can/cannot.',
+    iconName: 'Palette',
+  },
 
   // ==========================================
   // TAHUN 2 - PENDIDIKAN ISLAM (KSSR SEMAKAN)
   // ==========================================
   {
     id: 't2-pi-quran-tajwid',
-    name: 'Al-Quran & Tajwid (Huruf Hijaiyyah & Surah Pilihan)',
+    name: 'Al-Quran & Tajwid (Surah An-Nas, Al-Falaq & Mad Asli)',
     year: 2,
     subject: 'Pendidikan Islam',
     description: 'Hukum Mad Asli, huruf berbaris sukun/syaddah, serta kefahaman Surah An-Nas, Al-Falaq & Al-Ikhlas.',
@@ -159,7 +503,7 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
   },
   {
     id: 't2-pi-akidah',
-    name: 'Akidah (Rukun Iman, Rukun Islam & Sifat Allah)',
+    name: 'Akidah (Sifat Allah Al-Ahad, Al-Somad & Rukun Iman)',
     year: 2,
     subject: 'Pendidikan Islam',
     description: 'Konsep 6 Rukun Iman, 5 Rukun Islam, serta sifat Allah Al-Ahad (Esa) dan As-Samad.',
@@ -167,7 +511,7 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
   },
   {
     id: 't2-pi-ibadah',
-    name: 'Ibadah (Wuduk, Bersuci & Solat Fardhu)',
+    name: 'Ibadah (Wuduk Sempurna, Syarat & Rukun Solat)',
     year: 2,
     subject: 'Pendidikan Islam',
     description: 'Rukun & sunat wuduk, cara bersuci (istinjak), waktu solat fardhu 5 waktu serta bacaan rukun solat.',
@@ -188,6 +532,266 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     subject: 'Pendidikan Islam',
     description: 'Vokal jawi (Alif, Wau, Ya), suku kata terbuka (KVKV), suku kata tertutup, serta diftong ai, au dan oi.',
     iconName: 'PenTool',
+  },
+
+  // ==========================================
+  // TAHUN 3 - MATEMATIK (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't3-mat-nombor',
+    name: 'Nombor hingga 10,000',
+    year: 3,
+    subject: 'Matematik',
+    description: 'Nilai tempat, nilai digit, cerakinan, pola nombor dan pembundaran hingga 10,000.',
+    iconName: 'Hash',
+  },
+  {
+    id: 't3-mat-tambah-tolak',
+    name: 'Operasi Asas Tambah & Tolak',
+    year: 3,
+    subject: 'Matematik',
+    description: 'Tambah tolak hingga 10,000 dengan mengumpul semula dan penyelesaian masalah harian.',
+    iconName: 'Calculator',
+  },
+  {
+    id: 't3-mat-darab-bahagi',
+    name: 'Operasi Darab & Bahagi',
+    year: 3,
+    subject: 'Matematik',
+    description: 'Sifir 6, 7, 8, 9, pendaraban nombor hingga tiga digit dan pembahagian.',
+    iconName: 'Layers',
+  },
+  {
+    id: 't3-mat-pecahan-perpuluhan',
+    name: 'Pecahan, Perpuluhan & Peratus',
+    year: 3,
+    subject: 'Matematik',
+    description: 'Pecahan setara, pecahan termudah, tambah tolak pecahan wajar, perpuluhan dan peratus.',
+    iconName: 'PieChart',
+  },
+  {
+    id: 't3-mat-wang',
+    name: 'Wang hingga RM10,000',
+    year: 3,
+    subject: 'Matematik',
+    description: 'Operasi asas wang, simpanan dan pelaburan serta penyelesaian masalah kewangan.',
+    iconName: 'Coins',
+  },
+  {
+    id: 't3-mat-masa-ukuran',
+    name: 'Masa, Waktu & Ukuran',
+    year: 3,
+    subject: 'Matematik',
+    description: 'Perkaitan jam dan minit, kalendar, ukuran panjang (cm/m), jisim (g/kg), dan bentuk prisma.',
+    iconName: 'Clock',
+  },
+
+  // ==========================================
+  // TAHUN 3 - SAINS (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't3-sn-manusia',
+    name: 'Manusia (Gigi & Pencernaan)',
+    year: 3,
+    subject: 'Sains',
+    description: 'Jenis gigi (taring, kacip, geraham), struktur gigi, set gigi susu/kekal dan laluan pencernaan.',
+    iconName: 'Users',
+  },
+  {
+    id: 't3-sn-haiwan',
+    name: 'Haiwan & Tabiat Pemakanan',
+    year: 3,
+    subject: 'Sains',
+    description: 'Herbivor, karnivor, omnivor serta kegigian haiwan mengikut pemakanan.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't3-sn-tumbuhan',
+    name: 'Tumbuhan & Cara Pembiakan',
+    year: 3,
+    subject: 'Sains',
+    description: 'Pembiakan melalui biji benih, spora, daun, keratan batang, anak pokok dan batang bawah tanah.',
+    iconName: 'Flower2',
+  },
+  {
+    id: 't3-sn-ketumpatan',
+    name: 'Ketumpatan, Asid & Alkali',
+    year: 3,
+    subject: 'Sains',
+    description: 'Objek terapung/tenggelam, perbezaan ketumpatan berbanding air, dan ujian kertas litmus.',
+    iconName: 'FlaskConical',
+  },
+  {
+    id: 't3-sn-suria-mesin',
+    name: 'Sistem Suria & Takal',
+    year: 3,
+    subject: 'Sains',
+    description: 'Urutan planet Sistem Suria dari Matahari dan kegunaan takal dalam kehidupan seharian.',
+    iconName: 'Globe',
+  },
+
+  // ==========================================
+  // TAHUN 3 - BAHASA MELAYU (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't3-bm-tatabahasa',
+    name: 'Tatabahasa & Golongan Kata',
+    year: 3,
+    subject: 'Bahasa Melayu',
+    description: 'Kata ganti nama diri istana, kata adjektif pancaindera, kata sendi dan kata hubung.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't3-bm-imbuhan',
+    name: 'Imbuhan & Pembentukan Kata',
+    year: 3,
+    subject: 'Bahasa Melayu',
+    description: 'Awalan meN- (me-, mem-, men-, meng-, meny-), peN-, beR-, teR- dan akhiran -an, -kan.',
+    iconName: 'Layers',
+  },
+  {
+    id: 't3-bm-simpulan',
+    name: 'Simpulan Bahasa & Seni Bahasa',
+    year: 3,
+    subject: 'Bahasa Melayu',
+    description: 'Simpulan bahasa popular (ringan tulang, hati waja, buah tangan) dan pantun nasihat 4 kerat.',
+    iconName: 'Bookmark',
+  },
+  {
+    id: 't3-bm-pemahaman',
+    name: 'Pemahaman Petikan & Ayat',
+    year: 3,
+    subject: 'Bahasa Melayu',
+    description: 'Membaca kritis petikan prosa, gotong-royong, keselamatan, dan nilai murni masyarakat.',
+    iconName: 'FileText',
+  },
+
+  // ==========================================
+  // TAHUN 3 - BAHASA INGGERIS (CEFR A1 GET SMART PLUS 3)
+  // ==========================================
+  {
+    id: 't3-bi-everyday',
+    name: 'Everyday Life & Routines',
+    year: 3,
+    subject: 'Bahasa Inggeris',
+    description: 'Telling clock time (half past / o\'clock), daily routines and adverbs of frequency (always, sometimes, never).',
+    iconName: 'CalendarDays',
+  },
+  {
+    id: 't3-bi-present-cont',
+    name: 'Actions & Right Now',
+    year: 3,
+    subject: 'Bahasa Inggeris',
+    description: 'Present continuous tense (is/are + verb-ing), sports and action questions.',
+    iconName: 'SlidersHorizontal',
+  },
+  {
+    id: 't3-bi-food',
+    name: 'Food & Healthy Living',
+    year: 3,
+    subject: 'Bahasa Inggeris',
+    description: 'Countable & uncountable nouns, some / any, healthy meals and recipes.',
+    iconName: 'Share2',
+  },
+  {
+    id: 't3-bi-rules-past',
+    name: 'Rules, Signs & Past Simple',
+    year: 3,
+    subject: 'Bahasa Inggeris',
+    description: 'Modal verbs must / mustn\'t, classroom rules and past simple (was / were).',
+    iconName: 'FileText',
+  },
+
+  // ==========================================
+  // TAHUN 3 - PENDIDIKAN ISLAM (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't3-pi-quran-tajwid',
+    name: 'Al-Quran & Tajwid',
+    year: 3,
+    subject: 'Pendidikan Islam',
+    description: 'Hukum Izhar Halqi, Idgham Maal Ghunnah dan tadabbur Surah Al-Kafirun & Al-Asr.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't3-pi-akidah',
+    name: 'Akidah & Rukun Iman',
+    year: 3,
+    subject: 'Pendidikan Islam',
+    description: 'Beriman kepada Kitab-kitab Allah dan penghayatan nama Allah Al-Alim serta Al-Basir.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't3-pi-ibadah',
+    name: 'Ibadah Solat & Syariat',
+    year: 3,
+    subject: 'Pendidikan Islam',
+    description: 'Solat berjemaah (kelebihan 27 darjat), syarat sah solat dan perkara membatalkan solat.',
+    iconName: 'Sun',
+  },
+  {
+    id: 't3-pi-sirah-adab',
+    name: 'Sirah Nabawiyyah & Adab Islamiah',
+    year: 3,
+    subject: 'Pendidikan Islam',
+    description: 'Peristiwa Hijrah ke Madinah, persaudaraan Muhajirin-Ansar dan adab menuntut ilmu.',
+    iconName: 'Users',
+  },
+
+  // ==========================================
+  // TAHUN 3 - BAHASA ARAB (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't3-ba-fasl',
+    name: 'تَفَضَّلْ إِلَى الْفَصْلِ (Di Bilik Darjah)',
+    year: 3,
+    subject: 'Bahasa Arab',
+    description: 'Peralatan kelas (سَبُّورَةٌ, مِمْسَحَةٌ, كُرْسِيٌّ) dan kata tunjuk هَذَا / هَذِهِ.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't3-ba-malabis',
+    name: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya yang Cantik)',
+    year: 3,
+    subject: 'Bahasa Arab',
+    description: 'Kosa kata pakaian dan aksesori (قَمِيصٌ, فُسْتَانٌ, خِمَارٌ, حِذَاءٌ, حِزَامٌ).',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't3-ba-alwan-arqaam',
+    name: 'الْأَلْوَانُ وَالْأَرْقَامُ (Warna dan Nombor 11-20)',
+    year: 3,
+    subject: 'Bahasa Arab',
+    description: 'Warna-warni asas (أَحْمَرُ, أَزْرَقُ, أَخْضَرُ) dan nombor 11 hingga 20.',
+    iconName: 'Coins',
+  },
+
+  // ==========================================
+  // TAHUN 3 - BAHASA CINA (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't3-bc-xuexiao',
+    name: '学校与课堂生活 (Kehidupan Sekolah)',
+    year: 3,
+    subject: 'Bahasa Cina',
+    description: 'Perpustakaan (图书馆), aktiviti membaca (看故事书), bilik darjah dan adab murid.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't3-bc-ziran',
+    name: '大自然与天气 (Alam & Cuaca)',
+    year: 3,
+    subject: 'Bahasa Cina',
+    description: 'Keadaan cuaca (下雨, 晴天, 刮风), tumbuh-tumbuhan dan flora fauna.',
+    iconName: 'Globe',
+  },
+  {
+    id: 't3-bc-jiankang-jieri',
+    name: '健康饮食与节日 (Pemakanan Sihat & Budaya)',
+    year: 3,
+    subject: 'Bahasa Cina',
+    description: 'Sayur dan buah (蔬菜水果) serta perayaan tradisional seperti Pesta Tanglung (中秋节, 月饼).',
+    iconName: 'Sparkles',
   },
 
   // ==========================================
@@ -873,42 +1477,42 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
   // ==========================================
   {
     id: 't4-bc-xiaoyuan',
-    name: '校园生活与文具 (Kehidupan Sekolah & Alat Tulis)',
+    name: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     year: 4,
     subject: 'Bahasa Cina',
-    description: 'Warga sekolah (老师, 同学), alat tulis (铅笔, 尺子, 橡皮), tempat sekolah dan penjodoh bilangan (支, 本).',
+    description: 'Warga sekolah, kemudahan sekolah, jadual waktu, dan peraturan bilik darjah.',
     iconName: 'Languages',
   },
   {
     id: 't4-bc-richang',
-    name: '日常活动与时间 (Aktiviti Harian & Masa)',
+    name: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     year: 4,
     subject: 'Bahasa Cina',
-    description: 'Rutin harian (起床, 刷牙, 做功课), waktu (早上, 中午, 晚上) dan membaca jam (几点).',
+    description: 'Hobi, sukan dan permainan, unit beruniform, dan kelab persatuan.',
     iconName: 'Clock',
   },
   {
     id: 't4-bc-meishi',
-    name: '美味食物与饮料 (Makanan & Minuman)',
+    name: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     year: 4,
     subject: 'Bahasa Cina',
-    description: 'Makanan ruji (米饭, 面条), buah-buahan (苹果, 香蕉), rasa (甜, 咸, 辣) dan pesanan kantin.',
+    description: 'Makanan ruji tempatan, buah-buahan, sayur-sayuran, rasa, dan piramid makanan.',
     iconName: 'Bookmark',
   },
   {
     id: 't4-bc-chuandai',
-    name: '穿戴与衣服 (Pakaian & Aksesori)',
+    name: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     year: 4,
     subject: 'Bahasa Cina',
-    description: 'Pakaian seragam sekolah (校服), baju (衣服), kasut (鞋子) dan perbezaan kata kerja 穿 vs 戴.',
+    description: 'Tempat awam (hospital, balai polis, perpustakaan), pengangkutan awam dan adab awam.',
     iconName: 'Sparkles',
   },
   {
     id: 't4-bc-xingqi',
-    name: '星期、日期与基础句型 (Hari, Tarikh & Pola Ayat)',
+    name: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     year: 4,
     subject: 'Bahasa Cina',
-    description: 'Hari 星期一 hingga 星期日, semalam/hari ini/esok, format tarikh (年/月/日) dan struktur ayat S-V-O.',
+    description: 'Perayaan utama di Malaysia (Tahun Baru Cina, Hari Raya, Deepavali), adat resam dan perpaduan.',
     iconName: 'Calendar',
   },
 
@@ -999,9 +1603,268 @@ export const KSSR_TOPICS: QuizTopicMeta[] = [
     description: 'Keselamatan jalan raya (斑马线, 安全带), pencegahan kebakaran, peti cemas (急救箱) dan perlindungan batasan diri.',
     iconName: 'PenTool',
   },
+
+  // ==========================================
+  // TAHUN 6 - MATEMATIK (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't6-mat-nombor',
+    name: 'Nombor hingga 10 Juta & Operasi',
+    year: 6,
+    subject: 'Matematik',
+    description: 'Nombor 7 digit, nombor perdana & gubahan, pecahan dan perpuluhan juta, serta operasi bergabung kurungan.',
+    iconName: 'Hash',
+  },
+  {
+    id: 't6-mat-pecahan-peratus',
+    name: 'Pecahan, Perpuluhan & Peratus',
+    year: 6,
+    subject: 'Matematik',
+    description: 'Pendaraban pecahan bercampur, perpuluhan 3 tempat, peratusan kenaikan, keuntungan dan diskaun.',
+    iconName: 'Percent',
+  },
+  {
+    id: 't6-mat-wang-kewangan',
+    name: 'Wang, Untung Rugi & Celik Kewangan',
+    year: 6,
+    subject: 'Matematik',
+    description: 'Harga kos, harga jual, untung, rugi, diskaun, rebat, baucar, cukai perkhidmatan, insurans, aset & liabiliti.',
+    iconName: 'Banknote',
+  },
+  {
+    id: 't6-mat-masa-ruang',
+    name: 'Masa, Zon Waktu & Ruang',
+    year: 6,
+    subject: 'Matematik',
+    description: 'Zon masa antarabangsa (GMT), sudut pedalaman poligon, perimeter, luas gabungan 2D dan isi padu 3D.',
+    iconName: 'Hourglass',
+  },
+  {
+    id: 't6-mat-koordinat-data',
+    name: 'Koordinat, Nisbah & Kebolehjadian',
+    year: 6,
+    subject: 'Matematik',
+    description: 'Satah Cartes sukuan pertama, skala, nisbah termudah, min/mod/median/julat dan peristiwa kebolehjadian.',
+    iconName: 'Compass',
+  },
+
+  // ==========================================
+  // TAHUN 6 - SAINS (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't6-sn-manusia-saraf',
+    name: 'Pembiakan Manusia & Sistem Saraf',
+    year: 6,
+    subject: 'Sains',
+    description: 'Organ pembiakan lelaki & perempuan, persenyawaan dan fungsi sistem saraf pusat (otak & saraf tunjang).',
+    iconName: 'Users',
+  },
+  {
+    id: 't6-sn-mikro-interaksi',
+    name: 'Mikroorganisma & Interaksi Hidupan',
+    year: 6,
+    subject: 'Sains',
+    description: 'Fungi, bakteria, virus, proses hidup mikroorganisma, simbiosis (mutualisme, komensalisme, parasitisme).',
+    iconName: 'FlaskConical',
+  },
+  {
+    id: 't6-sn-daya-kelajuan',
+    name: 'Daya, Tekanan & Kelajuan',
+    year: 6,
+    subject: 'Sains',
+    description: 'Daya geseran, tekanan udara/atmosfera, dan pengiraan kelajuan kenderaan (laju = jarak / masa).',
+    iconName: 'Gauge',
+  },
+  {
+    id: 't6-sn-pengawetan-buangan',
+    name: 'Pengawetan Makanan & Bahan Buangan',
+    year: 6,
+    subject: 'Sains',
+    description: 'Pempasteuran, pengetinan, pengeringan, penjerukan, bahan terbiodegradasi dan amalan 5R.',
+    iconName: 'ShieldCheck',
+  },
+  {
+    id: 't6-sn-gerhana-mesin',
+    name: 'Gerhana & Mesin Kompleks',
+    year: 6,
+    subject: 'Sains',
+    description: 'Fenomena Gerhana Bulan & Matahari serta gabungan mesin ringkas pada basikal dan kren.',
+    iconName: 'Moon',
+  },
+
+  // ==========================================
+  // TAHUN 6 - BAHASA MELAYU (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't6-bm-tatabahasa',
+    name: 'Tatabahasa Lanjutan & Morfologi',
+    year: 6,
+    subject: 'Bahasa Melayu',
+    description: 'Kata majmuk mantap, kata ganda berentak, hukum D-M, dan kesalahan tatabahasa lazim.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't6-bm-sintaksis',
+    name: 'Sintaksis & Pembinaan Ayat',
+    year: 6,
+    subject: 'Bahasa Melayu',
+    description: 'Ayat pasif diri pertama/kedua/ketiga, ayat susunan songsang, dan cakap ajuk / cakap pindah.',
+    iconName: 'Layers',
+  },
+  {
+    id: 't6-bm-peribahasa',
+    name: 'Peribahasa, Kiasan & Seni Bahasa',
+    year: 6,
+    subject: 'Bahasa Melayu',
+    description: 'Peribahasa perpaduan, perumpamaan, simpulan bahasa kiasan dan penghayatan puisi sastera.',
+    iconName: 'Bookmark',
+  },
+  {
+    id: 't6-bm-pemahaman',
+    name: 'Pemahaman Petikan & Kosa Kata Kritis',
+    year: 6,
+    subject: 'Bahasa Melayu',
+    description: 'Analisis petikan kritis, wacana pelancongan inap desa, sains, dan perpaduan nasional.',
+    iconName: 'FileText',
+  },
+
+  // ==========================================
+  // TAHUN 6 - BAHASA INGGERIS (CEFR A2 HIGH / B1 ACADEMY STARS 6)
+  // ==========================================
+  {
+    id: 't6-bi-emergencies',
+    name: 'Emergencies & Past Tenses',
+    year: 6,
+    subject: 'Bahasa Inggeris',
+    description: 'Past continuous vs past simple with while/when, first aid and emergency responses.',
+    iconName: 'AlertTriangle',
+  },
+  {
+    id: 't6-bi-passive',
+    name: 'Passive Voice & Manufacturing',
+    year: 6,
+    subject: 'Bahasa Inggeris',
+    description: 'Present passive sentences (is/are + past participle), materials, goods and inventions.',
+    iconName: 'Factory',
+  },
+  {
+    id: 't6-bi-conditionals',
+    name: 'Conditionals & Future Predictions',
+    year: 6,
+    subject: 'Bahasa Inggeris',
+    description: 'Zero & first conditional (if + present, will + verb), relative pronouns (who, which, where).',
+    iconName: 'SlidersHorizontal',
+  },
+  {
+    id: 't6-bi-space',
+    name: 'Space Exploration & Connectors',
+    year: 6,
+    subject: 'Bahasa Inggeris',
+    description: 'Connectors of contrast (although, however) and space exploration texts.',
+    iconName: 'Compass',
+  },
+
+  // ==========================================
+  // TAHUN 6 - PENDIDIKAN ISLAM (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't6-pi-quran-tajwid',
+    name: 'Al-Quran & Tajwid Lanjutan',
+    year: 6,
+    subject: 'Pendidikan Islam',
+    description: 'Mad Wajib Muttasil, Mad Jaiz Munfasil, Mad Asli, waqaf dan tadabbur Surah Al-Qadr.',
+    iconName: 'BookOpen',
+  },
+  {
+    id: 't6-pi-akidah',
+    name: 'Akidah: Rukun Iman Lanjutan',
+    year: 6,
+    subject: 'Pendidikan Islam',
+    description: 'Beriman kepada Qada\' dan Qadar, nama Allah Al-Muntaqim & Al-Muqtadir, serta menjauhi syirik.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't6-pi-ibadah',
+    name: 'Ibadah: Solat Jenazah & Hari Raya',
+    year: 6,
+    subject: 'Pendidikan Islam',
+    description: 'Rukun dan kaifiat Solat Jenazah (4 takbir), Solat Sunat Aidilfitri/Aidiladha.',
+    iconName: 'Sun',
+  },
+  {
+    id: 't6-pi-sirah-adab',
+    name: 'Sirah & Pembukaan Kota Mekah',
+    year: 6,
+    subject: 'Pendidikan Islam',
+    description: 'Peristiwa Fathu Makkah (Tahun 8 H), adab berjual beli dan menjaga kemudahan awam.',
+    iconName: 'Users',
+  },
+
+  // ==========================================
+  // TAHUN 6 - BAHASA ARAB (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't6-ba-riyadah',
+    name: 'يَوْمُ الرِّيَاضَةِ الْمَدْرَسِيَّةُ (Hari Sukan)',
+    year: 6,
+    subject: 'Bahasa Arab',
+    description: 'Sukan bola sepak (كُرَةُ الْقَدَمِ), lumba lari (سِبَاقُ الْجَرْيِ), peralatan sukan dan sorakan.',
+    iconName: 'Activity',
+  },
+  {
+    id: 't6-ba-matbakh',
+    name: 'فِي مَطْبَخِ أُمِّي (Di Dapur Ibu)',
+    year: 6,
+    subject: 'Bahasa Arab',
+    description: 'Peti sejuk (ثَلَّاجَةٌ), kata kerja memasak (تَطْبُخُ), hidangan dan bahan masakan.',
+    iconName: 'Sparkles',
+  },
+  {
+    id: 't6-ba-mihnah',
+    name: 'مِهْنَتِي فِي الْمُسْتَقْبَلِ (Kerjaya Saya)',
+    year: 6,
+    subject: 'Bahasa Arab',
+    description: 'Cita-cita kerjaya: doktor (طَبِيبٌ), guru, jurutera, dan polis.',
+    iconName: 'Bookmark',
+  },
+
+  // ==========================================
+  // TAHUN 6 - BAHASA CINA (KSSR SEMAKAN)
+  // ==========================================
+  {
+    id: 't6-bc-lixiang',
+    name: '成长与理想 (Pembesaran & Impian)',
+    year: 6,
+    subject: 'Bahasa Cina',
+    description: 'Impian kerjaya, nilai kegigihan belajar dan peribahasa (一分耕耘，一分收获).',
+    iconName: 'Bookmark',
+  },
+  {
+    id: 't6-bc-keji-huanbao',
+    name: '科技与环保 (Sains & Alam Sekitar)',
+    year: 6,
+    subject: 'Bahasa Cina',
+    description: 'Pengasingan sampah (垃圾分类), kecerdasan buatan (人工智能), dan pemeliharaan bumi hijau.',
+    iconName: 'Globe',
+  },
+  {
+    id: 't6-bc-chengyu',
+    name: '文学修辞与成语 (Tatabahasa & Peribahasa)',
+    year: 6,
+    subject: 'Bahasa Cina',
+    description: 'Peribahasa perpaduan (众志成城), simpulan bahasa empat aksara dan apresiasi sastera.',
+    iconName: 'PenTool',
+  },
 ];
 
 export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
+  ...MATEMATIK_TAHUN_1_QUESTIONS,
+  ...SAINS_TAHUN_1_QUESTIONS,
+  ...BAHASA_MELAYU_TAHUN_1_QUESTIONS,
+  ...ENGLISH_TAHUN_1_QUESTIONS,
+  ...PENDIDIKAN_ISLAM_TAHUN_1_QUESTIONS,
+  ...BAHASA_ARAB_TAHUN_1_QUESTIONS,
+  ...BAHASA_CINA_TAHUN_1_QUESTIONS,
   ...MATEMATIK_TAHUN_2_QUESTIONS,
   ...SAINS_TAHUN_2_QUESTIONS,
   ...ENGLISH_TAHUN_2_QUESTIONS,
@@ -1009,6 +1872,13 @@ export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
   ...BAHASA_MELAYU_TAHUN_2_QUESTIONS,
   ...BAHASA_ARAB_TAHUN_2_QUESTIONS,
   ...BAHASA_CINA_TAHUN_2_QUESTIONS,
+  ...MATEMATIK_TAHUN_3_QUESTIONS,
+  ...SAINS_TAHUN_3_QUESTIONS,
+  ...BAHASA_MELAYU_TAHUN_3_QUESTIONS,
+  ...ENGLISH_TAHUN_3_QUESTIONS,
+  ...PENDIDIKAN_ISLAM_TAHUN_3_QUESTIONS,
+  ...BAHASA_ARAB_TAHUN_3_QUESTIONS,
+  ...BAHASA_CINA_TAHUN_3_QUESTIONS,
   ...MATEMATIK_TAHUN_4_KBAT_QUESTIONS,
   ...SAINS_TAHUN_4_QUESTIONS,
   ...ENGLISH_TAHUN_4_QUESTIONS,
@@ -1023,4 +1893,11 @@ export const INITIAL_KSSR_QUESTIONS: QuizQuestion[] = [
   ...PENDIDIKAN_ISLAM_TAHUN_5_QUESTIONS,
   ...BAHASA_ARAB_TAHUN_5_QUESTIONS,
   ...BAHASA_CINA_TAHUN_5_QUESTIONS,
+  ...MATEMATIK_TAHUN_6_QUESTIONS,
+  ...SAINS_TAHUN_6_QUESTIONS,
+  ...BAHASA_MELAYU_TAHUN_6_QUESTIONS,
+  ...ENGLISH_TAHUN_6_QUESTIONS,
+  ...PENDIDIKAN_ISLAM_TAHUN_6_QUESTIONS,
+  ...BAHASA_ARAB_TAHUN_6_QUESTIONS,
+  ...BAHASA_CINA_TAHUN_6_QUESTIONS,
 ];

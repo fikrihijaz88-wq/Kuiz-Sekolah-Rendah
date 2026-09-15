@@ -31,11 +31,31 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-5 mb-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 pb-4 border-b border-slate-100">
         {/* Year Level Selection */}
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-12">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-            1. Pilih Tahap Persekolahan (Tahun)
+            1. Pilih Tahap Persekolahan (Tahun 1 - 6 KSSR Semakan)
           </label>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+            <button
+              id="select-year-1"
+              onClick={() => onSelectYear(1)}
+              className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
+                selectedYear === 1
+                  ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 ring-2 ring-indigo-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-bold text-sm">Tahun 1</span>
+                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-700">
+                  Tahap 1
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-tight">
+                Hingga 100 • Asas Permulaan
+              </p>
+            </button>
+
             <button
               id="select-year-2"
               onClick={() => onSelectYear(2)}
@@ -53,6 +73,26 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
               </div>
               <p className="text-[11px] text-slate-500 leading-tight">
                 Hingga 1,000 • Asas SK
+              </p>
+            </button>
+
+            <button
+              id="select-year-3"
+              onClick={() => onSelectYear(3)}
+              className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
+                selectedYear === 3
+                  ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 ring-2 ring-indigo-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-bold text-sm">Tahun 3</span>
+                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-cyan-100 text-cyan-700">
+                  Tahap 1
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-tight">
+                Hingga 10,000 • Sifir & Pecahan
               </p>
             </button>
 
@@ -95,11 +135,31 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
                 Hingga 1 Juta • Pengukuhan
               </p>
             </button>
+
+            <button
+              id="select-year-6"
+              onClick={() => onSelectYear(6)}
+              className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
+                selectedYear === 6
+                  ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 ring-2 ring-indigo-500/20'
+                  : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-bold text-sm">Tahun 6</span>
+                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700">
+                  Tahap 2
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-tight">
+                Hingga 10 Juta • UASA & KBAT
+              </p>
+            </button>
           </div>
         </div>
 
         {/* Subject Selection */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-12">
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
             2. Pilih Mata Pelajaran (KSSR Semakan)
           </label>

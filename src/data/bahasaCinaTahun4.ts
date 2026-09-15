@@ -9,7 +9,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '学校设施 (Kemudahan Sekolah)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Mudah',
     question: 'Tempat murid membaca dan meminjam buku di sekolah dipanggil:',
     options: {
@@ -27,7 +27,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '课表科目 (Mata Pelajaran)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Bahasa Cina bagi "Bahasa Melayu", "Bahasa Inggeris" dan "Matematik"?',
     options: {
@@ -45,7 +45,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '科学与美术 (Sains & Pendidikan Seni)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Mudah',
     question: 'Subjek "科学" (Kēxué) dan "美术" (Měishù) bermaksud:',
     options: {
@@ -63,7 +63,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '作息时间 (Waktu Rehat)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Mudah',
     question: 'Waktu rehat persekolahan di mana murid makan di kantin dipanggil:',
     options: {
@@ -81,7 +81,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '早睡早起 (Tidur Awal Bangun Awal)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Sederhana',
     question: 'Pepatah amalan sihat "早睡早起身体好" bermaksud:',
     options: {
@@ -99,7 +99,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '周会升旗礼 (Perhimpunan Rasmi)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Sederhana',
     question: 'Pada hari Isnin pagi, murid menyertai perhimpunan rasmi: "星期一早晨，我们参加周会". "周会" (zhōuhuì) bermaksud:',
     options: {
@@ -117,7 +117,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '唱国歌与校歌 (Menyanyi Lagu Kebangsaan)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Sederhana',
     question: 'Semasa perhimpunan, murid berdiri tegak dan: "我们肃立唱国歌". "唱国歌" (chàng guógē) bermaksud:',
     options: {
@@ -135,7 +135,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '值日生责任 (Tugas Murid Bertugas)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Sederhana',
     question: 'Murid bertugas kelas menyapu sampah dan memadam papan hitam. "值日生" (zhírìshēng) bermaksud:',
     options: {
@@ -153,7 +153,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '遵守校规 (Mematuhi Peraturan Sekolah)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Ayat "我们要遵守学校的规则" (Wǒmen yào zūnshǒu xuéxiào de guīzé) bermaksud:',
     options: {
@@ -171,7 +171,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '时间量词 (Minit & Jam)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Sederhana',
     question: 'Ayat "一节课有三十分钟" bermaksud:',
     options: {
@@ -189,7 +189,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '放学回家 (Pulang Dari Sekolah)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'Mudah',
     question: 'Ayat "下午一点半，放学了，我排队回家。" bermaksud:',
     options: {
@@ -207,7 +207,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '专心听讲 (Memberi Tumpuan)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Di dalam kelas, murid yang cemerlang: "上课时，我们要专心听老师讲课。". "专心" (zhuānxīn) bermaksud:',
     options: {
@@ -225,7 +225,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '问答情境 (Pertanyaan Mata Pelajaran Kegemaran)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Xiao Ming ditanya: "你最喜欢哪一门科目？" (Apakah subjek yang paling kamu suka?). Xiao Ming yang gemar melukis menjawab:',
     options: {
@@ -243,7 +243,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '连词运用 (Mula-mula... Kemudian...)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Lengkapkan ayat urutan ini: "放学回家后，我______洗手，______吃午饭。" (Mula-mula... kemudian...)',
     options: {
@@ -261,7 +261,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
-    subtopic: '排列句子 (Susun Ayat Rutin)',
+    subtopic: '学校生活与作息 (Kehidupan Sekolah & Rutin)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang sempurna:\n[ 认真 - 同学们 - 在 - 做功课 - 教室里 ]',
     options: {
@@ -283,7 +283,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '常见爱好 (Membaca, Melukis & Menyanyi)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Mudah',
     question: 'Padanan yang manakah betul bagi hobi "Membaca buku", "Melukis" dan "Menyanyi"?',
     options: {
@@ -301,7 +301,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '球类运动 (Bola Sepak & Badminton)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Mudah',
     question: 'Sukan bola yang digemari ramai iaitu "Bermain bola sepak" dan "Bermain badminton" ialah:',
     options: {
@@ -319,7 +319,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '制服团体 (Pengakap & Bulan Sabit Merah)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Sederhana',
     question: 'Unit beruniform "Pengakap Kanak-kanak" dan "Bulan Sabit Merah" dalam Bahasa Cina ialah:',
     options: {
@@ -337,7 +337,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '游泳与跑步 (Berenang & Berlari)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Mudah',
     question: 'Aktiviti senaman "游泳" (yóuyǒng) dan "跑步" (pǎobù) bermaksud:',
     options: {
@@ -355,7 +355,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '动词搭配 (Kata Kerja Sukan 打 vs 踢)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Sederhana',
     question: 'Perhatikan perbezaan kata kerja sukan: Kita menggunakan "踢" (tendang) untuk bola sepak, dan "打" (pukul) untuk:',
     options: {
@@ -373,7 +373,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '课外活动时间 (Waktu Aktiviti Kokurikulum)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Sederhana',
     question: 'Ayat "每逢星期三下午，我们参加课外活动。" bermaksud:',
     options: {
@@ -391,7 +391,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '下棋的好处 (Faedah Bermain Catur)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Ayat "下棋可以培养我们的思考能力。" bermaksud:',
     options: {
@@ -409,7 +409,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '兴趣问答 (Bersoal Jawab Minat)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan dialog ini:\nA: "你的爱好是什么？" (Nǐ de àihào shì shénme?)\nB: "我的爱好是______。"',
     options: {
@@ -427,7 +427,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '团队合作精神 (Semangat Kerjasama)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Dalam permainan sukan berpasukan, kita perlu bekerjasama: "我们要有团队合作精神". "团队合作" (tuánduì hézuò) bermaksud:',
     options: {
@@ -445,7 +445,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '音乐学会 (Kelab Muzik & Alat Muzik)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Sederhana',
     question: 'Mei Mei menyertai kelab muzik dan belajar bermain piano: "梅梅在音乐学会学弹钢琴". "弹钢琴" (tán gāngqín) bermaksud:',
     options: {
@@ -463,7 +463,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '武术与防身 (Wushu / Seni Mempertahankan Diri)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'Sederhana',
     question: 'Aktiviti "学武术" (xué wǔshù) memberi faedah:',
     options: {
@@ -481,7 +481,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '比赛与得奖 (Menyertai Pertandingan)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Ayat "他在绘画比赛中获得第一名。" bermaksud:',
     options: {
@@ -499,7 +499,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '合理安排时间 (Mengurus Masa)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Sebagai murid yang bertanggungjawab, kita harus membahagikan masa belajar dan hobi dengan baik: "我们要合理安排学习与娱乐时间". Apakah mesej utama ayat ini?',
     options: {
@@ -517,7 +517,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '情境选择 (Pilihan Kelab)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Ali sangat berminat dalam bidang sains dan suka mereka cipta projek mini. Kelab kokurikulum manakah yang paling sesuai disertainya?',
     options: {
@@ -535,7 +535,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
-    subtopic: '重组句子 (Susun Ayat Hobi)',
+    subtopic: '我的爱好与课外活动 (Hobi & Aktiviti Kokurikulum)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang betul:\n[ 在草场上 - 和朋友们 - 踢足球 - 哥哥 - 喜欢 ]',
     options: {
@@ -557,7 +557,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '主食 (Nasi, Mee & Roti)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Mudah',
     question: 'Padanan yang manakah betul bagi makanan ruji "Nasi", "Mee" dan "Roti"?',
     options: {
@@ -575,7 +575,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '蔬菜与水果 (Sayur & Buah-buahan)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Mudah',
     question: 'Perkataan bagi "Sayur-sayuran" dan "Buah-buahan" ialah:',
     options: {
@@ -593,7 +593,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '常见水果 (Epal, Pisang & Tembikai)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Mudah',
     question: 'Nama buah "苹果" (píngguǒ), "香蕉" (xiāngjiāo) dan "西瓜" (xīguā) bermaksud:',
     options: {
@@ -611,7 +611,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '肉类与蛋 (Daging Ayam & Telur)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Mudah',
     question: 'Sumber protein "鸡肉" (jīròu), "鱼肉" (yúròu) dan "鸡蛋" (jīdàn) bermaksud:',
     options: {
@@ -629,7 +629,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '健康饮料 (Air Kosong & Susu)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Mudah',
     question: 'Minuman berkhasiat untuk tubuh badan "白开水" (báikāishuǐ) dan "牛奶" (niúnǎi) bermaksud:',
     options: {
@@ -647,7 +647,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '三餐 (Sarapan, Makan Tengah Hari & Makan Malam)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Sederhana',
     question: 'Tiga waktu makan harian iaitu "早餐", "午餐" dan "晚餐" bermaksud:',
     options: {
@@ -665,7 +665,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '马来西亚特色美食 (Nasi Lemak & Roti Canai)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Sederhana',
     question: 'Makanan kegemaran rakyat Malaysia iaitu "椰浆饭" (yējiāngfàn) dan "印度煎饼" (yìndù jiānbǐng) ialah:',
     options: {
@@ -683,7 +683,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '味道形容词 (Manis, Masam, Pedas, Masin)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Sederhana',
     question: 'Padanan deria rasa yang manakah betul?',
     options: {
@@ -701,7 +701,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '饮食金字塔 (Piramid Makanan Seimbang)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Untuk menjaga kesihatan, kita mesti mengamalkan: "多吃蔬菜水果，少吃油腻食物". Ayat ini menasihati kita agar:',
     options: {
@@ -719,7 +719,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '量词搭配 (Penjodoh Bilangan Makanan)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Sederhana',
     question: 'Padanan penjodoh bilangan yang betul bagi semangkuk mee (一______面条) dan sebuku roti (一______面包) ialah:',
     options: {
@@ -737,7 +737,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '点餐对话 (Memesan Makanan di Kantin)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'Sederhana',
     question: 'Semasa membeli makanan di kantin sekolah, murid berkata dengan sopan:\n"请给我一碗清汤面。" (Qǐng gěi wǒ yì wǎn qīngtāng miàn.)\nAyat ini bermaksud:',
     options: {
@@ -755,7 +755,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '珍惜粮食 (Menghargai Makanan)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Pepatah "谁知盘中餐，粒粒皆辛苦" mendidik kita agar:',
     options: {
@@ -773,7 +773,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '少糖少盐 (Kurang Gula & Garam)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Doktor menasihati pesakit: "为了健康，我们应该少糖、少盐、少油。". Mengapakah nasihat ini penting?',
     options: {
@@ -791,7 +791,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '用餐礼仪 (Adab di Meja Makan)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Amalan adab makan yang baik dalam masyarakat ialah:',
     options: {
@@ -809,7 +809,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
-    subtopic: '重组句子 (Susun Ayat Makanan)',
+    subtopic: '美味食物与健康饮食 (Makanan & Pemakanan Sihat)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang sempurna:\n[ 每天 - 多喝水 - 对身体 - 有益 - 妈妈说 ]',
     options: {
@@ -831,7 +831,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '公共设施 (Hospital, Balai Polis & Pejabat Pos)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Mudah',
     question: 'Tempat awam iaitu "Hospital", "Balai Polis" dan "Pejabat Pos" dalam Bahasa Cina ialah:',
     options: {
@@ -849,7 +849,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '公园与游乐场 (Taman Rekreasi & Taman Permainan)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Mudah',
     question: 'Tempat riadah keluarga "公园" (gōngyuán) dan "游乐场" (yóulèchǎng) bermaksud:',
     options: {
@@ -867,7 +867,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '银行与超市 (Bank & Pasar Raya)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Mudah',
     question: 'Tempat menyimpan wang (银行) dan tempat membeli barangan keperluan (超市) ialah:',
     options: {
@@ -885,7 +885,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '公共交通 (Bas, Kereta Api & Kapal Terbang)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Mudah',
     question: 'Pengangkutan awam iaitu "Bas", "Kereta api" dan "Kapal terbang" ialah:',
     options: {
@@ -903,7 +903,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '家乡风景 (Pemandangan Kampung Halaman)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Sederhana',
     question: 'Ayat "我的家乡风景优美，有高山和河流。" bermaksud:',
     options: {
@@ -921,7 +921,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '乘搭交通工具动词 (Kata Kerja Menaiki 坐 / 骑)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Sederhana',
     question: 'Padanan kata kerja pengangkutan yang betul bagi "menunggang basikal" dan "menaiki bas" ialah:',
     options: {
@@ -939,7 +939,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '问路与方向 (Bertanya Arah Jalan)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Sederhana',
     question: 'Seseorang bertanya arah: "请问邮政局怎么走？" (Tumpang tanya bagaimanakah hendak ke pejabat pos?). Penunjuk arah menjawab:\n"一直向前走，在十字路口向左拐。"\nApakah maksudnya?',
     options: {
@@ -957,7 +957,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '公共场所规则 (Peraturan di Tempat Awam)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Mudah',
     question: 'Tanda amaran "请勿吸烟" (Qǐng wù xīyān) di tempat awam bermaksud:',
     options: {
@@ -975,7 +975,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '爱护公物 (Menjaga Harta Benda Awam)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Ayat "爱护公物，人人有责" membawa mesej bahawa:',
     options: {
@@ -993,7 +993,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '保持环境卫生 (Kebersihan Alam Sekitar)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Mudah',
     question: 'Papan tanda "请把垃圾丢进垃圾桶" bermaksud:',
     options: {
@@ -1011,7 +1011,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '城市与乡村 (Bandar vs Luar Bandar)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Sederhana',
     question: 'Ayat "城市车水马龙，乡村空气清新。" bermaksud:',
     options: {
@@ -1029,7 +1029,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '问候邻居 (Menyapa Jiran)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'Sederhana',
     question: 'Di kawasan perumahan, apabila terserempak dengan jiran tetangga, amalan yang baik ialah:',
     options: {
@@ -1047,7 +1047,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '图书馆借书礼仪 (Adab di Perpustakaan Awam)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Semasa berada di perpustakaan awam, papan tanda "保持安静" mengingatkan kita supaya:',
     options: {
@@ -1065,7 +1065,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '方位词运用 (Kata Arah Depan, Belakang, Sebelah)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Lengkapkan ayat lokasi ini: "银行在警察局的______。" (Bank berada di sebelah balai polis.)',
     options: {
@@ -1083,7 +1083,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
-    subtopic: '排列句子 (Susun Ayat Lokasi)',
+    subtopic: '我的家乡与公共场所 (Kampung Saya & Tempat Awam)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang sempurna:\n[ 散步 - 爸爸 - 带着 - 我们 - 到公园里 ]',
     options: {
@@ -1105,7 +1105,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '三大主要节日 (Hari Raya, Tahun Baru Cina & Deepavali)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Mudah',
     question: 'Padanan perayaan utama rakyat Malaysia yang manakah tepat?',
     options: {
@@ -1123,7 +1123,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '新年习俗 (Adab Tahun Baharu Cina)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Mudah',
     question: 'Semasa Tahun Baharu Cina, kanak-kanak memakai baju baharu dan menerima sampul merah: "长辈给晚辈派红包". "红包" (hóngbāo) bermaksud:',
     options: {
@@ -1141,7 +1141,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '中秋节与月饼 (Pesta Tanglung & Kuih Bulan)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Mudah',
     question: 'Semasa Pesta Kuih Bulan (中秋节), aktiviti tradisi yang dilakukan pada waktu malam ialah:',
     options: {
@@ -1159,7 +1159,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '端午节与粽子 (Pesta Bot Naga & Chang)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Sederhana',
     question: 'Pesta Bot Naga diraikan dengan lumba bot naga dan makan kuih chang pulut: "端午节赛龙舟，吃粽子". "粽子" (zòngzi) bermaksud:',
     options: {
@@ -1177,7 +1177,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '新年祝福语 (Ucapan Gong Xi Fa Cai)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Mudah',
     question: 'Ucapan paling masyhur semasa sambutan Tahun Baharu Cina "恭喜发财" (Gōngxǐ fācái) bermaksud:',
     options: {
@@ -1195,7 +1195,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '开斋节美食 (Ketupat & Rendang)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Sederhana',
     question: 'Semasa Hari Raya Aidilfitri, rakan Muslim menjamu tetamu dengan hidangan ketupat dan rendang: "开斋节时，马来同胞准备了马来粽和仁当牛肉". "马来粽" bermaksud:',
     options: {
@@ -1213,7 +1213,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '屠妖节彩米图 (Kolam / Rangoli)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Sederhana',
     question: 'Semasa Deepavali, masyarakat India menghias lantai pintu masuk rumah dengan beras berwarna-warni yang dinamakan Kolam: "印度同胞在地板上铺设美丽的米粒图案 (Kolam)". Maksudnya:',
     options: {
@@ -1231,7 +1231,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '互相拜访 (Amalan Rumah Terbuka / Ziarah)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Sederhana',
     question: 'Budaya mulia rakyat Malaysia saling menziarahi semasa musim perayaan: "各族人民互相拜访，体现了团结精神". "互相拜访" (hùxiāng bàifǎng) bermaksud:',
     options: {
@@ -1249,7 +1249,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '传统服装 (Pakaian Tradisional Pelbagai Kaum)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Sederhana',
     question: 'Pakaian tradisional kaum Cina bagi wanita yang anggun dipanggil:',
     options: {
@@ -1267,7 +1267,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '国庆日 (Hari Kebangsaan 31 Ogos)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Mudah',
     question: 'Tarikh 31 Ogos ialah Hari Kebangsaan Malaysia yang disambut gilang-gemilang: "八月三十一日是马来西亚的国庆日". "国庆日" (Guóqìngrì) bermaksud:',
     options: {
@@ -1285,7 +1285,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '舞狮与舞龙 (Tarian Singa & Tarian Naga)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Mudah',
     question: 'Persembahan tradisi yang memeriahkan suasana Tahun Baharu Cina dengan paluan gendang ialah:',
     options: {
@@ -1303,7 +1303,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '团圆饭 (Makan Besar Malam Tahun Baharu)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'Sederhana',
     question: 'Pada malam sebelum Tahun Baharu Cina, seisi keluarga berkumpul untuk makan bersama: "除夕夜，全家人一起吃团圆饭". "团圆饭" (tuányuánfàn) bermaksud:',
     options: {
@@ -1321,7 +1321,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '丰收节与达雅节 (Pesta Kaamatan & Gawai)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Perayaan tradisi menuai padi yang diraikan oleh masyarakat di Sabah dan Sarawak ialah:',
     options: {
@@ -1339,7 +1339,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '多元文化和谐 (Keharmonian Budaya)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Ayat "马来西亚是一个多元种族与文化的和谐国家。" membawa maksud:',
     options: {
@@ -1357,7 +1357,7 @@ export const BAHASA_CINA_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Cina',
     topic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
-    subtopic: '连词组句 (Susun Ayat Perayaan)',
+    subtopic: '节日与传统文化 (Perayaan & Kebudayaan Tradisional)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang betul:\n[ 庆祝 - 一起 - 开开心心地 - 农历新年 - 我们 ]',
     options: {

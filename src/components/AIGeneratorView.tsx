@@ -8,6 +8,55 @@ interface AIGeneratorViewProps {
 }
 
 const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
+  '1-Matematik': [
+    'Nombor hingga 100',
+    'Tambah dan Tolak Asas',
+    'Pecahan Mudah (Satu Perdua & Satu Perempat)',
+    'Wang hingga RM10',
+    'Masa, Waktu & Bentuk Ruang',
+  ],
+  '1-Sains': [
+    'Kemahiran Saintifik & 5 Deria Manusia',
+    'Benda Hidup dan Benda Bukan Hidup',
+    'Bahagian Tubuh Haiwan & Ciri Fizikal',
+    'Bahagian Tubuh Tumbuhan & Kepentingannya',
+    'Magnet & Bentuk Bentuk Muka Bumi',
+  ],
+  '1-Bahasa Melayu': [
+    'Kemahiran Mendengar & Bertutur Asas',
+    'Kemahiran Membaca & Memahami Ayat Mudah',
+    'Kemahiran Menulis Ayat Tunggal & Ejaan',
+    'Seni Bahasa, Pantun & Lagu Kanak-kanak',
+    'Tatabahasa Asas (Kata Nama, Kata Kerja, Kata Adjektif)',
+  ],
+  '1-Bahasa Inggeris': [
+    'Friends & Greetings (CEFR A1)',
+    'At School & Classroom Objects',
+    'My Family and Pets',
+    'Colours, Shapes and Numbers (1-20)',
+    'Lunchtime, Food and Drinks',
+  ],
+  '1-Pendidikan Islam': [
+    'Al-Quran & Huruf Hijaiyyah Bersambung',
+    'Akidah: Rukun Iman & Nama Allah As-Salam',
+    'Ibadah: Bersuci & Rukun Wuduk',
+    'Sirah: Peristiwa Kelahiran Nabi Muhammad SAW',
+    'Adab: Menghormati Ibu Bapa & Pelajaran Jawi Asas',
+  ],
+  '1-Bahasa Arab': [
+    'هَيَّا نَتَعَرَّفُ إِلَى الْحُرُوفِ (Huruf Hijaiyyah Berbaris)',
+    'أَنَا وَأُسْرَتِي (Saya dan Keluarga)',
+    'أَدَوَاتِي الْمَدْرَسِيَّةُ (Peralatan Sekolah Saya)',
+    'جِسْمِي السَّلِيمُ (Anggota Badan Asas)',
+    'الْأَلْوَانُ وَالْأَرْقَامُ (Warna dan Nombor 1-10)',
+  ],
+  '1-Bahasa Cina': [
+    '早安与礼貌问候 (Selamat Pagi & Ucapan Sopan)',
+    '我的五官与身体 (Pancaindera & Anggota Badan)',
+    '可爱的家庭 (Keluarga Saya yang Mesra)',
+    '文具与教室 (Alat Tulis & Bilik Darjah)',
+    '数字与颜色 (Nombor 1-10 & Warna-warni)',
+  ],
   '2-Matematik': [
     'Nombor hingga 1,000 (Nilai tempat & Tertib)',
     'Operasi Asas (Tambah & Tolak)',
@@ -33,6 +82,62 @@ const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
     'Elektrik: Komponen Litar, Konduktor & Penebat',
     'Campuran & Keterlarutan Bahan',
     'Bumi: Bentuk Muka Bumi & Kitaran Air Semula Jadi',
+  ],
+  '3-Matematik': [
+    'Nombor hingga 10,000 (Nilai Tempat, Digit & Bundar)',
+    'Operasi Asas Tambah & Tolak (Mengumpul Semula)',
+    'Operasi Darab & Bahagi (Sifir 6, 7, 8, 9)',
+    'Pecahan Wajar, Pecahan Setara & Bentuk Termudah',
+    'Perpuluhan & Peratus',
+    'Wang hingga RM10,000 (Operasi Asas & Simpanan)',
+    'Masa, Waktu, Ukuran Panjang, Jisim & Ruang',
+  ],
+  '3-Sains': [
+    'Kemahiran Saintifik & Peraturan Bilik Sains',
+    'Manusia: Jenis Gigi, Struktur Gigi & Laluan Pencernaan',
+    'Haiwan: Tabiat Pemakanan & Kegigian Haiwan',
+    'Tumbuh-tumbuhan: Cara Pembiakan Tumbuhan',
+    'Pengukuran: Luas & Isi Padu',
+    'Ketumpatan: Objek Terapung dan Tenggelam',
+    'Asid dan Alkali (Kertas Litmus Merah & Biru)',
+    'Sistem Suria: Planet & Mesin Ringkas Takal',
+  ],
+  '3-Bahasa Melayu': [
+    'Kemahiran Mendengar, Bertutur & Membaca Pemahaman',
+    'Tatabahasa: Kata Ganti Nama Diri Istana & Kata Adjektif',
+    'Kata Tugas: Kata Sendi Nama, Kata Hubung & Kata Seru',
+    'Imbuhan: Awalan meN-, peN-, beR- & Akhiran -an, -kan',
+    'Simpulan Bahasa & Pantun Nasihat 4 Kerat',
+    'Membina Ayat Tunggal, Ayat Majmuk & Ejaan',
+  ],
+  '3-Bahasa Inggeris': [
+    'Welcome & Telling Time (Half past / o\'clock) (CEFR A1)',
+    'Everyday Routines & Adverbs of Frequency',
+    'Right Now: Present Continuous Tense & Sports',
+    'Food, Please! Countable/Uncountable & Some/Any',
+    'Out and About: Rules, Signs (Must / Mustn\'t)',
+    'Past Simple: Was and Were',
+  ],
+  '3-Pendidikan Islam': [
+    'Al-Quran & Tajwid (Hukum Izhar Halqi & Idgham)',
+    'Akidah: Beriman kepada Kitab & Nama Allah Al-Alim/Al-Basir',
+    'Ibadah: Solat Berjemaah (27 Darjat) & Syarat Sah Solat',
+    'Sirah: Peristiwa Hijrah ke Madinah & Muhajirin-Ansar',
+    'Adab: Menuntut Ilmu, Menghormati Guru & Jawi Asas',
+  ],
+  '3-Bahasa Arab': [
+    'تَفَضَّلْ إِلَى الْفَصْلِ (Di Bilik Darjah & Peralatan)',
+    'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya yang Cantik)',
+    'الْأَلْوَانُ حَوْلَنَا (Warna-warna di Sekeliling Kita)',
+    'الْأَرْقَامُ وَالأَعْدَادُ (Nombor 11-20 & 1-30)',
+    'الْوَقْتُ وَالسَّاعَةُ (Masa dan Waktu Asas)',
+  ],
+  '3-Bahasa Cina': [
+    '学校与课堂生活 (Kehidupan Sekolah & Perpustakaan)',
+    '家庭与亲情 (Keluarga & Kasih Sayang)',
+    '大自然的奥妙与天气 (Keajaiban Alam & Cuaca)',
+    '健康生活与饮食 (Gaya Hidup Sihat & Pemakanan)',
+    '传统节日与文化 (Perayaan Kuih Bulan & Tradisi)',
   ],
   '4-Matematik': [
     'Nombor hingga 100,000 (Nilai digit & Bundar)',
@@ -180,6 +285,68 @@ const SYLLABUS_TOPICS_BY_LEVEL: Record<string, string[]> = {
     '健康生活 (Gaya Hidup Sihat & Sukan)',
     '买卖与消费 (Jual Beli & Menabung)',
   ],
+  '6-Matematik': [
+    'Nombor hingga 10 Juta & Nombor Perdana',
+    'Pecahan Juta & Perpuluhan Juta',
+    'Pecahan, Perpuluhan (3 tempat) & Peratusan Kenaikan/Penurunan',
+    'Wang, Untung Rugi, Diskaun, Cukai, Insurans, Aset & Liabiliti',
+    'Masa: Zon Waktu Dunia (GMT) & Tempoh Masa',
+    'Ukuran & Sukatan Gabungan (Panjang, Jisim, Isi Padu)',
+    'Ruang: Sudut Pedalaman, Luas Gabungan 2D & Isi Padu 3D',
+    'Koordinat Satah Cartes, Nisbah & Kadaran',
+    'Pengurusan Data (Mod, Median, Min, Julat & Kebolehjadian)',
+  ],
+  '6-Sains': [
+    'Kemahiran Saintifik: Pemboleh Ubah & Hipotesis Lanjutan',
+    'Manusia: Sistem Pembiakan & Sistem Saraf Pusat/Periferi',
+    'Mikroorganisma: Fungi, Bakteria, Virus & Proses Hidup',
+    'Interaksi Antara Hidupan: Simbiosis (Mutualisme/Komensalisme/Parasitisme)',
+    'Pemeliharaan & Pemuliharaan Hidupan Terancam',
+    'Daya Geseran, Tekanan Udara & Formula Kelajuan (Laju = Jarak / Masa)',
+    'Pengawetan Makanan: Pempasteuran, Pengetinan & Pengeringan',
+    'Bahan Buangan: Terbiodegradasi & Amalan 5R',
+    'Gerhana Bulan & Gerhana Matahari',
+    'Mesin Kompleks: Gabungan Mesin Ringkas pada Basikal & Kren',
+  ],
+  '6-Bahasa Melayu': [
+    'Tatabahasa: Kata Majmuk Mantap (Ejaan Bercantum) & Kata Ganda Berentak',
+    'Sintaksis: Hukum D-M, Frasa Nama & Kesalahan Tatabahasa Lazim',
+    'Ayat: Pasif Diri 1/2/3, Susunan Songsang & Cakap Ajuk/Pindah',
+    'Peribahasa, Kiasan, Perumpamaan & Pantun 4 Kerat',
+    'Pemahaman Kritis: Rencana Inap Desa, Sains & Ulasan Nilai Murni',
+    'Morfologi: Imbuhan Apitan memper-...-kan & peN-...-an',
+  ],
+  '6-Bahasa Inggeris': [
+    'Emergencies: Past Continuous vs Past Simple (While / When) (CEFR A2-B1)',
+    'Life in the Past & Used to',
+    'Adventure Sports & Present Perfect (Ever / Never)',
+    'Cool Jobs & Relative Pronouns (Who, Which, Where)',
+    'How is it made? Present Passive (is/are + Past Participle)',
+    'What\'s your opinion? Zero & First Conditional (If + Present, Will)',
+    'Space Exploration & Connectors (Although, However)',
+  ],
+  '6-Pendidikan Islam': [
+    'Al-Quran & Tajwid: Mad Wajib Muttasil, Mad Jaiz Munfasil & Waqaf',
+    'Akidah: Beriman kepada Qada\' dan Qadar & Nama Allah Al-Muqtadir',
+    'Ibadah: Solat Jenazah (4 Takbir) & Solat Sunat Aidilfitri/Aidiladha',
+    'Sirah: Peristiwa Fathu Makkah (Pembukaan Kota Mekah Tahun 8 H)',
+    'Adab: Jual Beli Patuh Syariah & Menjaga Kemudahan Awam',
+    'Pelajaran Jawi: Teks Karangan Jawi & Peribahasa',
+  ],
+  '6-Bahasa Arab': [
+    'يَوْمُ الرِّيَاضَةِ الْمَدْرَسِيَّةُ (Hari Sukan Sekolah & Acara Larian)',
+    'فِي مَطْبَخِ أُمِّي (Di Dapur Ibu & Peralatan Memasak)',
+    'مِهْنَتِي فِي الْمُسْتَقْبَلِ (Kerjaya & Cita-cita Saya)',
+    'زِيَارَةٌ إِلَى الْمَتْحَفِ (Lawatan ke Muzium & Mercu Tanda)',
+    'الْحَيَوَانَاتُ فِي حَدِيقَةِ الْحَيَوَانِ (Haiwan di Zoo)',
+  ],
+  '6-Bahasa Cina': [
+    '成长与理想 (Pembesaran & Impian Masa Hadapan)',
+    '科技与环保 (Sains, Kecerdasan Buatan & Kitar Semula)',
+    '环境保护与地球 (Pemuliharaan Alam Sekitar & Bumi Hijau)',
+    '历史人物与美德 (Tokoh Sejarah & Nilai Murni)',
+    '文学修辞与成语 (Tatabahasa & Peribahasa 众志成城)',
+  ],
 };
 
 export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
@@ -282,42 +449,78 @@ export const AIGeneratorView: React.FC<AIGeneratorViewProps> = ({
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
               Tahap Murid (Tahun)
             </label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
+              <button
+                type="button"
+                id="gen-select-year-1"
+                onClick={() => handleYearChange(1)}
+                className={`py-2.5 px-2 rounded-xl text-xs font-semibold border transition cursor-pointer text-center ${
+                  year === 1
+                    ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                Tahun 1
+              </button>
               <button
                 type="button"
                 id="gen-select-year-2"
                 onClick={() => handleYearChange(2)}
-                className={`py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer text-center ${
+                className={`py-2.5 px-2 rounded-xl text-xs font-semibold border transition cursor-pointer text-center ${
                   year === 2
                     ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
-                Tahun 2 (Tahap 1)
+                Tahun 2
+              </button>
+              <button
+                type="button"
+                id="gen-select-year-3"
+                onClick={() => handleYearChange(3)}
+                className={`py-2.5 px-2 rounded-xl text-xs font-semibold border transition cursor-pointer text-center ${
+                  year === 3
+                    ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                Tahun 3
               </button>
               <button
                 type="button"
                 id="gen-select-year-4"
                 onClick={() => handleYearChange(4)}
-                className={`py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer text-center ${
+                className={`py-2.5 px-2 rounded-xl text-xs font-semibold border transition cursor-pointer text-center ${
                   year === 4
                     ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
-                Tahun 4 (Tahap 2)
+                Tahun 4
               </button>
               <button
                 type="button"
                 id="gen-select-year-5"
                 onClick={() => handleYearChange(5)}
-                className={`py-2.5 px-2 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer text-center ${
+                className={`py-2.5 px-2 rounded-xl text-xs font-semibold border transition cursor-pointer text-center ${
                   year === 5
                     ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
                     : 'border-slate-200 hover:bg-slate-50 text-slate-700'
                 }`}
               >
-                Tahun 5 (Tahap 2)
+                Tahun 5
+              </button>
+              <button
+                type="button"
+                id="gen-select-year-6"
+                onClick={() => handleYearChange(6)}
+                className={`py-2.5 px-2 rounded-xl text-xs font-semibold border transition cursor-pointer text-center ${
+                  year === 6
+                    ? 'border-indigo-600 bg-indigo-50 text-indigo-950 ring-2 ring-indigo-500/20'
+                    : 'border-slate-200 hover:bg-slate-50 text-slate-700'
+                }`}
+              >
+                Tahun 6
               </button>
             </div>
           </div>

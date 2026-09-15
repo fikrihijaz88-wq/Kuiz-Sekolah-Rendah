@@ -9,7 +9,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'أدوات الفصل (Peralatan Kelas)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi "Papan Hitam / Papan Putih"?',
     options: {
@@ -27,7 +27,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'أدوات الكتابة (Alat Tulis)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Mudah',
     question: 'Padanan yang manakah betul bagi "Buku" dan "Pen"?',
     options: {
@@ -45,7 +45,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'مرافق المدرسة (Kemudahan Sekolah)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Mudah',
     question: 'Perkataan Arab bagi "Perpustakaan Sekolah" ialah:',
     options: {
@@ -63,7 +63,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'المقصف المدرسي (Kantin)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Mudah',
     question: 'Tempat murid membeli makanan dan minuman pada waktu rehat ialah:',
     options: {
@@ -81,7 +81,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'اسم الإشارة (هذا / هذه)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Sederhana',
     question: 'Pilih ayat tunjuk (اسم الإشارة) yang betul bagi "مِمْسَحَةٌ" (pemadam papan hitam):',
     options: {
@@ -99,7 +99,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'حقيبة المدرسة (Beg Sekolah)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Sederhana',
     question: 'Apakah maksud perkataan "حَقِيبَةٌ" dan "مِقْلَمَةٌ"?',
     options: {
@@ -117,7 +117,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'المسطرة والمبراة (Pembaris & Pengasah)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Sederhana',
     question: 'Padanan yang betul bagi "مِسْطَرَةٌ" dan "مِبْرَاةٌ" ialah:',
     options: {
@@ -135,7 +135,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'حرف الجr فِي (Di dalam)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat ini: "الْقَلَمُ ______ الْمِقْلَمَةِ."',
     options: {
@@ -153,7 +153,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'فعل الأمر في الفصل (Kata Perintah)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Sederhana',
     question: 'Guru mengarahkan murid lelaki untuk membaca: "______ يَا أَحْمَدُ!"',
     options: {
@@ -171,7 +171,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'فعل الأمر للمؤنث',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Sederhana',
     question: 'Guru mengarahkan murid perempuan (Fatimah) untuk menulis: "______ يَا فَاطِمَةُ!"',
     options: {
@@ -189,7 +189,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'سؤال عن مكان الشيء (أَيْنَ)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Sederhana',
     question: 'Murid bertanya: "أَيْنَ كِتَابِي؟" (Di manakah buku saya?). Rakan menjawab:\n"كِتَابُكَ ______ الْمَكْتَبِ."',
     options: {
@@ -207,7 +207,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'المصلى والملعب',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'Sederhana',
     question: '"الْمُصَلَّى" dan "الْمَلْعَبُ" di sekolah digunakan untuk:',
     options: {
@@ -225,7 +225,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'نظافة الفصل',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Ayat "نَحْنُ نُنَظِّفُ الْفَصْلَ مَعًا" bermaksud:',
     options: {
@@ -243,7 +243,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'الضمير المتصل (كتابي / كتابك)',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Pilih padanan dhomir muttasil yang betul bagi "Pen kamu (lelaki)" dan "Pen kamu (perempuan)":',
     options: {
@@ -261,7 +261,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
-    subtopic: 'ترتيب الجملة المدرسية',
+    subtopic: 'فِي الْمَدْرَسَةِ وَالْفَصْلِ (Di Sekolah & Bilik Darjah)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang betul:\n[ إِلَى - التِّلْمِيذُ - يَذْهَبُ - الْمَدْرَسَةِ - صَبَاحًا ]',
     options: {
@@ -283,7 +283,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'القميص والبنطلون',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi "Kemeja / Baju" dan "Seluar panjang"?',
     options: {
@@ -301,7 +301,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'الفستان والخمار',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Mudah',
     question: 'Pakaian perempuan iaitu "Gaun / Baju Kurung" dan "Tudung" dalam Bahasa Arab ialah:',
     options: {
@@ -319,7 +319,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'الحذاء والجورب',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Mudah',
     question: 'Apakah maksud perkataan "حِذَاءٌ" dan "جَوْرَبٌ"?',
     options: {
@@ -337,7 +337,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'ربطة العنق والحزام',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Sederhana',
     question: 'Aksesori pakaian "رَبْطَةُ الْعُنُقِ" dan "حِزَامٌ" bermaksud:',
     options: {
@@ -355,7 +355,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'القلنسوة (Songkok / Kopiah)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Mudah',
     question: 'Penutup kepala tradisional lelaki seperti Songkok / Kopiah dipanggil:',
     options: {
@@ -373,7 +373,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'التنورة (Skirt / Kain)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Sederhana',
     question: 'Perkataan Arab bagi "Kain / Skirt" murid perempuan ialah:',
     options: {
@@ -391,7 +391,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'فعل يَلْبَسُ (Memakai)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Sederhana',
     question: 'Ayat "أَحْمَدُ يَلْبَسُ الْقَمِيصَ الأَبْيَضَ" bermaksud:',
     options: {
@@ -409,7 +409,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'فعل تَلْبَسُ (Memakai bagi Perempuan)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat ini bagi subjek perempuan: "عَائِشَةُ ______ فُسْتَانًا جَمِيلًا."',
     options: {
@@ -427,7 +427,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'نظافة الملابس (Kebersihan Pakaian)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Mudah',
     question: '"مَلَابِسِي نَظِيفَةٌ وَمُرَتَّبَةٌ" membawa maksud:',
     options: {
@@ -445,7 +445,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'الملابس المدرسية (Pakaian Seragam Sekolah)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Sederhana',
     question: 'Pakaian seragam sekolah dalam Bahasa Arab disebut:',
     options: {
@@ -463,7 +463,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'حوار شراء الملابس (Membeli Pakaian)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Pelanggan ingin membeli baju di kedai pakaian dan berkata:\n"أُرِيدُ أَنْ أَشْتَرِيَ ______ جَدِيدًا."',
     options: {
@@ -481,7 +481,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'دعاء لبس الثوب (Doa Memakai Pakaian)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Sebelum memakai pakaian, sunat membaca doa dan memulakan dari sebelah:',
     options: {
@@ -499,7 +499,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'مطابقة الصفة للموصوف في الملابس',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Padanan kata nama pakaian muannas dan sifatnya yang betul ialah:',
     options: {
@@ -517,7 +517,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'الملابس الرياضية (Pakaian Sukan)',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'Sederhana',
     question: 'Ayat "أَلْبَسُ الزِّيَّ الرِّيَاضِيَّ فِي يَوْمِ الرِّيَاضَةِ" bermaksud:',
     options: {
@@ -535,7 +535,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
-    subtopic: 'ترتيب جملة الملابس',
+    subtopic: 'مَلَابِسِي الْجَمِيلَةُ (Pakaian Saya)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut menjadi ayat yang betul:\n[ الزِّيَّ - الطَّالِبُ - الْمَدْرَسِيَّ - يَلْبَسُ - الْمُرَتَّبَ ]',
     options: {
@@ -557,7 +557,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'الألوان المذكرة (Merah, Biru & Hijau)',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Mudah',
     question: 'Padanan warna Muzakkar bagi "Merah", "Biru" dan "Hijau" ialah:',
     options: {
@@ -575,7 +575,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'الألوان المؤنثة (Warna Bentuk Muannas)',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Sederhana',
     question: 'Warna bentuk Muannas bagi "Merah" (أَحْمَرُ) dan "Hijau" (أَخْضَرُ) ialah:',
     options: {
@@ -593,7 +593,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'الأصفر والأبيض والأسود',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Mudah',
     question: 'Apakah maksud warna "أَصْفَرُ", "أَبْيَضُ" dan "أَسْوَدُ"?',
     options: {
@@ -611,7 +611,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'تطابق اللون مع المذكر',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat dengan warna muzakkar yang sesuai: "الْقَلَمُ ______."',
     options: {
@@ -629,7 +629,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'تطابق اللون مع المؤنث',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat dengan warna muannas: "السَّيَّارَةُ ______."',
     options: {
@@ -647,7 +647,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'الصفات (كبير وصغير)',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Mudah',
     question: 'Perkataan Arab bagi sifat "Besar" dan "Kecil" ialah:',
     options: {
@@ -665,7 +665,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'الصفات (طويل وقصير)',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Mudah',
     question: 'Apakah maksud perkataan "طَوِيلٌ" dan "قَصِيرٌ"?',
     options: {
@@ -683,7 +683,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'الصفات (جديد وقديم)',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Sederhana',
     question: 'Padanan bagi "Baharu" dan "Lama" ialah:',
     options: {
@@ -701,7 +701,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'الصفات (نشيط وكسلان)',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Sederhana',
     question: 'Ayat "أَحْمَدُ تِلْمِيذٌ نَشِيطٌ" bermaksud:',
     options: {
@@ -719,7 +719,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'السؤال عن اللون (مَا لَوْنُ)',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Sederhana',
     question: 'Untuk bertanya warna buku: "مَا لَوْنُ الْكِتَابِ؟", jawapan yang sesuai ialah:',
     options: {
@@ -737,7 +737,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'ألوان علم ماليزيا',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Apakah warna bulan sabit dan bintang pada bendera Malaysia dalam Bahasa Arab?',
     options: {
@@ -755,7 +755,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'التأنيث بإضافة التاء المربوطة',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Sederhana',
     question: 'Sifat "نَظِيفٌ" (bersih untuk muzakkar) apabila ditukar kepada muannas menjadi:',
     options: {
@@ -773,7 +773,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'الجمع غير العاقل يعامل معاملة المفرد المؤنث',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Perhatikan ayat ini: "الأَشْجَارُ ______." (Pokok-pokok itu hijau).\nApakah bentuk kata warna yang tepat?',
     options: {
@@ -791,7 +791,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'وصف الطبيعة',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'Sederhana',
     question: 'Ayat "السَّمَاءُ زَرْقَاءُ وَالْعُشْبُ أَخْضَرُ" bermaksud:',
     options: {
@@ -809,7 +809,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
-    subtopic: 'تركيب الجملة الوصفية',
+    subtopic: 'الأَلْوَانُ وَالصِّفَاتُ (Warna & Sifat)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang betul:\n[ حَقِيبَةٌ - هَذِهِ - جَمِيلَةٌ - سَوْدَاءُ ]',
     options: {
@@ -831,7 +831,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'أيام الأسبوع (Ahad & Isnin)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi "Hari Ahad" dan "Hari Isnin"?',
     options: {
@@ -849,7 +849,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'أيام الأسبوع (Selasa, Rabu & Khamis)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Mudah',
     question: 'Padanan yang manakah betul bagi "Selasa", "Rabu" dan "Khamis"?',
     options: {
@@ -867,7 +867,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'يوم الجمعة ويوم السبت',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Mudah',
     question: 'Hari mulia bagi umat Islam untuk solat Jumaat dan hari cuti hujung minggu ialah:',
     options: {
@@ -885,7 +885,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'اليوم وأمس وغدا (Hari ini, Semalam, Esok)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Sederhana',
     question: 'Apakah maksud perkataan "الْيَوْمَ", "أَمْسِ" dan "غَدًا"?',
     options: {
@@ -903,7 +903,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'الاستدلال على الأيام (Penalaran Hari)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Jika hari ini ialah Hari Isnin (الْيَوْمَ يَوْمُ الاِثْنَيْنِ), maka esok (غَدًا) ialah hari:',
     options: {
@@ -921,7 +921,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'أوقات اليوم (Pagi, Tengah hari, Petang, Malam)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Mudah',
     question: 'Padanan yang manakah betul bagi "Pagi" dan "Malam"?',
     options: {
@@ -939,7 +939,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'ظهرا ومساء (Tengah hari & Petang)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Mudah',
     question: 'Perkataan Arab bagi "Waktu Tengah Hari" dan "Waktu Petang" ialah:',
     options: {
@@ -957,7 +957,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'الساعة والوقت (Jam / Pukul Berapa)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Sederhana',
     question: 'Soalan "كَمِ السَّاعَةُ الآنَ؟" bermaksud:',
     options: {
@@ -975,7 +975,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'قراءة الساعات (الساعة السابعة صباحا)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Sederhana',
     question: 'Ayat "السَّاعَةُ السَّابِعَةُ صَبَاحًا" bermaksud:',
     options: {
@@ -993,7 +993,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'نصف الساعة (Dan Setengah / Setengah Jam)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Sederhana',
     question: 'Perkataan "وَالنِّصْفُ" dalam bacaan jam menunjukkan:',
     options: {
@@ -1011,7 +1011,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'الربع (Suku Jam / 15 Minit)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Sederhana',
     question: 'Perkataan "وَالرُّبْعُ" dalam bacaan jam bermaksud:',
     options: {
@@ -1029,7 +1029,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'أهمية الوقت في الإسلام',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Pepatah Arab terkenal tentang masa "الْوَقْتُ كَالْسَّيْفِ" bermaksud:',
     options: {
@@ -1047,7 +1047,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'حوار البرنامج اليومي',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Ali ditanya: "مَتَى تَسْتَيْقِظُ مِنَ النَّوْمِ؟" (Bilakah kamu bangun daripada tidur?). Ali menjawab:',
     options: {
@@ -1065,7 +1065,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'عطلة نهاية الأسبوع (Cuti Hujung Minggu)',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'Sederhana',
     question: 'Ayat "فِي عُطْلَةِ نِهَايَةِ الأُسْبُوعِ، أُسَافِرُ مَعَ أُسْرَتِي" bermaksud:',
     options: {
@@ -1083,7 +1083,7 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     year: 4,
     subject: 'Bahasa Arab',
     topic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
-    subtopic: 'ترتيب جملة الوقت',
+    subtopic: 'أَيَّامُ الأُسْبُوعِ وَالأَوْقَاتُ (Hari & Masa)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut supaya menjadi ayat yang betul:\n[ إِلَى - السَّاعَةِ - فِي - أَرْجِعُ - الثَّانِيَةِ ظُهْرًا - الْبَيْتِ ]',
     options: {
@@ -1104,8 +1104,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-001',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'الأرقام (21-25)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi nombor "21" dan "22"?',
     options: {
@@ -1122,8 +1122,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-002',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'الأرقام (25)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Mudah',
     question: 'Perkataan Arab bagi nombor "25" ialah:',
     options: {
@@ -1140,8 +1140,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-003',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'الأرقام (30)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi nombor "30"?',
     options: {
@@ -1158,8 +1158,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-004',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'الأرقام (31-35)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Sederhana',
     question: 'Nombor "34" dalam Bahasa Arab disebut:',
     options: {
@@ -1176,8 +1176,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-005',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'الأرقام (40)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Mudah',
     question: 'Apakah perkataan Arab bagi nombor "40"?',
     options: {
@@ -1194,8 +1194,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-006',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'ضمائر المخاطب (أنتَ / أنتِ)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Sederhana',
     question: 'Pilih padanan dhomir mukhathab yang betul:\n"______ تِلْمِيذٌ مُجْتَهِدٌ" (Awak seorang murid lelaki yang rajin).',
     options: {
@@ -1212,8 +1212,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-007',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'ضمائر الغائب (هو / هي)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Sederhana',
     question: 'Lengkapkan ayat ini: "مَرْيَمُ طَالِبَةٌ مُمَيَّزَةٌ، ______ تُحِبُّ الْقِرَاءَةَ."',
     options: {
@@ -1230,8 +1230,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-008',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'ضمير المتكلمين (نحن)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Mudah',
     question: '"نَحْنُ" dalam Bahasa Arab bermaksud:',
     options: {
@@ -1248,8 +1248,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-009',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'أدوات الاستفهام (هَلْ)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Sederhana',
     question: 'Soalan "هَلْ أَنْتَ تِلْمِيذٌ فِي الصَّفِّ الرَّابِعِ؟" dijawab dengan:',
     options: {
@@ -1266,8 +1266,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-010',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'أدوات الاستفهام (مَاذَا)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Sederhana',
     question: '"مَاذَا تَعْمَلُ؟" bermaksud:',
     options: {
@@ -1284,8 +1284,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-011',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'العمليات الحسابية (Operasi Tambah)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'KBAT (Aras Rendah)',
     question: 'Kira hasil ini:\n[ عِشْرُونَ (20) + سَبْعَةٌ (7) = ______ ]',
     options: {
@@ -1302,8 +1302,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-012',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'حروف العطف (الواو / الفاء / ثم)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'Sederhana',
     question: 'Huruf penghubung "وَ" dalam Bahasa Arab bermaksud:',
     options: {
@@ -1320,8 +1320,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-013',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'العدد والترتيب التنازلي',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'KBAT (Aras Sederhana)',
     question: 'Lengkapkan turutan mengundur ini:\n[ أَرْبَعُونَ (40) ، تِسْعَةٌ وَثَلَاثُونَ (39) ، ______ (38) ]',
     options: {
@@ -1338,8 +1338,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-014',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'تمييز العدد (Kata Bilang Objek)',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Bilangan murid di dalam kelas ialah 30 orang. Ayat yang tepat dalam Bahasa Arab ialah:',
     options: {
@@ -1356,8 +1356,8 @@ export const BAHASA_ARAB_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     id: 'ba-t4-topik5-015',
     year: 4,
     subject: 'Bahasa Arab',
-    topic: 'الأَرْقَAM (21-40) وَالتَّرَاكِيبُ',
-    subtopic: 'تركيب الجملة الاسمية',
+    topic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
+    subtopic: 'الأَرْقَامُ (21-40) وَالتَّرَاكِيبُ (Nombor 21-40 & Tatabahasa)',
     difficulty: 'KBAT (Aras Tinggi)',
     question: 'Susun perkataan berikut menjadi ayat jumlah ismiyyah yang betul:\n[ فِي - نَحْنُ - نَتَعَلَّمُ - اللُّغَةَ الْعَرَبِيَّةَ - الْفَصْلِ ]',
     options: {
