@@ -2,6 +2,29 @@ import { QuizQuestion } from '../types';
 
 export const MATEMATIK_TAHUN_6_QUESTIONS: QuizQuestion[] = [
   {
+    "id": "mat-t6-vis-01",
+    "year": 6,
+    "subject": "Matematik",
+    "topic": "Pengurusan Data dan Kebolehjadian",
+    "difficulty": "KBAT (Aras Sederhana)",
+    "question": "Berdasarkan carta palang jualan buku di atas, berapakah purata jualan buku sehari bagi tempoh 4 hari tersebut?",
+    "options": {
+      "A": "50 buah",
+      "B": "55 buah",
+      "C": "60 buah",
+      "D": "65 buah"
+    },
+    "correctAnswer": "C",
+    "explanation": "Jumlah jualan = 50 + 70 + 40 + 80 = 240 buah. Purata = 240 ÷ 4 hari = 60 buah buku sehari.",
+    "learningStandard": "SP 8.2.1 Menentukan purata (min) daripada carta palang.",
+    "diagram": {
+      "title": "Carta Palang: Jualan Buku 4 Hari",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 280 170\" width=\"260\" height=\"160\" xmlns=\"http://www.w3.org/2000/svg\">\n    <text x=\"140\" y=\"16\" font-size=\"12\" font-weight=\"bold\" fill=\"#0F172A\" text-anchor=\"middle\">Jualan Buku (Buah)</text>\n    <line x1=\"40\" y1=\"25\" x2=\"40\" y2=\"135\" stroke=\"#94A3B8\" stroke-width=\"2\"/>\n    <line x1=\"40\" y1=\"135\" x2=\"265\" y2=\"135\" stroke=\"#94A3B8\" stroke-width=\"2\"/>\n    \n      <rect x=\"50\" y=\"66.25\" width=\"32\" height=\"68.75\" rx=\"4\" fill=\"#3B82F6\" stroke=\"#1E293B\" stroke-width=\"1.5\"/>\n      <text x=\"66\" y=\"60.25\" font-size=\"11\" font-weight=\"bold\" fill=\"#3B82F6\" text-anchor=\"middle\">50</text>\n      <text x=\"66\" y=\"151\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\" text-anchor=\"middle\">Isn</text>\n    \n      <rect x=\"102\" y=\"38.75\" width=\"32\" height=\"96.25\" rx=\"4\" fill=\"#10B981\" stroke=\"#1E293B\" stroke-width=\"1.5\"/>\n      <text x=\"118\" y=\"32.75\" font-size=\"11\" font-weight=\"bold\" fill=\"#10B981\" text-anchor=\"middle\">70</text>\n      <text x=\"118\" y=\"151\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\" text-anchor=\"middle\">Sel</text>\n    \n      <rect x=\"154\" y=\"80\" width=\"32\" height=\"55\" rx=\"4\" fill=\"#F59E0B\" stroke=\"#1E293B\" stroke-width=\"1.5\"/>\n      <text x=\"170\" y=\"74\" font-size=\"11\" font-weight=\"bold\" fill=\"#F59E0B\" text-anchor=\"middle\">40</text>\n      <text x=\"170\" y=\"151\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\" text-anchor=\"middle\">Rab</text>\n    \n      <rect x=\"206\" y=\"25\" width=\"32\" height=\"110\" rx=\"4\" fill=\"#EC4899\" stroke=\"#1E293B\" stroke-width=\"1.5\"/>\n      <text x=\"222\" y=\"19\" font-size=\"11\" font-weight=\"bold\" fill=\"#EC4899\" text-anchor=\"middle\">80</text>\n      <text x=\"222\" y=\"151\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\" text-anchor=\"middle\">Kha</text>\n    \n  </svg>",
+      "caption": "Purata = Jumlah Keseluruhan ÷ Bilangan Hari."
+    }
+  },
+  {
     "id": "m6-nombor-01",
     "year": 6,
     "subject": "Matematik",
@@ -92,6 +115,29 @@ export const MATEMATIK_TAHUN_6_QUESTIONS: QuizQuestion[] = [
     "learningStandard": "SK 2.3 / SP 2.3.1 Menyelesaikan masalah harian melibatkan peratusan keuntungan, kenaikan dan penurunan."
   },
   {
+    "id": "mat-t6-vis-02",
+    "year": 6,
+    "subject": "Matematik",
+    "topic": "Ruang dan Geometri",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan rajah segi tiga bersudut tegak di atas (tapak = 10 cm, tinggi = 8 cm), apakah luas segi tiga tersebut?",
+    "options": {
+      "A": "18 cm²",
+      "B": "40 cm²",
+      "C": "80 cm²",
+      "D": "36 cm²"
+    },
+    "correctAnswer": "B",
+    "explanation": "Luas = 1/2 × Tapak × Tinggi = 1/2 × 10 cm × 8 cm = 40 cm².",
+    "learningStandard": "SP 6.2.1 Mengira luas bentuk poligon gabungan.",
+    "diagram": {
+      "title": "Rajah: Geometri Segi Tiga Bersudut Tegak",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 220 150\" width=\"200\" height=\"140\" xmlns=\"http://www.w3.org/2000/svg\">\n      <polygon points=\"30,120 180,120 180,30\" fill=\"#E0F2FE\" stroke=\"#0284C7\" stroke-width=\"3\"/>\n      <rect x=\"160\" y=\"100\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"#0284C7\" stroke-width=\"2\"/>\n      <text x=\"105\" y=\"138\" font-size=\"12\" font-weight=\"bold\" fill=\"#0369A1\" text-anchor=\"middle\">Tapak = 10 cm</text>\n      <text x=\"195\" y=\"80\" font-size=\"12\" font-weight=\"bold\" fill=\"#0369A1\" text-anchor=\"start\">Tinggi = 8 cm</text>\n    </svg>",
+      "caption": "Formula Luas: 1/2 × Tapak × Tinggi."
+    }
+  },
+  {
     "id": "m6-wang-01",
     "year": 6,
     "subject": "Matematik",
@@ -180,6 +226,29 @@ export const MATEMATIK_TAHUN_6_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "A",
     "explanation": "Mod ialah nilai data yang mempunyai kekerapan tertinggi. Nilai 85 berulang sebanyak 3 kali.",
     "learningStandard": "SK 8.1 / SP 8.1.1 Mentafsir data daripada carta dan mencari mod, median, min dan julat."
+  },
+  {
+    "id": "mat-t6-vis-03",
+    "year": 6,
+    "subject": "Matematik",
+    "topic": "Ruang dan Geometri",
+    "difficulty": "KBAT (Aras Sederhana)",
+    "question": "Rujuk rajah bongkah kuboid 3D di atas (Panjang 10 cm, Lebar 5 cm, Tinggi 6 cm). Hitung isi padu kuboid tersebut dalam cm³.",
+    "options": {
+      "A": "150 cm³",
+      "B": "200 cm³",
+      "C": "300 cm³",
+      "D": "350 cm³"
+    },
+    "correctAnswer": "C",
+    "explanation": "Isi Padu = 10 cm × 5 cm × 6 cm = 300 cm³.",
+    "learningStandard": "SP 6.3.1 Mengira isi padu bentuk 3D gabungan.",
+    "diagram": {
+      "title": "Rajah: Bongkah Kuboid 3D (10x5x6 cm)",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 160\" width=\"220\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\">\n      <polygon points=\"70,30 190,30 190,90 70,90\" fill=\"#E2E8F0\" stroke=\"#94A3B8\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      <polygon points=\"30,60 70,30 190,30 150,60\" fill=\"#DDD6FE\" stroke=\"#7C3AED\" stroke-width=\"2\"/>\n      <polygon points=\"150,60 190,30 190,90 150,120\" fill=\"#C4B5FD\" stroke=\"#7C3AED\" stroke-width=\"2\"/>\n      <polygon points=\"30,60 150,60 150,120 30,120\" fill=\"#EDE9FE\" stroke=\"#7C3AED\" stroke-width=\"2.5\"/>\n      <text x=\"90\" y=\"140\" font-size=\"11\" font-weight=\"bold\" fill=\"#5B21B6\" text-anchor=\"middle\">Panjang = 10 cm</text>\n      <text x=\"15\" y=\"95\" font-size=\"11\" font-weight=\"bold\" fill=\"#5B21B6\" text-anchor=\"end\">Tinggi = 6 cm</text>\n      <text x=\"185\" y=\"50\" font-size=\"11\" font-weight=\"bold\" fill=\"#5B21B6\" text-anchor=\"start\">Lebar = 5 cm</text>\n    </svg>",
+      "caption": "Isi Padu = Panjang × Lebar × Tinggi = 10 × 5 × 6."
+    }
   },
   {
     "id": "m6-kebolehjadian-01",

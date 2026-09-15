@@ -2,18 +2,35 @@ import { QuizQuestion } from '../types';
 
 export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
   {
+    "id": "sai-t4-vis-01",
+    "year": 4,
+    "subject": "Sains",
+    "topic": "Proses Hidup Manusia (Pernafasan)",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan rajah organ pernafasan manusia di atas, apakah laluan udara yang betul semasa proses menarik nafas?",
+    "options": {
+      "A": "Hidung ➔ Trakea ➔ Peparu",
+      "B": "Peparu ➔ Trakea ➔ Hidung",
+      "C": "Mulut ➔ Perut ➔ Jantung",
+      "D": "Hidung ➔ Jantung ➔ Peparu"
+    },
+    "correctAnswer": "A",
+    "explanation": "Semasa menarik nafas, udara beroksigen masuk melalui hidung, menuruni saluran trakea, dan memasuki peparu.",
+    "learningStandard": "SP 2.1.1 Mengenal pasti organ yang terlibat dalam proses pernafasan.",
+    "diagram": {
+      "title": "Rajah: Organ Pernafasan Manusia",
+      "type": "science_visual",
+      "svgContent": "<svg viewBox=\"0 0 220 180\" width=\"200\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\">\n    <rect x=\"5\" y=\"5\" width=\"210\" height=\"170\" rx=\"8\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n    <!-- Nose / Trachea -->\n    <path d=\"M 110 25 L 110 70\" stroke=\"#E11D48\" stroke-width=\"6\" stroke-linecap=\"round\"/>\n    <text x=\"110\" y=\"20\" font-size=\"9\" font-weight=\"bold\" fill=\"#9F1239\" text-anchor=\"middle\">Hidung / Trakea</text>\n    <!-- Bronchus split -->\n    <line x1=\"110\" y1=\"70\" x2=\"80\" y2=\"95\" stroke=\"#E11D48\" stroke-width=\"4\"/>\n    <line x1=\"110\" y1=\"70\" x2=\"140\" y2=\"95\" stroke=\"#E11D48\" stroke-width=\"4\"/>\n    <!-- Left Lung -->\n    <ellipse cx=\"70\" cy=\"115\" rx=\"25\" ry=\"35\" fill=\"#FDA4AF\" stroke=\"#E11D48\" stroke-width=\"2\"/>\n    <text x=\"70\" y=\"120\" font-size=\"9\" font-weight=\"bold\" fill=\"#881337\" text-anchor=\"middle\">Peparu Kiri</text>\n    <!-- Right Lung -->\n    <ellipse cx=\"150\" cy=\"115\" rx=\"25\" ry=\"35\" fill=\"#FDA4AF\" stroke=\"#E11D48\" stroke-width=\"2\"/>\n    <text x=\"150\" y=\"120\" font-size=\"9\" font-weight=\"bold\" fill=\"#881337\" text-anchor=\"middle\">Peparu Kanan</text>\n    <!-- Diaphragm -->\n    <path d=\"M 40 155 Q 110 140 180 155\" fill=\"none\" stroke=\"#64748B\" stroke-width=\"3\"/>\n    <text x=\"110\" y=\"168\" font-size=\"9\" font-weight=\"bold\" fill=\"#475569\" text-anchor=\"middle\">Diafragma</text>\n    <text x=\"110\" y=\"12\" font-size=\"10\" font-weight=\"bold\" fill=\"#0F172A\" text-anchor=\"middle\">Laluan Udara Semasa Bernafas</text>\n  </svg>",
+      "caption": "Perhatikan hidung, saluran trakea, peparu kiri/kanan dan diafragma."
+    }
+  },
+  {
     "id": "t4-sn-kemahiran-01",
     "year": 4,
     "subject": "Sains",
     "topic": "Kemahiran Saintifik (Pemboleh Ubah & Hipotesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.1 / SP 1.1.10 (Mengawal Pemboleh Ubah)",
-    "diagram": {
-      "title": "Rajah 1: Eksperimen Ayunan Bandul Ringkas",
-      "type": "custom_svg",
-      "caption": "Bandul A menggunakan tali 15 cm, manakala Bandul B menggunakan tali 30 cm.",
-      "svgContent": "<svg viewBox=\"0 0 340 140\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"340\" height=\"140\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <line x1=\"30\" y1=\"20\" x2=\"310\" y2=\"20\" stroke=\"#334155\" stroke-width=\"4\"/>\n        \n        <!-- Bandul A -->\n        <circle cx=\"90\" cy=\"20\" r=\"3\" fill=\"#1e293b\"/>\n        <line x1=\"90\" y1=\"20\" x2=\"90\" y2=\"65\" stroke=\"#0284c7\" stroke-width=\"2\"/>\n        <circle cx=\"90\" cy=\"73\" r=\"10\" fill=\"#3b82f6\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/>\n        <text x=\"90\" y=\"100\" font-size=\"10\" font-weight=\"bold\" fill=\"#0369a1\" text-anchor=\"middle\">Bandul A (15 cm)</text>\n        <text x=\"90\" y=\"115\" font-size=\"9\" fill=\"#0c4a6e\" text-anchor=\"middle\">20 ayunan / minit</text>\n\n        <!-- Bandul B -->\n        <circle cx=\"230\" cy=\"20\" r=\"3\" fill=\"#1e293b\"/>\n        <line x1=\"230\" y1=\"20\" x2=\"230\" y2=\"95\" stroke=\"#0284c7\" stroke-width=\"2\"/>\n        <circle cx=\"230\" cy=\"103\" r=\"10\" fill=\"#3b82f6\" stroke=\"#1d4ed8\" stroke-width=\"1.5\"/>\n        <text x=\"230\" y=\"123\" font-size=\"10\" font-weight=\"bold\" fill=\"#0369a1\" text-anchor=\"middle\">Bandul B (30 cm)</text>\n        <text x=\"230\" y=\"135\" font-size=\"9\" fill=\"#0c4a6e\" text-anchor=\"middle\">12 ayunan / minit</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 1, apakah Pemboleh Ubah Dimanipulasi (PM) dalam eksperimen ini?",
     "options": {
       "A": "Panjang tali bandul",
@@ -49,40 +66,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Kemahiran Saintifik (Pemboleh Ubah & Hipotesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.1 / SP 1.1.8 (Mentafsir Data)",
-    "diagram": {
-      "title": "Jadual 1: Masa Yang Diambil Untuk Air Mendidih",
-      "type": "table_data",
-      "caption": "Data menunjukkan hubungan isi padu air dengan masa didihan.",
-      "data": {
-        "headers": [
-          "Bikar",
-          "Isi Padu Air (ml)",
-          "Masa Mendidih (Minit)"
-        ],
-        "rows": [
-          [
-            "P",
-            "100",
-            "4"
-          ],
-          [
-            "Q",
-            "200",
-            "8"
-          ],
-          [
-            "R",
-            "300",
-            "12"
-          ],
-          [
-            "S",
-            "400",
-            "16"
-          ]
-        ]
-      }
-    },
     "question": "Berdasarkan Jadual 1, ramalkan masa yang diambil untuk 250 ml air mendidih jika menggunakan saiz api yang sama.",
     "options": {
       "A": "10 minit",
@@ -128,18 +111,35 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "explanation": "Membuat inferens ialah membuat kesimpulan awal yang munasabah untuk menerangkan sebab berlakunya sesuatu pemerhatian."
   },
   {
+    "id": "sai-t4-vis-02",
+    "year": 4,
+    "subject": "Sains",
+    "topic": "Fotosintesis",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan rajah fotosintesis di atas, apakah DUA hasil utama yang dihasilkan oleh tumbuhan hijau selepas proses fotosintesis?",
+    "options": {
+      "A": "Glukosa (makanan) dan Gas Oksigen",
+      "B": "Karbon dioksida dan Air",
+      "C": "Cahaya matahari dan Tanah",
+      "D": "Baja dan Racun"
+    },
+    "correctAnswer": "A",
+    "explanation": "Hasil proses fotosintesis ialah glukosa (kanji untuk tumbuhan) dan gas oksigen yang dibebaskan ke udara.",
+    "learningStandard": "SP 4.2.2 Menyatakan hasil fotosintesis melalui pemerhatian.",
+    "diagram": {
+      "title": "Rajah: Proses Fotosintesis Tumbuhan",
+      "type": "science_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 200\" width=\"220\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\">\n    <!-- Background / Soil -->\n    <rect x=\"10\" y=\"150\" width=\"220\" height=\"40\" fill=\"#78350F\" rx=\"4\"/>\n    <text x=\"120\" y=\"175\" font-size=\"10\" font-weight=\"bold\" fill=\"#FEF3C7\" text-anchor=\"middle\">Tanah & Akar (Menyerap Air)</text>\n    <!-- Sun -->\n    <circle cx=\"35\" cy=\"35\" r=\"16\" fill=\"#FBBF24\" stroke=\"#D97706\" stroke-width=\"2\"/>\n    <line x1=\"35\" y1=\"12\" x2=\"35\" y2=\"5\" stroke=\"#F59E0B\" stroke-width=\"2\"/>\n    <line x1=\"12\" y1=\"35\" x2=\"5\" y2=\"35\" stroke=\"#F59E0B\" stroke-width=\"2\"/>\n    <line x1=\"52\" y1=\"52\" x2=\"60\" y2=\"60\" stroke=\"#F59E0B\" stroke-width=\"2\"/>\n    <text x=\"35\" y=\"65\" font-size=\"9\" font-weight=\"bold\" fill=\"#B45309\" text-anchor=\"middle\">Cahaya Matahari</text>\n    <!-- Stem -->\n    <line x1=\"120\" y1=\"150\" x2=\"120\" y2=\"60\" stroke=\"#16A34A\" stroke-width=\"5\"/>\n    <!-- Leaves -->\n    <path d=\"M 120 110 Q 80 90 70 110 Q 95 125 120 110\" fill=\"#22C55E\" stroke=\"#15803D\" stroke-width=\"2\"/>\n    <path d=\"M 120 90 Q 160 70 170 90 Q 145 105 120 90\" fill=\"#22C55E\" stroke=\"#15803D\" stroke-width=\"2\"/>\n    <!-- Gas Inputs/Outputs -->\n    <text x=\"65\" y=\"85\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">Karbon Dioksida ➔</text>\n    <text x=\"135\" y=\"55\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">➔ Oksigen + Glukosa</text>\n    <text x=\"120\" y=\"20\" font-size=\"11\" font-weight=\"bold\" fill=\"#0F172A\" text-anchor=\"middle\">Keperluan & Hasil Fotosintesis</text>\n  </svg>",
+      "caption": "Keperluan: Cahaya + Karbon Dioksida + Air. Hasil: Oksigen + Glukosa."
+    }
+  },
+  {
     "id": "t4-sn-kemahiran-06",
     "year": 4,
     "subject": "Sains",
     "topic": "Kemahiran Saintifik (Pemboleh Ubah & Hipotesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.1 / SP 1.1.9 (Mendefinisi Secara Operasi)",
-    "diagram": {
-      "title": "Rajah 2: Menguji Kekuatan Bahan Magnet",
-      "type": "custom_svg",
-      "caption": "Magnet bar menarik bilangan klip kertas besi yang berbeza.",
-      "svgContent": "<svg viewBox=\"0 0 320 120\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"320\" height=\"120\" rx=\"10\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <rect x=\"50\" y=\"25\" width=\"80\" height=\"25\" fill=\"#ef4444\" rx=\"3\"/>\n        <text x=\"90\" y=\"42\" font-size=\"11\" font-weight=\"bold\" fill=\"#ffffff\" text-anchor=\"middle\">Magnet X</text>\n        <line x1=\"90\" y1=\"50\" x2=\"90\" y2=\"70\" stroke=\"#64748b\" stroke-width=\"1.5\"/>\n        <rect x=\"75\" y=\"70\" width=\"30\" height=\"35\" fill=\"#e2e8f0\" stroke=\"#94a3b8\" rx=\"4\"/>\n        <text x=\"90\" y=\"92\" font-size=\"10\" font-weight=\"bold\" fill=\"#0f172a\" text-anchor=\"middle\">12 klip</text>\n\n        <rect x=\"190\" y=\"25\" width=\"80\" height=\"25\" fill=\"#3b82f6\" rx=\"3\"/>\n        <text x=\"230\" y=\"42\" font-size=\"11\" font-weight=\"bold\" fill=\"#ffffff\" text-anchor=\"middle\">Magnet Y</text>\n        <line x1=\"230\" y1=\"50\" x2=\"230\" y2=\"70\" stroke=\"#64748b\" stroke-width=\"1.5\"/>\n        <rect x=\"215\" y=\"70\" width=\"30\" height=\"35\" fill=\"#e2e8f0\" stroke=\"#94a3b8\" rx=\"4\"/>\n        <text x=\"230\" y=\"92\" font-size=\"10\" font-weight=\"bold\" fill=\"#0f172a\" text-anchor=\"middle\">4 klip</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 2, apakah definisi secara operasi bagi \"kekuatan magnet\"?",
     "options": {
       "A": "Kekuatan magnet ditunjukkan oleh bilangan klip kertas yang dapat ditarik oleh magnet",
@@ -221,6 +221,29 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "explanation": "Menggunakan perhubungan ruang dan masa menghuraikan perubahan parameter (saiz ais) mengikut peredaran masa akibat peleburan."
   },
   {
+    "id": "sai-t4-vis-03",
+    "year": 4,
+    "subject": "Sains",
+    "topic": "Sifat Cahaya",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan rajah pantulan cahaya pada cermin satah di atas, apakah hubungan antara Sudut Tuju (i) dan Sudut Pantulan (r)?",
+    "options": {
+      "A": "Sudut Tuju (i) sentiasa SAMA dengan Sudut Pantulan (r)",
+      "B": "Sudut Tuju sentiasa lebih besar daripada Sudut Pantulan",
+      "C": "Sudut Pantulan sentiasa bernilai 90 darjah",
+      "D": "Sudut Tuju tidak mempunyai hubungan dengan pantulan"
+    },
+    "correctAnswer": "A",
+    "explanation": "Menurut hukum pantulan cahaya pada permukaan licin dan rata, sudut tuju (i) sentiasa sama dengan sudut pantulan (r).",
+    "learningStandard": "SP 5.2.1 Menyatakan bahawa cahaya boleh dipantulkan.",
+    "diagram": {
+      "title": "Rajah: Hukum Pantulan Cahaya",
+      "type": "science_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 160\" width=\"220\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\">\n      <!-- Mirror Surface -->\n      <line x1=\"20\" y1=\"120\" x2=\"220\" y2=\"120\" stroke=\"#334155\" stroke-width=\"4\"/>\n      <rect x=\"20\" y=\"122\" width=\"200\" height=\"12\" fill=\"#94A3B8\" opacity=\"0.4\"/>\n      <text x=\"120\" y=\"148\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\" text-anchor=\"middle\">Cermin Satah (Permukaan Licin)</text>\n      <!-- Normal Line -->\n      <line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"120\" stroke=\"#94A3B8\" stroke-width=\"2\" stroke-dasharray=\"3,3\"/>\n      <text x=\"125\" y=\"45\" font-size=\"9\" font-weight=\"bold\" fill=\"#64748B\">Garis Normal</text>\n      <!-- Incident Ray -->\n      <line x1=\"45\" y1=\"45\" x2=\"120\" y2=\"120\" stroke=\"#EF4444\" stroke-width=\"3\"/>\n      <polygon points=\"85,85 80,75 90,78\" fill=\"#EF4444\"/>\n      <text x=\"40\" y=\"40\" font-size=\"9\" font-weight=\"bold\" fill=\"#DC2626\">Sinar Tuju (i)</text>\n      <!-- Reflected Ray -->\n      <line x1=\"120\" y1=\"120\" x2=\"195\" y2=\"45\" stroke=\"#3B82F6\" stroke-width=\"3\"/>\n      <polygon points=\"155,85 165,78 160,75\" fill=\"#3B82F6\"/>\n      <text x=\"195\" y=\"40\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">Sinar Pantulan (r)</text>\n      <text x=\"120\" y=\"20\" font-size=\"11\" font-weight=\"bold\" fill=\"#0F172A\" text-anchor=\"middle\">Sinar Tuju (i) = Sinar Pantulan (r)</text>\n    </svg>",
+      "caption": "Cahaya memantul pada sudut yang sama dengan sudut datangnya."
+    }
+  },
+  {
     "id": "t4-sn-manusia-01",
     "year": 4,
     "subject": "Sains",
@@ -244,12 +267,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Manusia (Pernafasan, Perkumuhan & Rangsangan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 2.1 / SP 2.1.2 (Laluan Udara Semasa Tarikan Nafas)",
-    "diagram": {
-      "title": "Rajah 3: Model Laluan Pernafasan Manusia",
-      "type": "custom_svg",
-      "caption": "Laluan udara masuk semasa proses menarik nafas.",
-      "svgContent": "<svg viewBox=\"0 0 340 130\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"340\" height=\"130\" rx=\"10\" fill=\"#f0fdf4\" stroke=\"#86efac\" stroke-width=\"1.5\"/>\n        <rect x=\"25\" y=\"45\" width=\"75\" height=\"40\" rx=\"6\" fill=\"#dcfce7\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n        <text x=\"62\" y=\"69\" font-size=\"11\" font-weight=\"bold\" fill=\"#15803d\" text-anchor=\"middle\">Hidung</text>\n\n        <text x=\"115\" y=\"69\" font-size=\"14\" fill=\"#16a34a\" text-anchor=\"middle\">→</text>\n\n        <rect x=\"130\" y=\"45\" width=\"80\" height=\"40\" rx=\"6\" fill=\"#dcfce7\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n        <text x=\"170\" y=\"69\" font-size=\"11\" font-weight=\"bold\" fill=\"#15803d\" text-anchor=\"middle\">Trakea</text>\n\n        <text x=\"225\" y=\"69\" font-size=\"14\" fill=\"#16a34a\" text-anchor=\"middle\">→</text>\n\n        <rect x=\"240\" y=\"45\" width=\"75\" height=\"40\" rx=\"6\" fill=\"#dcfce7\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n        <text x=\"277\" y=\"69\" font-size=\"11\" font-weight=\"bold\" fill=\"#15803d\" text-anchor=\"middle\">Peparu</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 3, bagaimanakah laluan udara semasa manusia MENARIK NAFAS?",
     "options": {
       "A": "Hidung → Trakea → Peparu",
@@ -284,12 +301,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Manusia (Pernafasan, Perkumuhan & Rangsangan)",
     "difficulty": "Mudah",
     "learningStandard": "SK 2.2 / SP 2.2.1 (Organ Perkumuhan Manusia)",
-    "diagram": {
-      "title": "Rajah 4: Organ Perkumuhan Utama Manusia",
-      "type": "custom_svg",
-      "caption": "Organ X menyingkirkan air kencing dari badan manusia.",
-      "svgContent": "<svg viewBox=\"0 0 320 130\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"320\" height=\"130\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <!-- Ginjal Kiri dan Kanan berbentuk kacang -->\n        <ellipse cx=\"120\" cy=\"65\" rx=\"20\" ry=\"32\" fill=\"#b91c1c\" stroke=\"#7f1d1d\" stroke-width=\"2\"/>\n        <ellipse cx=\"200\" cy=\"65\" rx=\"20\" ry=\"32\" fill=\"#b91c1c\" stroke=\"#7f1d1d\" stroke-width=\"2\"/>\n        <!-- Tiub Ureter -->\n        <path d=\"M 125 75 Q 150 110 160 115\" stroke=\"#ea580c\" stroke-width=\"2.5\" fill=\"none\"/>\n        <path d=\"M 195 75 Q 170 110 160 115\" stroke=\"#ea580c\" stroke-width=\"2.5\" fill=\"none\"/>\n        <text x=\"160\" y=\"35\" font-size=\"12\" font-weight=\"bold\" fill=\"#7f1d1d\" text-anchor=\"middle\">Organ X (Ginjal / Buah Pinggang)</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 4, apakah hasil perkumuhan yang disingkirkan oleh Organ X (ginjal)?",
     "options": {
       "A": "Air kencing (urea, garam mineral berlebihan dan air)",
@@ -324,12 +335,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Manusia (Pernafasan, Perkumuhan & Rangsangan)",
     "difficulty": "KBAT (Aras Sederhana)",
     "learningStandard": "SK 2.3 / SP 2.3.1 (Gerak Balas Terhadap Rangsangan)",
-    "diagram": {
-      "title": "Rajah 5: Tindakan Spontan Terhadap Rangsangan Panas",
-      "type": "custom_svg",
-      "caption": "Tangan ditarik dengan pantas sebaik sahaja tersentuh cerek panas.",
-      "svgContent": "<svg viewBox=\"0 0 320 120\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"320\" height=\"120\" rx=\"10\" fill=\"#fff7ed\" stroke=\"#fdba74\" stroke-width=\"1.5\"/>\n        <!-- Cerek Panas -->\n        <rect x=\"50\" y=\"45\" width=\"55\" height=\"50\" rx=\"6\" fill=\"#64748b\"/>\n        <ellipse cx=\"77\" cy=\"45\" rx=\"20\" ry=\"6\" fill=\"#94a3b8\"/>\n        <!-- Stim Panas -->\n        <path d=\"M 70 35 Q 65 20 75 15\" stroke=\"#ea580c\" stroke-width=\"2\" fill=\"none\"/>\n        <path d=\"M 85 35 Q 90 20 80 15\" stroke=\"#ea580c\" stroke-width=\"2\" fill=\"none\"/>\n        <!-- Tangan Menjauh -->\n        <path d=\"M 170 65 L 140 65\" stroke=\"#ef4444\" stroke-width=\"3\" stroke-dasharray=\"3 3\"/>\n        <circle cx=\"210\" cy=\"65\" r=\"22\" fill=\"#fed7aa\" stroke=\"#f97316\" stroke-width=\"1.5\"/>\n        <text x=\"210\" y=\"69\" font-size=\"10\" font-weight=\"bold\" fill=\"#9a3412\" text-anchor=\"middle\">Tangan</text>\n        <text x=\"210\" y=\"105\" font-size=\"9\" fill=\"#c2410c\" text-anchor=\"middle\">Menarik tangan dengan serta-merta</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 5, mengapakah manusia bergerak balas secara spontan dengan menarik tangan apabila tersentuh objek yang sangat panas?",
     "options": {
       "A": "Untuk melindungi diri daripada kecederaan dan melecur",
@@ -432,12 +437,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Haiwan (Organ Pernafasan & Pengelasan Vertebrata)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 3.1 / SP 3.1.2 (Haiwan Mempunyai Dua Organ Pernafasan)",
-    "diagram": {
-      "title": "Rajah 6: Haiwan Yang Boleh Hidup Di Darat dan Di Air",
-      "type": "custom_svg",
-      "caption": "Katak dan sesilia mempunyai kebolehan bernafas di dua habitat berbeza.",
-      "svgContent": "<svg viewBox=\"0 0 340 130\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"340\" height=\"130\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <rect x=\"30\" y=\"25\" width=\"130\" height=\"80\" rx=\"8\" fill=\"#dcfce7\" stroke=\"#22c55e\" stroke-width=\"1.5\"/>\n        <text x=\"95\" y=\"50\" font-size=\"11\" font-weight=\"bold\" fill=\"#15803d\" text-anchor=\"middle\">Di Darat</text>\n        <text x=\"95\" y=\"75\" font-size=\"10\" fill=\"#166534\" text-anchor=\"middle\">Bernafas guna:</text>\n        <text x=\"95\" y=\"92\" font-size=\"11\" font-weight=\"bold\" fill=\"#14532d\" text-anchor=\"middle\">PEPARU</text>\n\n        <rect x=\"180\" y=\"25\" width=\"130\" height=\"80\" rx=\"8\" fill=\"#e0f2fe\" stroke=\"#0284c7\" stroke-width=\"1.5\"/>\n        <text x=\"245\" y=\"50\" font-size=\"11\" font-weight=\"bold\" fill=\"#0369a1\" text-anchor=\"middle\">Di Dalam Air</text>\n        <text x=\"245\" y=\"75\" font-size=\"10\" fill=\"#075985\" text-anchor=\"middle\">Bernafas guna:</text>\n        <text x=\"245\" y=\"92\" font-size=\"11\" font-weight=\"bold\" fill=\"#0c4a6e\" text-anchor=\"middle\">KULIT LEMBAP</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 6, haiwan manakah yang mempunyai DUA organ pernafasan seperti ini?",
     "options": {
       "A": "Katak dan Salamander",
@@ -489,12 +488,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Haiwan (Organ Pernafasan & Pengelasan Vertebrata)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 3.2 / SP 3.2.2 (Pengelasan 5 Kumpulan Vertebrata)",
-    "diagram": {
-      "title": "Rajah 7: 5 Kumpulan Haiwan Vertebrata",
-      "type": "custom_svg",
-      "caption": "Mamalia, Burung, Reptilia, Amfibia, dan Ikan.",
-      "svgContent": "<svg viewBox=\"0 0 340 130\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"340\" height=\"130\" rx=\"10\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <rect x=\"15\" y=\"20\" width=\"55\" height=\"90\" rx=\"6\" fill=\"#fef3c7\" stroke=\"#f59e0b\"/>\n        <text x=\"42\" y=\"45\" font-size=\"9\" font-weight=\"bold\" fill=\"#b45309\" text-anchor=\"middle\">Mamalia</text>\n        <text x=\"42\" y=\"70\" font-size=\"8\" fill=\"#78350f\" text-anchor=\"middle\">Berbulu</text>\n        <text x=\"42\" y=\"85\" font-size=\"8\" fill=\"#78350f\" text-anchor=\"middle\">halus</text>\n\n        <rect x=\"78\" y=\"20\" width=\"55\" height=\"90\" rx=\"6\" fill=\"#e0f2fe\" stroke=\"#0284c7\"/>\n        <text x=\"105\" y=\"45\" font-size=\"9\" font-weight=\"bold\" fill=\"#0369a1\" text-anchor=\"middle\">Burung</text>\n        <text x=\"105\" y=\"70\" font-size=\"8\" fill=\"#075985\" text-anchor=\"middle\">Bulu</text>\n        <text x=\"105\" y=\"85\" font-size=\"8\" fill=\"#075985\" text-anchor=\"middle\">pelepah</text>\n\n        <rect x=\"141\" y=\"20\" width=\"55\" height=\"90\" rx=\"6\" fill=\"#fee2e2\" stroke=\"#ef4444\"/>\n        <text x=\"168\" y=\"45\" font-size=\"9\" font-weight=\"bold\" fill=\"#b91c1c\" text-anchor=\"middle\">Reptilia</text>\n        <text x=\"168\" y=\"70\" font-size=\"8\" fill=\"#7f1d1d\" text-anchor=\"middle\">Sisik</text>\n        <text x=\"168\" y=\"85\" font-size=\"8\" fill=\"#7f1d1d\" text-anchor=\"middle\">kering</text>\n\n        <rect x=\"204\" y=\"20\" width=\"55\" height=\"90\" rx=\"6\" fill=\"#dcfce7\" stroke=\"#22c55e\"/>\n        <text x=\"231\" y=\"45\" font-size=\"9\" font-weight=\"bold\" fill=\"#15803d\" text-anchor=\"middle\">Amfibia</text>\n        <text x=\"231\" y=\"70\" font-size=\"8\" fill=\"#14532d\" text-anchor=\"middle\">Kulit</text>\n        <text x=\"231\" y=\"85\" font-size=\"8\" fill=\"#14532d\" text-anchor=\"middle\">lembap</text>\n\n        <rect x=\"267\" y=\"20\" width=\"58\" height=\"90\" rx=\"6\" fill=\"#f3e8ff\" stroke=\"#a855f7\"/>\n        <text x=\"296\" y=\"45\" font-size=\"9\" font-weight=\"bold\" fill=\"#7e22ce\" text-anchor=\"middle\">Ikan</text>\n        <text x=\"296\" y=\"70\" font-size=\"8\" fill=\"#581c87\" text-anchor=\"middle\">Sisik &</text>\n        <text x=\"296\" y=\"85\" font-size=\"8\" fill=\"#581c87\" text-anchor=\"middle\">sirip</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 7, haiwan manakah yang dikelaskan dalam kumpulan REPTILIA?",
     "options": {
       "A": "Buaya, Ular dan Cicak",
@@ -614,12 +607,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tumbuh-tumbuhan (Gerak Balas & Fotosintesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 4.1 / SP 4.1.2 (Penyiasatan Gerak Balas Pucuk)",
-    "diagram": {
-      "title": "Rajah 8: Anak Benih Di Dalam Kotak Berlubang",
-      "type": "custom_svg",
-      "caption": "Cahaya matahari hanya masuk melalui lubang kecil di sebelah kanan.",
-      "svgContent": "<svg viewBox=\"0 0 320 130\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"320\" height=\"130\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <!-- Kotak Hitam -->\n        <rect x=\"60\" y=\"20\" width=\"180\" height=\"95\" fill=\"#1e293b\" rx=\"4\"/>\n        <!-- Lubang Cahaya di kanan -->\n        <rect x=\"238\" y=\"40\" width=\"8\" height=\"30\" fill=\"#fef08a\"/>\n        <line x1=\"245\" y1=\"45\" x2=\"285\" y2=\"40\" stroke=\"#f59e0b\" stroke-width=\"2\"/>\n        <line x1=\"245\" y1=\"55\" x2=\"285\" y2=\"55\" stroke=\"#f59e0b\" stroke-width=\"2\"/>\n        <line x1=\"245\" y1=\"65\" x2=\"285\" y2=\"70\" stroke=\"#f59e0b\" stroke-width=\"2\"/>\n        <text x=\"280\" y=\"30\" font-size=\"9\" font-weight=\"bold\" fill=\"#d97706\">Cahaya</text>\n\n        <!-- Pasu Pokok -->\n        <rect x=\"90\" y=\"85\" width=\"40\" height=\"25\" fill=\"#b45309\" rx=\"2\"/>\n        <!-- Batang Membengkok Ke Kanan Menuju Lubang -->\n        <path d=\"M 110 85 Q 120 55 190 52\" stroke=\"#22c55e\" stroke-width=\"4\" fill=\"none\"/>\n        <ellipse cx=\"195\" cy=\"52\" rx=\"10\" ry=\"6\" fill=\"#16a34a\"/>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 8, mengapakah pucuk pokok membengkok ke arah lubang di sebelah kanan kotak?",
     "options": {
       "A": "Pucuk bergerak balas terhadap arah datangnya cahaya matahari",
@@ -671,12 +658,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tumbuh-tumbuhan (Gerak Balas & Fotosintesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 4.2 / SP 4.2.1 (Keperluan Fotosintesis)",
-    "diagram": {
-      "title": "Rajah 9: Proses Fotosintesis Tumbuhan Hijau",
-      "type": "custom_svg",
-      "caption": "Tumbuhan hijau memerlukan 4 faktor untuk menghasilkan glukosa dan oksigen.",
-      "svgContent": "<svg viewBox=\"0 0 340 140\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"340\" height=\"140\" rx=\"10\" fill=\"#f0fdf4\" stroke=\"#86efac\" stroke-width=\"1.5\"/>\n        <!-- Daun Hijau Tengah -->\n        <ellipse cx=\"170\" cy=\"70\" rx=\"45\" ry=\"25\" fill=\"#22c55e\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n        <text x=\"170\" y=\"74\" font-size=\"10\" font-weight=\"bold\" fill=\"#ffffff\" text-anchor=\"middle\">Klorofil</text>\n\n        <!-- Cahaya Matahari -->\n        <circle cx=\"50\" cy=\"35\" r=\"16\" fill=\"#fef08a\" stroke=\"#ca8a04\" stroke-width=\"1.5\"/>\n        <path d=\"M 70 40 L 120 58\" stroke=\"#ca8a04\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n        <text x=\"50\" y=\"65\" font-size=\"9\" font-weight=\"bold\" fill=\"#854d0e\" text-anchor=\"middle\">Cahaya Matahari</text>\n\n        <!-- Karbon Dioksida Masuk -->\n        <text x=\"70\" y=\"115\" font-size=\"9\" font-weight=\"bold\" fill=\"#0f766e\">Karbon Dioksida</text>\n        <path d=\"M 125 110 L 145 90\" stroke=\"#0f766e\" stroke-width=\"2\"/>\n\n        <!-- Air Dari Akar -->\n        <text x=\"170\" y=\"125\" font-size=\"9\" font-weight=\"bold\" fill=\"#0284c7\" text-anchor=\"middle\">Air (dari akar)</text>\n        <path d=\"M 170 115 L 170 95\" stroke=\"#0284c7\" stroke-width=\"2\"/>\n\n        <!-- Hasil Keluar: Glukosa & Oksigen -->\n        <path d=\"M 215 65 L 260 50\" stroke=\"#ea580c\" stroke-width=\"2\"/>\n        <text x=\"285\" y=\"48\" font-size=\"9\" font-weight=\"bold\" fill=\"#c2410c\">Oksigen</text>\n\n        <path d=\"M 215 75 L 260 90\" stroke=\"#15803d\" stroke-width=\"2\"/>\n        <text x=\"285\" y=\"93\" font-size=\"9\" font-weight=\"bold\" fill=\"#15803d\">Glukosa (Kanji)</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 9, apakah DUA HASIL utama daripada proses fotosintesis?",
     "options": {
       "A": "Glukosa (makanan tumbuhan) dan Gas Oksigen",
@@ -796,12 +777,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Sifat Cahaya (Pantulan & Pembiasan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 5.2 / SP 5.2.1 (Pantulan Cahaya)",
-    "diagram": {
-      "title": "Rajah 10: Gambar Rajah Sinar Pantulan Cahaya",
-      "type": "custom_svg",
-      "caption": "Sinar tuju memantul pada permukaan cermin satah yang rata dan berkilat.",
-      "svgContent": "<svg viewBox=\"0 0 340 140\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"340\" height=\"140\" rx=\"10\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <!-- Cermin Satah di bawah -->\n        <rect x=\"40\" y=\"110\" width=\"260\" height=\"10\" fill=\"#94a3b8\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n        <line x1=\"40\" y1=\"120\" x2=\"300\" y2=\"120\" stroke=\"#64748b\" stroke-width=\"2\" stroke-dasharray=\"4 4\"/>\n        <text x=\"170\" y=\"134\" font-size=\"9\" fill=\"#334155\" text-anchor=\"middle\">Cermin Satah (Permukaan Berkilat)</text>\n\n        <!-- Garis Normal Tengah (90 darjah) -->\n        <line x1=\"170\" y1=\"25\" x2=\"170\" y2=\"110\" stroke=\"#94a3b8\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/>\n        <text x=\"170\" y=\"20\" font-size=\"8\" fill=\"#64748b\" text-anchor=\"middle\">Garis Normal</text>\n\n        <!-- Sinar Tuju Masuk -->\n        <line x1=\"70\" y1=\"35\" x2=\"170\" y2=\"110\" stroke=\"#dc2626\" stroke-width=\"2.5\"/>\n        <polygon points=\"120,72 113,67 117,80\" fill=\"#dc2626\"/>\n        <text x=\"85\" y=\"55\" font-size=\"9\" font-weight=\"bold\" fill=\"#dc2626\">Sinar Tuju</text>\n\n        <!-- Sinar Pantulan Keluar -->\n        <line x1=\"170\" y1=\"110\" x2=\"270\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n        <polygon points=\"220,72 227,67 223,80\" fill=\"#2563eb\"/>\n        <text x=\"255\" y=\"55\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563eb\">Sinar Pantulan</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 10, apakah sifat permukaan yang memantulkan cahaya dengan PALING BAIK dan TERATUR?",
     "options": {
       "A": "Permukaan yang rata, licin dan berkilat",
@@ -819,12 +794,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Sifat Cahaya (Pantulan & Pembiasan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 5.2 / SP 5.2.2 (Aplikasi Pantulan: Periskop)",
-    "diagram": {
-      "title": "Rajah 11: Prinsip Pantulan Pada Periskop",
-      "type": "custom_svg",
-      "caption": "Dua keping cermin satah diletakkan pada sudut 45 darjah.",
-      "svgContent": "<svg viewBox=\"0 0 320 140\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"320\" height=\"140\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <!-- Tiub Periskop Z-shape -->\n        <path d=\"M 50 30 L 120 30 L 120 110 L 220 110\" fill=\"none\" stroke=\"#334155\" stroke-width=\"22\" stroke-linejoin=\"miter\"/>\n        <path d=\"M 50 30 L 120 30 L 120 110 L 220 110\" fill=\"none\" stroke=\"#f1f5f9\" stroke-width=\"16\" stroke-linejoin=\"miter\"/>\n\n        <!-- Cermin 1 di bucu atas (45 deg) -->\n        <line x1=\"112\" y1=\"22\" x2=\"128\" y2=\"38\" stroke=\"#0284c7\" stroke-width=\"3\"/>\n        <text x=\"145\" y=\"26\" font-size=\"8\" font-weight=\"bold\" fill=\"#0284c7\">Cermin 1 (45°)</text>\n\n        <!-- Cermin 2 di bucu bawah (45 deg) -->\n        <line x1=\"112\" y1=\"102\" x2=\"128\" y2=\"118\" stroke=\"#0284c7\" stroke-width=\"3\"/>\n        <text x=\"75\" y=\"125\" font-size=\"8\" font-weight=\"bold\" fill=\"#0284c7\">Cermin 2 (45°)</text>\n\n        <!-- Sinar Cahaya Merah Melalui Periskop -->\n        <path d=\"M 55 30 L 120 30 L 120 110 L 210 110\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n        <text x=\"240\" y=\"113\" font-size=\"9\" font-weight=\"bold\" fill=\"#1e293b\">Mata Pemerhati</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 11, alat optik periskop ini membolehkan krew kapal selam melihat objek di permukaan laut menggunakan prinsip:",
     "options": {
       "A": "Pantulan cahaya oleh dua cermin satah",
@@ -842,12 +811,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Sifat Cahaya (Pantulan & Pembiasan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 5.3 / SP 5.3.1 (Pembiasan Cahaya)",
-    "diagram": {
-      "title": "Rajah 12: Pensel Kelihatan Patah Di Dalam Air",
-      "type": "custom_svg",
-      "caption": "Fenomena pembiasan apabila cahaya bergerak melalui dua medium berbeza (udara dan air).",
-      "svgContent": "<svg viewBox=\"0 0 320 140\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"320\" height=\"140\" rx=\"10\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <!-- Gelas Kaca -->\n        <rect x=\"110\" y=\"30\" width=\"100\" height=\"95\" rx=\"6\" fill=\"#f8fafc\" stroke=\"#94a3b8\" stroke-width=\"2\"/>\n        <!-- Air di dalam gelas -->\n        <rect x=\"111\" y=\"65\" width=\"98\" height=\"58\" fill=\"#bae6fd\" fill-opacity=\"0.6\"/>\n        <text x=\"160\" y=\"80\" font-size=\"8\" fill=\"#0369a1\" text-anchor=\"middle\">Air (Medium Tumpat)</text>\n        <text x=\"160\" y=\"50\" font-size=\"8\" fill=\"#475569\" text-anchor=\"middle\">Udara</text>\n\n        <!-- Pensel Atas -->\n        <line x1=\"85\" y1=\"15\" x2=\"155\" y2=\"65\" stroke=\"#f59e0b\" stroke-width=\"5\"/>\n        <!-- Pensel Bawah Beralih (Tampak Patah) -->\n        <line x1=\"163\" y1=\"65\" x2=\"195\" y2=\"115\" stroke=\"#f59e0b\" stroke-width=\"5\"/>\n\n        <text x=\"240\" y=\"70\" font-size=\"9\" font-weight=\"bold\" fill=\"#dc2626\">Kelihatan</text>\n        <text x=\"240\" y=\"84\" font-size=\"9\" font-weight=\"bold\" fill=\"#dc2626\">Bengkok / Patah</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 12, mengapakah pensel kelihatan bengkok atau patah apabila sebahagiannya direndam di dalam air?",
     "options": {
       "A": "Kerana arah pergerakan cahaya terbias (berubah arah) apabila bergerak dari air ke udara",
@@ -984,12 +947,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tenaga & Mesin Ringkas (Perubahan Tenaga & Tuas)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 7.1 / SP 7.1.4 (Perubahan Bentuk Tenaga)",
-    "diagram": {
-      "title": "Rajah 13: Perubahan Bentuk Tenaga Pada Televisyen",
-      "type": "custom_svg",
-      "caption": "Tenaga elektrik dibekalkan ke televisyen apabila suis dipasang.",
-      "svgContent": "<svg viewBox=\"0 0 340 120\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"340\" height=\"120\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <rect x=\"20\" y=\"40\" width=\"100\" height=\"40\" rx=\"6\" fill=\"#dbeafe\" stroke=\"#3b82f6\" stroke-width=\"1.5\"/>\n        <text x=\"70\" y=\"64\" font-size=\"10\" font-weight=\"bold\" fill=\"#1e40af\" text-anchor=\"middle\">Tenaga Elektrik</text>\n\n        <text x=\"135\" y=\"65\" font-size=\"16\" fill=\"#3b82f6\" text-anchor=\"middle\">→</text>\n\n        <rect x=\"150\" y=\"25\" width=\"165\" height=\"70\" rx=\"8\" fill=\"#fef3c7\" stroke=\"#f59e0b\" stroke-width=\"1.5\"/>\n        <text x=\"232\" y=\"47\" font-size=\"10\" font-weight=\"bold\" fill=\"#b45309\" text-anchor=\"middle\">Tenaga Cahaya</text>\n        <text x=\"232\" y=\"63\" font-size=\"10\" fill=\"#92400e\" text-anchor=\"middle\">+</text>\n        <text x=\"232\" y=\"78\" font-size=\"10\" font-weight=\"bold\" fill=\"#b45309\" text-anchor=\"middle\">Tenaga Bunyi + Haba</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 13, apakah perubahan bentuk tenaga yang berlaku apabila televisyen dihidupkan?",
     "options": {
       "A": "Tenaga elektrik → Tenaga cahaya + Tenaga bunyi + Tenaga haba",
@@ -1024,12 +981,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tenaga & Mesin Ringkas (Perubahan Tenaga & Tuas)",
     "difficulty": "Mudah",
     "learningStandard": "SK 10.1 / SP 10.1.1 (Tiga Komponen Tuas)",
-    "diagram": {
-      "title": "Rajah 14: Tiga Komponen Dalam Tuas",
-      "type": "custom_svg",
-      "caption": "Beban (B), Fulkrum (F), dan Daya (D).",
-      "svgContent": "<svg viewBox=\"0 0 340 130\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"340\" height=\"130\" rx=\"10\" fill=\"#ffffff\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <!-- Palang Tuas -->\n        <line x1=\"40\" y1=\"65\" x2=\"300\" y2=\"65\" stroke=\"#475569\" stroke-width=\"5\"/>\n        <!-- Fulkrum Segi Tiga di Tengah -->\n        <polygon points=\"170,65 155,95 185,95\" fill=\"#f59e0b\" stroke=\"#d97706\" stroke-width=\"1.5\"/>\n        <text x=\"170\" y=\"112\" font-size=\"10\" font-weight=\"bold\" fill=\"#b45309\" text-anchor=\"middle\">Fulkrum (Titik Sokong)</text>\n\n        <!-- Beban di Kiri -->\n        <rect x=\"45\" y=\"35\" width=\"30\" height=\"30\" fill=\"#ef4444\" stroke=\"#dc2626\" rx=\"3\"/>\n        <text x=\"60\" y=\"25\" font-size=\"10\" font-weight=\"bold\" fill=\"#b91c1c\" text-anchor=\"middle\">Beban</text>\n\n        <!-- Daya Tekan di Kanan -->\n        <path d=\"M 285 20 L 285 55\" stroke=\"#2563eb\" stroke-width=\"3\" marker-end=\"url(#arrow)\"/>\n        <polygon points=\"285,60 280,50 290,50\" fill=\"#2563eb\"/>\n        <text x=\"285\" y=\"15\" font-size=\"10\" font-weight=\"bold\" fill=\"#1d4ed8\" text-anchor=\"middle\">Daya</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 14, apakah yang dimaksudkan dengan FULKRUM dalam sistem tuas?",
     "options": {
       "A": "Titik sokongan tetap tempat berputarnya sesuatu tuas",
@@ -1081,12 +1032,6 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tenaga & Mesin Ringkas (Perubahan Tenaga & Tuas)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 10.1 / SP 10.1.2 (Tuas Kereta Sorong)",
-    "diagram": {
-      "title": "Rajah 15: Kereta Sorong Satu Roda",
-      "type": "custom_svg",
-      "caption": "Kedudukan roda, tong simen dan pemegang tangan.",
-      "svgContent": "<svg viewBox=\"0 0 320 130\" xmlns=\"http://www.w3.org/2000/svg\" class=\"w-full max-w-sm\">\n        <rect width=\"320\" height=\"130\" rx=\"10\" fill=\"#f8fafc\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/>\n        <!-- Roda Hadapan (Fulkrum) -->\n        <circle cx=\"65\" cy=\"95\" r=\"15\" fill=\"#334155\" stroke=\"#0f172a\" stroke-width=\"2\"/>\n        <circle cx=\"65\" cy=\"95\" r=\"5\" fill=\"#cbd5e1\"/>\n        <text x=\"65\" y=\"123\" font-size=\"9\" font-weight=\"bold\" fill=\"#0f172a\" text-anchor=\"middle\">Roda (F)</text>\n\n        <!-- Gandar Pemegang Mencondong Ke Atas -->\n        <line x1=\"65\" y1=\"95\" x2=\"270\" y2=\"45\" stroke=\"#64748b\" stroke-width=\"4\"/>\n\n        <!-- Bekas Beban di Tengah -->\n        <polygon points=\"110,90 190,75 180,45 100,55\" fill=\"#fca5a5\" stroke=\"#ef4444\" stroke-width=\"1.5\"/>\n        <text x=\"145\" y=\"65\" font-size=\"9\" font-weight=\"bold\" fill=\"#991b1b\" text-anchor=\"middle\">Beban (B)</text>\n\n        <!-- Pemegang Tangan Di Hujung Kanan -->\n        <path d=\"M 270 45 L 270 20\" stroke=\"#2563eb\" stroke-width=\"3\"/>\n        <text x=\"270\" y=\"15\" font-size=\"9\" font-weight=\"bold\" fill=\"#1d4ed8\" text-anchor=\"middle\">Daya (D)</text>\n      </svg>"
-    },
     "question": "Berdasarkan Rajah 15, apakah susunan komponen bagi sebuah kereta sorong?",
     "options": {
       "A": "Fulkrum (Roda) → Beban (Tong simen di tengah) → Daya (Pemegang tangan)",

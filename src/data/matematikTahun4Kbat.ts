@@ -2,6 +2,29 @@ import { QuizQuestion } from '../types';
 
 export const MATEMATIK_TAHUN_4_KBAT_QUESTIONS: QuizQuestion[] = [
   {
+    "id": "mat-t4-vis-01",
+    "year": 4,
+    "subject": "Matematik",
+    "topic": "Koordinat",
+    "difficulty": "KBAT (Aras Sederhana)",
+    "question": "Berdasarkan satah Cartes di atas, apakah koordinat bagi titik A (Perpustakaan)?",
+    "options": {
+      "A": "(2, 4)",
+      "B": "(4, 2)",
+      "C": "(2, 0)",
+      "D": "(0, 4)"
+    },
+    "correctAnswer": "A",
+    "explanation": "Koordinat dinyatakan dalam bentuk (x, y). Bergerak 2 unit ke kanan pada paksi mengufuk (x) dan 4 unit ke atas pada paksi mencancang (y), iaitu (2, 4).",
+    "learningStandard": "SP 8.1.1 Menamakan koordinat titik pada sukuan pertama satah Cartes.",
+    "diagram": {
+      "title": "Rajah: Satah Cartes Lokasi Tempat",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 195\" width=\"220\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\">\n    <text x=\"120\" y=\"14\" font-size=\"11\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">Satah Cartes (Paksi Mengufuk & Mencancang)</text>\n    <line x1=\"40\" y1=\"160\" x2=\"199\" y2=\"160\" stroke=\"#334155\" stroke-width=\"2.5\"/>\n    <line x1=\"40\" y1=\"160\" x2=\"40\" y2=\"1\" stroke=\"#334155\" stroke-width=\"2.5\"/>\n    <polygon points=\"202,160 194,156 194,164\" fill=\"#334155\"/>\n    <polygon points=\"40,-2 36,6 44,6\" fill=\"#334155\"/>\n    <text x=\"196\" y=\"174\" font-size=\"11\" font-weight=\"bold\" fill=\"#0F172A\">x</text>\n    <text x=\"26\" y=\"8\" font-size=\"11\" font-weight=\"bold\" fill=\"#0F172A\">y</text>\n    <line x1=\"40\" y1=\"160\" x2=\"40\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"160\" x2=\"184\" y2=\"160\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"40\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">0</text><line x1=\"64\" y1=\"160\" x2=\"64\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"136\" x2=\"184\" y2=\"136\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"64\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">1</text><text x=\"30\" y=\"140\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">1</text><line x1=\"88\" y1=\"160\" x2=\"88\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"112\" x2=\"184\" y2=\"112\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"88\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">2</text><text x=\"30\" y=\"116\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">2</text><line x1=\"112\" y1=\"160\" x2=\"112\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"88\" x2=\"184\" y2=\"88\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"112\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">3</text><text x=\"30\" y=\"92\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">3</text><line x1=\"136\" y1=\"160\" x2=\"136\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"64\" x2=\"184\" y2=\"64\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"136\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">4</text><text x=\"30\" y=\"68\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">4</text><line x1=\"160\" y1=\"160\" x2=\"160\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"40\" x2=\"184\" y2=\"40\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"160\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">5</text><text x=\"30\" y=\"44\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">5</text><line x1=\"184\" y1=\"160\" x2=\"184\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"16\" x2=\"184\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"184\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">6</text><text x=\"30\" y=\"20\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">6</text>\n      <circle cx=\"88\" cy=\"64\" r=\"6\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n      <rect x=\"94\" y=\"46\" width=\"48\" height=\"18\" rx=\"4\" fill=\"#0F172A\" opacity=\"0.88\"/>\n      <text x=\"118\" y=\"58\" font-size=\"10\" font-weight=\"bold\" fill=\"#FFFFFF\" text-anchor=\"middle\">A (Perpustakaan)(2,4)</text>\n    \n      <circle cx=\"160\" cy=\"88\" r=\"6\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n      <rect x=\"166\" y=\"70\" width=\"48\" height=\"18\" rx=\"4\" fill=\"#0F172A\" opacity=\"0.88\"/>\n      <text x=\"190\" y=\"82\" font-size=\"10\" font-weight=\"bold\" fill=\"#FFFFFF\" text-anchor=\"middle\">B (Klinik)(5,3)</text>\n    \n  </svg>",
+      "caption": "Baca nilai paksi-x dahulu, kemudian diikuti paksi-y: (x, y)."
+    }
+  },
+  {
     "id": "t4-mat-topik1-01",
     "year": 4,
     "subject": "Matematik",
@@ -90,6 +113,29 @@ export const MATEMATIK_TAHUN_4_KBAT_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "A",
     "explanation": "Tahniah! Pola nombor ialah +6. Maka P = 24,111 + 6 = 24,117. Q = 24,123 + 6 = 24,129. Hasil tambah P + Q = 24,117 + 24,129 = 48,246.",
     "learningStandard": "SK 1.2 / SP 1.2.2 (KBAT Aras Sederhana)"
+  },
+  {
+    "id": "mat-t4-vis-02",
+    "year": 4,
+    "subject": "Matematik",
+    "topic": "Ruang dan Geometri",
+    "difficulty": "KBAT (Aras Sederhana)",
+    "question": "Berdasarkan rajah segi tiga bersudut tegak di atas, hitung luas segi tiga tersebut menggunakan rumus: 1/2 × Tapak × Tinggi.",
+    "options": {
+      "A": "14 cm²",
+      "B": "24 cm²",
+      "C": "48 cm²",
+      "D": "36 cm²"
+    },
+    "correctAnswer": "B",
+    "explanation": "Luas = 1/2 × 8 cm × 6 cm = 1/2 × 48 cm² = 24 cm².",
+    "learningStandard": "SP 6.3.2 Menentukan luas segi tiga menggunakan rumus.",
+    "diagram": {
+      "title": "Rajah: Segi Tiga Bersudut Tegak",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 220 150\" width=\"200\" height=\"140\" xmlns=\"http://www.w3.org/2000/svg\">\n      <polygon points=\"30,120 180,120 180,30\" fill=\"#E0F2FE\" stroke=\"#0284C7\" stroke-width=\"3\"/>\n      <rect x=\"160\" y=\"100\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"#0284C7\" stroke-width=\"2\"/>\n      <text x=\"105\" y=\"138\" font-size=\"12\" font-weight=\"bold\" fill=\"#0369A1\" text-anchor=\"middle\">Tapak = 8 cm</text>\n      <text x=\"195\" y=\"80\" font-size=\"12\" font-weight=\"bold\" fill=\"#0369A1\" text-anchor=\"start\">Tinggi = 6 cm</text>\n    </svg>",
+      "caption": "Gunakan formula Luas = 1/2 × Tapak × Tinggi."
+    }
   },
   {
     "id": "t4-mat-topik1-06",
@@ -182,6 +228,29 @@ export const MATEMATIK_TAHUN_4_KBAT_QUESTIONS: QuizQuestion[] = [
     "learningStandard": "SK 1.4 / SP 1.4.1 (KBAT Aras Tinggi)"
   },
   {
+    "id": "mat-t4-vis-03",
+    "year": 4,
+    "subject": "Matematik",
+    "topic": "Isi Padu Bentuk 3D",
+    "difficulty": "KBAT (Aras Sederhana)",
+    "question": "Rujuk bongkah kuboid 3D di atas. Berapakah isi padu kuboid tersebut (Panjang × Lebar × Tinggi)?",
+    "options": {
+      "A": "48 cm³",
+      "B": "96 cm³",
+      "C": "32 cm³",
+      "D": "120 cm³"
+    },
+    "correctAnswer": "B",
+    "explanation": "Isi Padu Kuboid = 8 cm (Panjang) × 3 cm (Lebar) × 4 cm (Tinggi) = 96 cm³.",
+    "learningStandard": "SP 6.4.1 Menentukan isi padu kuboid.",
+    "diagram": {
+      "title": "Rajah: Bongkah Kuboid 3D",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 160\" width=\"220\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\">\n      <polygon points=\"70,30 190,30 190,90 70,90\" fill=\"#E2E8F0\" stroke=\"#94A3B8\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n      <polygon points=\"30,60 70,30 190,30 150,60\" fill=\"#DDD6FE\" stroke=\"#7C3AED\" stroke-width=\"2\"/>\n      <polygon points=\"150,60 190,30 190,90 150,120\" fill=\"#C4B5FD\" stroke=\"#7C3AED\" stroke-width=\"2\"/>\n      <polygon points=\"30,60 150,60 150,120 30,120\" fill=\"#EDE9FE\" stroke=\"#7C3AED\" stroke-width=\"2.5\"/>\n      <text x=\"90\" y=\"140\" font-size=\"11\" font-weight=\"bold\" fill=\"#5B21B6\" text-anchor=\"middle\">Panjang = 8 cm</text>\n      <text x=\"15\" y=\"95\" font-size=\"11\" font-weight=\"bold\" fill=\"#5B21B6\" text-anchor=\"end\">Tinggi = 4 cm</text>\n      <text x=\"185\" y=\"50\" font-size=\"11\" font-weight=\"bold\" fill=\"#5B21B6\" text-anchor=\"start\">Lebar = 3 cm</text>\n    </svg>",
+      "caption": "Isi padu = Panjang × Lebar × Tinggi = 8 × 3 × 4."
+    }
+  },
+  {
     "id": "t4-mat-topik2-01",
     "year": 4,
     "subject": "Matematik",
@@ -270,6 +339,48 @@ export const MATEMATIK_TAHUN_4_KBAT_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "C",
     "explanation": "Bagus! Nilai potongan diskaun = 25% × RM80 = (25/100) × 80 = RM20. Harga baharu = RM80 - RM20 = RM60.",
     "learningStandard": "SK 2.3 / SP 2.3.2 (KBAT Aras Sederhana)"
+  },
+  {
+    "id": "mat-t4-vis-04",
+    "year": 4,
+    "subject": "Matematik",
+    "topic": "Pengurusan Data",
+    "difficulty": "Sederhana",
+    "question": "Rujuk jadual kutipan tin kitar semula di atas. Berapakah perbezaan bilangan tin yang dikutip antara Tahun 4 Amanah dan Tahun 4 Bestari?",
+    "options": {
+      "A": "50 tin",
+      "B": "60 tin",
+      "C": "70 tin",
+      "D": "40 tin"
+    },
+    "correctAnswer": "B",
+    "explanation": "Perbezaan = 210 tin (4 Amanah) - 150 tin (4 Bestari) = 60 tin.",
+    "learningStandard": "SP 8.2.1 Menyelesaikan masalah melibatkan data berjadual.",
+    "diagram": {
+      "title": "Jadual Kutipan Tin Kitar Semula",
+      "type": "table_data",
+      "data": {
+        "headers": [
+          "Kelas",
+          "Bilangan Tin (Biji)"
+        ],
+        "rows": [
+          [
+            "4 Amanah",
+            "210"
+          ],
+          [
+            "4 Bestari",
+            "150"
+          ],
+          [
+            "4 Cemerlang",
+            "180"
+          ]
+        ]
+      },
+      "caption": "Tolak bilangan tin 4 Bestari daripada 4 Amanah untuk mencari beza."
+    }
   },
   {
     "id": "t4-mat-topik2-06",

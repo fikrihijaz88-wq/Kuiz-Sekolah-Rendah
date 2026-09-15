@@ -2,6 +2,52 @@ import { QuizQuestion } from '../types';
 
 export const SAINS_TAHUN_3_QUESTIONS: QuizQuestion[] = [
   {
+    "id": "sai-t3-vis-01",
+    "year": 3,
+    "subject": "Sains",
+    "topic": "Haiwan (Tabiat Pemakanan)",
+    "difficulty": "Mudah",
+    "question": "Berdasarkan jadual pengelasan tabiat pemakanan haiwan di atas, kumpulan haiwan manakah yang dikelaskan sebagai Herbivor (makan tumbuhan sahaja)?",
+    "options": {
+      "A": "Lembu, Arnab dan Kambing",
+      "B": "Harimau, Singa dan Helang",
+      "C": "Ayam, Monyet dan Beruang",
+      "D": "Buaya, Ular dan Jerung"
+    },
+    "correctAnswer": "A",
+    "explanation": "Lembu, arnab dan kambing hanya memakan rumput dan tumbuh-tumbuhan, menjadikannya tergolong dalam kumpulan Herbivor.",
+    "learningStandard": "SP 3.1.2 Mengelaskan haiwan berdasarkan tabiat pemakanan.",
+    "diagram": {
+      "title": "Jadual Tabiat Pemakanan Haiwan",
+      "type": "table_data",
+      "data": {
+        "headers": [
+          "Kumpulan",
+          "Jenis Makanan",
+          "Contoh Haiwan"
+        ],
+        "rows": [
+          [
+            "Herbivor",
+            "Tumbuhan sahaja",
+            "Lembu, Arnab, Kambing"
+          ],
+          [
+            "Karnivor",
+            "Haiwan lain (Daging)",
+            "Harimau, Singa, Helang"
+          ],
+          [
+            "Omnivor",
+            "Tumbuhan & Haiwan",
+            "Ayam, Monyet, Beruang"
+          ]
+        ]
+      },
+      "caption": "Herbivor = Makan tumbuhan, Karnivor = Makan daging, Omnivor = Makan kedua-duanya."
+    }
+  },
+  {
     "id": "sn3-t1-01",
     "year": 3,
     "subject": "Sains",
@@ -92,6 +138,52 @@ export const SAINS_TAHUN_3_QUESTIONS: QuizQuestion[] = [
     "learningStandard": "SK 3.1 Struktur gigi"
   },
   {
+    "id": "sai-t3-vis-02",
+    "year": 3,
+    "subject": "Sains",
+    "topic": "Ketumpatan Objek",
+    "difficulty": "Sederhana",
+    "question": "Rujuk jadual eksperimen ketumpatan objek di dalam air di atas. Mengapakah guli kaca tenggelam manakala gabus kayu terapung?",
+    "options": {
+      "A": "Guli kaca lebih tumpat daripada air, manakala gabus kayu kurang tumpat daripada air",
+      "B": "Gabus kayu lebih berat daripada guli kaca",
+      "C": "Air menolak guli kaca ke dasar",
+      "D": "Guli menyerap cecair air"
+    },
+    "correctAnswer": "A",
+    "explanation": "Objek yang lebih tumpat daripada air akan tenggelam ke dasar, manakala objek yang kurang tumpat daripada air akan terapung.",
+    "learningStandard": "SP 7.1.1 Membuat kesimpulan tentang objek yang lebih tumpat atau kurang tumpat daripada air.",
+    "diagram": {
+      "title": "Jadual Eksperimen Ketumpatan Bahan",
+      "type": "table_data",
+      "data": {
+        "headers": [
+          "Objek",
+          "Pemerhatian di Dalam Air",
+          "Sifat Ketumpatan"
+        ],
+        "rows": [
+          [
+            "Gabus Kayu",
+            "Terapung di permukaan air",
+            "Kurang tumpat daripada air"
+          ],
+          [
+            "Guli Kaca",
+            "Tenggelam ke dasar bikar",
+            "Lebih tumpat daripada air"
+          ],
+          [
+            "Minyak Masak",
+            "Terapung di atas lapisan air",
+            "Kurang tumpat daripada air"
+          ]
+        ]
+      },
+      "caption": "Ketumpatan menentukan sama ada sesuatu objek timbul atau tenggelam di dalam air."
+    }
+  },
+  {
     "id": "sn3-t1-06",
     "year": 3,
     "subject": "Sains",
@@ -180,6 +272,52 @@ export const SAINS_TAHUN_3_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "A",
     "explanation": "Esofagus menolak makanan dari mulut ke dalam perut melalui pengecutan otot.",
     "learningStandard": "SK 3.2 Laluan pencernaan"
+  },
+  {
+    "id": "sai-t3-vis-03",
+    "year": 3,
+    "subject": "Sains",
+    "topic": "Asid dan Alkali",
+    "difficulty": "Sederhana",
+    "question": "Rujuk jadual ujian kertas litmus di atas. Bahan manakah yang bersifat asid dan menukarkan warna kertas litmus biru kepada merah?",
+    "options": {
+      "A": "Jus Limau Nipis",
+      "B": "Air Sabun Mandi",
+      "C": "Air Garam",
+      "D": "Air Suling"
+    },
+    "correctAnswer": "A",
+    "explanation": "Bahan berasid (seperti jus limau nipis yang masam) menukarkan warna kertas litmus biru kepada merah.",
+    "learningStandard": "SP 8.1.1 Menguji sifat kimia bahan menggunakan kertas litmus.",
+    "diagram": {
+      "title": "Jadual Ujian Kertas Litmus Bahan Harian",
+      "type": "table_data",
+      "data": {
+        "headers": [
+          "Bahan Ujian",
+          "Perubahan Kertas Litmus",
+          "Sifat Kimia"
+        ],
+        "rows": [
+          [
+            "Jus Limau Nipis",
+            "Biru ➔ Merah",
+            "Berasid (Rasa masam)"
+          ],
+          [
+            "Air Sabun",
+            "Merah ➔ Biru",
+            "Beralkali (Rasa pahit/licin)"
+          ],
+          [
+            "Air Garam",
+            "Tiada perubahan warna",
+            "Neutral (Rasa masin)"
+          ]
+        ]
+      },
+      "caption": "Asid menukarkan litmus biru ke merah. Alkali menukarkan litmus merah ke biru."
+    }
   },
   {
     "id": "sn3-t1-11",

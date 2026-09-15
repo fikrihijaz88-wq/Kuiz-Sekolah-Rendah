@@ -2,6 +2,29 @@ import { QuizQuestion } from '../types';
 
 export const SAINS_TAHUN_5_QUESTIONS: QuizQuestion[] = [
   {
+    "id": "sai-t5-vis-01",
+    "year": 5,
+    "subject": "Sains",
+    "topic": "Rantai Makanan dan Siratan Makanan",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan rajah rantai makanan di atas, apakah hidupan yang bertindak sebagai \"Pengeluar\"?",
+    "options": {
+      "A": "Rumput (Tumbuhan hijau)",
+      "B": "Belalang",
+      "C": "Katak",
+      "D": "Helang"
+    },
+    "correctAnswer": "A",
+    "explanation": "Rumput ialah pengeluar kerana ia membuat makanannya sendiri melalui fotosintesis, menduduki aras pertama rantai makanan.",
+    "learningStandard": "SP 3.1.2 Mengenal pasti pengeluar dan pengguna dalam rantai makanan.",
+    "diagram": {
+      "title": "Rajah: Rantai Makanan Padang Rumput",
+      "type": "science_visual",
+      "svgContent": "<svg viewBox=\"0 0 320 95\" width=\"290\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\">\n    <text x=\"160\" y=\"18\" font-size=\"11\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">Rantai Makanan Padang</text>\n    \n      <rect x=\"15\" y=\"30\" width=\"58\" height=\"36\" rx=\"6\" fill=\"#DCFCE7\" stroke=\"#16A34A\" stroke-width=\"2\"/>\n      <text x=\"44\" y=\"52\" font-size=\"10\" font-weight=\"bold\" fill=\"#14532D\" text-anchor=\"middle\">Rumput</text>\n    \n        <line x1=\"75\" y1=\"48\" x2=\"85\" y2=\"48\" stroke=\"#15803D\" stroke-width=\"2.5\"/>\n        <polygon points=\"89,48 84,44 84,52\" fill=\"#15803D\"/>\n      \n      <rect x=\"89\" y=\"30\" width=\"58\" height=\"36\" rx=\"6\" fill=\"#DCFCE7\" stroke=\"#16A34A\" stroke-width=\"2\"/>\n      <text x=\"118\" y=\"52\" font-size=\"10\" font-weight=\"bold\" fill=\"#14532D\" text-anchor=\"middle\">Belalang</text>\n    \n        <line x1=\"149\" y1=\"48\" x2=\"159\" y2=\"48\" stroke=\"#15803D\" stroke-width=\"2.5\"/>\n        <polygon points=\"163,48 158,44 158,52\" fill=\"#15803D\"/>\n      \n      <rect x=\"163\" y=\"30\" width=\"58\" height=\"36\" rx=\"6\" fill=\"#DCFCE7\" stroke=\"#16A34A\" stroke-width=\"2\"/>\n      <text x=\"192\" y=\"52\" font-size=\"10\" font-weight=\"bold\" fill=\"#14532D\" text-anchor=\"middle\">Katak</text>\n    \n        <line x1=\"223\" y1=\"48\" x2=\"233\" y2=\"48\" stroke=\"#15803D\" stroke-width=\"2.5\"/>\n        <polygon points=\"237,48 232,44 232,52\" fill=\"#15803D\"/>\n      \n      <rect x=\"237\" y=\"30\" width=\"58\" height=\"36\" rx=\"6\" fill=\"#DCFCE7\" stroke=\"#16A34A\" stroke-width=\"2\"/>\n      <text x=\"266\" y=\"52\" font-size=\"10\" font-weight=\"bold\" fill=\"#14532D\" text-anchor=\"middle\">Ular</text>\n    \n        <line x1=\"297\" y1=\"48\" x2=\"307\" y2=\"48\" stroke=\"#15803D\" stroke-width=\"2.5\"/>\n        <polygon points=\"311,48 306,44 306,52\" fill=\"#15803D\"/>\n      \n      <rect x=\"311\" y=\"30\" width=\"58\" height=\"36\" rx=\"6\" fill=\"#DCFCE7\" stroke=\"#16A34A\" stroke-width=\"2\"/>\n      <text x=\"340\" y=\"52\" font-size=\"10\" font-weight=\"bold\" fill=\"#14532D\" text-anchor=\"middle\">Helang</text>\n    \n    <text x=\"160\" y=\"85\" font-size=\"9\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">Anak panah bermaksud 'dimakan oleh' (aliran tenaga)</text>\n  </svg>",
+      "caption": "Pengeluar sentiasa berada pada kedudukan pertama rantai makanan."
+    }
+  },
+  {
     "id": "t5-sn-001",
     "year": 5,
     "subject": "Sains",
@@ -96,6 +119,29 @@ export const SAINS_TAHUN_5_QUESTIONS: QuizQuestion[] = [
     "learningStandard": "SK 1.1 / SP 1.1.11"
   },
   {
+    "id": "sai-t5-vis-02",
+    "year": 5,
+    "subject": "Sains",
+    "topic": "Haba dan Suhu",
+    "difficulty": "Sederhana",
+    "question": "Rujuk bacaan termometer makmal di atas. Berapakah bacaan suhu cecair yang ditunjukkan oleh aras merkuri merah?",
+    "options": {
+      "A": "50°C",
+      "B": "75°C",
+      "C": "100°C",
+      "D": "25°C"
+    },
+    "correctAnswer": "B",
+    "explanation": "Paras cecair merkuri merah berhenti tepat pada senggatan garis 75°C pada skala termometer.",
+    "learningStandard": "SP 6.1.2 Mengukur suhu dengan menggunakan termometer dengan teknik yang betul.",
+    "diagram": {
+      "title": "Rajah: Bacaan Termometer Makmal",
+      "type": "science_visual",
+      "svgContent": "<svg viewBox=\"0 0 160 180\" width=\"140\" height=\"160\" xmlns=\"http://www.w3.org/2000/svg\">\n    <rect x=\"72\" y=\"25\" width=\"16\" height=\"110\" rx=\"8\" fill=\"#F1F5F9\" stroke=\"#64748B\" stroke-width=\"2\"/>\n    <rect x=\"76\" y=\"55\" width=\"8\" height=\"80\" fill=\"#EF4444\"/>\n    <circle cx=\"80\" cy=\"140\" r=\"15\" fill=\"#EF4444\" stroke=\"#64748B\" stroke-width=\"2\"/>\n    <line x1=\"90\" y1=\"30\" x2=\"98\" y2=\"30\" stroke=\"#334155\" stroke-width=\"1.5\"/><text x=\"102\" y=\"33\" font-size=\"9\" font-weight=\"bold\" fill=\"#64748B\">100°C</text>\n    <line x1=\"90\" y1=\"55\" x2=\"96\" y2=\"55\" stroke=\"#334155\" stroke-width=\"1.5\"/><text x=\"102\" y=\"58\" font-size=\"9\" font-weight=\"bold\" fill=\"#64748B\">75°C</text>\n    <line x1=\"90\" y1=\"80\" x2=\"98\" y2=\"80\" stroke=\"#334155\" stroke-width=\"1.5\"/><text x=\"102\" y=\"83\" font-size=\"9\" font-weight=\"bold\" fill=\"#64748B\">50°C</text>\n    <line x1=\"90\" y1=\"105\" x2=\"96\" y2=\"105\" stroke=\"#334155\" stroke-width=\"1.5\"/><text x=\"102\" y=\"108\" font-size=\"9\" font-weight=\"bold\" fill=\"#64748B\">25°C</text>\n    <line x1=\"90\" y1=\"130\" x2=\"98\" y2=\"130\" stroke=\"#334155\" stroke-width=\"1.5\"/><text x=\"102\" y=\"133\" font-size=\"9\" font-weight=\"bold\" fill=\"#64748B\">0°C</text>\n    <text x=\"80\" y=\"170\" font-size=\"11\" font-weight=\"bold\" fill=\"#DC2626\" text-anchor=\"middle\">Bacaan: 75°C</text>\n  </svg>",
+      "caption": "Perhatikan paras ketinggian cecair merkuri merah pada skala suhu Celsius (°C)."
+    }
+  },
+  {
     "id": "t5-sn-006",
     "year": 5,
     "subject": "Sains",
@@ -186,6 +232,62 @@ export const SAINS_TAHUN_5_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "A",
     "explanation": "Cemerlang! Definisi secara operasi menyatakan konsep berdasarkan perkara yang boleh diperhatikan dan disukat secara praktikal dalam eksperimen.",
     "learningStandard": "SK 1.1 / SP 1.1.9"
+  },
+  {
+    "id": "sai-t5-vis-03",
+    "year": 5,
+    "subject": "Sains",
+    "topic": "Jirim (Perubahan Keadaan Air)",
+    "difficulty": "Sederhana",
+    "question": "Rujuk jadual eksperimen pemanasan air di atas. Pada minit ke berapakah air mencapai takat didih 100°C?",
+    "options": {
+      "A": "Minit ke-0",
+      "B": "Minit ke-5",
+      "C": "Minit ke-10",
+      "D": "Minit ke-15"
+    },
+    "correctAnswer": "D",
+    "explanation": "Berdasarkan jadual, pada minit ke-15 suhu air mencapai 100°C (takat didih) dan kekal malar pada minit ke-20.",
+    "learningStandard": "SP 7.1.3 Menyatakan takat beku dan takat didih air.",
+    "diagram": {
+      "title": "Jadual Pemanasan Air Hingga Mendidih",
+      "type": "table_data",
+      "data": {
+        "headers": [
+          "Masa Pemanasan (Minit)",
+          "Suhu Air (°C)",
+          "Pemerhatian"
+        ],
+        "rows": [
+          [
+            "0",
+            "28°C",
+            "Suhu bilik"
+          ],
+          [
+            "5",
+            "50°C",
+            "Air suam"
+          ],
+          [
+            "10",
+            "75°C",
+            "Wap air mula terbebas"
+          ],
+          [
+            "15",
+            "100°C",
+            "Air mendidih dengan buih"
+          ],
+          [
+            "20",
+            "100°C",
+            "Suhu kekal malar (takat didih)"
+          ]
+        ]
+      },
+      "caption": "Takat didih air tulen ialah 100°C pada tekanan atmosfera standard."
+    }
   },
   {
     "id": "t5-sn-011",

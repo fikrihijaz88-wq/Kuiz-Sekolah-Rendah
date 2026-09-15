@@ -2,6 +2,29 @@ import { QuizQuestion } from '../types';
 
 export const MATEMATIK_TAHUN_3_QUESTIONS: QuizQuestion[] = [
   {
+    "id": "mat-t3-vis-01",
+    "year": 3,
+    "subject": "Matematik",
+    "topic": "Nombor hingga 10,000",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan abakus 4-digit di atas, apakah nilai nombor yang diwakili?",
+    "options": {
+      "A": "3,524",
+      "B": "4,523",
+      "C": "3,024",
+      "D": "2,534"
+    },
+    "correctAnswer": "A",
+    "explanation": "Nilai tempat pada abakus: Ribu = 3, Ratus = 5 (manik atas aktif), Puluh = 2, Sa = 4. Nilai nombor ialah 3,524.",
+    "learningStandard": "SP 1.1.2 Menentukan nilai nombor pada abakus 4 digit.",
+    "diagram": {
+      "title": "Rajah: Abakus 4 Digit",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 145\" width=\"220\" height=\"135\" xmlns=\"http://www.w3.org/2000/svg\">\n    <rect x=\"10\" y=\"10\" width=\"220\" height=\"110\" rx=\"8\" fill=\"#F8FAFC\" stroke=\"#78350F\" stroke-width=\"6\"/>\n    <line x1=\"10\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"#78350F\" stroke-width=\"5\"/>\n    <line x1=\"35\" y1=\"20\" x2=\"35\" y2=\"110\" stroke=\"#94A3B8\" stroke-width=\"3\"/><rect x=\"23\" y=\"26\" width=\"24\" height=\"12\" rx=\"3\" fill=\"#D97706\" stroke=\"#78350F\" stroke-width=\"1.5\"/><rect x=\"23\" y=\"54\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"23\" y=\"65\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"23\" y=\"76\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"23\" y=\"102\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><line x1=\"91.66666666666666\" y1=\"20\" x2=\"91.66666666666666\" y2=\"110\" stroke=\"#94A3B8\" stroke-width=\"3\"/><rect x=\"79.66666666666666\" y=\"36\" width=\"24\" height=\"12\" rx=\"3\" fill=\"#D97706\" stroke=\"#78350F\" stroke-width=\"1.5\"/><rect x=\"79.66666666666666\" y=\"72\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"79.66666666666666\" y=\"82\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"79.66666666666666\" y=\"92\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"79.66666666666666\" y=\"102\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><line x1=\"148.33333333333331\" y1=\"20\" x2=\"148.33333333333331\" y2=\"110\" stroke=\"#94A3B8\" stroke-width=\"3\"/><rect x=\"136.33333333333331\" y=\"26\" width=\"24\" height=\"12\" rx=\"3\" fill=\"#D97706\" stroke=\"#78350F\" stroke-width=\"1.5\"/><rect x=\"136.33333333333331\" y=\"54\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"136.33333333333331\" y=\"65\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"136.33333333333331\" y=\"92\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"136.33333333333331\" y=\"102\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><line x1=\"205\" y1=\"20\" x2=\"205\" y2=\"110\" stroke=\"#94A3B8\" stroke-width=\"3\"/><rect x=\"193\" y=\"26\" width=\"24\" height=\"12\" rx=\"3\" fill=\"#D97706\" stroke=\"#78350F\" stroke-width=\"1.5\"/><rect x=\"193\" y=\"54\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"193\" y=\"65\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"193\" y=\"76\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/><rect x=\"193\" y=\"87\" width=\"24\" height=\"9\" rx=\"2\" fill=\"#2563EB\" stroke=\"#1E3A8A\" stroke-width=\"1.2\"/>\n    <text x=\"120\" y=\"138\" font-size=\"11\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">Abakus mewakili: 3,524</text>\n  </svg>",
+      "caption": "Manik atas bernilai 5 apabila digerakkan mendekati palang tengah."
+    }
+  },
+  {
     "id": "m3-t1-01",
     "year": 3,
     "subject": "Matematik",
@@ -90,6 +113,29 @@ export const MATEMATIK_TAHUN_3_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "C",
     "explanation": "4,525 mempunyai nilai paling besar kerana digit sa adalah 5.",
     "learningStandard": "SK 1.3 Membanding nilai dua nombor"
+  },
+  {
+    "id": "mat-t3-vis-02",
+    "year": 3,
+    "subject": "Matematik",
+    "topic": "Masa dan Waktu",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan muka jam analog di atas, apakah waktu yang ditunjukkan?",
+    "options": {
+      "A": "Pukul 7:15",
+      "B": "Pukul 7:45 (Lapan kurang suku)",
+      "C": "Pukul 8:45",
+      "D": "Pukul 7:30"
+    },
+    "correctAnswer": "B",
+    "explanation": "Jarum jam menghampiri angka 8 dan jarum minit berada tepat pada angka 9 (45 minit), menunjukkan pukul 7:45.",
+    "learningStandard": "SP 5.1.1 Menyatakan waktu dalam jam dan minit.",
+    "diagram": {
+      "title": "Rajah: Jam Analogi (7:45)",
+      "type": "math_clock",
+      "svgContent": "<svg viewBox=\"0 0 200 200\" width=\"180\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\">\n    <circle cx=\"100\" cy=\"100\" r=\"92\" fill=\"#FEF3C7\" stroke=\"#F59E0B\" stroke-width=\"5\"/>\n    <circle cx=\"100\" cy=\"100\" r=\"82\" fill=\"#FFFFFF\" stroke=\"#CBD5E1\" stroke-width=\"2\"/>\n    <text x=\"135.0\" y=\"43.4\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">1</text><text x=\"160.6\" y=\"69.0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">2</text><text x=\"170.0\" y=\"104.0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">3</text><text x=\"160.6\" y=\"139.0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">4</text><text x=\"135.0\" y=\"164.6\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">5</text><text x=\"100.0\" y=\"174.0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">6</text><text x=\"65.0\" y=\"164.6\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">7</text><text x=\"39.4\" y=\"139.0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">8</text><text x=\"30.0\" y=\"104.0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">9</text><text x=\"39.4\" y=\"69.0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">10</text><text x=\"65.0\" y=\"43.4\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">11</text><text x=\"100.0\" y=\"34.0\" font-size=\"12\" font-family=\"sans-serif\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">12</text>\n    <!-- Hour Hand (Blue) -->\n    <line x1=\"100\" y1=\"100\" x2=\"68.3\" y2=\"124.4\" stroke=\"#2563EB\" stroke-width=\"6\" stroke-linecap=\"round\"/>\n    <!-- Minute Hand (Red) -->\n    <line x1=\"100\" y1=\"100\" x2=\"40.0\" y2=\"100.0\" stroke=\"#EF4444\" stroke-width=\"4\" stroke-linecap=\"round\"/>\n    <!-- Center Pin -->\n    <circle cx=\"100\" cy=\"100\" r=\"6\" fill=\"#1E293B\"/>\n    <circle cx=\"100\" cy=\"100\" r=\"3\" fill=\"#FACC15\"/>\n    <text x=\"100\" y=\"145\" font-size=\"11\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">Pukul 7:45</text>\n  </svg>",
+      "caption": "Jarum minit menunjuk ke angka 9 mewakili 45 minit."
+    }
   },
   {
     "id": "m3-t1-06",
@@ -182,6 +228,29 @@ export const MATEMATIK_TAHUN_3_QUESTIONS: QuizQuestion[] = [
     "learningStandard": "SK 1.5 Pola menurun"
   },
   {
+    "id": "mat-t3-vis-03",
+    "year": 3,
+    "subject": "Matematik",
+    "topic": "Pecahan Wajar",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan jalur pecahan di atas, apakah pecahan kawasan yang diwarnakan hijau?",
+    "options": {
+      "A": "3/8",
+      "B": "4/8",
+      "C": "5/8",
+      "D": "6/8"
+    },
+    "correctAnswer": "C",
+    "explanation": "Jalur pecahan dibahagikan kepada 8 bahagian sama besar dan 5 bahagian diwarnakan hijau, mewakili 5/8.",
+    "learningStandard": "SP 3.1.3 Menyatakan pecahan wajar daripada gambar rajah.",
+    "diagram": {
+      "title": "Rajah: Jalur Pecahan Lapan Bahagian",
+      "type": "math_fraction",
+      "svgContent": "<svg viewBox=\"0 0 260 85\" width=\"250\" height=\"80\" xmlns=\"http://www.w3.org/2000/svg\">\n    <rect x=\"8\" y=\"13\" width=\"244\" height=\"44\" rx=\"4\" fill=\"#E2E8F0\"/>\n    <rect x=\"10\" y=\"15\" width=\"30\" height=\"40\" fill=\"#10B981\" stroke=\"#1E293B\" stroke-width=\"2\"/><rect x=\"40\" y=\"15\" width=\"30\" height=\"40\" fill=\"#10B981\" stroke=\"#1E293B\" stroke-width=\"2\"/><rect x=\"70\" y=\"15\" width=\"30\" height=\"40\" fill=\"#10B981\" stroke=\"#1E293B\" stroke-width=\"2\"/><rect x=\"100\" y=\"15\" width=\"30\" height=\"40\" fill=\"#10B981\" stroke=\"#1E293B\" stroke-width=\"2\"/><rect x=\"130\" y=\"15\" width=\"30\" height=\"40\" fill=\"#10B981\" stroke=\"#1E293B\" stroke-width=\"2\"/><rect x=\"160\" y=\"15\" width=\"30\" height=\"40\" fill=\"#FFFFFF\" stroke=\"#1E293B\" stroke-width=\"2\"/><rect x=\"190\" y=\"15\" width=\"30\" height=\"40\" fill=\"#FFFFFF\" stroke=\"#1E293B\" stroke-width=\"2\"/><rect x=\"220\" y=\"15\" width=\"30\" height=\"40\" fill=\"#FFFFFF\" stroke=\"#1E293B\" stroke-width=\"2\"/>\n    <text x=\"130\" y=\"76\" font-size=\"12\" font-weight=\"bold\" fill=\"#0F172A\" text-anchor=\"middle\">5 daripada 8 petak berwarna</text>\n  </svg>",
+      "caption": "Kira bilangan petak hijau berbanding jumlah 8 petak."
+    }
+  },
+  {
     "id": "m3-t1-11",
     "year": 3,
     "subject": "Matematik",
@@ -272,6 +341,29 @@ export const MATEMATIK_TAHUN_3_QUESTIONS: QuizQuestion[] = [
     "learningStandard": "SK 1.6 Penyelesaian masalah bundar"
   },
   {
+    "id": "mat-t3-vis-04",
+    "year": 3,
+    "subject": "Matematik",
+    "topic": "Bentuk dan Ruang",
+    "difficulty": "Sederhana",
+    "question": "Rujuk rajah segi empat tepat di atas. Berapakah perimeter (jumlah ukur keliling sisi luar) bagi segi empat tepat tersebut?",
+    "options": {
+      "A": "15 cm",
+      "B": "25 cm",
+      "C": "30 cm",
+      "D": "50 cm"
+    },
+    "correctAnswer": "C",
+    "explanation": "Perimeter = 2 × (Panjang + Lebar) = 2 × (10 cm + 5 cm) = 2 × 15 cm = 30 cm.",
+    "learningStandard": "SP 6.3.1 Menentukan perimeter bentuk poligon asas.",
+    "diagram": {
+      "title": "Rajah: Segi Empat Tepat Berdimensi",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 140\" width=\"220\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\">\n      <rect x=\"30\" y=\"30\" width=\"160\" height=\"70\" rx=\"4\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"3\"/>\n      <text x=\"110\" y=\"20\" font-size=\"12\" font-weight=\"bold\" fill=\"#92400E\" text-anchor=\"middle\">Panjang = 10 cm</text>\n      <text x=\"200\" y=\"70\" font-size=\"12\" font-weight=\"bold\" fill=\"#92400E\" text-anchor=\"start\">Lebar = 5 cm</text>\n    </svg>",
+      "caption": "Perimeter ialah hasil tambah kesemua 4 sisi luar: 10 + 5 + 10 + 5 = 30 cm."
+    }
+  },
+  {
     "id": "m3-t2-01",
     "year": 3,
     "subject": "Matematik",
@@ -360,6 +452,29 @@ export const MATEMATIK_TAHUN_3_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "A",
     "explanation": "7,340 - 3,582 = 3,758.",
     "learningStandard": "SK 2.2 Tolak dengan mengumpul semula"
+  },
+  {
+    "id": "mat-t3-vis-05",
+    "year": 3,
+    "subject": "Matematik",
+    "topic": "Wang",
+    "difficulty": "Sederhana",
+    "question": "Berdasarkan rajah wang kertas di atas, berapakah jumlah keseluruhan wang tersebut?",
+    "options": {
+      "A": "RM 150",
+      "B": "RM 170",
+      "C": "RM 180",
+      "D": "RM 200"
+    },
+    "correctAnswer": "B",
+    "explanation": "1 keping RM100 + 1 keping RM50 + 1 keping RM20 = RM 100 + RM 50 + RM 20 = RM 170.",
+    "learningStandard": "SP 4.1.1 Menggabungkan nilai wang hingga RM10,000.",
+    "diagram": {
+      "title": "Rajah: Gabungan Wang Kertas RM100, RM50, RM20",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 260 85\" width=\"260\" height=\"85\" xmlns=\"http://www.w3.org/2000/svg\">\n    <rect x=\"5\" y=\"5\" width=\"250\" height=\"75\" rx=\"8\" fill=\"#F8FAFC\" stroke=\"#CBD5E1\"/>\n    \n        <g transform=\"translate(15, 20)\">\n          <rect x=\"0\" y=\"0\" width=\"56\" height=\"34\" rx=\"4\" fill=\"#DDD6FE\" stroke=\"#7C3AED\" stroke-width=\"2\"/>\n          <circle cx=\"28\" cy=\"17\" r=\"9\" fill=\"#FFFFFF\" opacity=\"0.8\"/>\n          <text x=\"28\" y=\"21\" font-size=\"10\" font-weight=\"bold\" fill=\"#4C1D95\" text-anchor=\"middle\">RM100</text>\n        </g>\n      \n        <g transform=\"translate(75, 20)\">\n          <rect x=\"0\" y=\"0\" width=\"56\" height=\"34\" rx=\"4\" fill=\"#6EE7B7\" stroke=\"#059669\" stroke-width=\"2\"/>\n          <circle cx=\"28\" cy=\"17\" r=\"9\" fill=\"#FFFFFF\" opacity=\"0.8\"/>\n          <text x=\"28\" y=\"21\" font-size=\"10\" font-weight=\"bold\" fill=\"#064E3B\" text-anchor=\"middle\">RM50</text>\n        </g>\n      \n        <g transform=\"translate(135, 20)\">\n          <rect x=\"0\" y=\"0\" width=\"56\" height=\"34\" rx=\"4\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/>\n          <circle cx=\"28\" cy=\"17\" r=\"9\" fill=\"#FFFFFF\" opacity=\"0.8\"/>\n          <text x=\"28\" y=\"21\" font-size=\"10\" font-weight=\"bold\" fill=\"#713F12\" text-anchor=\"middle\">RM20</text>\n        </g>\n      \n    <text x=\"130\" y=\"72\" font-size=\"11\" font-weight=\"bold\" fill=\"#0F172A\" text-anchor=\"middle\">1x RM100 + 1x RM50 + 1x RM20 = RM170</text>\n  </svg>",
+      "caption": "Campurkan nilai setiap keping wang kertas."
+    }
   },
   {
     "id": "m3-t2-06",

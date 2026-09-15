@@ -2,6 +2,29 @@ import { QuizQuestion } from '../types';
 
 export const MATEMATIK_TAHUN_5_QUESTIONS: QuizQuestion[] = [
   {
+    "id": "mat-t5-vis-01",
+    "year": 5,
+    "subject": "Matematik",
+    "topic": "Koordinat, Nisbah dan Kadaran",
+    "difficulty": "KBAT (Aras Sederhana)",
+    "question": "Berdasarkan satah Cartes di atas, berapakah jarak mengufuk dan jarak mencancang dari asalan (0,0) ke titik P?",
+    "options": {
+      "A": "4 unit mengufuk dan 5 unit mencancang",
+      "B": "5 unit mengufuk dan 4 unit mencancang",
+      "C": "3 unit mengufuk dan 4 unit mencancang",
+      "D": "4 unit mengufuk dan 4 unit mencancang"
+    },
+    "correctAnswer": "A",
+    "explanation": "Titik P terletak pada koordinat (4, 5). Jarak mengufuk (paksi-x) = 4 unit, jarak mencancang (paksi-y) = 5 unit.",
+    "learningStandard": "SP 7.1.1 Menentukan jarak mengufuk dan mencancang antara titik.",
+    "diagram": {
+      "title": "Rajah: Satah Cartes Titik P",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 195\" width=\"220\" height=\"180\" xmlns=\"http://www.w3.org/2000/svg\">\n    <text x=\"120\" y=\"14\" font-size=\"11\" font-weight=\"bold\" fill=\"#1E293B\" text-anchor=\"middle\">Satah Cartes (Paksi Mengufuk & Mencancang)</text>\n    <line x1=\"40\" y1=\"160\" x2=\"199\" y2=\"160\" stroke=\"#334155\" stroke-width=\"2.5\"/>\n    <line x1=\"40\" y1=\"160\" x2=\"40\" y2=\"1\" stroke=\"#334155\" stroke-width=\"2.5\"/>\n    <polygon points=\"202,160 194,156 194,164\" fill=\"#334155\"/>\n    <polygon points=\"40,-2 36,6 44,6\" fill=\"#334155\"/>\n    <text x=\"196\" y=\"174\" font-size=\"11\" font-weight=\"bold\" fill=\"#0F172A\">x</text>\n    <text x=\"26\" y=\"8\" font-size=\"11\" font-weight=\"bold\" fill=\"#0F172A\">y</text>\n    <line x1=\"40\" y1=\"160\" x2=\"40\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"160\" x2=\"184\" y2=\"160\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"40\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">0</text><line x1=\"64\" y1=\"160\" x2=\"64\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"136\" x2=\"184\" y2=\"136\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"64\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">1</text><text x=\"30\" y=\"140\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">1</text><line x1=\"88\" y1=\"160\" x2=\"88\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"112\" x2=\"184\" y2=\"112\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"88\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">2</text><text x=\"30\" y=\"116\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">2</text><line x1=\"112\" y1=\"160\" x2=\"112\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"88\" x2=\"184\" y2=\"88\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"112\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">3</text><text x=\"30\" y=\"92\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">3</text><line x1=\"136\" y1=\"160\" x2=\"136\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"64\" x2=\"184\" y2=\"64\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"136\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">4</text><text x=\"30\" y=\"68\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">4</text><line x1=\"160\" y1=\"160\" x2=\"160\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"40\" x2=\"184\" y2=\"40\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"160\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">5</text><text x=\"30\" y=\"44\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">5</text><line x1=\"184\" y1=\"160\" x2=\"184\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"16\" x2=\"184\" y2=\"16\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"184\" y=\"174\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"middle\">6</text><text x=\"30\" y=\"20\" font-size=\"10\" font-weight=\"bold\" fill=\"#64748B\" text-anchor=\"end\">6</text>\n      <circle cx=\"136\" cy=\"40\" r=\"6\" fill=\"#E11D48\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n      <rect x=\"142\" y=\"22\" width=\"48\" height=\"18\" rx=\"4\" fill=\"#0F172A\" opacity=\"0.88\"/>\n      <text x=\"166\" y=\"34\" font-size=\"10\" font-weight=\"bold\" fill=\"#FFFFFF\" text-anchor=\"middle\">P(4,5)</text>\n    \n  </svg>",
+      "caption": "Paksi-x mewakili jarak mengufuk dan paksi-y mewakili jarak mencancang."
+    }
+  },
+  {
     "id": "t5-mat-001",
     "year": 5,
     "subject": "Matematik",
@@ -93,6 +116,29 @@ export const MATEMATIK_TAHUN_5_QUESTIONS: QuizQuestion[] = [
     "learningStandard": "SK 1.1 / SP 1.1.2"
   },
   {
+    "id": "mat-t5-vis-02",
+    "year": 5,
+    "subject": "Matematik",
+    "topic": "Pengurusan Data",
+    "difficulty": "Sederhana",
+    "question": "Rujuk carta palang markah murid di atas. Berapakah jumlah keseluruhan markah yang diperoleh bagi ketiga-tiga subjek tersebut?",
+    "options": {
+      "A": "220 markah",
+      "B": "235 markah",
+      "C": "240 markah",
+      "D": "250 markah"
+    },
+    "correctAnswer": "C",
+    "explanation": "Jumlah markah = 80 (BM) + 75 (BI) + 85 (Math) = 240 markah.",
+    "learningStandard": "SP 8.1.1 Mentafsir data daripada carta palang.",
+    "diagram": {
+      "title": "Carta Palang: Pencapaian Markah Murid",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 280 170\" width=\"260\" height=\"160\" xmlns=\"http://www.w3.org/2000/svg\">\n    <text x=\"140\" y=\"16\" font-size=\"12\" font-weight=\"bold\" fill=\"#0F172A\" text-anchor=\"middle\">Pencapaian Ujian (Markah)</text>\n    <line x1=\"40\" y1=\"25\" x2=\"40\" y2=\"135\" stroke=\"#94A3B8\" stroke-width=\"2\"/>\n    <line x1=\"40\" y1=\"135\" x2=\"265\" y2=\"135\" stroke=\"#94A3B8\" stroke-width=\"2\"/>\n    \n      <rect x=\"50\" y=\"31.470588235294116\" width=\"32\" height=\"103.52941176470588\" rx=\"4\" fill=\"#3B82F6\" stroke=\"#1E293B\" stroke-width=\"1.5\"/>\n      <text x=\"66\" y=\"25.470588235294116\" font-size=\"11\" font-weight=\"bold\" fill=\"#3B82F6\" text-anchor=\"middle\">80</text>\n      <text x=\"66\" y=\"151\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\" text-anchor=\"middle\">BM</text>\n    \n      <rect x=\"102\" y=\"37.94117647058823\" width=\"32\" height=\"97.05882352941177\" rx=\"4\" fill=\"#10B981\" stroke=\"#1E293B\" stroke-width=\"1.5\"/>\n      <text x=\"118\" y=\"31.941176470588232\" font-size=\"11\" font-weight=\"bold\" fill=\"#10B981\" text-anchor=\"middle\">75</text>\n      <text x=\"118\" y=\"151\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\" text-anchor=\"middle\">BI</text>\n    \n      <rect x=\"154\" y=\"25\" width=\"32\" height=\"110\" rx=\"4\" fill=\"#F59E0B\" stroke=\"#1E293B\" stroke-width=\"1.5\"/>\n      <text x=\"170\" y=\"19\" font-size=\"11\" font-weight=\"bold\" fill=\"#F59E0B\" text-anchor=\"middle\">85</text>\n      <text x=\"170\" y=\"151\" font-size=\"10\" font-weight=\"bold\" fill=\"#334155\" text-anchor=\"middle\">Math</text>\n    \n  </svg>",
+      "caption": "Campurkan nilai ketiga-tiga palang: 80 + 75 + 85."
+    }
+  },
+  {
     "id": "t5-mat-006",
     "year": 5,
     "subject": "Matematik",
@@ -182,6 +228,29 @@ export const MATEMATIK_TAHUN_5_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "A",
     "explanation": "Tepat sekali! 24,850 dibundarkan kepada ribu terdekat menjadi 25,000. Anggaran untuk 10 lori = 25,000 × 10 = 250,000 liter.",
     "learningStandard": "SK 1.4 / SP 1.4.1"
+  },
+  {
+    "id": "mat-t5-vis-03",
+    "year": 5,
+    "subject": "Matematik",
+    "topic": "Ruang dan Geometri",
+    "difficulty": "Sederhana",
+    "question": "Rujuk rajah segi empat tepat di atas (panjang 12 cm, lebar 7 cm). Berapakah perimeter bentuk tersebut?",
+    "options": {
+      "A": "19 cm",
+      "B": "38 cm",
+      "C": "84 cm",
+      "D": "42 cm"
+    },
+    "correctAnswer": "B",
+    "explanation": "Perimeter = 2 × (12 cm + 7 cm) = 2 × 19 cm = 38 cm.",
+    "learningStandard": "SP 6.3.1 Mengira perimeter bentuk poligon.",
+    "diagram": {
+      "title": "Rajah: Segi Empat Tepat (12 cm x 7 cm)",
+      "type": "math_visual",
+      "svgContent": "<svg viewBox=\"0 0 240 140\" width=\"220\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\">\n      <rect x=\"30\" y=\"30\" width=\"160\" height=\"70\" rx=\"4\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"3\"/>\n      <text x=\"110\" y=\"20\" font-size=\"12\" font-weight=\"bold\" fill=\"#92400E\" text-anchor=\"middle\">Panjang = 12 cm</text>\n      <text x=\"200\" y=\"70\" font-size=\"12\" font-weight=\"bold\" fill=\"#92400E\" text-anchor=\"start\">Lebar = 7 cm</text>\n    </svg>",
+      "caption": "Perimeter ialah jumlah panjang keempat-empat sisi luar."
+    }
   },
   {
     "id": "t5-mat-011",

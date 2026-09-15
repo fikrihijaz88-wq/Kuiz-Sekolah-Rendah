@@ -2,6 +2,52 @@ import { QuizQuestion } from '../types';
 
 export const SAINS_TAHUN_6_QUESTIONS: QuizQuestion[] = [
   {
+    "id": "sai-t6-vis-01",
+    "year": 6,
+    "subject": "Sains",
+    "topic": "Interaksi Antara Hidupan",
+    "difficulty": "KBAT (Aras Sederhana)",
+    "question": "Berdasarkan jadual interaksi simbiosis di atas, jenis interaksi manakah yang memberikan faedah kepada satu pihak manakala pihak satu lagi tidak rugi dan tidak untung (+ / 0)?",
+    "options": {
+      "A": "Mutualisme",
+      "B": "Komensalisme",
+      "C": "Parasitisme",
+      "D": "Persaingan Intraspesies"
+    },
+    "correctAnswer": "B",
+    "explanation": "Komensalisme ialah interaksi yang memberi manfaat kepada satu pihak tanpa merugikan atau menguntungkan pihak lain (contoh: Ikan Remora dan Jerung).",
+    "learningStandard": "SP 4.1.2 Memerihalkan jenis interaksi simbiosis antara haiwan.",
+    "diagram": {
+      "title": "Jadual Jenis Simbiosis Hidupan",
+      "type": "table_data",
+      "data": {
+        "headers": [
+          "Jenis Simbiosis",
+          "Kesan Interaksi",
+          "Contoh Hidupan"
+        ],
+        "rows": [
+          [
+            "Mutualisme",
+            "Kedua-dua pihak untung (+ / +)",
+            "Burung Tiung dan Kerbau"
+          ],
+          [
+            "Komensalisme",
+            "Satu untung, satu neutral (+ / 0)",
+            "Ikan Remora dan Ikan Jerung"
+          ],
+          [
+            "Parasitisme",
+            "Satu untung, satu rugi (+ / -)",
+            "Kutu pada kucing / Cacing pita"
+          ]
+        ]
+      },
+      "caption": "Simbiosis menerangkan perhubungan rapat antara dua spesies berlainan."
+    }
+  },
+  {
     "id": "s6-manusia-01",
     "year": 6,
     "subject": "Sains",
@@ -92,6 +138,47 @@ export const SAINS_TAHUN_6_QUESTIONS: QuizQuestion[] = [
     "learningStandard": "SK 7.1 / SP 7.1.3 Mengira kelajuan menggunakan rumus laju = jarak / masa."
   },
   {
+    "id": "sai-t6-vis-02",
+    "year": 6,
+    "subject": "Sains",
+    "topic": "Gerhana Bulan dan Gerhana Matahari",
+    "difficulty": "KBAT (Aras Sederhana)",
+    "question": "Rujuk jadual perbandingan fenomena gerhana di atas. Apakah susunan kedudukan jasad samawi semasa berlakunya fenomena Gerhana Bulan?",
+    "options": {
+      "A": "Matahari ➔ Bumi ➔ Bulan",
+      "B": "Matahari ➔ Bulan ➔ Bumi",
+      "C": "Bumi ➔ Matahari ➔ Bulan",
+      "D": "Bulan ➔ Bumi ➔ Matahari"
+    },
+    "correctAnswer": "A",
+    "explanation": "Gerhana Bulan berlaku apabila Bumi berada di antara Matahari dan Bulan dalam satu garis lurus, menyebabkan bayang-bayang Bumi menutupi Bulan pada fasa Bulan Purnama.",
+    "learningStandard": "SP 9.1.1 Memerihalkan fenomena Gerhana Bulan.",
+    "diagram": {
+      "title": "Jadual Perbandingan Fenomena Gerhana",
+      "type": "table_data",
+      "data": {
+        "headers": [
+          "Jenis Gerhana",
+          "Susunan Jasad Samawi",
+          "Fasa Bulan"
+        ],
+        "rows": [
+          [
+            "Gerhana Bulan",
+            "Matahari ➔ Bumi ➔ Bulan",
+            "Bulan Purnama"
+          ],
+          [
+            "Gerhana Matahari",
+            "Matahari ➔ Bulan ➔ Bumi",
+            "Anak Bulan"
+          ]
+        ]
+      },
+      "caption": "Gerhana berlaku disebabkan sifat cahaya yang bergerak lurus."
+    }
+  },
+  {
     "id": "s6-geseran-01",
     "year": 6,
     "subject": "Sains",
@@ -180,6 +267,57 @@ export const SAINS_TAHUN_6_QUESTIONS: QuizQuestion[] = [
     "correctAnswer": "A",
     "explanation": "Basikal menggabungkan roda & gandar (roda/pedal), gear (rantai basikal), tuas (brek tangan), dan skru (pengikat komponen).",
     "learningStandard": "SK 12.1 / SP 12.1.1 Mengenal pasti gabungan mesin ringkas dalam suatu mesin kompleks."
+  },
+  {
+    "id": "sai-t6-vis-03",
+    "year": 6,
+    "subject": "Sains",
+    "topic": "Kelajuan",
+    "difficulty": "Sederhana",
+    "question": "Rujuk jadual pergerakan kenderaan di atas. Kenderaan manakah yang bergerak dengan kelajuan paling tinggi?",
+    "options": {
+      "A": "Kereta A (80 km/j)",
+      "B": "Kereta B (90 km/j)",
+      "C": "Kereta C (100 km/j)",
+      "D": "Kereta D (70 km/j)"
+    },
+    "correctAnswer": "C",
+    "explanation": "Kereta C mempunyai kelajuan tertinggi iaitu 100 kilometer sejam (km/j).",
+    "learningStandard": "SP 7.1.2 Mengenal pasti unit kelajuan dan membandingkan kelajuan objek.",
+    "diagram": {
+      "title": "Jadual Data Kelajuan Kenderaan",
+      "type": "table_data",
+      "data": {
+        "headers": [
+          "Kenderaan",
+          "Kelajuan (km/j)",
+          "Jarak (1 Jam)"
+        ],
+        "rows": [
+          [
+            "Kereta A",
+            "80 km/j",
+            "80 km"
+          ],
+          [
+            "Kereta B",
+            "90 km/j",
+            "90 km"
+          ],
+          [
+            "Kereta C",
+            "100 km/j",
+            "100 km"
+          ],
+          [
+            "Kereta D",
+            "70 km/j",
+            "70 km"
+          ]
+        ]
+      },
+      "caption": "Semakin tinggi nilai kelajuan, semakin pantas kenderaan bergerak."
+    }
   },
   {
     "id": "sn6-sains-t1-03",
