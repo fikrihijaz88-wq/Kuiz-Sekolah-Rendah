@@ -131,7 +131,7 @@ export const Header: React.FC<HeaderProps> = ({
                   <span className="text-amber-400 text-xs sm:text-sm">⭐</span>
                 </span>
                 <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0">
-                  Tahun 2, 4 & 5
+                  Sekolah Kebangsaan (SK)
                 </span>
               </div>
               <p className="text-[11px] text-indigo-200/80 hidden md:block truncate">

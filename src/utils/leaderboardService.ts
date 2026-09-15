@@ -388,7 +388,7 @@ export function getAllLeaderboardEntries(
     entries.push({
       id: 'active_guest_student',
       studentName: 'Murid Pintar (Anda)',
-      className: 'Tahun 2 & 4',
+      className: 'Sekolah Kebangsaan (SK)',
       year: 2,
       avatarId: 'trophy',
       schoolName: 'KSSR Semakan KPM',

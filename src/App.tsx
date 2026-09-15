@@ -900,7 +900,7 @@ export default function App() {
                 <span>📚 Berpandukan Kurikulum Standard Sekolah Rendah (KSSR Semakan)</span>
               </p>
               <p>
-                Semua soalan dan lembaran kerja digubal khas mengikut Dokumen Standard Kurikulum dan Pentaksiran (DSKP) Semakan Kementerian Pendidikan Malaysia (KPM) untuk <strong>Tahun 2</strong>, <strong>Tahun 4</strong> dan <strong>Tahun 5</strong>.
+                Semua soalan dan lembaran kerja digubal khas mengikut Dokumen Standard Kurikulum dan Pentaksiran (DSKP) Semakan Kementerian Pendidikan Malaysia (KPM) untuk <strong>Sekolah Kebangsaan (SK)</strong> meliputi <strong>Tahun 1 hingga Tahun 6</strong>.
               </p>
             </div>
             <div className="md:text-right">
