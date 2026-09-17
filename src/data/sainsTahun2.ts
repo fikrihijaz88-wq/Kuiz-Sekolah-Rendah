@@ -49,7 +49,8 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Kemahiran Saintifik & Peraturan Bilik Sains",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.1 / SP 1.1.2 (Mengelas)",
-    "question": "Berdasarkan Rajah 1, apakah haiwan yang paling sesuai mewakili Haiwan P dalam Kumpulan X?",
+    "stimulus": "Kumpulan X: Ayam, Burung Helang, Haiwan P (Ciri sepunya: Mempunyai bulu pelepah)",
+    "question": "Berdasarkan pengelasan ciri luaran haiwan di atas, apakah haiwan yang paling sesuai mewakili Haiwan P dalam Kumpulan X?",
     "options": {
       "A": "Itik",
       "B": "Ikan Emas",
@@ -83,7 +84,8 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Kemahiran Saintifik & Peraturan Bilik Sains",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.1 / SP 1.1.3 (Mengukur dan Menggunakan Nombor)",
-    "question": "Berdasarkan Rajah 2, berapakah panjang pensel tersebut?",
+    "stimulus": "Sebatang pensel diletakkan di sebelah pembaris. Hujung pemadam pensel berada pada tanda 0 cm dan mata pensel berakhir tepat pada tanda 9 cm.",
+    "question": "Berdasarkan ukuran tersebut, berapakah panjang pensel itu?",
     "options": {
       "A": "9 sentimeter (cm)",
       "B": "7 sentimeter (cm)",
@@ -159,7 +161,7 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Kemahiran Saintifik & Peraturan Bilik Sains",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.2 / SP 1.2.3 (Kemahiran Manipulatif)",
-    "question": "Berdasarkan Rajah 3, mengapakah radas sains perlu dibersihkan dan dikeringkan dengan betul sebelum disimpan?",
+    "question": "Mengapakah radas sains seperti bikar dan tabung uji perlu dibersihkan dan dikeringkan dengan betul sebelum disimpan di dalam almari makmal?",
     "options": {
       "A": "Supaya radas bersih, selamat dan tidak rosak untuk kegunaan seterusnya",
       "B": "Supaya radas boleh ditukar menjadi baharu",
@@ -369,7 +371,8 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Manusia (Tumbesaran & Pewarisan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 3.1 / SP 3.1.2 (Pewarisan Ciri)",
-    "question": "Berdasarkan Rajah 4, ciri fizikal apakah yang diwarisi oleh Adam daripada bapanya?",
+    "stimulus": "Adam mempunyai rambut kerinting dan berkulit cerah sama seperti bapanya.",
+    "question": "Berdasarkan pemerhatian di atas, ciri fizikal apakah yang diwarisi oleh Adam daripada bapanya?",
     "options": {
       "A": "Jenis rambut kerinting",
       "B": "Warna baju yang sama",
@@ -403,7 +406,8 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Manusia (Tumbesaran & Pewarisan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 3.1 / SP 3.1.1 (Carta Tumbesaran)",
-    "question": "Berdasarkan Rajah 5, apakah kesimpulan yang boleh dibuat tentang tumbesaran Sarah?",
+    "stimulus": "Data ketinggian Sarah merekodkan: Umur 1 tahun (70 cm), Umur 4 tahun (95 cm), Umur 8 tahun (120 cm).",
+    "question": "Berdasarkan data tumbesaran di atas, apakah kesimpulan yang boleh dibuat tentang tumbesaran Sarah?",
     "options": {
       "A": "Ketinggian Sarah semakin bertambah apabila usianya meningkat",
       "B": "Ketinggian Sarah tidak berubah sejak umur 1 tahun",
@@ -624,7 +628,8 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Haiwan (Pembiakan & Kitar Hidup)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 4.1 / SP 4.1.5 (Kitar Hidup Rama-rama)",
-    "question": "Berdasarkan Rajah 6, apakah peringkat kitar hidup yang diwakili oleh [ X ]?",
+    "stimulus": "Kitar hidup rama-rama: Telur ➔ Beluncas (larva) ➔ [ X ] ➔ Rama-rama dewasa",
+    "question": "Berdasarkan urutan kitar hidup rama-rama di atas, apakah peringkat yang diwakili oleh [ X ]?",
     "options": {
       "A": "Pupa (Kepompong)",
       "B": "Anak ayam",
@@ -658,7 +663,7 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Haiwan (Pembiakan & Kitar Hidup)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 4.1 / SP 4.1.5 (Kitar Hidup Katak)",
-    "question": "Berdasarkan Rajah 7, di manakah katak bertelur dan di manakah berudu hidup sebelum menjadi katak dewasa?",
+    "question": "Katak betina bertelur di dalam air yang diselaputi lendir. Di manakah anak katak (berudu) hidup sebelum membesar menjadi katak dewasa?",
     "options": {
       "A": "Di dalam air",
       "B": "Di atas dahan pokok yang tinggi",
@@ -879,7 +884,7 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Tumbuh-tumbuhan (Percambahan & Tumbesaran)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 5.1 / SP 5.1.2 (Peringkat Percambahan)",
-    "question": "Berdasarkan Rajah 8, apakah bahagian yang mula-mula sekali keluar menembusi kulit biji benih?",
+    "question": "Semasa proses percambahan biji benih, apakah bahagian tumbuhan yang mula-mula sekali keluar menembusi kulit biji benih?",
     "options": {
       "A": "Akar",
       "B": "Bunga",
@@ -913,7 +918,7 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Tumbuh-tumbuhan (Percambahan & Tumbesaran)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 5.1 / SP 5.1.4 (Pemerhatian Tumbesaran)",
-    "question": "Berdasarkan Rajah 9, apakah perubahan yang dialami oleh pokok apabila ia membesar?",
+    "question": "Semasa proses tumbesaran pokok cili dari peringkat anak benih hingga matang, apakah perubahan fizikal yang dialami oleh tumbuhan tersebut?",
     "options": {
       "A": "Ketinggian pokok bertambah, bilangan daun bertambah, dan lilitan batang bertambah",
       "B": "Warna pasu bertukar menjadi hijau",
@@ -1134,7 +1139,7 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Terang, Gelap & Bayang-bayang",
     "difficulty": "Sederhana",
     "learningStandard": "SK 6.1 / SP 6.1.3 (Pembentukan Bayang-bayang)",
-    "question": "Berdasarkan Rajah 10, bagaimanakah bayang-bayang terbentuk pada skrin?",
+    "question": "Apabila cahaya daripada lampu suluh dihalang oleh sesuatu objek legap (seperti patung mainan kayu), bagaimanakah bayang-bayang terbentuk pada skrin?",
     "options": {
       "A": "Apabila cahaya yang bergerak lurus dihalang oleh suatu objek legap",
       "B": "Apabila cahaya dibiaskan ke dalam air",
@@ -1168,7 +1173,7 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Terang, Gelap & Bayang-bayang",
     "difficulty": "Sederhana",
     "learningStandard": "SK 6.1 / SP 6.1.4 (Objek Lut Sinar)",
-    "question": "Berdasarkan Rajah 11, mengapakah Bahan Q (kaca jernih) TIDAK menghasilkan bayang-bayang yang jelas?",
+    "question": "Mengapakah objek lut sinar seperti kepingan kaca jernih TIDAK menghasilkan bayang-bayang yang jelas dan gelap pada skrin?",
     "options": {
       "A": "Kerana Bahan Q membenarkan hampir semua cahaya melaluinya",
       "B": "Kerana Bahan Q menyerap semua cahaya",
@@ -1389,7 +1394,7 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Elektrik (Komponen Litar & Konduktor)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 7.1 / SP 7.1.2 (Fungsi Suis)",
-    "question": "Berdasarkan Rajah 12, mengapakah mentol menyala dengan terang?",
+    "question": "Dalam sebuah litar elektrik bersiri, mengapakah mentol boleh menyala dengan terang apabila suis ditutup?",
     "options": {
       "A": "Kerana suis ditutup dan membentuk litar elektrik yang lengkap",
       "B": "Kerana wayar penyambung telah dipotong",
@@ -1440,7 +1445,7 @@ export const SAINS_TAHUN_2_QUESTIONS: QuizQuestion[] = [
     "topic": "Elektrik (Komponen Litar & Konduktor)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 7.1 / SP 7.1.5 (Konduktor dan Penebat)",
-    "question": "Berdasarkan Rajah 13, apabila klip kertas logam diuji, mentol menyala. Ini membuktikan bahawa logam ialah sejenis:",
+    "question": "Apabila sebatang klip kertas logam disambungkan pada litar elektrik yang terbuka, mentol menyala. Ini membuktikan bahawa klip kertas logam ialah sejenis:",
     "options": {
       "A": "Konduktor elektrik (membenarkan arus elektrik mengalir melaluinya)",
       "B": "Penebat elektrik",

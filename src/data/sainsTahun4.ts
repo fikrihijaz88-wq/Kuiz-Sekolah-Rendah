@@ -31,7 +31,8 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Kemahiran Saintifik (Pemboleh Ubah & Hipotesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.1 / SP 1.1.10 (Mengawal Pemboleh Ubah)",
-    "question": "Berdasarkan Rajah 1, apakah Pemboleh Ubah Dimanipulasi (PM) dalam eksperimen ini?",
+    "stimulus": "Dalam satu eksperimen bandul, dua tali bandul berbeza panjang (15 cm dan 30 cm) digunakan untuk mengira bilangan ayunan lengkap dalam tempoh satu minit.",
+    "question": "Berdasarkan penyiasatan bandul di atas, apakah Pemboleh Ubah Dimanipulasi (PM)?",
     "options": {
       "A": "Panjang tali bandul",
       "B": "Bilangan ayunan bandul dalam seminit",
@@ -66,7 +67,8 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Kemahiran Saintifik (Pemboleh Ubah & Hipotesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.1 / SP 1.1.8 (Mentafsir Data)",
-    "question": "Berdasarkan Jadual 1, ramalkan masa yang diambil untuk 250 ml air mendidih jika menggunakan saiz api yang sama.",
+    "stimulus": "Data masa air mendidih:\n• 100 ml air = 4 minit\n• 200 ml air = 8 minit\n• 300 ml air = 12 minit",
+    "question": "Berdasarkan jadual data eksperimen di atas, ramalkan masa yang diambil untuk 250 ml air mendidih jika menggunakan saiz api yang sama.",
     "options": {
       "A": "10 minit",
       "B": "6 minit",
@@ -140,7 +142,8 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Kemahiran Saintifik (Pemboleh Ubah & Hipotesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 1.1 / SP 1.1.9 (Mendefinisi Secara Operasi)",
-    "question": "Berdasarkan Rajah 2, apakah definisi secara operasi bagi \"kekuatan magnet\"?",
+    "stimulus": "Dalam satu penyiasatan, Magnet Bar A dapat menarik 12 batang klip kertas manakala Magnet Bar B hanya dapat menarik 5 batang klip kertas.",
+    "question": "Berdasarkan penyiasatan di atas, apakah definisi secara operasi bagi \"kekuatan magnet\"?",
     "options": {
       "A": "Kekuatan magnet ditunjukkan oleh bilangan klip kertas yang dapat ditarik oleh magnet",
       "B": "Kekuatan magnet ialah saiz warna merah magnet itu",
@@ -267,7 +270,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Manusia (Pernafasan, Perkumuhan & Rangsangan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 2.1 / SP 2.1.2 (Laluan Udara Semasa Tarikan Nafas)",
-    "question": "Berdasarkan Rajah 3, bagaimanakah laluan udara semasa manusia MENARIK NAFAS?",
+    "question": "Semasa manusia melakukan proses MENARIK NAFAS, apakah susunan laluan udara beroksigen yang betul masuk ke dalam tubuh?",
     "options": {
       "A": "Hidung → Trakea → Peparu",
       "B": "Peparu → Trakea → Hidung",
@@ -301,7 +304,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Manusia (Pernafasan, Perkumuhan & Rangsangan)",
     "difficulty": "Mudah",
     "learningStandard": "SK 2.2 / SP 2.2.1 (Organ Perkumuhan Manusia)",
-    "question": "Berdasarkan Rajah 4, apakah hasil perkumuhan yang disingkirkan oleh Organ X (ginjal)?",
+    "question": "Ginjal (buah pinggang) merupakan salah satu organ perkumuhan manusia yang penting. Apakah hasil perkumuhan yang disingkirkan oleh ginjal?",
     "options": {
       "A": "Air kencing (urea, garam mineral berlebihan dan air)",
       "B": "Gas karbon dioksida",
@@ -335,7 +338,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Manusia (Pernafasan, Perkumuhan & Rangsangan)",
     "difficulty": "KBAT (Aras Sederhana)",
     "learningStandard": "SK 2.3 / SP 2.3.1 (Gerak Balas Terhadap Rangsangan)",
-    "question": "Berdasarkan Rajah 5, mengapakah manusia bergerak balas secara spontan dengan menarik tangan apabila tersentuh objek yang sangat panas?",
+    "question": "Mengapakah manusia bergerak balas secara spontan dengan menarik tangan apabila tersentuh objek yang sangat panas seperti cerek mendidih?",
     "options": {
       "A": "Untuk melindungi diri daripada kecederaan dan melecur",
       "B": "Untuk menguji kepanasan air di dalam cerek",
@@ -437,7 +440,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Haiwan (Organ Pernafasan & Pengelasan Vertebrata)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 3.1 / SP 3.1.2 (Haiwan Mempunyai Dua Organ Pernafasan)",
-    "question": "Berdasarkan Rajah 6, haiwan manakah yang mempunyai DUA organ pernafasan seperti ini?",
+    "question": "Sebilangan haiwan amfibia bernafas menggunakan peparu ketika berada di darat dan menyerap oksigen melalui kulit lembap semasa di dalam air. Haiwan manakah yang mempunyai DUA organ pernafasan seperti ini?",
     "options": {
       "A": "Katak dan Salamander",
       "B": "Ikan puyu dan Kucing",
@@ -488,7 +491,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Haiwan (Organ Pernafasan & Pengelasan Vertebrata)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 3.2 / SP 3.2.2 (Pengelasan 5 Kumpulan Vertebrata)",
-    "question": "Berdasarkan Rajah 7, haiwan manakah yang dikelaskan dalam kumpulan REPTILIA?",
+    "question": "Antara kumpulan haiwan berikut, yang manakah kesemuanya dikelaskan dalam kumpulan REPTILIA (berkulit sisik kering dan berdarah sejuk)?",
     "options": {
       "A": "Buaya, Ular dan Cicak",
       "B": "Kucing, Arnab dan Kambing",
@@ -607,7 +610,8 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tumbuh-tumbuhan (Gerak Balas & Fotosintesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 4.1 / SP 4.1.2 (Penyiasatan Gerak Balas Pucuk)",
-    "question": "Berdasarkan Rajah 8, mengapakah pucuk pokok membengkok ke arah lubang di sebelah kanan kotak?",
+    "stimulus": "Sebuah anak benih diletakkan di dalam kotak gelap yang mempunyai satu lubang kecil di sebelah kanan yang membenarkan cahaya matahari masuk.",
+    "question": "Mengapakah pucuk pokok membengkok ke arah lubang di sebelah kanan kotak tersebut?",
     "options": {
       "A": "Pucuk bergerak balas terhadap arah datangnya cahaya matahari",
       "B": "Pucuk takut pada dinding kotak yang gelap",
@@ -658,7 +662,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tumbuh-tumbuhan (Gerak Balas & Fotosintesis)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 4.2 / SP 4.2.1 (Keperluan Fotosintesis)",
-    "question": "Berdasarkan Rajah 9, apakah DUA HASIL utama daripada proses fotosintesis?",
+    "question": "Melalui proses fotosintesis dengan bantuan cahaya matahari dan klorofil, apakah DUA HASIL utama yang dihasilkan oleh tumbuhan hijau?",
     "options": {
       "A": "Glukosa (makanan tumbuhan) dan Gas Oksigen",
       "B": "Karbon dioksida dan Air hujan",
@@ -777,7 +781,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Sifat Cahaya (Pantulan & Pembiasan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 5.2 / SP 5.2.1 (Pantulan Cahaya)",
-    "question": "Berdasarkan Rajah 10, apakah sifat permukaan yang memantulkan cahaya dengan PALING BAIK dan TERATUR?",
+    "question": "Apabila sinar cahaya dipancarkan ke atas pelbagai jenis permukaan, apakah jenis permukaan yang memantulkan cahaya dengan PALING BAIK dan TERATUR?",
     "options": {
       "A": "Permukaan yang rata, licin dan berkilat",
       "B": "Permukaan yang kasar dan bergelombang",
@@ -794,7 +798,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Sifat Cahaya (Pantulan & Pembiasan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 5.2 / SP 5.2.2 (Aplikasi Pantulan: Periskop)",
-    "question": "Berdasarkan Rajah 11, alat optik periskop ini membolehkan krew kapal selam melihat objek di permukaan laut menggunakan prinsip:",
+    "question": "Alat optik periskop membolehkan kru kapal selam melihat objek di atas permukaan laut. Apakah prinsip cahaya yang diaplikasikan oleh periskop?",
     "options": {
       "A": "Pantulan cahaya oleh dua cermin satah",
       "B": "Penyerapan haba oleh logam tiub",
@@ -811,7 +815,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Sifat Cahaya (Pantulan & Pembiasan)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 5.3 / SP 5.3.1 (Pembiasan Cahaya)",
-    "question": "Berdasarkan Rajah 12, mengapakah pensel kelihatan bengkok atau patah apabila sebahagiannya direndam di dalam air?",
+    "question": "Mengapakah sebatang pensel kelihatan bengkok atau patah apabila sebahagiannya direndam di dalam segelas air jernih?",
     "options": {
       "A": "Kerana arah pergerakan cahaya terbias (berubah arah) apabila bergerak dari air ke udara",
       "B": "Kerana pensel itu patah akibat tekanan air yang berat",
@@ -947,7 +951,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tenaga & Mesin Ringkas (Perubahan Tenaga & Tuas)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 7.1 / SP 7.1.4 (Perubahan Bentuk Tenaga)",
-    "question": "Berdasarkan Rajah 13, apakah perubahan bentuk tenaga yang berlaku apabila televisyen dihidupkan?",
+    "question": "Apakah perubahan bentuk tenaga yang berlaku apabila sebuah televisyen di rumah dihidupkan?",
     "options": {
       "A": "Tenaga elektrik → Tenaga cahaya + Tenaga bunyi + Tenaga haba",
       "B": "Tenaga kimia → Tenaga kinetik sahaja",
@@ -981,7 +985,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tenaga & Mesin Ringkas (Perubahan Tenaga & Tuas)",
     "difficulty": "Mudah",
     "learningStandard": "SK 10.1 / SP 10.1.1 (Tiga Komponen Tuas)",
-    "question": "Berdasarkan Rajah 14, apakah yang dimaksudkan dengan FULKRUM dalam sistem tuas?",
+    "question": "Dalam sistem mesin ringkas tuas, apakah yang dimaksudkan dengan istilah FULKRUM?",
     "options": {
       "A": "Titik sokongan tetap tempat berputarnya sesuatu tuas",
       "B": "Objek berat yang hendak digerakkan atau diangkat",
@@ -1032,7 +1036,7 @@ export const SAINS_TAHUN_4_QUESTIONS: QuizQuestion[] = [
     "topic": "Tenaga & Mesin Ringkas (Perubahan Tenaga & Tuas)",
     "difficulty": "Sederhana",
     "learningStandard": "SK 10.1 / SP 10.1.2 (Tuas Kereta Sorong)",
-    "question": "Berdasarkan Rajah 15, apakah susunan komponen bagi sebuah kereta sorong?",
+    "question": "Kereta sorong merupakan contoh tuas kelas kedua. Apakah susunan kedudukan komponen bagi sebuah kereta sorong satu roda?",
     "options": {
       "A": "Fulkrum (Roda) → Beban (Tong simen di tengah) → Daya (Pemegang tangan)",
       "B": "Beban di tengah → Fulkrum di hujung pemegang",
