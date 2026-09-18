@@ -25,6 +25,7 @@ import {
   getNextTargetVoucher,
 } from '../utils/voucherService';
 import { speakText } from '../utils/speech';
+import { playCelebrationSfx } from '../utils/soundEffects';
 
 interface CashVoucherModalProps {
   isOpen: boolean;
@@ -82,6 +83,7 @@ export const CashVoucherModal: React.FC<CashVoucherModalProps> = ({
       reloadClaims();
       setSelectedClaimToView(result.claim);
       if (soundEnabled) {
+        playCelebrationSfx();
         speakText(
           `Tahniah ${studentName}! Anda berjaya memperoleh baucar tunai bernilai RM${result.claim.amountRM}.`,
           'ms'

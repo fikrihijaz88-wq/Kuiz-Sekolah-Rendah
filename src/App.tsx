@@ -18,7 +18,8 @@ import { StudentProfileModal } from './components/StudentProfileModal';
 import { LeaderboardView } from './components/LeaderboardView';
 import { CashVoucherModal } from './components/CashVoucherModal';
 import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target, GraduationCap, CheckCircle2 } from 'lucide-react';
-import { stopSpeech } from './utils/speech';
+import { stopSpeech, speakText } from './utils/speech';
+import { playToggleSoundSfx, playCelebrationSfx } from './utils/soundEffects';
 import {
   getTodayDateString,
   getFormattedMalayDate,
@@ -480,7 +481,18 @@ export default function App() {
           }
         }}
         soundEnabled={soundEnabled}
-        onToggleSound={() => setSoundEnabled((prev) => !prev)}
+        onToggleSound={() => {
+          setSoundEnabled((prev) => {
+            const next = !prev;
+            playToggleSoundSfx(next);
+            if (next) {
+              speakText('Suara diaktifkan', 'ms');
+            } else {
+              stopSpeech();
+            }
+            return next;
+          });
+        }}
         dailyStreak={streakData.currentStreak}
         isDailyMode={quizMode === 'daily'}
         onSelectDailyChallenge={() => {

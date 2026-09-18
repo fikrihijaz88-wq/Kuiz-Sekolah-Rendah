@@ -245,37 +245,49 @@ function consolidateTTSSegments(segments: TTSAudioSegment[], defaultTargetLang: 
 }
 
 async function fetchGoogleTTSChunk(chunk: string, ttsLang: string): Promise<Buffer> {
-  const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=${ttsLang}&client=tw-ob`;
+  const urlTemplates = [
+    (q: string, l: string) => `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(q)}&tl=${l}&client=tw-ob`,
+    (q: string, l: string) => `https://translate.googleapis.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(q)}&tl=${l}&client=gtx`,
+    (q: string, l: string) => `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(q)}&tl=${l}&client=dict-chrome-ex`,
+  ];
   let lastErr: any = null;
 
-  for (let attempt = 0; attempt < 2; attempt++) {
+  for (const getUrl of urlTemplates) {
     try {
+      const url = getUrl(chunk, ttsLang);
       const response = await fetch(url, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
           'Referer': 'https://translate.google.com/',
+          'Accept': 'audio/mpeg, audio/*;q=0.9, */*;q=0.8',
         },
       });
 
       if (response.ok) {
         const arrBuf = await response.arrayBuffer();
-        return Buffer.from(arrBuf);
+        if (arrBuf && arrBuf.byteLength > 0) {
+          return Buffer.from(arrBuf);
+        }
       } else {
-        lastErr = new Error(`TTS status ${response.status}`);
+        lastErr = new Error(`TTS status ${response.status} from ${url}`);
       }
     } catch (e) {
       lastErr = e;
     }
   }
 
-  throw lastErr || new Error('TTS service failed');
+  throw lastErr || new Error('TTS service failed across all endpoints');
 }
 
-// API Endpoint for Authentic Multilingual Audio TTS (Native Malaysian Malay for BM statements, Native Arabic for Arabic words, Native Mandarin for Chinese words)
+// API Endpoint for Authentic Multilingual Audio TTS
 app.get('/api/tts', async (req, res) => {
   try {
     const text = (req.query.text as string || '').trim();
     const lang = (req.query.lang as string || 'ms').toLowerCase();
+
+    // Enable CORS for iframe environments
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
 
     if (!text) {
       return res.status(400).json({ error: 'Text parameter is required' });

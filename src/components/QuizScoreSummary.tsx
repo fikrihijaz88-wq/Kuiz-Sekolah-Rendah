@@ -9,6 +9,7 @@ import { recordQuizAttemptHistory, getLowestScoringTopics } from '../utils/adapt
 import { AchievementBadgesView } from './AchievementBadgesView';
 import { StudentAvatarIcon } from './StudentAvatarIcon';
 import { speakText } from '../utils/speech';
+import { playCelebrationSfx } from '../utils/soundEffects';
 
 interface QuizScoreSummaryProps {
   questions: QuizQuestion[];
@@ -104,12 +105,15 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
   );
   const { nextTier, pointsNeeded } = getNextTargetVoucher(currentTotalScore);
 
-  // Voice announcement for newly unlocked badges
+  // Voice announcement and celebration sound for completed quiz
   useEffect(() => {
-    if (soundEnabled && achievementResult.newlyUnlockedBadges.length > 0) {
-      const badgeTitles = achievementResult.newlyUnlockedBadges.map((b) => b.titleMs).join(', ');
-      const speechText = `Tahniah! Anda telah membuka lencana baharu: ${badgeTitles}.`;
-      speakText(speechText, 'ms');
+    if (soundEnabled) {
+      playCelebrationSfx();
+      if (achievementResult.newlyUnlockedBadges.length > 0) {
+        const badgeTitles = achievementResult.newlyUnlockedBadges.map((b) => b.titleMs).join(', ');
+        const speechText = `Tahniah! Anda telah membuka lencana baharu: ${badgeTitles}.`;
+        speakText(speechText, 'ms');
+      }
     }
   }, [soundEnabled, achievementResult.newlyUnlockedBadges]);
 

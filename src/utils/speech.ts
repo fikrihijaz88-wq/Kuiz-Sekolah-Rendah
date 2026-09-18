@@ -1,10 +1,11 @@
 // Suara Sintesis Bacaan (Audio Read Aloud) Murid Sekolah Rendah
 // Menggunakan Audio Bahasa Melayu Asli Tulen (Native Malaysian Malay) melalui /api/tts
-// Disokong sandaran (fallback) Web Speech API sekiranya luar talian (offline)
+// Disokong sandaran pintar (smart fallback) Web Speech API sekiranya luar talian (offline)
 
 let cachedVoices: SpeechSynthesisVoice[] = [];
 let currentAudio: HTMLAudioElement | null = null;
 let currentPlayId = 0;
+let speechHeartbeatInterval: any = null;
 
 type AudioStateListener = (isPlaying: boolean) => void;
 const stateListeners = new Set<AudioStateListener>();
@@ -24,9 +25,14 @@ function notifyAudioState(isPlaying: boolean) {
   });
 }
 
+// Ensure voices are loaded and kept fresh
 if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
   const refreshVoices = () => {
-    cachedVoices = window.speechSynthesis.getVoices();
+    try {
+      cachedVoices = window.speechSynthesis.getVoices();
+    } catch {
+      // Ignore
+    }
   };
   refreshVoices();
   if (window.speechSynthesis.onvoiceschanged !== undefined) {
@@ -34,10 +40,33 @@ if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
   }
 }
 
+// User interaction audio unlocker
+if (typeof window !== 'undefined') {
+  const unlockAudioOnUserGesture = () => {
+    try {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.resume();
+      }
+    } catch {
+      // Ignore
+    }
+    window.removeEventListener('pointerdown', unlockAudioOnUserGesture);
+    window.removeEventListener('touchstart', unlockAudioOnUserGesture);
+    window.removeEventListener('click', unlockAudioOnUserGesture);
+    window.removeEventListener('keydown', unlockAudioOnUserGesture);
+  };
+  window.addEventListener('pointerdown', unlockAudioOnUserGesture, { once: true, passive: true });
+  window.addEventListener('touchstart', unlockAudioOnUserGesture, { once: true, passive: true });
+  window.addEventListener('click', unlockAudioOnUserGesture, { once: true, passive: true });
+  window.addEventListener('keydown', unlockAudioOnUserGesture, { once: true, passive: true });
+}
+
 /**
- * Normalizes Malaysian school texts (Math, Islamic Studies, Language) so TTS reads symbols and honorifics accurately in standard BM
+ * Normalizes Malaysian school texts (Math, Science, Islamic Studies, Language)
+ * so TTS reads symbols and honorifics accurately in standard BM
  */
 export function prepareMalaySpokenText(raw: string): string {
+  if (!raw) return '';
   return raw
     // Islamic Honorifics - e.g. Nabi Muhammad SAW -> Nabi Muhammad Sallallahu 'Alaihi Wassallam
     .replace(/\uFDFA/g, " Sallallahu 'Alaihi Wassallam ")
@@ -68,6 +97,7 @@ export function prepareMalaySpokenText(raw: string): string {
     // Units of measurement
     .replace(/(\d+)\s*km\b/gi, '$1 kilometer')
     .replace(/(\d+)\s*cm\b/gi, '$1 sentimeter')
+    .replace(/(\d+)\s*mm\b/gi, '$1 milimeter')
     .replace(/(\d+)\s*m\b/gi, '$1 meter')
     .replace(/(\d+)\s*kg\b/gi, '$1 kilogram')
     .replace(/(\d+)\s*g\b/gi, '$1 gram')
@@ -85,52 +115,42 @@ export function prepareMalaySpokenText(raw: string): string {
 }
 
 /**
- * Returns a Malaysian Malay voice if available in offline browser list.
- * STRICTLY EXCLUDES all Indonesian voices (id-ID, id, 'Bahasa Indonesia').
+ * Returns the best available Malaysian Malay voice if present in the browser
  */
-export function getMalaysianVoice(): SpeechSynthesisVoice | null {
+export function getBestMalayVoice(): SpeechSynthesisVoice | null {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
     return null;
   }
 
   const voices = cachedVoices.length > 0 ? cachedVoices : window.speechSynthesis.getVoices();
-
-  // Helper to detect Indonesian voice
-  const isIndonesian = (v: SpeechSynthesisVoice): boolean => {
-    const lang = (v.lang || '').toLowerCase();
-    const name = (v.name || '').toLowerCase();
-    return (
-      lang.startsWith('id') ||
-      lang.includes('id-') ||
-      lang.includes('id_') ||
-      name.includes('indonesia') ||
-      name.includes('indonesian') ||
-      name.includes('gadis') ||
-      name.includes('andika')
-    );
-  };
+  if (!voices || voices.length === 0) return null;
 
   // 1. Exact Malaysian Malay match (ms-MY or ms_MY)
   const exactMalaysian = voices.find(
     (v) =>
-      !isIndonesian(v) &&
-      (v.lang.toLowerCase() === 'ms-my' ||
-        v.lang.toLowerCase() === 'ms_my' ||
-        (v.lang.toLowerCase().startsWith('ms') &&
-          (v.name.toLowerCase().includes('malaysia') ||
-            v.name.toLowerCase().includes('melayu') ||
-            v.name.toLowerCase().includes('yasmin') ||
-            v.name.toLowerCase().includes('osman'))))
+      v.lang.toLowerCase() === 'ms-my' ||
+      v.lang.toLowerCase() === 'ms_my' ||
+      (v.lang.toLowerCase().startsWith('ms') &&
+        (v.name.toLowerCase().includes('malaysia') ||
+          v.name.toLowerCase().includes('melayu') ||
+          v.name.toLowerCase().includes('yasmin') ||
+          v.name.toLowerCase().includes('osman')))
   );
   if (exactMalaysian) return exactMalaysian;
 
-  // 2. Generic Malay language code without Indonesian pollution
-  const generalMalay = voices.find(
-    (v) => !isIndonesian(v) && v.lang.toLowerCase().startsWith('ms')
-  );
+  // 2. Generic Malay language code
+  const generalMalay = voices.find((v) => v.lang.toLowerCase().startsWith('ms'));
   if (generalMalay) return generalMalay;
 
-  return null;
+  // 3. Closest regional Malay/Indonesian voice (e.g. id-ID)
+  const regionalVoice = voices.find(
+    (v) => v.lang.toLowerCase().startsWith('id') || v.name.toLowerCase().includes('indonesia')
+  );
+  if (regionalVoice) return regionalVoice;
+
+  // 4. Default voice
+  const defaultVoice = voices.find((v) => v.default);
+  return defaultVoice || voices[0] || null;
 }
 
 interface ClientSpeechSegment {
@@ -197,30 +217,63 @@ function segmentTextForWebSpeech(rawText: string, contextLang: 'ms' | 'en' | 'ar
 }
 
 /**
- * Fallback browser SpeechSynthesis in case audio stream is unavailable
- * STRICT CONDITION: If language is 'ms', it will ONLY speak if an authentic Malaysian
- * Malay voice is detected in the browser. It will NEVER fall back to English or Indonesian.
+ * Fallback browser SpeechSynthesis in case audio stream is unavailable.
+ * Ensures speech never silently fails and works across all devices.
  */
-function speakViaWebSpeech(processedText: string, language: 'ms' | 'en' | 'ar' | 'zh') {
-  if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+function speakViaWebSpeech(processedText: string, language: 'ms' | 'en' | 'ar' | 'zh', playId: number) {
+  if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+    notifyAudioState(false);
+    return;
+  }
+
   try {
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.resume();
+
     const segments = segmentTextForWebSpeech(processedText, language);
     const voices = cachedVoices.length > 0 ? cachedVoices : window.speechSynthesis.getVoices();
 
-    for (const seg of segments) {
-      if (!seg.text.trim()) continue;
+    if (segments.length === 0) {
+      notifyAudioState(false);
+      return;
+    }
+
+    notifyAudioState(true);
+
+    // Keep Chrome SpeechSynthesis active
+    if (speechHeartbeatInterval) clearInterval(speechHeartbeatInterval);
+    speechHeartbeatInterval = setInterval(() => {
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.pause();
+        window.speechSynthesis.resume();
+      } else {
+        clearInterval(speechHeartbeatInterval);
+      }
+    }, 5000);
+
+    let completedCount = 0;
+    const totalSegments = segments.length;
+
+    segments.forEach((seg, index) => {
+      if (!seg.text.trim()) {
+        completedCount++;
+        if (completedCount >= totalSegments && currentPlayId === playId) {
+          notifyAudioState(false);
+          if (speechHeartbeatInterval) clearInterval(speechHeartbeatInterval);
+        }
+        return;
+      }
+
       const utterance = new SpeechSynthesisUtterance(seg.text);
       utterance.rate = 0.95;
       utterance.pitch = 1.0;
 
       if (seg.lang === 'ms') {
-        const malaysianVoice = getMalaysianVoice();
-        if (!malaysianVoice) {
-          console.warn('[Audio] Tiada suara Bahasa Melayu Malaysia (ms-MY) dalam pelayar.');
-          continue;
+        const bestVoice = getBestMalayVoice();
+        if (bestVoice) {
+          utterance.voice = bestVoice;
         }
-        utterance.voice = malaysianVoice;
-        utterance.lang = malaysianVoice.lang || 'ms-MY';
+        utterance.lang = 'ms-MY';
       } else if (seg.lang === 'ar') {
         const arabicVoice = voices.find((v) => v.lang.startsWith('ar'));
         if (arabicVoice) utterance.voice = arabicVoice;
@@ -237,23 +290,39 @@ function speakViaWebSpeech(processedText: string, language: 'ms' | 'en' | 'ar' |
             v.lang.startsWith('en-US') ||
             v.lang.startsWith('en')
         );
-        if (englishVoice) {
-          utterance.voice = englishVoice;
-        }
+        if (englishVoice) utterance.voice = englishVoice;
         utterance.lang = 'en-GB';
       }
 
+      utterance.onend = () => {
+        completedCount++;
+        if (completedCount >= totalSegments && currentPlayId === playId) {
+          notifyAudioState(false);
+          if (speechHeartbeatInterval) clearInterval(speechHeartbeatInterval);
+        }
+      };
+
+      utterance.onerror = () => {
+        completedCount++;
+        if (completedCount >= totalSegments && currentPlayId === playId) {
+          notifyAudioState(false);
+          if (speechHeartbeatInterval) clearInterval(speechHeartbeatInterval);
+        }
+      };
+
       window.speechSynthesis.speak(utterance);
-    }
+    });
   } catch (err) {
     console.warn('Web Speech API fallback error:', err);
+    notifyAudioState(false);
   }
 }
 
 /**
  * Plays genuine, high-quality native audio.
- * For Bahasa Melayu (ms), it uses the 100% authentic native Malaysian Malay audio stream from /api/tts.
- * For Bahasa Arab and Bahasa Cina, it seamlessly uses authentic pronunciation streams.
+ * For Bahasa Melayu (ms), it uses the authentic Malaysian Malay audio stream from /api/tts.
+ * For other languages, it seamlessly uses authentic pronunciation streams.
+ * If server audio is interrupted or blocked, it seamlessly falls back to Web Speech API.
  */
 export async function speakText(text: string, language: 'ms' | 'en' | 'ar' | 'zh' = 'ms') {
   if (typeof window === 'undefined') return;
@@ -266,11 +335,16 @@ export async function speakText(text: string, language: 'ms' | 'en' | 'ar' | 'zh
 
   try {
     const url = `/api/tts?text=${encodeURIComponent(processedText)}&lang=${language}`;
-    const audio = new Audio(url);
+    const audio = new Audio();
+    audio.src = url;
+    audio.preload = 'auto';
     currentAudio = audio;
+
+    let startedPlaying = false;
 
     audio.onplay = () => {
       if (currentPlayId === playId) {
+        startedPlaying = true;
         notifyAudioState(true);
       }
     };
@@ -282,37 +356,28 @@ export async function speakText(text: string, language: 'ms' | 'en' | 'ar' | 'zh
       }
     };
 
-    audio.onerror = (e) => {
-      console.warn('[Audio] Server audio error:', e);
+    audio.onerror = () => {
       if (currentPlayId === playId) {
         currentAudio = null;
-        notifyAudioState(false);
-        // Only fallback to browser speech if English or if an authentic Malaysian voice actually exists
-        if (language === 'en' || getMalaysianVoice()) {
-          speakViaWebSpeech(processedText, language);
-        }
+        // Fallback to browser Web Speech API
+        speakViaWebSpeech(processedText, language, playId);
       }
     };
 
     const playPromise = audio.play();
     if (playPromise !== undefined) {
       playPromise.catch((err) => {
-        // Autoplay policy or fetch error
-        console.warn('[Audio] Audio play interrupted or blocked by autoplay policy:', err);
-        if (currentPlayId === playId) {
-          notifyAudioState(false);
-          // Only fallback if not 'ms' without voice
-          if (language === 'en' || getMalaysianVoice()) {
-            speakViaWebSpeech(processedText, language);
-          }
+        // Autoplay policy or media decode error - fall back seamlessly to SpeechSynthesis
+        if (currentPlayId === playId && !startedPlaying) {
+          currentAudio = null;
+          speakViaWebSpeech(processedText, language, playId);
         }
       });
     }
   } catch (err) {
     console.error('[Audio] TTS execution error:', err);
-    notifyAudioState(false);
-    if (language === 'en' || getMalaysianVoice()) {
-      speakViaWebSpeech(processedText, language);
+    if (currentPlayId === playId) {
+      speakViaWebSpeech(processedText, language, playId);
     }
   }
 }
@@ -324,10 +389,16 @@ export function stopSpeech() {
   currentPlayId++;
   notifyAudioState(false);
 
+  if (speechHeartbeatInterval) {
+    clearInterval(speechHeartbeatInterval);
+    speechHeartbeatInterval = null;
+  }
+
   if (currentAudio) {
     try {
       currentAudio.pause();
       currentAudio.currentTime = 0;
+      currentAudio.src = '';
     } catch {
       // Ignore pause errors
     }

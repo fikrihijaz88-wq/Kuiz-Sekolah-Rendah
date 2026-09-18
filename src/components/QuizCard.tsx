@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { speakText, stopSpeech, subscribeAudioState } from '../utils/speech';
+import { playCorrectSfx, playIncorrectSfx, playToggleSoundSfx } from '../utils/soundEffects';
 import { QuizDiagramViewer } from './QuizDiagramViewer';
 
 interface QuizCardProps {
@@ -164,12 +165,14 @@ export const QuizCard: React.FC<QuizCardProps> = ({
     if (onToggleSound) {
       onToggleSound(true);
     }
+    playToggleSoundSfx(true);
     const speech = `${diagramAnnounce}${question.stimulus ? question.stimulus + '. ' : ''}Soalan: ${question.question}. Pilihan A: ${question.options.A}. Pilihan B: ${question.options.B}. Pilihan C: ${question.options.C}. Pilihan D: ${question.options.D}.`;
     speakText(speech, lang);
   };
 
   const handleTurnSoundOff = () => {
     stopSpeech();
+    playToggleSoundSfx(false);
     if (onToggleSound) {
       onToggleSound(false);
     }
@@ -406,6 +409,13 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                 onClick={(e) => {
                   e.currentTarget.blur();
                   if (!isAnswered) {
+                    if (soundEnabled) {
+                      if (question.correctAnswer === key) {
+                        playCorrectSfx();
+                      } else {
+                        playIncorrectSfx();
+                      }
+                    }
                     onSelectOption(key, question.id);
                   }
                 }}
@@ -675,6 +685,13 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                       onClick={(e) => {
                         e.currentTarget.blur();
                         if (!isAnswered) {
+                          if (soundEnabled) {
+                            if (question.correctAnswer === key) {
+                              playCorrectSfx();
+                            } else {
+                              playIncorrectSfx();
+                            }
+                          }
                           onSelectOption(key, question.id);
                         }
                       }}
