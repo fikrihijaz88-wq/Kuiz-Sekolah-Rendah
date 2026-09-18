@@ -319,6 +319,34 @@ function speakViaWebSpeech(processedText: string, language: 'ms' | 'en' | 'ar' |
 }
 
 /**
+ * Checks if a string contains Arabic Unicode characters (including diacritics / harakat)
+ */
+export function hasArabicCharacters(text: string): boolean {
+  if (!text) return false;
+  return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(text);
+}
+
+/**
+ * Extracts pure Arabic text segment from a mixed string (e.g. extracts 'صَبَاحَ الْخَيْرِ' from 'Apakah maksud "صَبَاحَ الْخَيْرِ" (Sabahal Khair)?')
+ */
+export function extractArabicText(text: string): string {
+  if (!text) return '';
+  const matches = text.match(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+(?:[\s،؟؛\-]+[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+)*/g);
+  if (matches && matches.length > 0) {
+    return matches.join(' ').trim();
+  }
+  return text.trim();
+}
+
+/**
+ * Plays Arabic audio specifically using authentic Arabic native speaker voice
+ */
+export async function speakArabicText(text: string) {
+  const arabicOnly = extractArabicText(text) || text;
+  return speakText(arabicOnly, 'ar');
+}
+
+/**
  * Plays genuine, high-quality native audio.
  * For Bahasa Melayu (ms), it uses the authentic Malaysian Malay audio stream from /api/tts.
  * For other languages, it seamlessly uses authentic pronunciation streams.

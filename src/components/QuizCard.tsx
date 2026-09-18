@@ -17,7 +17,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { speakText, stopSpeech, subscribeAudioState } from '../utils/speech';
+import { speakText, stopSpeech, subscribeAudioState, speakArabicText, hasArabicCharacters } from '../utils/speech';
 import { playCorrectSfx, playIncorrectSfx, playToggleSoundSfx } from '../utils/soundEffects';
 import { QuizDiagramViewer } from './QuizDiagramViewer';
 
@@ -370,9 +370,25 @@ export const QuizCard: React.FC<QuizCardProps> = ({
             </div>
           </div>
 
-          <h2 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
-            {question.question}
-          </h2>
+          <div className="flex items-start justify-between gap-3">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 leading-snug flex-1">
+              {question.question}
+            </h2>
+            {(hasArabicCharacters(question.question) || question.subject === 'Bahasa Arab') && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  speakArabicText(question.question);
+                }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold shadow-xs hover:shadow transition shrink-0 cursor-pointer"
+                title="Dengar Sebutan Arab Asli bagi soalan ini"
+              >
+                <Volume2 className="w-4 h-4 text-emerald-600" />
+                <span>🇸🇦 Sebutan Arab</span>
+              </button>
+            )}
+          </div>
         </div>
 
         {/* 4 Distinct Options A, B, C, D */}
@@ -399,6 +415,8 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                 badgeStyle = 'bg-slate-100 text-slate-400 border-slate-200';
               }
             }
+
+            const hasArabicInOption = hasArabicCharacters(text) || question.subject === 'Bahasa Arab';
 
             return (
               <button
@@ -427,6 +445,20 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                 <span className="text-sm sm:text-base font-normal flex-1">
                   {text}
                 </span>
+                {hasArabicInOption && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                      speakArabicText(text);
+                    }}
+                    className="p-1.5 rounded-lg bg-emerald-100/90 hover:bg-emerald-200 text-emerald-900 border border-emerald-300 shadow-xs hover:scale-105 active:scale-95 transition shrink-0 cursor-pointer"
+                    title={`Dengar sebutan perkataan Arab untuk pilihan ${key}`}
+                  >
+                    <Volume2 className="w-4 h-4 text-emerald-700" />
+                  </button>
+                )}
                 {icon}
               </button>
             );
@@ -452,21 +484,34 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                   : 'bg-amber-50/90 border-amber-200 text-amber-950'
               }`}
             >
-              <div className="flex items-center gap-2 font-bold text-sm mb-1.5">
-                {userAnswer?.isCorrect ? (
-                  <>
-                    <Award className="w-5 h-5 text-emerald-600 shrink-0" />
-                    <span className="text-emerald-800">
-                      Jawapan Anda Tepat! (Pilihan {question.correctAnswer})
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <Lightbulb className="w-5 h-5 text-amber-600 shrink-0" />
-                    <span className="text-amber-800">
-                      Ulasan Pedagogi Guru • Jawapan Sebenar: Pilihan {question.correctAnswer}
-                    </span>
-                  </>
+              <div className="flex items-center justify-between gap-2 font-bold text-sm mb-1.5">
+                <div className="flex items-center gap-2">
+                  {userAnswer?.isCorrect ? (
+                    <>
+                      <Award className="w-5 h-5 text-emerald-600 shrink-0" />
+                      <span className="text-emerald-800">
+                        Jawapan Anda Tepat! (Pilihan {question.correctAnswer})
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <Lightbulb className="w-5 h-5 text-amber-600 shrink-0" />
+                      <span className="text-amber-800">
+                        Ulasan Pedagogi Guru • Jawapan Sebenar: Pilihan {question.correctAnswer}
+                      </span>
+                    </>
+                  )}
+                </div>
+                {(hasArabicCharacters(question.explanation) || question.subject === 'Bahasa Arab') && (
+                  <button
+                    type="button"
+                    onClick={() => speakArabicText(question.explanation)}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-900 border border-emerald-300 text-xs font-semibold shrink-0 cursor-pointer"
+                    title="Dengar sebutan Arab ulasan guru"
+                  >
+                    <Volume2 className="w-3.5 h-3.5 text-emerald-700" />
+                    <span>🇸🇦 Sebutan Arab</span>
+                  </button>
                 )}
               </div>
               <p className="text-sm sm:text-base leading-relaxed mt-1 font-sans">
@@ -645,10 +690,24 @@ export const QuizCard: React.FC<QuizCardProps> = ({
               )}
 
               {/* Large Question Title */}
-              <div className="mb-8">
-                <h1 className={getQuestionFocusTypography()}>
+              <div className="mb-8 flex flex-col sm:flex-row items-start justify-between gap-4">
+                <h1 className={`${getQuestionFocusTypography()} flex-1`}>
                   {question.question}
                 </h1>
+                {(hasArabicCharacters(question.question) || question.subject === 'Bahasa Arab') && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      speakArabicText(question.question);
+                    }}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-emerald-100 hover:bg-emerald-200 text-emerald-950 border-2 border-emerald-400 text-sm font-bold shadow-md hover:shadow-lg transition shrink-0 cursor-pointer"
+                    title="Dengar Sebutan Arab Asli bagi soalan ini"
+                  >
+                    <Volume2 className="w-5 h-5 text-emerald-700" />
+                    <span>🇸🇦 Sebutan Arab Asli</span>
+                  </button>
+                )}
               </div>
 
               {/* 4 Large High-Contrast Options */}
@@ -675,6 +734,8 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                       badgeStyle = 'bg-slate-300 text-slate-600 border-slate-300';
                     }
                   }
+
+                  const hasArabicInFocusOption = hasArabicCharacters(text) || question.subject === 'Bahasa Arab';
 
                   return (
                     <button
@@ -703,6 +764,20 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                       <span className={`flex-1 ${getOptionFocusTypography()}`}>
                         {text}
                       </span>
+                      {hasArabicInFocusOption && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            speakArabicText(text);
+                          }}
+                          className="p-2.5 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-950 border border-emerald-300 shadow-sm hover:scale-105 active:scale-95 transition shrink-0 cursor-pointer"
+                          title={`Dengar sebutan perkataan Arab untuk pilihan ${key}`}
+                        >
+                          <Volume2 className="w-5 h-5 text-emerald-800" />
+                        </button>
+                      )}
                       {icon}
                     </button>
                   );
@@ -725,21 +800,34 @@ export const QuizCard: React.FC<QuizCardProps> = ({
                         : 'bg-amber-50 border-amber-400 text-amber-950'
                     }`}
                   >
-                    <div className="flex items-center gap-3 font-black text-lg sm:text-xl mb-2">
-                      {userAnswer?.isCorrect ? (
-                        <>
-                          <Award className="w-7 h-7 text-emerald-600 shrink-0" />
-                          <span className="text-emerald-900">
-                            Jawapan Anda Tepat! (Pilihan {question.correctAnswer})
-                          </span>
-                        </>
-                      ) : (
-                        <>
-                          <Lightbulb className="w-7 h-7 text-amber-600 shrink-0" />
-                          <span className="text-amber-900">
-                            Ulasan Guru • Jawapan Sebenar: Pilihan {question.correctAnswer}
-                          </span>
-                        </>
+                    <div className="flex items-center justify-between gap-3 font-black text-lg sm:text-xl mb-2">
+                      <div className="flex items-center gap-3">
+                        {userAnswer?.isCorrect ? (
+                          <>
+                            <Award className="w-7 h-7 text-emerald-600 shrink-0" />
+                            <span className="text-emerald-900">
+                              Jawapan Anda Tepat! (Pilihan {question.correctAnswer})
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <Lightbulb className="w-7 h-7 text-amber-600 shrink-0" />
+                            <span className="text-amber-900">
+                              Ulasan Guru • Jawapan Sebenar: Pilihan {question.correctAnswer}
+                            </span>
+                          </>
+                        )}
+                      </div>
+                      {(hasArabicCharacters(question.explanation) || question.subject === 'Bahasa Arab') && (
+                        <button
+                          type="button"
+                          onClick={() => speakArabicText(question.explanation)}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-950 border border-emerald-300 text-sm font-bold shrink-0 cursor-pointer"
+                          title="Dengar sebutan Arab ulasan guru"
+                        >
+                          <Volume2 className="w-4 h-4 text-emerald-800" />
+                          <span>🇸🇦 Sebutan Arab</span>
+                        </button>
                       )}
                     </div>
                     <p className={`leading-relaxed mt-2 font-sans ${fontScale === 1 ? 'text-base sm:text-lg' : fontScale === 2 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl font-medium'}`}>
