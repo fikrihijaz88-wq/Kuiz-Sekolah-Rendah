@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { YearLevel, Subject, QuizQuestion, QuizUserAnswer, StudentProfile, QuizMode } from './types';
 import { KSSR_TOPICS, INITIAL_KSSR_QUESTIONS } from './data/kssrQuestions';
 import { Header } from './components/Header';
@@ -545,8 +546,15 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-5 sm:py-7">
-        {activeTab === 'quiz' && (
-          <div>
+        <AnimatePresence mode="wait">
+          {activeTab === 'quiz' && (
+            <motion.div
+              key="tab-quiz"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
             {/* Mode Banner Selection: Daily Challenge Banner or Adaptive Review Banner or Mode Controller */}
             {quizMode === 'daily' && (
               <DailyChallengeBanner
@@ -864,56 +872,89 @@ export default function App() {
                 onToggleSound={(enabled) => setSoundEnabled(enabled)}
               />
             ) : null}
-          </div>
-        )}
+            </motion.div>
+          )}
 
-        {activeTab === 'battle' && (
-          <QuizBattleView
-            questionBank={questionBank}
-            profiles={profiles}
-            activeProfile={activeProfile}
-            soundEnabled={soundEnabled}
-            onExitBattle={() => {
-              setActiveTab('quiz');
-              resetQuizProgress();
-            }}
-          />
-        )}
+          {activeTab === 'battle' && (
+            <motion.div
+              key="tab-battle"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <QuizBattleView
+                questionBank={questionBank}
+                profiles={profiles}
+                activeProfile={activeProfile}
+                soundEnabled={soundEnabled}
+                onExitBattle={() => {
+                  setActiveTab('quiz');
+                  resetQuizProgress();
+                }}
+              />
+            </motion.div>
+          )}
 
-        {activeTab === 'print' && (
-          <WorksheetPrintView
-            questionBank={questionBank}
-            initialYear={selectedYear}
-            initialSubject={selectedSubject}
-            initialTopicId={selectedTopicId}
-            onBackToQuiz={() => {
-              setActiveTab('quiz');
-              resetQuizProgress();
-            }}
-          />
-        )}
+          {activeTab === 'print' && (
+            <motion.div
+              key="tab-print"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <WorksheetPrintView
+                questionBank={questionBank}
+                initialYear={selectedYear}
+                initialSubject={selectedSubject}
+                initialTopicId={selectedTopicId}
+                onBackToQuiz={() => {
+                  setActiveTab('quiz');
+                  resetQuizProgress();
+                }}
+              />
+            </motion.div>
+          )}
 
-        {activeTab === 'leaderboard' && (
-          <LeaderboardView
-            activeProfile={activeProfile}
-            onOpenProfileModal={() => handleOpenProfileModal(profiles.length === 0 ? 'register' : 'list')}
-            onStartQuiz={() => {
-              setActiveTab('quiz');
-              resetQuizProgress();
-            }}
-            onOpenVouchers={() => setIsVoucherModalOpen(true)}
-          />
-        )}
+          {activeTab === 'leaderboard' && (
+            <motion.div
+              key="tab-leaderboard"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <LeaderboardView
+                activeProfile={activeProfile}
+                onOpenProfileModal={() => handleOpenProfileModal(profiles.length === 0 ? 'register' : 'list')}
+                onStartQuiz={() => {
+                  setActiveTab('quiz');
+                  resetQuizProgress();
+                }}
+                onOpenVouchers={() => setIsVoucherModalOpen(true)}
+              />
+            </motion.div>
+          )}
 
-        {activeTab === 'generator' && (
-          <AIGeneratorView
-            onLoadQuestionsIntoQuiz={handleLoadQuestionsIntoQuiz}
-            onOpenSchemaWithQuestions={(questions) => {
-              setQuestionBank((prev) => [...questions, ...prev]);
-              setActiveTab('print');
-            }}
-          />
-        )}
+          {activeTab === 'generator' && (
+            <motion.div
+              key="tab-generator"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <AIGeneratorView
+                onLoadQuestionsIntoQuiz={handleLoadQuestionsIntoQuiz}
+                onOpenSchemaWithQuestions={(questions) => {
+                  setQuestionBank((prev) => [...questions, ...prev]);
+                  setActiveTab('print');
+                }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
 
       {/* Kid-Friendly & Informative Educational Footer with Copyright */}
