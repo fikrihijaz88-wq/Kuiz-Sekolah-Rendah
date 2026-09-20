@@ -19,7 +19,8 @@ import { LeaderboardView } from './components/LeaderboardView';
 import { CashVoucherModal } from './components/CashVoucherModal';
 import { MatriksPembelajaranBanner } from './components/MatriksPembelajaranBanner';
 import { buildMatriksPembelajaranExamSet } from './data/matriksPembelajaranTahun4';
-import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target, GraduationCap, CheckCircle2 } from 'lucide-react';
+import { QuizBattleView } from './components/QuizBattleView';
+import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target, GraduationCap, CheckCircle2, Swords } from 'lucide-react';
 import { stopSpeech, speakText } from './utils/speech';
 import { playToggleSoundSfx, playCelebrationSfx } from './utils/soundEffects';
 import {
@@ -42,7 +43,7 @@ import {
 } from './utils/quizSessionPersistence';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'quiz' | 'leaderboard' | 'generator' | 'print'>('quiz');
+  const [activeTab, setActiveTab] = useState<'quiz' | 'battle' | 'leaderboard' | 'generator' | 'print'>('quiz');
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
 
   // Retrieve saved in-progress quiz session from localStorage on initial boot
@@ -866,6 +867,19 @@ export default function App() {
           </div>
         )}
 
+        {activeTab === 'battle' && (
+          <QuizBattleView
+            questionBank={questionBank}
+            profiles={profiles}
+            activeProfile={activeProfile}
+            soundEnabled={soundEnabled}
+            onExitBattle={() => {
+              setActiveTab('quiz');
+              resetQuizProgress();
+            }}
+          />
+        )}
+
         {activeTab === 'print' && (
           <WorksheetPrintView
             questionBank={questionBank}
@@ -1000,6 +1014,15 @@ export default function App() {
                 className="hover:text-indigo-600 hover:underline cursor-pointer"
               >
                 Ulang Kaji Pintar
+              </button>
+              <span>•</span>
+              <button
+                onClick={() => {
+                  setActiveTab('battle');
+                }}
+                className="hover:text-rose-600 hover:underline cursor-pointer font-bold text-rose-700 flex items-center gap-1"
+              >
+                <span>⚔️ Quiz Battle</span>
               </button>
               <span>•</span>
               <button

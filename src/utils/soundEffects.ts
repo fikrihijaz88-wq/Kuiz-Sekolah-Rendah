@@ -164,3 +164,90 @@ export function playToggleSoundSfx(enabled: boolean = true) {
     // Ignore audio context errors gracefully
   }
 }
+
+/**
+ * Plays battle start fanfare (3-beep countdown and energetic chord)
+ */
+export function playBattleStartSfx() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const freqs = [440, 554.37, 659.25, 880]; // A major fanfare
+    freqs.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+      gain.gain.setValueAtTime(0, now + idx * 0.08);
+      gain.gain.linearRampToValueAtTime(0.15, now + idx * 0.08 + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.4);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now + idx * 0.08);
+      osc.stop(now + idx * 0.08 + 0.4);
+    });
+  } catch (e) {
+    // Ignore
+  }
+}
+
+/**
+ * Plays speed bonus chime for fastest correct answer
+ */
+export function playSpeedBonusSfx() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(880, now);
+    osc.frequency.exponentialRampToValueAtTime(1760, now + 0.18);
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.2, now + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.22);
+  } catch (e) {
+    // Ignore
+  }
+}
+
+/**
+ * Plays battle victory fanfare
+ */
+export function playBattleVictorySfx() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const notes = [
+      { f: 523.25, t: 0, d: 0.15 },
+      { f: 659.25, t: 0.15, d: 0.15 },
+      { f: 783.99, t: 0.3, d: 0.15 },
+      { f: 1046.50, t: 0.45, d: 0.5 },
+    ];
+    notes.forEach((n) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(n.f, now + n.t);
+      gain.gain.setValueAtTime(0, now + n.t);
+      gain.gain.linearRampToValueAtTime(0.25, now + n.t + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + n.t + n.d);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now + n.t);
+      osc.stop(now + n.t + n.d);
+    });
+  } catch (e) {
+    // Ignore
+  }
+}

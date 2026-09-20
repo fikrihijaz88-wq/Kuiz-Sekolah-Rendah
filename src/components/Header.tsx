@@ -17,14 +17,16 @@ import {
   CheckCircle2,
   Smile,
   X,
-  ArrowRight
+  ArrowRight,
+  Swords,
+  Zap
 } from 'lucide-react';
 import { StudentProfile } from '../types';
 import { StudentAvatarIcon } from './StudentAvatarIcon';
 
 interface HeaderProps {
-  currentTab: 'quiz' | 'leaderboard' | 'generator' | 'print';
-  onTabChange: (tab: 'quiz' | 'leaderboard' | 'generator' | 'print') => void;
+  currentTab: 'quiz' | 'battle' | 'leaderboard' | 'generator' | 'print';
+  onTabChange: (tab: 'quiz' | 'battle' | 'leaderboard' | 'generator' | 'print') => void;
   soundEnabled: boolean;
   onToggleSound: () => void;
   dailyStreak?: number;
@@ -71,6 +73,9 @@ export const Header: React.FC<HeaderProps> = ({
 
   // Determine current active label and icon for the main button
   const currentActiveInfo = (() => {
+    if (currentTab === 'battle') {
+      return { label: 'Quiz Battle (1v1)', color: 'bg-gradient-to-r from-amber-500 to-rose-600 text-white', icon: Swords };
+    }
     if (currentTab === 'quiz') {
       if (isAdaptiveMode) {
         return { label: 'Ulang Kaji Pintar', color: 'bg-indigo-500 text-white', icon: Target };
@@ -211,7 +216,7 @@ export const Header: React.FC<HeaderProps> = ({
                         <span>1. Mod Kuiz & Ulang Kaji</span>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                         {/* Mod Latihan */}
                         <button
                           id="dropdown-nav-quiz"
@@ -239,6 +244,40 @@ export const Header: React.FC<HeaderProps> = ({
                           <div>
                             <div className="font-extrabold text-xs text-slate-900">Mod Latihan</div>
                             <p className="text-[10px] text-slate-500 mt-0.5">Ujian ikut subjek & topik</p>
+                          </div>
+                        </button>
+
+                        {/* Quiz Battle (1v1) */}
+                        <button
+                          id="dropdown-nav-battle"
+                          onClick={() => handleSelectNav(() => onTabChange('battle'))}
+                          className={`p-3 rounded-2xl text-left transition-all flex flex-col justify-between border cursor-pointer ${
+                            currentTab === 'battle'
+                              ? 'bg-gradient-to-br from-amber-50 to-rose-50 border-rose-400 text-rose-950 ring-2 ring-rose-300 font-bold shadow-xs'
+                              : 'bg-gradient-to-br from-amber-50/60 to-rose-50/40 hover:from-amber-100/80 hover:to-rose-100/80 border-rose-200 text-slate-800 hover:border-rose-300'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between w-full mb-1.5">
+                            <div className="flex items-center gap-1">
+                              <span className="text-xl">⚔️</span>
+                              <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-rose-500 text-white animate-pulse">
+                                1v1
+                              </span>
+                            </div>
+                            {currentTab === 'battle' ? (
+                              <span className="flex items-center gap-0.5 text-[10px] bg-rose-600 text-white font-bold px-1.5 py-0.5 rounded-full">
+                                <CheckCircle2 className="w-3 h-3" />
+                                Aktif
+                              </span>
+                            ) : (
+                              <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                            )}
+                          </div>
+                          <div>
+                            <div className="font-extrabold text-xs text-slate-900 flex items-center gap-1">
+                              <span>Quiz Battle</span>
+                            </div>
+                            <p className="text-[10px] text-slate-500 mt-0.5">Lumba 2 murid serentak</p>
                           </div>
                         </button>
 
@@ -425,6 +464,24 @@ export const Header: React.FC<HeaderProps> = ({
                 </div>
               )}
             </div>
+
+            {/* QUICK QUIZ BATTLE 1v1 SHORTCUT */}
+            <button
+              id="btn-header-quiz-battle"
+              onClick={() => onTabChange('battle')}
+              className={`flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 rounded-2xl border font-black transition cursor-pointer text-xs shadow-xs shrink-0 ${
+                currentTab === 'battle'
+                  ? 'border-rose-400 bg-rose-500/30 text-rose-200 ring-2 ring-rose-400/50'
+                  : 'border-rose-400/40 bg-gradient-to-r from-amber-500/20 to-rose-500/20 hover:from-amber-500/30 hover:to-rose-500/30 text-rose-300'
+              }`}
+              title="Mod Pertarungan Kuiz 1v1 (Quiz Battle Serentak)"
+            >
+              <Swords className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-400 animate-pulse" />
+              <span className="hidden sm:inline">Battle</span>
+              <span className="bg-rose-500 text-white text-[9px] font-black px-1.5 py-0.2 rounded-full">
+                1v1
+              </span>
+            </button>
 
             {/* QUICK CASH VOUCHER SHORTCUT */}
             {onOpenVouchers && (

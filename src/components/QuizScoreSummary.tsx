@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import confetti from 'canvas-confetti';
 import { QuizQuestion, QuizUserAnswer, StudentProfile } from '../types';
-import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck, Printer, User, UserPlus, Gift, Target } from 'lucide-react';
+import { Award, RotateCcw, Sparkles, CheckCircle2, XCircle, Code, Trophy, Flame, CalendarCheck, Printer, User, UserPlus, Gift, Target, PartyPopper } from 'lucide-react';
 import { processQuizCompletion } from '../utils/achievementSystem';
 import { recordDailyChallengeCompleted, getDailyStreakData } from '../utils/dailyChallenge';
 import { calculateQuizScore, recordStudentQuizScore, getEffectiveStudentScore } from '../utils/leaderboardService';
@@ -104,6 +105,72 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
     currentTotalScore
   );
   const { nextTier, pointsNeeded } = getNextTargetVoucher(currentTotalScore);
+
+  // Confetti and Haptic Vibration Celebration Trigger for Perfect 100% Score
+  const triggerConfettiCelebration = useCallback(() => {
+    // 1. Device Haptic Vibration feedback (Android/Mobile/Tablet supported)
+    if (typeof window !== 'undefined' && 'navigator' in window && 'vibrate' in navigator) {
+      try {
+        navigator.vibrate([120, 80, 150, 80, 250, 100, 350]);
+      } catch (e) {
+        // Graceful fallback if unsupported
+      }
+    }
+
+    // 2. Multi-stage festive Confetti Cannons
+    try {
+      // Stage 1: Explosive center fountain
+      confetti({
+        particleCount: 100,
+        spread: 100,
+        origin: { y: 0.6 },
+        colors: ['#f59e0b', '#10b981', '#6366f1', '#ec4899', '#3b82f6', '#eab308', '#ef4444'],
+      });
+
+      // Stage 2: Left cannon blast
+      setTimeout(() => {
+        confetti({
+          particleCount: 65,
+          angle: 60,
+          spread: 80,
+          origin: { x: 0, y: 0.65 },
+          colors: ['#fbbf24', '#34d399', '#818cf8', '#f472b6', '#38bdf8'],
+        });
+      }, 250);
+
+      // Stage 3: Right cannon blast
+      setTimeout(() => {
+        confetti({
+          particleCount: 65,
+          angle: 120,
+          spread: 80,
+          origin: { x: 1, y: 0.65 },
+          colors: ['#fbbf24', '#34d399', '#818cf8', '#f472b6', '#38bdf8'],
+        });
+      }, 450);
+
+      // Stage 4: Starburst fireworks finale
+      setTimeout(() => {
+        confetti({
+          particleCount: 80,
+          spread: 140,
+          startVelocity: 45,
+          origin: { y: 0.45 },
+          shapes: ['star', 'circle'],
+          colors: ['#ffd700', '#ff69b4', '#00e5ff', '#76ff03', '#ff3d00'],
+        });
+      }, 750);
+    } catch (e) {
+      // Graceful fallback
+    }
+  }, []);
+
+  // Automatically trigger confetti and vibration when reaching 100% score
+  useEffect(() => {
+    if (percentage === 100) {
+      triggerConfettiCelebration();
+    }
+  }, [percentage, triggerConfettiCelebration]);
 
   // Voice announcement and celebration sound for completed quiz
   useEffect(() => {
@@ -251,6 +318,35 @@ export const QuizScoreSummary: React.FC<QuizScoreSummaryProps> = ({
                 Topik Kelemahan Berjaya Diulang Kaji • Rekod Penguasaan Dikemaskini
               </div>
             </div>
+          </div>
+        )}
+
+        {/* Perfect 100% Score Celebration Badge & Confetti / Haptic Trigger */}
+        {percentage === 100 && (
+          <div className="bg-gradient-to-r from-amber-500/20 via-yellow-400/25 to-amber-500/20 border-2 border-amber-400 rounded-2xl p-4 mb-6 max-w-lg mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left shadow-md">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-300 text-slate-950 flex items-center justify-center text-2xl shadow-sm shrink-0 animate-pulse">
+                🌟
+              </div>
+              <div>
+                <div className="text-xs font-black uppercase text-amber-900 tracking-wider flex items-center gap-1.5 justify-center sm:justify-start">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                  <span>Markah Penuh 100% • Tahap Kesempurnaan!</span>
+                </div>
+                <div className="text-sm font-extrabold text-slate-900">
+                  Tahniah! Semua soalan berjaya dijawab dengan tepat!
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={triggerConfettiCelebration}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-950 font-black text-xs px-4 py-2.5 rounded-xl shadow-xs hover:shadow transition transform active:scale-95 cursor-pointer shrink-0"
+              title="Tembak letupan confetti dan getaran haptik lagi!"
+            >
+              <PartyPopper className="w-4 h-4" />
+              <span>Tembak Confetti Lagi! 🎉</span>
+            </button>
           </div>
         )}
 
