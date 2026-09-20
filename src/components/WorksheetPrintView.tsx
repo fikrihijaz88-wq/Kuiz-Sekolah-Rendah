@@ -79,7 +79,7 @@ export const WorksheetPrintView: React.FC<WorksheetPrintViewProps> = ({
   const generatedQuestions = useMemo(() => {
     if (worksheetMode === 'matriks_50m' && selectedYear === 4) {
       const targetSubj: Subject = selectedSubject === 'all' ? 'Matematik' : selectedSubject;
-      const examSet = buildMatriksPembelajaranExamSet(questionBank, targetSubj);
+      const examSet = buildMatriksPembelajaranExamSet(questionBank, targetSubj, activeDateStr, randomSeedModifier);
       return examSet.questions;
     }
 

@@ -1,4 +1,5 @@
 import { MatriksPembelajaranSpec, QuizQuestion, Subject } from '../types';
+import { shuffleWithSeed, getTodayDateString } from '../utils/dailyChallenge';
 
 export const MATRIKS_PEMBELAJARAN_TAHUN_4_SPECS: Record<Subject, MatriksPembelajaranSpec> = {
   'Bahasa Melayu': {
@@ -357,36 +358,48 @@ export const MATRIKS_PEMBELAJARAN_TAHUN_4_SPECS: Record<Subject, MatriksPembelaj
 /**
  * Curates and builds an authentic 50-mark, 75-minute Matriks Pembelajaran Year 4 exam set
  * partitioned strictly according to the official Malaysian Ministry of Education (KPM) test specification.
+ * Automatically rotates and changes all questions daily at 12:00 AM midnight based on the active date!
  */
 export function buildMatriksPembelajaranExamSet(
   questionBank: QuizQuestion[],
-  subject: Subject
+  subject: Subject,
+  dateStr?: string,
+  seedModifier: number = 0
 ): {
   spec: MatriksPembelajaranSpec;
   questions: QuizQuestion[];
   totalAllocatedMarks: number;
+  activeDateStr: string;
 } {
   const spec = MATRIKS_PEMBELAJARAN_TAHUN_4_SPECS[subject] || MATRIKS_PEMBELAJARAN_TAHUN_4_SPECS['Matematik'];
+  const activeDate = dateStr || getTodayDateString();
   const pool = questionBank.filter((q) => q.year === 4 && q.subject === subject);
 
   const curatedQuestions: QuizQuestion[] = [];
 
   // Distribute questions across sections
   spec.sections.forEach((section, sIdx) => {
+    // Unique deterministic seed per day, subject, and section to guarantee 12:00 AM daily rotation
+    const sectionSeed = `matriks-t4-${activeDate}-${subject}-${section.id}-${sIdx}-${seedModifier}`;
+
     // Select questions matching this section or fallback from subject pool
-    let sectionQuestions = pool.filter((q) => q.matriksSection === section.sectionCode);
-    if (sectionQuestions.length < section.questionCount) {
+    let matchingCandidates = pool.filter((q) => q.matriksSection === section.sectionCode);
+    
+    if (matchingCandidates.length < section.questionCount) {
       // Pick matching or related questions from pool
       const alreadyPickedIds = new Set(curatedQuestions.map((q) => q.id));
-      const candidates = pool.filter((q) => !alreadyPickedIds.has(q.id));
+      const fallbackCandidates = pool.filter((q) => !alreadyPickedIds.has(q.id));
       
-      const needed = section.questionCount - sectionQuestions.length;
-      const fillers = candidates.slice(0, needed);
-      sectionQuestions = [...sectionQuestions, ...fillers];
+      const needed = section.questionCount - matchingCandidates.length;
+      const shuffledFallbacks = shuffleWithSeed(fallbackCandidates, `${sectionSeed}-fallback`);
+      matchingCandidates = [...matchingCandidates, ...shuffledFallbacks.slice(0, needed)];
     }
 
-    // Ensure we take up to section.questionCount
-    const finalSectionList = sectionQuestions.slice(0, section.questionCount);
+    // Deterministically shuffle candidate questions for this day
+    const shuffledSectionQuestions = shuffleWithSeed(matchingCandidates, sectionSeed);
+
+    // Take the required questionCount
+    const finalSectionList = shuffledSectionQuestions.slice(0, section.questionCount);
     const marksPerQuestion = Math.max(1, Math.round(section.marks / Math.max(1, finalSectionList.length)));
 
     finalSectionList.forEach((q, qIdx) => {
@@ -408,5 +421,6 @@ export function buildMatriksPembelajaranExamSet(
     spec,
     questions: curatedQuestions,
     totalAllocatedMarks: spec.totalMarks,
+    activeDateStr: activeDate,
   };
 }

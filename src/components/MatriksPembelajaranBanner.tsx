@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Subject, YearLevel } from '../types';
 import { MATRIKS_PEMBELAJARAN_TAHUN_4_SPECS } from '../data/matriksPembelajaranTahun4';
+import { getFormattedMalayDate } from '../utils/dailyChallenge';
 import { MatriksSpecModal } from './MatriksSpecModal';
 import {
   FileSpreadsheet,
@@ -13,12 +14,15 @@ import {
   Info,
   CheckCircle2,
   Sparkles,
-  Layers
+  Layers,
+  Calendar,
+  RotateCw
 } from 'lucide-react';
 
 interface MatriksPembelajaranBannerProps {
   selectedYear: YearLevel;
   selectedSubject: Subject;
+  todayDateStr?: string;
   isMatriksMode: boolean;
   onStartMatriksExam: () => void;
   onExitMatriksMode: () => void;
@@ -29,6 +33,7 @@ interface MatriksPembelajaranBannerProps {
 export const MatriksPembelajaranBanner: React.FC<MatriksPembelajaranBannerProps> = ({
   selectedYear,
   selectedSubject,
+  todayDateStr,
   isMatriksMode,
   onStartMatriksExam,
   onExitMatriksMode,
@@ -40,6 +45,7 @@ export const MatriksPembelajaranBanner: React.FC<MatriksPembelajaranBannerProps>
   if (selectedYear !== 4) return null;
 
   const spec = MATRIKS_PEMBELAJARAN_TAHUN_4_SPECS[selectedSubject] || MATRIKS_PEMBELAJARAN_TAHUN_4_SPECS['Bahasa Melayu'];
+  const formattedToday = getFormattedMalayDate(todayDateStr);
 
   return (
     <>
@@ -65,6 +71,16 @@ export const MatriksPembelajaranBanner: React.FC<MatriksPembelajaranBannerProps>
                 <h3 className="text-lg sm:text-xl font-black text-white mt-0.5 tracking-tight flex items-center gap-2">
                   <span>Kertas Pentaksiran: {spec.subject}</span>
                 </h3>
+                {/* Daily Midnight Rotation Badge */}
+                <div className="flex items-center gap-2 mt-1 text-xs text-indigo-200">
+                  <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span className="font-semibold text-amber-200">Set Harian: {formattedToday}</span>
+                  <span className="text-white/30">•</span>
+                  <span className="inline-flex items-center gap-1 text-[11px] text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-500/30">
+                    <RotateCw className="w-3 h-3 text-emerald-400 animate-spin" style={{ animationDuration: '6s' }} />
+                    <span>Auto-Putaran Setiap Hari (12:00 AM)</span>
+                  </span>
+                </div>
               </div>
             </div>
 

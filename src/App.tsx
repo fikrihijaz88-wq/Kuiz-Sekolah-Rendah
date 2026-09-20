@@ -196,11 +196,11 @@ export default function App() {
     });
   }, [questionBank, activeProfile?.id, selectedYear, adaptiveSubject, adaptiveVersion]);
 
-  // Authentic Year 4 Matriks Pentaksiran Exam Set
+  // Authentic Year 4 Matriks Pentaksiran Exam Set (Rotates automatically every day at 12:00 AM midnight!)
   const matriksExamSet = useMemo(() => {
     if (selectedYear !== 4) return null;
-    return buildMatriksPembelajaranExamSet(questionBank, selectedSubject);
-  }, [questionBank, selectedYear, selectedSubject]);
+    return buildMatriksPembelajaranExamSet(questionBank, selectedSubject, todayDateStr);
+  }, [questionBank, selectedYear, selectedSubject, todayDateStr]);
 
   // Active questions set depending on current mode
   const activeQuestions = useMemo(() => {
@@ -594,6 +594,7 @@ export default function App() {
               <MatriksPembelajaranBanner
                 selectedYear={selectedYear}
                 selectedSubject={selectedSubject}
+                todayDateStr={todayDateStr}
                 isMatriksMode={quizMode === 'matriks'}
                 onStartMatriksExam={handleStartMatriksExam}
                 onExitMatriksMode={handleExitMatriksMode}
