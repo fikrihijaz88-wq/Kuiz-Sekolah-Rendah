@@ -99,20 +99,20 @@ export const YearSubjectSelector: React.FC<YearSubjectSelectorProps> = ({
             <button
               id="select-year-4"
               onClick={() => onSelectYear(4)}
-              className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
+              className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer relative overflow-hidden ${
                 selectedYear === 4
-                  ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 ring-2 ring-indigo-500/20'
+                  ? 'border-emerald-600 bg-emerald-50/80 text-emerald-950 ring-2 ring-emerald-500/30'
                   : 'border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
                 <span className="font-bold text-sm">Tahun 4</span>
-                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
-                  Tahap 2
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-600 text-white shadow-2xs">
+                  Matriks 50M
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 leading-tight">
-                Hingga 100k • Menengah Rendah
+                Format Pentaksiran Rasmi (1j 15m)
               </p>
             </button>
 

@@ -136,7 +136,7 @@ export function playCelebrationSfx() {
 /**
  * Plays a quick UI pop when switching sound toggle or clicking buttons
  */
-export function playToggleSoundSfx(enabled: boolean) {
+export function playToggleSoundSfx(enabled: boolean = true) {
   try {
     const ctx = getAudioContext();
     if (!ctx) return;

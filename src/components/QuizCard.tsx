@@ -261,6 +261,21 @@ export const QuizCard: React.FC<QuizCardProps> = ({
             <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
               Tahun {question.year} • {question.subject}
             </span>
+            {question.matriksSection && (
+              <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-900 border border-indigo-300">
+                {question.matriksSection}
+              </span>
+            )}
+            {question.construct && (
+              <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-purple-50 text-purple-900 border border-purple-200" title={`Konstruk Pentaksiran: ${question.construct}`}>
+                Konstruk: {question.construct}
+              </span>
+            )}
+            {question.marks && (
+              <span className="text-xs font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-300">
+                {question.marks} Markah
+              </span>
+            )}
             <span className={`text-xs px-2.5 py-1 rounded-full border ${getDifficultyColor(question.difficulty)}`}>
               {question.difficulty}
             </span>

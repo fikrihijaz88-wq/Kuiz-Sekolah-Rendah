@@ -17,6 +17,8 @@ import { WorksheetPrintView } from './components/WorksheetPrintView';
 import { StudentProfileModal } from './components/StudentProfileModal';
 import { LeaderboardView } from './components/LeaderboardView';
 import { CashVoucherModal } from './components/CashVoucherModal';
+import { MatriksPembelajaranBanner } from './components/MatriksPembelajaranBanner';
+import { buildMatriksPembelajaranExamSet } from './data/matriksPembelajaranTahun4';
 import { Sparkles, RotateCcw, Shuffle, ShieldAlert, Flame, BookOpen, UserPlus, Trophy, Gift, Printer, Calendar, Target, GraduationCap, CheckCircle2 } from 'lucide-react';
 import { stopSpeech, speakText } from './utils/speech';
 import { playToggleSoundSfx, playCelebrationSfx } from './utils/soundEffects';
@@ -194,6 +196,12 @@ export default function App() {
     });
   }, [questionBank, activeProfile?.id, selectedYear, adaptiveSubject, adaptiveVersion]);
 
+  // Authentic Year 4 Matriks Pentaksiran Exam Set
+  const matriksExamSet = useMemo(() => {
+    if (selectedYear !== 4) return null;
+    return buildMatriksPembelajaranExamSet(questionBank, selectedSubject);
+  }, [questionBank, selectedYear, selectedSubject]);
+
   // Active questions set depending on current mode
   const activeQuestions = useMemo(() => {
     let baseList: QuizQuestion[] = [];
@@ -201,6 +209,8 @@ export default function App() {
       baseList = dailyQuestions;
     } else if (quizMode === 'adaptive') {
       baseList = adaptiveReviewResult.questions;
+    } else if (quizMode === 'matriks') {
+      baseList = matriksExamSet ? matriksExamSet.questions : filteredQuestions;
     } else {
       baseList = filteredQuestions;
     }
@@ -227,7 +237,7 @@ export default function App() {
     }
 
     return baseList;
-  }, [quizMode, dailyQuestions, adaptiveReviewResult.questions, filteredQuestions, initialSavedSession, selectedYear, selectedSubject]);
+  }, [quizMode, dailyQuestions, adaptiveReviewResult.questions, matriksExamSet, filteredQuestions, initialSavedSession, selectedYear, selectedSubject]);
 
   // Reset quiz progress when filter criteria change or on explicit restart
   const resetQuizProgress = useCallback(() => {
@@ -328,6 +338,18 @@ export default function App() {
   const handleRefreshAdaptive = () => {
     setAdaptiveVersion((v) => v + 1);
     resetQuizProgress();
+  };
+
+  const handleStartMatriksExam = () => {
+    setQuizMode('matriks');
+    resetQuizProgress();
+    playToggleSoundSfx();
+  };
+
+  const handleExitMatriksMode = () => {
+    setQuizMode('practice');
+    resetQuizProgress();
+    playToggleSoundSfx();
   };
 
   // Reshuffle questions in current filter
@@ -564,6 +586,19 @@ export default function App() {
                 dailySubject={dailySubject}
                 onSelectDailySubject={handleDailySubjectChange}
                 totalDailyQuestions={dailyQuestions.length}
+              />
+            )}
+
+            {/* Year 4 Matriks Pembelajaran Banner */}
+            {selectedYear === 4 && (
+              <MatriksPembelajaranBanner
+                selectedYear={selectedYear}
+                selectedSubject={selectedSubject}
+                isMatriksMode={quizMode === 'matriks'}
+                onStartMatriksExam={handleStartMatriksExam}
+                onExitMatriksMode={handleExitMatriksMode}
+                onGoToPrint={() => setActiveTab('print')}
+                onSelectSubject={handleSubjectChange}
               />
             )}
 

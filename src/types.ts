@@ -44,6 +44,10 @@ export interface QuizQuestion {
   correctAnswer: 'A' | 'B' | 'C' | 'D';
   explanation: string; // Pedagogical explanation in standard Malay / English
   learningStandard?: string; // e.g., "SK 2.1 / SP 2.1.1" KSSR Semakan standard reference
+  matriksSection?: string; // e.g., "Bahagian A", "Bahagian B", "Bahagian 1", etc.
+  construct?: string; // e.g., "Pengetahuan Sistem Bahasa", "Kemahiran Membaca", "Menaakul", "Mengaplikasi"
+  itemType?: string; // "OAP" | "OPB" | "SRT" | "SRTb" | "SRTd"
+  marks?: number; // Marks allocated
 }
 
 export interface QuizBankPayload {
@@ -164,7 +168,31 @@ export interface StudentVoucherClaim {
   redeemedAt?: string;
 }
 
-export type QuizMode = 'practice' | 'daily' | 'adaptive';
+export type QuizMode = 'practice' | 'daily' | 'adaptive' | 'matriks';
+
+export interface MatriksPembelajaranSection {
+  id: string; // e.g. 'bahagian-a', 'bahagian-1'
+  sectionCode: string; // 'Bahagian A', 'Bahagian 1', etc.
+  title: string; // e.g. 'Tatabahasa & Pemahaman Petikan'
+  itemTypes: string[]; // ['OAP', 'OPB', 'SRTb']
+  marks: number;
+  questionCount: number;
+  questionCountText: string; // '10 soalan (10 markah)'
+  constructs: string[];
+  description: string;
+}
+
+export interface MatriksPembelajaranSpec {
+  subject: Subject;
+  year: YearLevel;
+  instrumentType: string;
+  totalMarks: number; // 50
+  timeLimitMinutes: number; // 75 mins (1 Jam 15 Minit)
+  difficultyRatio: string; // 'Rendah : Sederhana : Tinggi (5 : 3 : 2)'
+  scoringMethods: string[]; // ['Dikotomus', 'Analitikal', 'Holistik']
+  constructs: string[];
+  sections: MatriksPembelajaranSection[];
+}
 
 export interface StudentAttemptRecord {
   id?: string;
