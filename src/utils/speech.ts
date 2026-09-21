@@ -116,6 +116,7 @@ export function prepareMalaySpokenText(raw: string): string {
 
 /**
  * Returns the best available Malaysian Malay voice if present in the browser
+ * Strictly filters out Indonesian voices to preserve authentic Malaysian Malay pronunciation
  */
 export function getBestMalayVoice(): SpeechSynthesisVoice | null {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
@@ -125,8 +126,17 @@ export function getBestMalayVoice(): SpeechSynthesisVoice | null {
   const voices = cachedVoices.length > 0 ? cachedVoices : window.speechSynthesis.getVoices();
   if (!voices || voices.length === 0) return null;
 
-  // 1. Exact Malaysian Malay match (ms-MY or ms_MY)
-  const exactMalaysian = voices.find(
+  // Filter out any Indonesian voices to avoid Indonesian accent
+  const nonIndonesianVoices = voices.filter(
+    (v) =>
+      !v.lang.toLowerCase().startsWith('id') &&
+      !v.name.toLowerCase().includes('indonesia') &&
+      !v.name.toLowerCase().includes('indonesian') &&
+      !v.name.toLowerCase().includes('bahasa indonesia')
+  );
+
+  // 1. Exact Malaysian Malay match (ms-MY or ms_MY, or name containing malaysia/melayu/yasmin/osman)
+  const exactMalaysian = nonIndonesianVoices.find(
     (v) =>
       v.lang.toLowerCase() === 'ms-my' ||
       v.lang.toLowerCase() === 'ms_my' ||
@@ -138,19 +148,13 @@ export function getBestMalayVoice(): SpeechSynthesisVoice | null {
   );
   if (exactMalaysian) return exactMalaysian;
 
-  // 2. Generic Malay language code
-  const generalMalay = voices.find((v) => v.lang.toLowerCase().startsWith('ms'));
+  // 2. Generic Malay language code (ms, strictly non-indonesian)
+  const generalMalay = nonIndonesianVoices.find((v) => v.lang.toLowerCase().startsWith('ms'));
   if (generalMalay) return generalMalay;
 
-  // 3. Closest regional Malay/Indonesian voice (e.g. id-ID)
-  const regionalVoice = voices.find(
-    (v) => v.lang.toLowerCase().startsWith('id') || v.name.toLowerCase().includes('indonesia')
-  );
-  if (regionalVoice) return regionalVoice;
-
-  // 4. Default voice
-  const defaultVoice = voices.find((v) => v.default);
-  return defaultVoice || voices[0] || null;
+  // 3. Fallback to default voice (strictly avoiding Indonesian)
+  const defaultVoice = nonIndonesianVoices.find((v) => v.default) || nonIndonesianVoices[0];
+  return defaultVoice || null;
 }
 
 interface ClientSpeechSegment {

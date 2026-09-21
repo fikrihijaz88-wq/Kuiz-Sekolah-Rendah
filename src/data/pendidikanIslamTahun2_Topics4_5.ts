@@ -432,7 +432,7 @@ export const PI_T2_TOPIC_5_QUESTIONS: QuizQuestion[] = [
         
         <rect x="180" y="20" width="145" height="85" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
         <text x="252" y="42" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">Suku Kata Tertutup</text>
-        <text x="252" y="66" font-size="14" font-weight="bold" fill="#92400e" text-anchor="middle">کت + ب = کتيب</text>
+        <text x="252" y="66" font-size="14" font-weight="bold" fill="#92400e" text-anchor="middle">ب + ن + ت + ل = بنتل</text>
         <text x="252" y="86" font-size="10" fill="#d97706" text-anchor="middle">Hujung huruf konsonan</text>
       </svg>`,
     },
@@ -454,15 +454,15 @@ export const PI_T2_TOPIC_5_QUESTIONS: QuizQuestion[] = [
     difficulty: 'Mudah',
     learningStandard: 'SK 7.1 / SP 7.1.3 (Padanan Huruf Rumi ke Jawi)',
     stimulus: 'Perhatikan ejaan perkataan rumi: "MATA".',
-    question: 'Bagaimanakah ejaan perkataan "MATA" dalam tulisan Jawi?',
+    question: 'Bagaimanakah ejaan perkataan "MATA" dalam tulisan Jawi mengikut kaedah DBP terkini?',
     options: {
       A: 'مات',
       B: 'ماتا',
       C: 'موتو',
       D: 'ميتي',
     },
-    correctAnswer: 'B',
-    explanation: 'Perkataan "MATA" dieja م + ا + ت + ا = "ماتا" (suku kata terbuka ma + ta).',
+    correctAnswer: 'A',
+    explanation: 'Mengikut kaedah ejaan Jawi DBP terkini (Hukum Luar Darlung / Pola a-a Melayu Jati), perkataan "mata" dieja م + ا + ت = "مات" (tanpa huruf alif pada suku kata akhir).',
   },
   {
     id: 't2-pi-jawi-05',
@@ -646,7 +646,7 @@ export const PI_T2_TOPIC_5_QUESTIONS: QuizQuestion[] = [
     topic: 'Pelajaran Jawi (Suku Kata Terbuka, Tertutup & Diftong)',
     difficulty: 'KBAT (Aras Rendah)',
     learningStandard: 'SK 7.2 / SP 7.2.3 (Menyusun Frasa Jawi)',
-    stimulus: 'Perhatikan tiga perkataan Jawi berikut:\n[ سايا ]  -  [ سوک ]  -  [ اڤل ]',
+    stimulus: 'Perhatikan tiga perkataan Jawi berikut:\n[ ساي ]  -  [ سوک ]  -  [ اڤل ]',
     question: 'Sekiranya perkataan di atas disusun menjadi ayat yang bermakna, apakah ayat yang terhasil?',
     options: {
       A: 'Saya suka epal',
@@ -655,7 +655,7 @@ export const PI_T2_TOPIC_5_QUESTIONS: QuizQuestion[] = [
       D: 'Saya makan roti',
     },
     correctAnswer: 'A',
-    explanation: 'Perkataan tersebut dibaca: "Saya suka epal" (سايا سوک اڤل).',
+    explanation: 'Perkataan tersebut dibaca: "Saya suka epal" (ساي سوک اڤل).',
   },
   {
     id: 't2-pi-jawi-16',
